@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 const About = () => {
   const teamMembers = [
     {
-      name: "Sarah",
+      name: "Anber Smith",
       role: "Data Analytics Lead",
       expertise: "Business Intelligence, Machine Learning",
       image: "/api/placeholder/300/300"
