@@ -21,7 +21,7 @@ const About = () => {
       image: "/api/placeholder/300/300"
     },
     {
-      name: "David",
+      name: "David Lee",
       role: "DevOps Engineer",
       expertise: "Cloud Infrastructure, CI/CD",
       image: "/api/placeholder/300/300"
