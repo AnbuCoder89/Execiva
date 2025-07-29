@@ -50,21 +50,19 @@ jobs:
           ls -la dist/
           [ -f dist/index.html ] || { echo "Error: index.html not found in dist/" && exit 1; }
 
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'just-a-placeholder'
-
       - name: Deploy to ${{ github.ref == 'refs/heads/main' && 'Production' || 'Development' }}
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          username: ${{ secrets.SFTP_USERNAME }}
-          server: ${{ secrets.SFTP_HOST }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          local_path: './dist/*'
-          remote_path: ${{ secrets.SFTP_TARGET }}
-          args: '-o ConnectTimeout=20 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_TARGET }}
+          local-dir: ./dist/
+          exclude: |
+            **/.git* 
+            **/README.md
+            **/.gitignore
+            **/.env*
 
 
 
