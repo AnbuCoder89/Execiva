@@ -9,7 +9,7 @@ const About = () => {
       image: "/api/placeholder/300/300"
     },
     {
-      name: "Anburaj Chen", 
+      name: "Michael Chen", 
       role: "Full-Stack Developer",
       expertise: "React, Node.js, Cloud Architecture",
       image: "/api/placeholder/300/300"
