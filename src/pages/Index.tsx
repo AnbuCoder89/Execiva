@@ -1,7 +1,7 @@
-import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { BarChart3, Code, Users, ArrowRight, CheckCircle } from "lucide-react";
+import DarkVeil from "@/components/ui/DarkVeil";
 
 const Index = () => {
   const services = [
@@ -13,7 +13,7 @@ const Index = () => {
     },
     {
       icon: Code,
-      title: "Web Development", 
+      title: "Web Development",
       description: "Build powerful, scalable web applications tailored to your business needs.",
       features: ["Custom Applications", "E-commerce Platforms", "Mobile-First Design", "API Development"]
     },
@@ -27,19 +27,19 @@ const Index = () => {
 
   return (
     <>
-      <Navigation />
+
       <HeroSection />
-      
       {/* Services Overview */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
+      
+      <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-6">Our Services</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We provide comprehensive technology solutions to help your business thrive in the digital age
             </p>
-          </div>
-          
+          </div>  
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-gradient-card rounded-xl p-8 shadow-card hover:shadow-elegant transition-all duration-300">
@@ -56,8 +56,12 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full mt-6 bg-gradient-primary text-primary-foreground hover:shadow-glow">
-                  Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                <Button
+                  variant="ghost"
+                  className="mt-6 px-0 text-primary hover:bg-transparent hover:text-primary/80 group"
+                >
+                  Learn more
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </div>
             ))}
@@ -73,7 +77,7 @@ const Index = () => {
             <p className="text-xl text-muted-foreground mb-12">
               We combine technical expertise with business understanding to deliver solutions that drive real results
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-background rounded-xl p-6 shadow-card">
                 <div className="text-3xl font-bold text-primary mb-2">50+</div>
@@ -109,13 +113,13 @@ const Index = () => {
               Let's discuss how our expertise can help you achieve your technology goals and drive business growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90 shadow-elegant text-lg px-8 py-4"
               >
                 Get Started Today
               </Button>
-              <Button 
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-4"

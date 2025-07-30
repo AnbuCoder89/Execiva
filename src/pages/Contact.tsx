@@ -1,4 +1,3 @@
-import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,7 +6,6 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 const Contact = () => {
   return (
     <>
-      <Navigation />
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="bg-gradient-primary text-primary-foreground py-20">

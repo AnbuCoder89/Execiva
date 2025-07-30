@@ -22,15 +22,15 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-background/80 backdrop-blur-xl border-b border-border/50 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between h-14">
+    <nav className="bg-white border-b border-border/50 shadow-sm">
+      <div className="px-4">
+        <div className="flex items-center justify-between h-20 py-2">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="w-7 h-7 bg-primary rounded-md flex items-center justify-center">
               <span className="text-primary-foreground font-semibold text-sm">N</span>
             </div>
-            <span className="text-lg font-medium text-foreground">Nexus Code Solutions</span>
+            <span className="text-lg font-medium text-foreground">Execiva</span>
           </Link>
 
           {/* Navigation Links */}

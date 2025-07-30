@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ArrowRight, CheckCircle, BarChart2, Palette, Code, Megaphone, Search, Share2 } from "lucide-react";
 import { motion, Variants } from "framer-motion";
-import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 
 const ServicePage = () => {
@@ -288,8 +287,7 @@ const ServicePage = () => {
 
   return (
     <>
-      <Navigation />
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-b from-background to-background/80 py-24 overflow-hidden">
           <div className="absolute inset-0 -z-10">
