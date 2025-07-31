@@ -8,24 +8,11 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ServicePage from "./pages/ServicePage";
 import NotFound from "./pages/NotFound";
-import SplashCursor from "./components/ui/splash-cursor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <>
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "#000001",
-        zIndex: 0,
-        pointerEvents: "none",
-      }}
-      aria-hidden="true"
-    />
-    <SplashCursor />
-
     <div style={{ position: "relative", zIndex: 1 }}>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>

@@ -48,6 +48,15 @@ const HeroSection = () => {
         />
       </div>
       {/* Foreground Content */}
+      {/* <Parallax pages={2} className="w-full h-full">
+        <ParallaxLayer offset={0} speed={0.5}>
+          <div className="w-full h-full bg-red-500">
+            <h1>Hello</h1>
+          </div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={1} speed={0.5}>
+          <div className="w-full h-full bg-blue-500"></div>
+      </Parallax> */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
         <motion.div
           variants={containerVariants}
