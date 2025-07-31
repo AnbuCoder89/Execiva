@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
+import ScrollStack, { ScrollStackItem } from "@/components/ui/scroll-stack";
 import { BarChart3, Code, Users, ArrowRight, CheckCircle } from "lucide-react";
-import DarkVeil from "@/components/ui/DarkVeil";
 
 const Index = () => {
   const services = [
@@ -29,16 +29,26 @@ const Index = () => {
     <>
 
       <HeroSection />
-      {/* Services Overview */}
-      <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
-      
-      <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Our Services</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-white leading-tight tracking-tight mb-6">Why Execiva?</h2>
+            <p className="text-xl text-white max-w-3xl mx-auto">
               We provide comprehensive technology solutions to help your business thrive in the digital age
             </p>
-          </div>  
+          </div>
+        </div>
+      </section>
+   
+      <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
+
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white leading-tight tracking-tight mb-6">Our Services</h2>
+            <p className="text-xl text-white max-w-3xl mx-auto">
+              We provide comprehensive technology solutions to help your business thrive in the digital age
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
