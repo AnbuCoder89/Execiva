@@ -1,37 +1,38 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import ServicePage from "./pages/ServicePage";
-import NotFound from "./pages/NotFound";
+import React, { useEffect } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const queryClient = new QueryClient();
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Vision from './components/Vision';
+import Capabilities from './components/Capabilities';
+import Services from './components/Services';
+import CaseStudies from './components/CaseStudies';
+import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
-const App = () => (
-  <>
-    <div style={{ position: "relative", zIndex: 1 }}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/services/:serviceSlug" element={<ServicePage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </div>
-  </>
-);
+function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
+  return (
+    <ParallaxProvider>
+      <div className="min-h-screen bg-white scroll-smooth">
+        <Header />
+        <Hero />
+        <Vision />
+        <Services />
+        <Capabilities />
+        <CaseStudies />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
+    </ParallaxProvider>
+  );
+}
 
 export default App;
