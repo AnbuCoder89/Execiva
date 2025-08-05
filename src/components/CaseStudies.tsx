@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const CaseStudies: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,64 +54,57 @@ const CaseStudies: React.FC = () => {
   ];
 
   return (
-    <section id="case-studies" className="py-32 bg-white" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className={`text-5xl md:text-6xl font-light text-gray-900 mb-8 transition-all duration-1000 font-sf-pro-display ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Case
-            <span className="block font-bold text-gray-900">
-              Studies
-            </span>
-          </h2>
-          <p className={`text-xl text-gray-900 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 font-sf-pro-text ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-            Real results from real partnerships. See how we've helped businesses achieve extraordinary growth.
-          </p>
-        </div>
+    <section id="case-studies" className="py-20 px-3" ref={sectionRef}>
+      <div className="mx-auto px-3">
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {caseStudies.map((study, index) => (
-            <div
-              key={index}
-              className={`group bg-gradient-to-b from-gray-50 to-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              <div className="aspect-video overflow-hidden bg-light-gray">
-                <img
-                  src={study.image}
-                  alt={study.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              
-              <div className="p-8">
-                <div className="text-sm text-gray-900 font-medium mb-2 font-sf-pro-text">
-                  {study.client}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 font-sf-pro-display">
-                  {study.title}
-                </h3>
-                <p className="text-gray-900 mb-6 leading-relaxed font-sf-pro-text">
-                  {study.description}
-                </p>
-                
-                <div className="space-y-2 mb-6">
-                  {study.metrics.map((metric, metricIndex) => (
-                    <div key={metricIndex} className="flex items-center text-sm text-gray-900 font-sf-pro-text">
-                      <div className="w-1.5 h-1.5 bg-gray-900 rounded-full mr-3"></div>
-                      {metric}
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true}
+            pagination={{ clickable: true }}
+            navigation={false}
+            autoplay={{ delay: 5000 }}
+            className="pb-16"
+          >
+            {caseStudies.map((study, index) => (
+              <SwiperSlide key={index}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch h-full">
+                  <div className="md:order-1 h-full flex items-stretch">
+                    <div className="w-full h-80 md:h-96 overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                      <img
+                        src={study.image}
+                        alt={study.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                  ))}
+                  </div>
+                  <div className="md:order-2 flex flex-col justify-center h-full">
+                    <div className="space-y-6">
+                      <div>
+                            <div className="text-sm text-gray-900 font-medium mb-2">
+                              {study.client}
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                              {study.title}
+                            </h3>
+                            <p className="text-gray-900 leading-relaxed">
+                              {study.description}
+                            </p>
+                          </div>
+                          <div className="pt-2">
+                            <button className="group flex items-center space-x-2 text-gray-900 hover:text-white border border-gray-900 hover:bg-gray-900 px-6 py-3 rounded-full transition-all duration-300">
+                              <span>Learn More</span>
+                              <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
+                            </button>
+                          </div>
+                        </div>
+                  </div>
                 </div>
-
-                <button className="group-hover:bg-gray-900 group-hover:text-white border border-gray-900 text-gray-900 px-6 py-3 rounded-full transition-all duration-300 flex items-center space-x-2 font-sf-pro-text">
-                  <span>View Case Study</span>
-                  <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </div>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>

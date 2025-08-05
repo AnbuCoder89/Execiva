@@ -74,38 +74,18 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="py-20 md:py-32 bg-gradient-to-b from-light-gray to-beige overflow-x-hidden"
+      className="relative w-full py-4 md:py-4 overflow-hidden px-3"
       ref={sectionRef}
     >
       {/* Container with max width */}
-      <div className="w-full max-w-[100vw] px-6">
-        {/* Header section */}
-        <div className="text-center mb-16 md:mb-24">
-          <h2
-            className={`text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6 transition-all duration-1000 font-sf-pro-display ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            Our <span className="block font-sf-pro-display-bold font-bold mt-2">Services</span>
-          </h2>
-          <p
-            className={`text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 font-sf-pro-text ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-            style={{ transitionDelay: '200ms' }}
-          >
-            From concept to launch, we provide end-to-end solutions that transform your vision into reality.
-          </p>
-        </div>
-
+      <div className="w-full max-w-[100vw] p-3">
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`group h-100 max-auto bg-cover bg-center shadow-xl relative overflow-hidden transition-all duration-700 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`group h-[400px] md:h-[500px] lg:h-[600px] xl:h-[650px] max-auto bg-cover bg-center shadow-xl relative overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               style={{
                 backgroundImage: `url('${service.imageUrl}')`,
                 backgroundPosition: 'center',
@@ -113,32 +93,25 @@ const Services: React.FC = () => {
                 transitionDelay: `${index * 100}ms`,
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70 transition-all duration-500 group-hover:opacity-90" />
-              <div className="relative z-10 h-full flex flex-col justify-between p-8 text-white">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-sf-pro-display-bold font-bold mb-4 transition-transform duration-500 group-hover:translate-y-1">
-                    {service.title}
+
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70 transition-all duration-500 group-hover:opacity-90 flex items-center justify-center" />
+              <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 md:p-10 text-white">
+                <div className="flex flex-col items-center">
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight font-sf-pro-display drop-shadow text-center">
+                    {service.title.split(' ')[0]}
+                    <span className="block font-bold mt-2 drop-shadow">
+                      {service.title.split(' ').slice(1).join(' ')}
+                    </span>
                   </h3>
-                  <p className="text-white/90 mb-6 font-sf-pro-text-light text-base md:text-lg leading-relaxed">
+                  <p className="text-white/90 mb-4 font-sf-pro-text-light text-lg md:text-xl leading-relaxed text-center">
                     {service.description}
                   </p>
-                </div>
-                <div>
-                  <ul className="space-y-2.5 mb-8">
-                    {service.features.map((feat) => (
-                      <li 
-                        key={feat} 
-                        className="flex items-center text-sm md:text-base font-sf-pro-text-light text-white/90 group-hover:text-white transition-colors duration-300"
-                      >
-                        <div className="w-1.5 h-1.5 bg-white/80 rounded-full mr-3 group-hover:bg-white transition-colors duration-300" />
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="inline-flex items-center px-6 py-3 border-2 border-white/50 text-white rounded-full font-sf-pro-text-medium text-sm md:text-base tracking-wide transition-all duration-300 hover:bg-white hover:text-black hover:border-white group-hover:scale-105">
-                    <span>Learn More</span>
-                    <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
+                  <div className="w-full flex justify-center">
+                    <button className="inline-flex items-center px-6 py-3 border-2 border-white/50 text-white rounded-full font-sf-pro-text-medium text-sm md:text-base tracking-wide transition-all duration-300 hover:bg-white hover:text-black hover:border-white group-hover:scale-105">
+                      <span>Learn More</span>
+                      <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

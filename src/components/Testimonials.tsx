@@ -61,7 +61,7 @@ const Testimonials: React.FC = () => {
   }, [testimonials.length]);
 
   return (
-    <section id="testimonials" className="py-32 bg-gradient-to-b from-beige to-white" ref={sectionRef}>
+    <section id="testimonials" className="py-4 md:py-4 px-3" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className={`text-5xl md:text-6xl font-light text-gray-900 mb-8 transition-all duration-1000 font-sf-pro-display ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
