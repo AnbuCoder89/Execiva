@@ -5,7 +5,6 @@ import 'aos/dist/aos.css';
 
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Hero2 from './components/Hero2';
 import Vision from './components/Vision';
 import Capabilities from './components/Capabilities';
 import Services from './components/Services';
@@ -24,7 +23,6 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-white via-light-gray to-beige scroll-smooth">
         <Header />
         <Hero />
-        <Hero2 />
         <Vision />
         <Services />
         <Capabilities />
