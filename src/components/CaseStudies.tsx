@@ -33,24 +33,24 @@ const CaseStudies: React.FC = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="relative">
               {/* Main showcase image */}
-              <div className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+              <div className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-lg">
                 <img
                   src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Case Study Showcase"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent"></div>
               </div>
               
               {/* Floating cards */}
-              <div className="absolute -top-4 -right-4 w-32 h-24 bg-white rounded-lg shadow-lg p-4 transform rotate-3">
-                <div className="text-xs text-gray-600 mb-1">Success Rate</div>
-                <div className="text-2xl font-bold text-blue-600">98%</div>
+              <div className="absolute -top-4 -right-4 w-32 h-24 bg-white rounded-lg shadow-md p-4 transform rotate-3 border border-gray-100">
+                <div className="text-xs text-gray-500 mb-1">Success Rate</div>
+                <div className="text-2xl font-bold text-gray-700">98%</div>
               </div>
               
-              <div className="absolute -bottom-4 -left-4 w-36 h-28 bg-blue-600 rounded-lg shadow-lg p-4 text-white transform -rotate-2">
-                <div className="text-xs opacity-90 mb-1">Projects Completed</div>
-                <div className="text-2xl font-bold">150+</div>
+              <div className="absolute -bottom-4 -left-4 w-36 h-28 bg-light-gray rounded-lg shadow-md p-4 transform -rotate-2 border border-gray-200">
+                <div className="text-xs text-gray-600 mb-1">Projects Completed</div>
+                <div className="text-2xl font-bold text-gray-800">150+</div>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ const CaseStudies: React.FC = () => {
               Our projects make us proud. We've helped businesses transform their digital presence and achieve remarkable growth through innovative solutions and strategic thinking.
             </p>
 
-            <button className="px-8 py-4 bg-blue-600 text-white border-2 border-blue-600 rounded-full hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button className="px-8 py-4 bg-white text-gray-800 border-2 border-gray-300 rounded-full hover:bg-light-gray hover:border-gray-400 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-md hover:shadow-lg transform hover:scale-105">
               Learn More
               <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </button>
