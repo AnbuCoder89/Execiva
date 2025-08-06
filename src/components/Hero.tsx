@@ -11,7 +11,6 @@ import {
 
 const Hero = () => {
   const parallax = useRef<IParallax>(null);
-  const videoRef = useRef(null);
 
   // Framer Motion scroll animations
   const { scrollY } = useScroll();
@@ -36,26 +35,22 @@ const Hero = () => {
   return (
     <section id="home" className="relative h-screen overflow-hidden">
       <Parallax ref={parallax} pages={2} className="w-full h-full pt-20">
-        {/* Background Video Layer */}
+        {/* Background Image Layer */}
         <ParallaxLayer offset={0} factor={2} speed={0.1} className="z-0">
           <motion.div 
-            className="absolute inset-0 w-full h-full overflow-hidden"
+            className="absolute inset-0 w-full h-full overflow-hidden px-3"
             style={{
               scale: smoothScale,
               filter,
             }}
           >
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/assets/videos/bg-1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="w-full h-full rounded-lg overflow-hidden">
+              <img
+                src="/assets/images/bg-1.jpg"
+                alt="Hero Background"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         </ParallaxLayer>
 
