@@ -1,10 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 const CaseStudies: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,82 +24,55 @@ const CaseStudies: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const caseStudies = [
-    {
-      title: "E-Commerce Revolution",
-      client: "TechCorp",
-      description: "Transformed a traditional retail business into a digital powerhouse with 300% increase in online sales.",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
-      metrics: ["300% Sales Increase", "50% Cost Reduction", "24/7 Operations"]
-    },
-    {
-      title: "Mobile Banking App",
-      client: "FinanceFirst",
-      description: "Designed and developed a secure mobile banking solution serving over 1 million users.",
-      image: "https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=600",
-      metrics: ["1M+ Users", "99.9% Uptime", "Bank-Grade Security"]
-    },
-    {
-      title: "Healthcare Platform",
-      client: "MedConnect",
-      description: "Built a comprehensive telemedicine platform connecting patients with healthcare providers.",
-      image: "https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600",
-      metrics: ["10K+ Consultations", "95% Satisfaction", "HIPAA Compliant"]
-    }
-  ];
-
   return (
     <section id="case-studies" className="py-20 px-3" ref={sectionRef}>
-      <div className="mx-auto px-3">
+      <div className="max-w-7xl mx-auto">
+        <div className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          
+          {/* Left side - Visual Elements */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div className="relative">
+              {/* Main showcase image */}
+              <div className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Case Study Showcase"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              
+              {/* Floating cards */}
+              <div className="absolute -top-4 -right-4 w-32 h-24 bg-white rounded-lg shadow-lg p-4 transform rotate-3">
+                <div className="text-xs text-gray-600 mb-1">Success Rate</div>
+                <div className="text-2xl font-bold text-blue-600">98%</div>
+              </div>
+              
+              <div className="absolute -bottom-4 -left-4 w-36 h-28 bg-blue-600 rounded-lg shadow-lg p-4 text-white transform -rotate-2">
+                <div className="text-xs opacity-90 mb-1">Projects Completed</div>
+                <div className="text-2xl font-bold">150+</div>
+              </div>
+            </div>
+          </div>
 
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            loop={true}
-            pagination={{ clickable: true }}
-            navigation={false}
-            autoplay={{ delay: 5000 }}
-            className="pb-16"
-          >
-            {caseStudies.map((study, index) => (
-              <SwiperSlide key={index}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch h-full">
-                  <div className="md:order-1 h-full flex items-stretch">
-                    <div className="w-full h-80 md:h-96 overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                      <img
-                        src={study.image}
-                        alt={study.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div className="md:order-2 flex flex-col justify-center h-full">
-                    <div className="space-y-6">
-                      <div>
-                            <div className="text-sm text-gray-900 font-medium mb-2">
-                              {study.client}
-                            </div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                              {study.title}
-                            </h3>
-                            <p className="text-gray-900 leading-relaxed">
-                              {study.description}
-                            </p>
-                          </div>
-                          <div className="pt-2">
-                            <button className="group flex items-center space-x-2 text-gray-900 hover:text-white border border-gray-900 hover:bg-gray-900 px-6 py-3 rounded-full transition-all duration-300">
-                              <span>Learn More</span>
-                              <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
-                          </div>
-                        </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {/* Right side - Content */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '200ms' }}>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-light text-gray-900 mb-8 leading-tight font-sf-pro-display">
+              Case
+              <span className="block font-bold mt-2">
+                Studies
+              </span>
+            </h2>
+
+            <p className="text-xl text-gray-700 mb-12 leading-relaxed font-sf-pro-text">
+              Our projects make us proud. We've helped businesses transform their digital presence and achieve remarkable growth through innovative solutions and strategic thinking.
+            </p>
+
+            <button className="px-8 py-4 bg-blue-600 text-white border-2 border-blue-600 rounded-full hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
+              Learn More
+              <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
