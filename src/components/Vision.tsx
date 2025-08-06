@@ -30,7 +30,7 @@ const Vision: React.FC = () => {
     <section
       id="vision"
       ref={sectionRef}
-      className="relative w-full py-20 md:py-32 overflow-hidden px-3"
+      className="relative w-full py-10 overflow-hidden px-3"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

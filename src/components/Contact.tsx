@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 bg-gray-900 text-white" ref={sectionRef}>
+    <section id="contact" className="py-10 bg-gray-900 text-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className={`text-5xl md:text-6xl font-light mb-8 transition-all duration-1000 font-sf-pro-display ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

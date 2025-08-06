@@ -74,7 +74,7 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="relative w-full py-4 md:py-4 overflow-hidden px-3"
+      className="relative w-full py-10 overflow-hidden px-3"
       ref={sectionRef}
     >
       {/* Container with max width */}

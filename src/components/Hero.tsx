@@ -33,7 +33,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
+    <section id="home" className="relative h-screen overflow-hidden py-10">
       <Parallax ref={parallax} pages={2} className="w-full h-full pt-20">
         {/* Background Image Layer */}
         <ParallaxLayer offset={0} factor={2} speed={0.1} className="z-0">
