@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,6 +8,7 @@ const Contact: React.FC = () => {
     email: '',
     message: ''
   });
+  const [acceptTerms, setAcceptTerms] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,84 +39,67 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!acceptTerms) {
+      alert('Please accept the Terms of Service');
+      return;
+    }
     // Handle form submission here
     console.log('Form submitted:', formData);
   };
 
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      value: "hello@yourbrand.com",
-      link: "mailto:hello@yourbrand.com"
-    },
-    {
-      icon: MapPin,
-      title: "Address",
-      value: "123 Business Ave, City, State 12345",
-      link: "#"
-    }
+  const socialLinks = [
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Youtube, href: "#", label: "YouTube" }
   ];
 
   return (
-    <section id="contact" className="py-32 bg-gray-900 text-white" ref={sectionRef}>
+    <section id="contact" className="py-20 md:py-32 bg-light-gray" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className={`text-5xl md:text-6xl font-light mb-8 transition-all duration-1000 font-sf-pro-display ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Get In
-            <span className="block font-bold text-white">
-              Touch
-            </span>
-          </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 font-sf-pro-text ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
-            Ready to start your next project? Let's discuss how we can help bring your vision to life.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          
+          {/* Left side - Content */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
+              GET IN
+              <span className="block font-bold mt-2">
+                TOUCH
+              </span>
+            </h2>
+            
+            <div className="mb-8">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-sf-pro-display">
+                Hey! We are looking forward to start a project with you!
+              </h3>
+              
+              <div className="bg-gray-100 p-6 rounded-lg border-l-4 border-gray-400 mb-8">
+                <p className="text-gray-700 leading-relaxed font-sf-pro-text">
+                  Etiam sit amet convallis erat - class aptent taciti sociosqu ad litora torquent per conubia! Maecenas gravida lacus. Lorem etiam sit amet convallis erat.
+                </p>
+              </div>
+            </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Information */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '400ms' }}>
-            <h3 className="text-3xl font-bold mb-8 font-sf-pro-display">Let's Connect</h3>
-            <p className="text-gray-300 mb-12 leading-relaxed font-sf-pro-text">
-              We're here to help you transform your ideas into reality. Reach out to us through any of the channels below, and we'll get back to you within 24 hours.
-            </p>
-
-            <div className="space-y-8">
-              {contactInfo.map((info, index) => (
+            {/* Social Links */}
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => (
                 <a
                   key={index}
-                  href={info.link}
-                  className="flex items-center space-x-4 group hover:text-white transition-colors duration-300"
+                  href={social.href}
+                  aria-label={social.label}
+                  className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors duration-300 text-gray-600 hover:text-gray-800"
                 >
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-                    <info.icon size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-400 uppercase tracking-wide font-sf-pro-text">
-                      {info.title}
-                    </div>
-                    <div className="text-lg font-sf-pro-text">
-                      {info.value}
-                    </div>
-                  </div>
+                  <social.icon size={18} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '600ms' }}>
+          {/* Right side - Contact Form */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '200ms' }}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2 font-sf-pro-text">
-                  Name
-                </label>
                 <input
                   type="text"
                   id="name"
@@ -123,15 +107,12 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-white focus:border-white transition-colors duration-300 text-white font-sf-pro-text"
-                  placeholder="Your name"
+                  className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 font-sf-pro-text placeholder-gray-500"
+                  placeholder="Enter your Name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2 font-sf-pro-text">
-                  Email
-                </label>
                 <input
                   type="email"
                   id="email"
@@ -139,15 +120,12 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-white focus:border-white transition-colors duration-300 text-white font-sf-pro-text"
-                  placeholder="your@email.com"
+                  className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 font-sf-pro-text placeholder-gray-500"
+                  placeholder="Enter a valid email address"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2 font-sf-pro-text">
-                  Message
-                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -155,17 +133,33 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-white focus:border-white transition-colors duration-300 text-white resize-none font-sf-pro-text"
-                  placeholder="Tell us about your project..."
+                  className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 resize-none font-sf-pro-text placeholder-gray-500"
+                  placeholder="Enter your message"
                 />
+              </div>
+
+              {/* Terms of Service Checkbox */}
+              <div className="flex items-start space-x-3">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={acceptTerms}
+                  onChange={(e) => setAcceptTerms(e.target.checked)}
+                  className="mt-1 w-4 h-4 text-gray-600 bg-white border-gray-300 rounded focus:ring-gray-400 focus:ring-2"
+                />
+                <label htmlFor="terms" className="text-sm text-gray-600 font-sf-pro-text">
+                  I accept the{' '}
+                  <a href="#" className="text-blue-500 hover:text-blue-600 underline">
+                    Terms of Service
+                  </a>
+                </label>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center space-x-2 font-sf-pro-text"
+                className="bg-gray-400 hover:bg-gray-500 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] font-sf-pro-text"
               >
-                <span>Send Message</span>
-                <Send size={20} />
+                Submit
               </button>
             </form>
           </div>

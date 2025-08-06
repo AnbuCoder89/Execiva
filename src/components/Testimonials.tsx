@@ -72,21 +72,7 @@ const Testimonials: React.FC = () => {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
-            <TiltedCard
-              key={index}
-              imageSrc={testimonial.image}
-              altText={testimonial.name}
-              captionText={testimonial.name}
-              containerHeight="400px"
-              containerWidth="100%"
-              imageHeight="400px"
-              imageWidth="100%"
-              rotateAmplitude={8}
-              scaleOnHover={1.05}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={true}
-              overlayContent={
+          
                 <div 
                   className={`bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 w-full h-full flex flex-col justify-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
@@ -128,8 +114,7 @@ const Testimonials: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              }
-            />
+              
           ))}
         </div>
       </div>
