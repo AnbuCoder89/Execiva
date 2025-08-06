@@ -59,7 +59,7 @@ const Hero2: React.FC = () => {
   return (
     <section className="relative h-screen overflow-hidden px-3">
       {/* Background Image */}
-      <div className="absolute inset-0 rounded-l">
+      <div className="absolute inset-0 rounded-lg">
         <img
           src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="Consultancy Background"
