@@ -48,7 +48,7 @@ const Capabilities: React.FC = () => {
   const loopedCapabilities = [...capabilities, ...capabilities];
   return (
     <section id="capabilities" 
-      className="relative w-full py-10 overflow-hidden"
+      className="relative w-full py-4 md:py-4 overflow-hidden" 
       ref={sectionRef}>
       <div className="w-full overflow-x-hidden py-8">
         <motion.div
