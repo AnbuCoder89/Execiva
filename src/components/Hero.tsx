@@ -48,7 +48,7 @@ const Hero = () => {
         </ParallaxLayer>
 
         {/* Vision Content */}
-        <ParallaxLayer offset={0.7} speed={0.5} className="flex items-center justify-center text-white px-4 sm:px-6">
+        <ParallaxLayer offset={1} speed={0.5} className="flex items-center justify-center text-white px-4 sm:px-6">
           <div className="max-w-3xl w-full text-center">
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-sf-pro-text">
               We craft extraordinary experiences that push boundaries and create lasting impact for forward-thinking businesses.
