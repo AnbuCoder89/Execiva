@@ -34,9 +34,9 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative h-screen overflow-hidden">
-      <Parallax ref={parallax} pages={1.2} className="w-full h-full pt-20">
+      <Parallax ref={parallax} pages={1} className="w-full h-full pt-20">
         {/* Background Image Layer */}
-        <ParallaxLayer offset={0} factor={1.2} speed={0.1} className="z-0">
+        <ParallaxLayer offset={0} factor={1} speed={0.1} className="z-0">
           <motion.div 
             className="absolute inset-0 w-full h-full overflow-hidden px-3"
             style={{
@@ -46,7 +46,7 @@ const Hero = () => {
           >
             <div className="w-full h-full rounded-lg overflow-hidden">
               <img
-                src="/assets/images/bg-1.jpg"
+                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600"
                 alt="Hero Background"
                 className="w-full h-full object-cover"
               />
@@ -55,7 +55,7 @@ const Hero = () => {
         </ParallaxLayer>
 
         {/* Content Layer */}
-        <ParallaxLayer offset={0} factor={1.2} speed={0.1} className="flex flex-col items-center">
+        <ParallaxLayer offset={0} factor={1} speed={0.1} className="flex flex-col items-center">
           <div className="w-full max-w-7xl px-6">
             {/* Add any additional layered content here if needed */}
           </div>
@@ -81,7 +81,7 @@ const Hero = () => {
         </ParallaxLayer>
 
         {/* Vision Content */}
-        <ParallaxLayer offset={0.8} speed={0.5} className="flex items-center justify-center text-white px-6">
+        <ParallaxLayer offset={0.7} speed={0.5} className="flex items-center justify-center text-white px-6">
           <div className="max-w-4xl w-full text-center">
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-sf-pro-text">
               We craft extraordinary experiences that push boundaries and create lasting impact for forward-thinking businesses.
