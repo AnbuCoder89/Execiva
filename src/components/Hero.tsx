@@ -1,22 +1,15 @@
 import { ChevronDown } from 'lucide-react';
 import { useRef } from 'react';
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useMotionTemplate,
-} from 'framer-motion';
 
 const Hero = () => {
   const parallax = useRef<IParallax>(null);
 
   return (
     <section id="home" className="relative h-screen overflow-hidden w-full">
-      <Parallax ref={parallax} pages={1} className="w-full h-full pt-20" style={{ overflow: 'hidden' }}>
+      <Parallax ref={parallax} pages={1.5} className="w-full h-full pt-20" style={{ overflow: 'hidden' }}>
         {/* Background Image Layer */}
-        <ParallaxLayer offset={0} factor={1} speed={0.1} className="z-0">
+        <ParallaxLayer offset={0} factor={1.5} speed={0.2} className="z-0">
           <div className="absolute inset-0 w-full h-full overflow-hidden">
             <div className="w-full h-full overflow-hidden">
               <img
@@ -29,7 +22,7 @@ const Hero = () => {
         </ParallaxLayer>
 
         {/* Main Content */}
-        <ParallaxLayer offset={0} speed={0.8} className="flex flex-col items-center justify-center px-4 sm:px-6">
+        <ParallaxLayer offset={0} factor={1} speed={0.6} className="flex flex-col items-center justify-center px-4 sm:px-6">
           <div className="max-w-4xl w-full text-center">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white mb-6 leading-tight font-sf-pro-display">
               Redefining
@@ -48,7 +41,7 @@ const Hero = () => {
         </ParallaxLayer>
 
         {/* Vision Content */}
-        <ParallaxLayer offset={1} speed={0.5} className="flex items-center justify-center text-white px-4 sm:px-6">
+        <ParallaxLayer offset={0.8} factor={1} speed={0.4} className="flex items-center justify-center text-white px-4 sm:px-6">
           <div className="max-w-3xl w-full text-center">
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-sf-pro-text">
               We craft extraordinary experiences that push boundaries and create lasting impact for forward-thinking businesses.
