@@ -68,7 +68,7 @@ const Vision: React.FC = () => {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <div className="relative h-[600px] lg:h-[700px] overflow-hidden rounded-3xl shadow-2xl">
+            <div className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-3xl shadow-2xl">
               <img
                 src="/assets/images/web-development.avif"
                 alt="Our Vision"
