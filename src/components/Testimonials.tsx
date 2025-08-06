@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Star } from 'lucide-react';
+import TiltedCard from './ui/TiltedCard';
 
 const Testimonials: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,48 +72,64 @@ const Testimonials: React.FC = () => {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
-            <div
+            <TiltedCard
               key={index}
-              className={`bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-500 border border-gray-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Profile Image */}
-              <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-100">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
+              imageSrc={testimonial.image}
+              altText={testimonial.name}
+              captionText={testimonial.name}
+              containerHeight="400px"
+              containerWidth="100%"
+              imageHeight="400px"
+              imageWidth="100%"
+              rotateAmplitude={8}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent={true}
+              overlayContent={
+                <div 
+                  className={`bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 w-full h-full flex flex-col justify-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  {/* Profile Image */}
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-100">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Name */}
+                  <h3 className="text-center font-semibold text-gray-900 mb-1 font-sf-pro-display">
+                    {testimonial.name}
+                  </h3>
+
+                  {/* Position */}
+                  <p className="text-center text-sm text-gray-600 mb-4 font-sf-pro-text">
+                    {testimonial.position}
+                  </p>
+
+                  {/* Content */}
+                  <p className="text-sm text-gray-700 leading-relaxed mb-4 font-sf-pro-text text-center">
+                    {testimonial.content}
+                  </p>
+
+                  {/* Rating */}
+                  <div className="flex justify-center space-x-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        size={16} 
+                        className="text-blue-500 fill-current" 
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              {/* Name */}
-              <h3 className="text-center font-semibold text-gray-900 mb-1 font-sf-pro-display">
-                {testimonial.name}
-              </h3>
-
-              {/* Position */}
-              <p className="text-center text-sm text-gray-600 mb-4 font-sf-pro-text">
-                {testimonial.position}
-              </p>
-
-              {/* Content */}
-              <p className="text-sm text-gray-700 leading-relaxed mb-4 font-sf-pro-text text-center">
-                {testimonial.content}
-              </p>
-
-              {/* Rating */}
-              <div className="flex justify-center space-x-1">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    size={16} 
-                    className="text-blue-500 fill-current" 
-                  />
-                ))}
-              </div>
-            </div>
+              }
+            />
           ))}
         </div>
       </div>
