@@ -52,33 +52,11 @@ const Vision: React.FC = () => {
               human ambition, creating solutions that don't just meet today's
               needs but anticipate tomorrow's possibilities.
             </p>
-
-            <div className="space-y-6 mb-12">
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-gray-900 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-600 font-sf-pro-text">
-                  <span className="font-semibold text-gray-900">Innovation First:</span> We push boundaries to create cutting-edge solutions that define the future.
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-gray-900 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-600 font-sf-pro-text">
-                  <span className="font-semibold text-gray-900">Human-Centered:</span> Technology should enhance human potential, not replace it.
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-2 h-2 bg-gray-900 rounded-full mt-3 flex-shrink-0"></div>
-                <p className="text-gray-600 font-sf-pro-text">
-                  <span className="font-semibold text-gray-900">Sustainable Impact:</span> Building solutions that create lasting positive change.
-                </p>
-              </div>
-            </div>
-
             <button
               onClick={scrollToServices}
               className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Explore Our Services
+              Learn more
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
