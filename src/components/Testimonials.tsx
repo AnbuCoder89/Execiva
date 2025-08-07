@@ -3,7 +3,7 @@ import { Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(2); // Start with center card active
+  const [activeIndex, setActiveIndex] = useState(2); // Start with center card (index 2)
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -74,8 +74,8 @@ const Testimonials: React.FC = () => {
     if (isActive) {
       // Center card - largest and fully focused
       return {
-        width: '320px',
-        height: '400px',
+        width: '350px',
+        height: '450px',
         opacity: 1,
         filter: 'blur(0px)',
         transform: 'scale(1)',
@@ -84,8 +84,8 @@ const Testimonials: React.FC = () => {
     } else if (Math.abs(position) === 1) {
       // Adjacent cards (left and right of center)
       return {
-        width: '280px',
-        height: '350px',
+        width: '300px',
+        height: '380px',
         opacity: 0.7,
         filter: 'blur(1px)',
         transform: 'scale(0.9)',
@@ -94,12 +94,46 @@ const Testimonials: React.FC = () => {
     } else {
       // Outer cards (far left and far right)
       return {
-        width: '240px',
-        height: '300px',
+        width: '250px',
+        height: '320px',
         opacity: 0.5,
         filter: 'blur(2px)',
         transform: 'scale(0.8)',
         zIndex: 2,
+      };
+    }
+  };
+
+  const getTextStyles = (index: number) => {
+    const isActive = index === activeIndex;
+    const position = Math.abs(index - activeIndex);
+    
+    if (isActive) {
+      return {
+        nameSize: 'text-xl',
+        positionSize: 'text-base',
+        contentSize: 'text-base',
+        imageSize: 'w-20 h-20',
+        starSize: 18,
+        padding: 'p-8'
+      };
+    } else if (position === 1) {
+      return {
+        nameSize: 'text-lg',
+        positionSize: 'text-sm',
+        contentSize: 'text-sm',
+        imageSize: 'w-16 h-16',
+        starSize: 16,
+        padding: 'p-6'
+      };
+    } else {
+      return {
+        nameSize: 'text-base',
+        positionSize: 'text-xs',
+        contentSize: 'text-xs',
+        imageSize: 'w-12 h-12',
+        starSize: 14,
+        padding: 'p-4'
       };
     }
   };
@@ -121,6 +155,7 @@ const Testimonials: React.FC = () => {
         <div className="flex items-center justify-center gap-6 mb-12">
           {testimonials.map((testimonial, index) => {
             const cardStyles = getCardStyles(index);
+            const textStyles = getTextStyles(index);
             const isActive = index === activeIndex;
             
             return (
@@ -136,15 +171,15 @@ const Testimonials: React.FC = () => {
                 onClick={() => handleCardClick(index)}
               >
                 <div className={`bg-white rounded-2xl p-6 shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between transition-all duration-700 ${
+                  textStyles.padding
+                } ${
                   isActive 
                     ? 'shadow-2xl border-gray-200' 
                     : 'hover:shadow-xl'
                 }`}>
                   {/* Profile Image */}
-                  <div className="flex justify-center mb-4">
-                    <div className={`rounded-full overflow-hidden bg-gray-100 transition-all duration-300 ${
-                      isActive ? 'w-20 h-20' : 'w-16 h-16'
-                    }`}>
+                  <div className="flex justify-center mb-3">
+                    <div className={`${textStyles.imageSize} rounded-full overflow-hidden bg-gray-100 transition-all duration-300`}>
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -156,24 +191,18 @@ const Testimonials: React.FC = () => {
                   {/* Content */}
                   <div className="flex-1 flex flex-col justify-center">
                     {/* Name */}
-                    <h3 className={`text-center font-semibold text-gray-900 mb-2 font-sf-pro-display transition-all duration-300 ${
-                      isActive ? 'text-xl' : 'text-lg'
-                    }`}>
+                    <h3 className={`text-center font-semibold text-gray-900 mb-2 font-sf-pro-display transition-all duration-300 ${textStyles.nameSize}`}>
                       {testimonial.name}
                     </h3>
 
                     {/* Position */}
-                    <p className={`text-center text-gray-600 mb-4 font-sf-pro-text transition-all duration-300 ${
-                      isActive ? 'text-base' : 'text-sm'
-                    }`}>
+                    <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>
                       {testimonial.position}
                     </p>
 
                     {/* Content */}
-                    <p className={`text-gray-700 leading-relaxed mb-4 font-sf-pro-text text-center transition-all duration-300 ${
-                      isActive ? 'text-base' : 'text-sm'
-                    }`}>
-                      {testimonial.content}
+                    <p className={`text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center transition-all duration-300 ${textStyles.contentSize}`}>
+                      {isActive ? testimonial.content : testimonial.content.substring(0, 80) + '...'}
                     </p>
                   </div>
 
@@ -182,7 +211,7 @@ const Testimonials: React.FC = () => {
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star 
                         key={i} 
-                        size={isActive ? 18 : 16} 
+                        size={textStyles.starSize} 
                         className="text-blue-500 fill-current transition-all duration-300" 
                       />
                     ))}
