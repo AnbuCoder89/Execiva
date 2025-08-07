@@ -93,7 +93,7 @@ const Capabilities2: React.FC = () => {
             <a
               key={capability.title}
               href={capability.link}
-              className={`group relative h-64 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-cover bg-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative h-80 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-cover bg-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{
                 backgroundImage: `url('${capability.image}')`,
                 transitionDelay: `${index * 100}ms`,
