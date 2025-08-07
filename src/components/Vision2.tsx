@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { ArrowRight } from 'lucide-react';
 
 const Vision2: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
