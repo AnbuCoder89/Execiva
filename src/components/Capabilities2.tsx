@@ -108,14 +108,14 @@ const Capabilities2: React.FC = () => {
           {displayedCapabilities.map((capability, index) => (
             <div
               key={capability.title}
-              className={`group relative h-96 rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative h-96 overflow-hidden shadow-lg cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{
                 transitionDelay: `${index * 100}ms`,
               }}
             >
               {/* Background Image */}
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('${capability.image}')` }}
               />
               
@@ -124,14 +124,14 @@ const Capabilities2: React.FC = () => {
               
               {/* Category Tag */}
               <div className="absolute top-6 left-6 z-10">
-                <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-white/20 font-sf-pro-text">
+                <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-semibold border border-white/20 font-sf-pro-text">
                   {capability.category}
                 </span>
               </div>
               
               {/* Article Card Overlay */}
               <div className="absolute bottom-6 left-6 right-6 z-10">
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 transition-all duration-300 group-hover:bg-white">
+                <div className="bg-white/95 backdrop-blur-sm p-6 shadow-lg border border-white/20 transition-all duration-300 group-hover:bg-white">
                   <div className="mb-3">
                     <span className="text-xs font-semibold text-gray-500 tracking-wider font-sf-pro-text">
                       ARTICLE • {capability.date}
