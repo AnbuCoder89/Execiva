@@ -92,7 +92,7 @@ const Capabilities2: React.FC = () => {
 
   return (
     <section id="capabilities2" className="py-20 md:py-32 bg-light-gray" ref={sectionRef}>
-      <div className="max-w-5xl mx-auto px-6 lg:px-12">
+      <div className="max-w-6xl mx-auto px-4 lg:px-6">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -124,14 +124,14 @@ const Capabilities2: React.FC = () => {
               
               {/* Category Tag */}
               <div className="absolute top-6 left-6 z-10">
-                <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-semibold border border-white/20 font-sf-pro-text">
+                <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-white/20 font-sf-pro-text">
                   {capability.category}
                 </span>
               </div>
               
               {/* Article Card Overlay */}
               <div className="absolute bottom-6 left-6 right-6 z-10">
-                <div className="bg-white/95 backdrop-blur-sm p-6 shadow-lg border border-white/20 transition-all duration-300 group-hover:bg-white">
+                <div className="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/95 group-hover:backdrop-blur-lg">
                   <div className="mb-3">
                     <span className="text-xs font-semibold text-gray-500 tracking-wider font-sf-pro-text">
                       ARTICLE • {capability.date}
