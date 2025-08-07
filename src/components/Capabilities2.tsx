@@ -97,7 +97,7 @@ const Capabilities2: React.FC = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {capabilities.map((capability, index) => (
             <div
               key={capability.title}
