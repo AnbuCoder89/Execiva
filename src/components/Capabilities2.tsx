@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 const Capabilities2: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -115,9 +116,14 @@ const Capabilities2: React.FC = () => {
         <div className="text-center">
           <button
             onClick={toggleView}
-            className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2"
           >
             {showAll ? 'View Less Capabilities' : 'View More Capabilities'}
+            {showAll ? (
+              <ChevronUp size={16} className="transition-transform duration-300" />
+            ) : (
+              <ChevronDown size={16} className="transition-transform duration-300" />
+            )}
           </button>
         </div>
       </div>
