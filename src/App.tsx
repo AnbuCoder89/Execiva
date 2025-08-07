@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import Vision from './components/Vision';
 import Vision2 from './components/Vision2';
 import Capabilities from './components/Capabilities';
+import Capabilities2 from './components/Capabilities2';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
@@ -28,6 +29,7 @@ function App() {
         <Vision2 />
         <Services />
         <Capabilities />
+        <Capabilities2 />
         <CaseStudies />
         <Testimonials />
         <Contact />
