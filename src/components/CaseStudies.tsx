@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ExternalLink } from 'lucide-react';
 import { ArrowRight } from "lucide-react";
 
 
@@ -73,7 +72,6 @@ const CaseStudies: React.FC = () => {
             <div className="pt-4">
               <button className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
                 Learn More
-                <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
