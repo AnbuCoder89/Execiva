@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const Capabilities2: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -66,6 +67,12 @@ const Capabilities2: React.FC = () => {
     }
   ];
 
+  const displayedCapabilities = showAll ? capabilities : capabilities.slice(0, 4);
+
+  const toggleView = () => {
+    setShowAll(!showAll);
+  };
+
   return (
     <section id="capabilities2" className="py-20 md:py-32 bg-light-gray" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
@@ -80,28 +87,38 @@ const Capabilities2: React.FC = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {capabilities.map((capability, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {displayedCapabilities.map((capability, index) => (
             <a
               key={capability.title}
               href={capability.link}
-              className={`group relative h-64 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-cover bg-center transition-all duration-1000 hover:-translate-y-2 hover:shadow-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative h-64 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-cover bg-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{
                 backgroundImage: `url('${capability.image}')`,
                 transitionDelay: `${index * 100}ms`,
               }}
             >
-              {/* Dark overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70 transition-all duration-300 group-hover:from-black/50 group-hover:via-black/60 group-hover:to-black/80" />
+              {/* Top darkening overlay - only appears on hover */}
+              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              {/* Content */}
-              <div className="relative z-10 h-full flex items-center justify-center p-6">
-                <h3 className="text-xl md:text-2xl font-bold text-white text-center leading-tight font-sf-pro-display drop-shadow-lg">
+              {/* Title positioned at top */}
+              <div className="relative z-10 p-6">
+                <h3 className="text-xl md:text-2xl font-bold text-white leading-tight font-sf-pro-display drop-shadow-lg">
                   {capability.title}
                 </h3>
               </div>
             </a>
           ))}
+        </div>
+
+        {/* Toggle Button */}
+        <div className="text-center">
+          <button
+            onClick={toggleView}
+            className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            {showAll ? 'View Less Capabilities' : 'View More Capabilities'}
+          </button>
         </div>
       </div>
     </section>
