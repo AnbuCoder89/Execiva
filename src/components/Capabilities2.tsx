@@ -28,56 +28,48 @@ const Capabilities2: React.FC = () => {
     {
       category: 'ARTIFICIAL INTELLIGENCE',
       title: 'AI & Machine Learning Solutions',
-      date: 'MARCH 15, 2024',
       description: 'Advanced AI algorithms and machine learning models for intelligent automation',
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       category: 'CLOUD COMPUTING',
       title: 'Scalable Cloud Infrastructure',
-      date: 'FEBRUARY 28, 2024',
       description: 'Robust cloud solutions for enterprise-grade applications',
       image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       category: 'DATA SCIENCE',
       title: 'Advanced Data Analytics',
-      date: 'JANUARY 20, 2024',
       description: 'Transform raw data into actionable business insights',
       image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       category: 'SECURITY',
       title: 'Enterprise Cybersecurity',
-      date: 'DECEMBER 10, 2023',
       description: 'Comprehensive security solutions for digital protection',
       image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       category: 'INTERNET OF THINGS',
       title: 'Smart IoT Solutions',
-      date: 'NOVEMBER 25, 2023',
       description: 'Connected devices and intelligent automation systems',
       image: 'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       category: 'BLOCKCHAIN',
       title: 'Blockchain Development',
-      date: 'OCTOBER 15, 2023',
       description: 'Decentralized solutions and smart contract development',
       image: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       category: 'MOBILE TECHNOLOGY',
       title: 'Cross-Platform Mobile Apps',
-      date: 'SEPTEMBER 30, 2023',
       description: 'Native and hybrid mobile applications for all platforms',
       image: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       category: 'DEVOPS',
       title: 'DevOps & CI/CD Automation',
-      date: 'AUGUST 20, 2023',
       description: 'Streamlined development workflows and automated deployments',
       image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800',
     }
@@ -125,16 +117,14 @@ const Capabilities2: React.FC = () => {
               {/* Article Card Overlay */}
               <div className="absolute bottom-4 left-4 right-4 z-10">
                 <div className="bg-white/60 backdrop-blur-md p-4 md:p-6 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/70 group-hover:backdrop-blur-lg">
-                  <div className="mb-3">
-                    <span className="text-xs font-semibold text-gray-700 tracking-wider font-sf-pro-text">
-                      ARTICLE • {capability.date}
-                    </span>
-                  </div>
                   <h3 className="text-base md:text-lg font-bold text-gray-900 leading-tight mb-2 font-sf-pro-display">
                     {capability.title}
                   </h3>
                   <p className="text-xs md:text-sm text-gray-700 leading-relaxed font-sf-pro-text">
-                    {capability.description}
+                    {capability.description.length > 60 
+                      ? `${capability.description.substring(0, 60)}...` 
+                      : capability.description
+                    }
                   </p>
                 </div>
               </div>
