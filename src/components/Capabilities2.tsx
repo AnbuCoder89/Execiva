@@ -3,7 +3,6 @@ import { ChevronUp, ChevronDown } from 'lucide-react';
 
 const Capabilities2: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [showAll, setShowAll] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -84,15 +83,9 @@ const Capabilities2: React.FC = () => {
     }
   ];
 
-  const displayedCapabilities = showAll ? capabilities : capabilities.slice(0, 4);
-
-  const toggleView = () => {
-    setShowAll(!showAll);
-  };
-
   return (
     <section id="capabilities2" className="py-20 md:py-32 bg-light-gray" ref={sectionRef}>
-      <div className="max-w-6xl mx-auto px-4 lg:px-6">
+      <div className="px-8 md:px-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -104,11 +97,11 @@ const Capabilities2: React.FC = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 transition-all duration-500 ease-in-out">
-          {displayedCapabilities.map((capability, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+          {capabilities.map((capability, index) => (
             <div
               key={capability.title}
-              className={`group relative h-96 overflow-hidden shadow-lg cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative w-[20vw] h-[28vw] min-w-[280px] min-h-[350px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{
                 transitionDelay: `${index * 100}ms`,
               }}
@@ -130,38 +123,23 @@ const Capabilities2: React.FC = () => {
               </div>
               
               {/* Article Card Overlay */}
-              <div className="absolute bottom-6 left-6 right-6 z-10">
-                <div className="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/95 group-hover:backdrop-blur-lg">
+              <div className="absolute bottom-4 left-4 right-4 z-10">
+                <div className="bg-white/60 backdrop-blur-md p-4 md:p-6 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/70 group-hover:backdrop-blur-lg">
                   <div className="mb-3">
-                    <span className="text-xs font-semibold text-gray-500 tracking-wider font-sf-pro-text">
+                    <span className="text-xs font-semibold text-gray-700 tracking-wider font-sf-pro-text">
                       ARTICLE • {capability.date}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 leading-tight mb-2 font-sf-pro-display">
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 leading-tight mb-2 font-sf-pro-display">
                     {capability.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed font-sf-pro-text">
+                  <p className="text-xs md:text-sm text-gray-700 leading-relaxed font-sf-pro-text">
                     {capability.description}
                   </p>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Toggle Button */}
-        <div className="flex justify-center">
-          <button
-            onClick={toggleView}
-            className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2"
-          >
-            {showAll ? 'View Less Capabilities' : 'View More Capabilities'}
-            {showAll ? (
-              <ChevronUp size={16} className="transition-transform duration-300" />
-            ) : (
-              <ChevronDown size={16} className="transition-transform duration-300" />
-            )}
-          </button>
         </div>
       </div>
     </section>
