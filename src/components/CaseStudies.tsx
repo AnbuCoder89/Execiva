@@ -25,9 +25,9 @@ const CaseStudies: React.FC = () => {
   }, []);
 
   return (
-    <section id="case-studies" className="py-10 px-3" ref={sectionRef}>
+    <section id="case-studies" className="py-20 md:py-32 px-3" ref={sectionRef}>
       <div className="max-w-7xl mx-auto">
-        <div className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`grid lg:grid-cols-2 gap-20 lg:gap-32 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Left side - Visual Elements */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
@@ -57,21 +57,23 @@ const CaseStudies: React.FC = () => {
 
           {/* Right side - Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '200ms' }}>
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-light text-gray-900 mb-8 leading-tight font-sf-pro-display">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-8 leading-tight font-sf-pro-display">
               Case
               <span className="block font-bold mt-2">
                 Studies
               </span>
             </h2>
 
-            <p className="text-xl text-gray-700 mb-12 leading-relaxed font-sf-pro-text">
+            <p className="text-lg text-gray-600 mb-12 leading-relaxed font-sf-pro-text">
               Our projects make us proud. We've helped businesses transform their digital presence and achieve remarkable growth through innovative solutions and strategic thinking.
             </p>
 
-            <button className="px-8 py-4 bg-white text-gray-800 border-2 border-gray-300 rounded-full hover:bg-light-gray hover:border-gray-400 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-md hover:shadow-lg transform hover:scale-105">
-              Learn More
-              <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            <div className="pt-4">
+              <button className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
+                Learn More
+                <ExternalLink size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
