@@ -38,37 +38,37 @@ const Vision2: React.FC = () => {
           >
             <div className="relative h-[600px] w-full">
               
-              {/* Main Case Studies Header Card */}
-              <div className="absolute top-0 left-0 w-80 h-32 bg-white rounded-lg shadow-lg border border-gray-100 z-10">
+              {/* Main Vision Header Card */}
+              <div className="absolute top-0 left-0 w-80 h-32 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-blue-600 mb-2">Case Studies</h3>
-                  <p className="text-gray-600 text-sm">We have got a lot of case studies</p>
-                  <p className="text-blue-600 text-sm font-medium mt-2">Our projects make us proud</p>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Our Vision</h3>
+                  <p className="text-gray-600 text-sm">Transforming ideas into reality</p>
+                  <p className="text-gray-700 text-sm font-medium mt-2">Innovation drives our future</p>
                 </div>
               </div>
 
-              {/* Blue Statistics Card */}
-              <div className="absolute top-40 left-0 w-48 h-64 bg-blue-600 rounded-lg shadow-xl text-white z-20">
+              {/* Beige Statistics Card */}
+              <div className="absolute top-40 left-0 w-48 h-64 bg-beige rounded-lg shadow-xl text-gray-800 z-20">
                 <div className="p-6">
-                  <div className="text-sm mb-4">Started</div>
-                  <div className="text-4xl font-bold mb-2">19%</div>
-                  <div className="text-xs opacity-90 mb-6">
-                    Faster And Predictive Scaling<br/>
-                    Quality & Customer Experience<br/>
-                    24/7 phone and email support
+                  <div className="text-sm mb-4 text-gray-600">Innovation</div>
+                  <div className="text-4xl font-bold mb-2 text-gray-800">100%</div>
+                  <div className="text-xs text-gray-600 mb-6">
+                    Future-Ready Solutions<br/>
+                    Seamless User Experience<br/>
+                    Continuous Innovation Support
                   </div>
-                  <button className="bg-orange-400 text-white px-4 py-2 rounded text-sm font-medium hover:bg-orange-500 transition-colors">
-                    Get Started
+                  <button className="bg-gray-800 text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-700 transition-colors">
+                    Explore Vision
                   </button>
                 </div>
               </div>
 
-              {/* Small Portfolio Cards Grid */}
+              {/* Small Vision Cards Grid */}
               <div className="absolute top-48 left-52 grid grid-cols-2 gap-2 w-32">
-                <div className="w-14 h-10 bg-blue-900 rounded"></div>
-                <div className="w-14 h-10 bg-yellow-600 rounded"></div>
                 <div className="w-14 h-10 bg-gray-800 rounded"></div>
-                <div className="w-14 h-10 bg-gray-300 rounded"></div>
+                <div className="w-14 h-10 bg-beige rounded"></div>
+                <div className="w-14 h-10 bg-light-gray rounded"></div>
+                <div className="w-14 h-10 bg-gray-400 rounded"></div>
               </div>
 
               {/* Main Laptop Mockup */}
@@ -79,7 +79,7 @@ const Vision2: React.FC = () => {
                   <div className="w-full h-48 bg-gray-800 rounded-t-lg p-1">
                     <div className="w-full h-full bg-white rounded-t-lg overflow-hidden">
                       {/* Browser Chrome */}
-                      <div className="h-6 bg-gray-100 flex items-center px-3">
+                      <div className="h-6 bg-light-gray flex items-center px-3">
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                           <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
@@ -87,15 +87,15 @@ const Vision2: React.FC = () => {
                         </div>
                       </div>
                       {/* Content */}
-                      <div className="p-4 bg-gray-50 h-full">
-                        <div className="bg-orange-100 p-4 rounded text-center">
-                          <h4 className="font-bold text-gray-800 mb-2">Subscription licensing unlocks spike in IT orders</h4>
+                      <div className="p-4 bg-light-gray h-full">
+                        <div className="bg-beige p-4 rounded text-center">
+                          <h4 className="font-bold text-gray-800 mb-2">Vision-driven solutions unlock business potential</h4>
                           <div className="text-xs text-gray-600">
-                            <div className="mb-2">Overview</div>
+                            <div className="mb-2">Our Approach</div>
                             <div className="text-left space-y-1">
-                              <div>• Strong Trend Towards SaaS</div>
-                              <div>• Subscription Licensing</div>
-                              <div>• Spike in IT Orders</div>
+                              <div>• Innovation-First Mindset</div>
+                              <div>• User-Centric Design</div>
+                              <div>• Future-Ready Technology</div>
                             </div>
                           </div>
                         </div>
@@ -107,23 +107,23 @@ const Vision2: React.FC = () => {
                 </div>
               </div>
 
-              {/* Top Right Floating Card */}
-              <div className="absolute top-0 right-16 w-40 h-28 bg-white rounded-lg shadow-lg border border-gray-100 z-40">
+              {/* Top Right Vision Card */}
+              <div className="absolute top-0 right-16 w-40 h-28 bg-white rounded-lg shadow-lg border border-gray-200 z-40">
                 <div className="p-3">
-                  <div className="w-full h-12 bg-blue-400 rounded mb-2 flex items-center justify-center">
+                  <div className="w-full h-12 bg-gray-300 rounded mb-2 flex items-center justify-center">
                     <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                      <div className="w-4 h-4 bg-blue-400 rounded-full"></div>
+                      <div className="w-4 h-4 bg-gray-600 rounded-full"></div>
                     </div>
                   </div>
-                  <div className="text-xs font-semibold text-gray-800">Parallax IT Transformations</div>
-                  <div className="text-xs text-gray-500 mt-1">Case Study</div>
+                  <div className="text-xs font-semibold text-gray-800">Future Vision Platform</div>
+                  <div className="text-xs text-gray-500 mt-1">Innovation Hub</div>
                 </div>
               </div>
 
               {/* Background Decorative Elements */}
-              <div className="absolute top-20 right-20 w-32 h-32 bg-blue-50 rounded-full opacity-30 -z-10"></div>
-              <div className="absolute bottom-10 left-10 w-24 h-24 bg-orange-50 rounded-full opacity-40 -z-10"></div>
-              <div className="absolute top-60 left-60 w-16 h-16 bg-gray-100 rounded-full opacity-50 -z-10"></div>
+              <div className="absolute top-20 right-20 w-32 h-32 bg-light-gray rounded-full opacity-30 -z-10"></div>
+              <div className="absolute bottom-10 left-10 w-24 h-24 bg-beige rounded-full opacity-40 -z-10"></div>
+              <div className="absolute top-60 left-60 w-16 h-16 bg-gray-200 rounded-full opacity-50 -z-10"></div>
             </div>
           </div>
 
@@ -135,23 +135,23 @@ const Vision2: React.FC = () => {
             style={{ transitionDelay: '200ms' }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display">
-              <span className="text-blue-600 font-bold">09+</span> Technological
-              <span className="block font-bold mt-2 text-gray-900">
-                Case Study Layouts
+              <span className="text-gray-800 font-bold">Our</span> Vision for
+              <span className="block font-bold mt-2 text-gray-800">
+                Tomorrow's Solutions
               </span>
             </h2>
 
             <p className="text-lg text-gray-600 leading-relaxed font-sf-pro-text">
-              In general, analyses of famous case studies help your clients, 
-              partners, and visitors have a better understanding of what is 
-              going on in the market. Your helpful advice can also be 
-              beneficial for audiences, which keeps them coming back for 
-              more.
+              We envision a future where technology seamlessly integrates with 
+              human needs, creating solutions that are not just functional but 
+              transformative. Our vision drives us to build platforms that 
+              anticipate tomorrow's challenges while solving today's problems 
+              with elegance and innovation.
             </p>
 
             <div className="pt-4">
-              <button className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl font-sf-pro-text">
-                Find out more
+              <button className="inline-flex items-center px-8 py-4 bg-gray-800 text-white rounded-lg font-semibold text-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl font-sf-pro-text">
+                Explore Our Vision
               </button>
             </div>
           </div>
