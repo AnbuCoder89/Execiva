@@ -88,22 +88,22 @@ const Capabilities2: React.FC = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 transition-all duration-500 ease-in-out">
           {displayedCapabilities.map((capability, index) => (
             <a
               key={capability.title}
               href={capability.link}
-              className={`group relative h-96 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-cover bg-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative h-96 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-cover bg-center transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl hover:scale-[1.02] transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{
                 backgroundImage: `url('${capability.image}')`,
                 transitionDelay: `${index * 100}ms`,
               }}
             >
               {/* Top darkening overlay - only appears on hover */}
-              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />
               
               {/* Title positioned at top */}
-              <div className="relative z-10 p-6">
+              <div className="relative z-10 p-6 transition-all duration-500 ease-out group-hover:-translate-y-1">
                 <h3 className="text-xl md:text-2xl font-bold text-white leading-tight font-sf-pro-display drop-shadow-lg">
                   {capability.title}
                 </h3>
