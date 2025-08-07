@@ -135,9 +135,9 @@ const Vision2: React.FC = () => {
             style={{ transitionDelay: '200ms' }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display">
-              <span className="text-gray-800 font-bold">Our</span> Vision for
+              <span className="text-gray-800 font-bold">Our</span>
               <span className="block font-bold mt-2 text-gray-800">
-                Tomorrow's Solutions
+                Vision
               </span>
             </h2>
 
