@@ -247,7 +247,6 @@ const Testimonials: React.FC = () => {
 
                       {/* Position */}
                       <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>
-                        {card.position}
                       </p>
 
                       {/* Content */}
