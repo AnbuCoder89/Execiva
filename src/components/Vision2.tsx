@@ -28,7 +28,7 @@ const Vision2: React.FC = () => {
       className="relative w-full py-20 md:py-32 overflow-hidden bg-gray-50"
     >
       <div className="px-3">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
           
           {/* Left Column - Mockup Layout */}
           <div
