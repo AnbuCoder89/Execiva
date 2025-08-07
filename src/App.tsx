@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Vision from './components/Vision';
+import Vision2 from './components/Vision2';
 import Capabilities from './components/Capabilities';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
@@ -24,6 +25,7 @@ function App() {
         <Header />
         <Hero />
         <Vision />
+        <Vision2 />
         <Services />
         <Capabilities />
         <CaseStudies />
