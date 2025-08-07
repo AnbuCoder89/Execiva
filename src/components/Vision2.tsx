@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Vision2: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -150,8 +151,9 @@ const Vision2: React.FC = () => {
             </p>
 
             <div className="pt-4">
-              <button className="inline-flex items-center px-8 py-4 bg-gray-800 text-white rounded-lg font-semibold text-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl font-sf-pro-text">
+              <button className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
                 Explore Our Vision
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </div>
