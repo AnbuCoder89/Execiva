@@ -213,8 +213,7 @@ const Testimonials: React.FC = () => {
                     </h3>
 
                     {/* Position */}
-                    <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>
-                      {testimonial.position}
+                    <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>                      
                     </p>
 
                     {/* Content */}
