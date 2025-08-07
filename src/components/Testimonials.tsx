@@ -63,13 +63,29 @@ const Testimonials: React.FC = () => {
     }
   ];
 
-  const handleCardClick = (index: number) => {
-    setActiveIndex(index);
+  // Get the current visible testimonials (5 cards centered around activeIndex)
+  const getVisibleTestimonials = () => {
+    const visibleCards = [];
+    for (let i = -2; i <= 2; i++) {
+      const index = (activeIndex + i + testimonials.length) % testimonials.length;
+      visibleCards.push({
+        ...testimonials[index],
+        originalIndex: index,
+        position: i // -2, -1, 0, 1, 2 (where 0 is center)
+      });
+    }
+    return visibleCards;
+  };
+
+  const handleCardClick = (position: number) => {
+    // Calculate new active index based on clicked position
+    const newActiveIndex = (activeIndex + position + testimonials.length) % testimonials.length;
+    setActiveIndex(newActiveIndex);
   };
 
   const getCardStyles = (index: number) => {
-    const position = index - activeIndex;
-    const isActive = index === activeIndex;
+    const position = index - 2; // Center card is at index 2 in visible array
+    const isActive = position === 0;
     
     if (isActive) {
       // Center card - largest and fully focused
@@ -105,8 +121,8 @@ const Testimonials: React.FC = () => {
   };
 
   const getTextStyles = (index: number) => {
-    const isActive = index === activeIndex;
-    const position = Math.abs(index - activeIndex);
+    const position = Math.abs(index - 2); // Center card is at index 2
+    const isActive = position === 0;
     
     if (isActive) {
       return {
@@ -138,6 +154,7 @@ const Testimonials: React.FC = () => {
     }
   };
 
+  const visibleTestimonials = getVisibleTestimonials();
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-gray-50 overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
@@ -153,14 +170,14 @@ const Testimonials: React.FC = () => {
 
         {/* 5-Card Horizontal Carousel */}
         <div className="flex items-center justify-center gap-6 mb-12">
-          {testimonials.map((testimonial, index) => {
+          {visibleTestimonials.map((testimonial, index) => {
             const cardStyles = getCardStyles(index);
             const textStyles = getTextStyles(index);
-            const isActive = index === activeIndex;
+            const isActive = index === 2; // Center position
             
             return (
               <div
-                key={index}
+                key={`${testimonial.originalIndex}-${index}`}
                 className={`cursor-pointer transition-all duration-700 ease-out flex-shrink-0 ${
                   !isActive ? 'hover:opacity-80 hover:scale-105' : ''
                 }`}
@@ -168,7 +185,7 @@ const Testimonials: React.FC = () => {
                   ...cardStyles,
                   transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                 }}
-                onClick={() => handleCardClick(index)}
+                onClick={() => handleCardClick(testimonial.position)}
               >
                 <div className={`bg-white rounded-2xl p-6 shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between transition-all duration-700 ${
                   textStyles.padding
