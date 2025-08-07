@@ -97,7 +97,7 @@ const Capabilities2: React.FC = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6">
           {capabilities.map((capability, index) => (
             <div
               key={capability.title}
@@ -126,14 +126,14 @@ const Capabilities2: React.FC = () => {
               <div className="absolute bottom-4 left-4 right-4 z-10">
                 <div className="bg-white/60 backdrop-blur-md p-4 md:p-6 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/70 group-hover:backdrop-blur-lg">
                   <div className="mb-3">
-                    <span className="text-xs font-semibold text-gray-700 tracking-wider font-sf-pro-text">
+                    <span className="text-xs font-semibold text-gray-800 tracking-wider font-sf-pro-text">
                       ARTICLE • {capability.date}
                     </span>
                   </div>
                   <h3 className="text-base md:text-lg font-bold text-gray-900 leading-tight mb-2 font-sf-pro-display">
                     {capability.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-700 leading-relaxed font-sf-pro-text">
+                  <p className="text-xs md:text-sm text-gray-800 leading-relaxed font-sf-pro-text">
                     {capability.description}
                   </p>
                 </div>
