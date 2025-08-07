@@ -26,7 +26,7 @@ const CaseStudies: React.FC = () => {
 
   return (
     <section id="case-studies" className="py-20 md:py-32 px-3" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto">
         <div className={`grid lg:grid-cols-2 gap-20 lg:gap-32 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* Left side - Visual Elements */}
