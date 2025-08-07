@@ -4,6 +4,7 @@ import { Star } from 'lucide-react';
 const Testimonials: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(2); // Start with center card (index 2)
+  const [isAnimating, setIsAnimating] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,31 +61,58 @@ const Testimonials: React.FC = () => {
       image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150",
       content: "The team's creativity and technical expertise delivered beyond our expectations. Our digital transformation was seamless and impactful.",
       rating: 5
+    },
+    {
+      name: "James Wilson",
+      position: "Founder, StartupHub",
+      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Outstanding results that transformed our entire business model. The team's expertise and dedication are truly remarkable.",
+      rating: 5
+    },
+    {
+      name: "Maria Garcia",
+      position: "Head of Digital, RetailCorp",
+      image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Incredible attention to detail and innovative solutions. They exceeded every expectation and delivered exceptional results.",
+      rating: 5
+    },
+    {
+      name: "Robert Kim",
+      position: "CTO, DataFlow",
+      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Professional, innovative, and results-driven. The perfect partner for digital transformation and growth.",
+      rating: 5
+    },
+    {
+      name: "Amanda Foster",
+      position: "CEO, InnovateLab",
+      image: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Exceptional service and outstanding results. They brought our vision to life with precision and creativity.",
+      rating: 5
     }
   ];
 
-  // Get the current visible testimonials (5 cards centered around activeIndex)
-  const getVisibleTestimonials = () => {
-    const visibleCards = [];
-    for (let i = -2; i <= 2; i++) {
-      const index = (activeIndex + i + testimonials.length) % testimonials.length;
-      visibleCards.push({
-        ...testimonials[index],
-        originalIndex: index,
-        position: i // -2, -1, 0, 1, 2 (where 0 is center)
-      });
-    }
-    return visibleCards;
-  };
+  // Create extended array for smooth infinite scrolling
+  const extendedTestimonials = [
+    ...testimonials.slice(-2), // Last 2 items at the beginning
+    ...testimonials,
+    ...testimonials.slice(0, 2) // First 2 items at the end
+  ];
 
-  const handleCardClick = (position: number) => {
-    // Calculate new active index based on clicked position
-    const newActiveIndex = (activeIndex + position + testimonials.length) % testimonials.length;
-    setActiveIndex(newActiveIndex);
+  const handleCardClick = (clickedIndex: number) => {
+    if (isAnimating) return; // Prevent clicks during animation
+    
+    setIsAnimating(true);
+    setActiveIndex(clickedIndex);
+    
+    // Reset animation flag after transition completes
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 700);
   };
 
   const getCardStyles = (index: number) => {
-    const position = index - 2; // Center card is at index 2 in visible array
+    const position = index - activeIndex;
     const isActive = position === 0;
     
     if (isActive) {
@@ -121,7 +149,7 @@ const Testimonials: React.FC = () => {
   };
 
   const getTextStyles = (index: number) => {
-    const position = Math.abs(index - 2); // Center card is at index 2
+    const position = Math.abs(index - activeIndex);
     const isActive = position === 0;
     
     if (isActive) {
@@ -154,7 +182,14 @@ const Testimonials: React.FC = () => {
     }
   };
 
-  const visibleTestimonials = getVisibleTestimonials();
+  // Calculate the transform offset for smooth sliding
+  const getContainerTransform = () => {
+    const cardWidth = 350; // Base card width
+    const gap = 24; // Gap between cards (gap-6 = 24px)
+    const offset = (activeIndex - 2) * (cardWidth + gap);
+    return `translateX(-${offset}px)`;
+  };
+
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-gray-50 overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
@@ -168,74 +203,88 @@ const Testimonials: React.FC = () => {
           </h2>
         </div>
 
-        {/* 5-Card Horizontal Carousel */}
-        <div className="flex items-center justify-center gap-6 mb-12">
-          {visibleTestimonials.map((testimonial, index) => {
-            const cardStyles = getCardStyles(index);
-            const textStyles = getTextStyles(index);
-            const isActive = index === 2; // Center position
-            
-            return (
-              <div
-                key={`${testimonial.originalIndex}-${index}`}
-                className={`cursor-pointer transition-all duration-700 ease-out flex-shrink-0 ${
-                  !isActive ? 'hover:opacity-80 hover:scale-105' : ''
-                }`}
-                style={{
-                  ...cardStyles,
-                  transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                }}
-                onClick={() => handleCardClick(testimonial.position)}
-              >
-                <div className={`bg-white rounded-2xl p-6 shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between transition-all duration-700 ${
-                  textStyles.padding
-                } ${
-                  isActive 
-                    ? 'shadow-2xl border-gray-200' 
-                    : 'hover:shadow-xl'
-                }`}>
-                  {/* Profile Image */}
-                  <div className="flex justify-center mb-3">
-                    <div className={`${textStyles.imageSize} rounded-full overflow-hidden bg-gray-100 transition-all duration-300`}>
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
+        {/* 5-Card Horizontal Carousel with Sliding Animation */}
+        <div className="flex justify-center items-center mb-12">
+          <div className="relative w-full max-w-6xl overflow-hidden">
+            <div 
+              className="flex items-center justify-center gap-6 transition-transform duration-700 ease-in-out"
+              style={{ 
+                transform: getContainerTransform(),
+                width: `${extendedTestimonials.length * (350 + 24)}px` // Dynamic width based on cards
+              }}
+            >
+              {extendedTestimonials.map((testimonial, index) => {
+                const cardStyles = getCardStyles(index);
+                const textStyles = getTextStyles(index);
+                const isActive = index === activeIndex;
+                const isVisible = Math.abs(index - activeIndex) <= 2; // Only show 5 cards around active
+                
+                if (!isVisible) return null;
+                
+                return (
+                  <div
+                    key={`${testimonial.name}-${index}`}
+                    className={`cursor-pointer transition-all duration-700 ease-out flex-shrink-0 ${
+                      !isActive ? 'hover:opacity-80 hover:scale-105' : ''
+                    }`}
+                    style={{
+                      ...cardStyles,
+                      transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    }}
+                    onClick={() => handleCardClick(index)}
+                  >
+                    <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between transition-all duration-700 ${
+                      textStyles.padding
+                    } ${
+                      isActive 
+                        ? 'shadow-2xl border-gray-200' 
+                        : 'hover:shadow-xl'
+                    }`}>
+                      {/* Profile Image */}
+                      <div className="flex justify-center mb-3">
+                        <div className={`${textStyles.imageSize} rounded-full overflow-hidden bg-gray-100 transition-all duration-300`}>
+                          <img
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 flex flex-col justify-center">
+                        {/* Name */}
+                        <h3 className={`text-center font-semibold text-gray-900 mb-2 font-sf-pro-display transition-all duration-300 ${textStyles.nameSize}`}>
+                          {testimonial.name}
+                        </h3>
+
+                        {/* Position */}
+                        <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>
+                          {testimonial.position}
+                        </p>
+
+                        {/* Content */}
+                        <p className={`text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center transition-all duration-300 ${textStyles.contentSize}`}>
+                          {isActive ? testimonial.content : testimonial.content.substring(0, 80) + '...'}
+                        </p>
+                      </div>
+
+                      {/* Rating */}
+                      <div className="flex justify-center space-x-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star 
+                            key={i} 
+                            size={textStyles.starSize} 
+                            className="text-blue-500 fill-current transition-all duration-300" 
+                          />
+                        ))}
+                      </div>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col justify-center">
-                    {/* Name */}
-                    <h3 className={`text-center font-semibold text-gray-900 mb-2 font-sf-pro-display transition-all duration-300 ${textStyles.nameSize}`}>
-                      {testimonial.name}
-                    </h3>
-
-                    {/* Position */}
-                    <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>                      
-                    </p>
-
-                    {/* Content */}
-                    <p className={`text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center transition-all duration-300 ${textStyles.contentSize}`}>
-                      {isActive ? testimonial.content : testimonial.content.substring(0, 80) + '...'}
-                    </p>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex justify-center space-x-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={textStyles.starSize} 
-                        className="text-blue-500 fill-current transition-all duration-300" 
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Carousel Indicators */}
@@ -243,9 +292,9 @@ const Testimonials: React.FC = () => {
           {testimonials.map((_, index) => (
             <button
               key={index}
-              onClick={() => handleCardClick(index)}
+              onClick={() => handleCardClick(index + 2)} // Offset by 2 for extended array
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === activeIndex 
+                (activeIndex - 2) === index 
                   ? 'bg-gray-800 scale-125 shadow-lg' 
                   : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
               }`}
