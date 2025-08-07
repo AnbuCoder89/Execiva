@@ -3,7 +3,7 @@ import { Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(2); // Start with center card active
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,14 +25,15 @@ const Testimonials: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-slide effect
+  // Auto-slide effect (optional - can be removed if you want manual only)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % Math.ceil(testimonials.length / 3));
-    }, 4000); // Change slide every 4 seconds
+      setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, []);
+
   const testimonials = [
     {
       name: "Sarah Chen",
@@ -68,41 +69,64 @@ const Testimonials: React.FC = () => {
       image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150",
       content: "The team's creativity and technical expertise delivered beyond our expectations. Our digital transformation was seamless and impactful.",
       rating: 5
-    },
-    {
-      name: "James Wilson",
-      position: "CEO, StartupHub",
-      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "From ideation to execution, they were our perfect partners. The solution they built has become the backbone of our business.",
-      rating: 5
-    },
-    {
-      name: "Maria Garcia",
-      position: "CTO, DataFlow",
-      image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "Outstanding technical skills combined with excellent communication. They turned our complex requirements into elegant solutions.",
-      rating: 5
-    },
-    {
-      name: "Robert Kim",
-      position: "Founder, EcoSolutions",
-      image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "Their innovative approach and attention to detail helped us achieve our sustainability goals through smart technology integration.",
-      rating: 5
-    },
-    {
-      name: "Amanda Foster",
-      position: "VP Operations, RetailMax",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "The platform they developed transformed our operations completely. Efficiency increased by 300% within the first quarter.",
-      rating: 5
     }
   ];
 
-  const totalSlides = Math.ceil(testimonials.length / 3);
+  const handleCardClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  const getCardStyle = (index: number) => {
+    const position = index - activeIndex;
+    const isActive = index === activeIndex;
+    
+    // Base styles for all cards
+    let transform = '';
+    let scale = 1;
+    let opacity = 1;
+    let zIndex = 1;
+    let blur = 0;
+
+    if (isActive) {
+      // Center card (active)
+      scale = 1;
+      opacity = 1;
+      zIndex = 10;
+      blur = 0;
+    } else if (Math.abs(position) === 1) {
+      // Adjacent cards (left and right)
+      scale = 0.85;
+      opacity = 0.7;
+      zIndex = 5;
+      blur = 1;
+      transform = `translateX(${position * 20}px) rotateY(${position * -15}deg)`;
+    } else if (Math.abs(position) === 2) {
+      // Outer cards
+      scale = 0.7;
+      opacity = 0.5;
+      zIndex = 2;
+      blur = 2;
+      transform = `translateX(${position * 40}px) rotateY(${position * -25}deg)`;
+    } else {
+      // Hidden cards
+      scale = 0.6;
+      opacity = 0.3;
+      zIndex = 1;
+      blur = 3;
+      transform = `translateX(${position * 60}px) rotateY(${position * -35}deg)`;
+    }
+
+    return {
+      transform: `${transform} scale(${scale})`,
+      opacity,
+      zIndex,
+      filter: `blur(${blur}px)`,
+      transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+    };
+  };
 
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-gray-50" ref={sectionRef}>
+    <section id="testimonials" className="py-20 md:py-32 bg-gray-50 overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
@@ -114,59 +138,67 @@ const Testimonials: React.FC = () => {
           </h2>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative overflow-hidden">
-          <div 
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-              <div key={slideIndex} className="w-full flex-shrink-0">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {testimonials.slice(slideIndex * 3, slideIndex * 3 + 3).map((testimonial, index) => (
-                    <div 
-                      key={`${slideIndex}-${index}`}
-                      className={`bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100 w-full h-full flex flex-col justify-center transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                      style={{ transitionDelay: `${index * 100}ms` }}
-                    >
-                      {/* Profile Image */}
-                      <div className="flex justify-center mb-4">
-                        <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-100">
-                          <img
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Name */}
-                      <h3 className="text-center font-semibold text-gray-900 mb-1 font-sf-pro-display">
-                        {testimonial.name}
-                      </h3>
-
-                      {/* Position */}
-                      <p className="text-center text-sm text-gray-600 mb-4 font-sf-pro-text">
-                        {testimonial.position}
-                      </p>
-
-                      {/* Content */}
-                      <p className="text-sm text-gray-700 leading-relaxed mb-4 font-sf-pro-text text-center">
-                        {testimonial.content}
-                      </p>
-
-                      {/* Rating */}
-                      <div className="flex justify-center space-x-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star 
-                            key={i} 
-                            size={16} 
-                            className="text-blue-500 fill-current" 
-                          />
-                        ))}
-                      </div>
+        {/* 3D Carousel Container */}
+        <div className="relative h-96 flex items-center justify-center perspective-1000">
+          <div className="relative w-full max-w-6xl h-full flex items-center justify-center">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={`absolute w-80 h-80 cursor-pointer transform-gpu ${
+                  index === activeIndex ? 'cursor-default' : 'cursor-pointer hover:scale-105'
+                }`}
+                style={getCardStyle(index)}
+                onClick={() => handleCardClick(index)}
+              >
+                <div className={`bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-gray-100 w-full h-full flex flex-col justify-center transition-all duration-300 ${
+                  index === activeIndex 
+                    ? 'shadow-2xl border-gray-200' 
+                    : 'hover:shadow-xl'
+                }`}>
+                  {/* Profile Image */}
+                  <div className="flex justify-center mb-4">
+                    <div className={`rounded-full overflow-hidden bg-gray-100 transition-all duration-300 ${
+                      index === activeIndex ? 'w-20 h-20' : 'w-16 h-16'
+                    }`}>
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Name */}
+                  <h3 className={`text-center font-semibold text-gray-900 mb-1 font-sf-pro-display transition-all duration-300 ${
+                    index === activeIndex ? 'text-xl' : 'text-lg'
+                  }`}>
+                    {testimonial.name}
+                  </h3>
+
+                  {/* Position */}
+                  <p className={`text-center text-gray-600 mb-4 font-sf-pro-text transition-all duration-300 ${
+                    index === activeIndex ? 'text-base' : 'text-sm'
+                  }`}>
+                    {testimonial.position}
+                  </p>
+
+                  {/* Content */}
+                  <p className={`text-gray-700 leading-relaxed mb-4 font-sf-pro-text text-center transition-all duration-300 ${
+                    index === activeIndex ? 'text-base' : 'text-sm'
+                  }`}>
+                    {testimonial.content}
+                  </p>
+
+                  {/* Rating */}
+                  <div className="flex justify-center space-x-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        size={index === activeIndex ? 18 : 16} 
+                        className="text-blue-500 fill-current transition-all duration-300" 
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -174,17 +206,17 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Carousel Indicators */}
-        <div className="flex justify-center mt-8 space-x-2">
-          {Array.from({ length: totalSlides }).map((_, index) => (
+        <div className="flex justify-center mt-12 space-x-3">
+          {testimonials.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => handleCardClick(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-gray-800 scale-110' 
-                  : 'bg-gray-300 hover:bg-gray-400'
+                index === activeIndex 
+                  ? 'bg-gray-800 scale-125 shadow-lg' 
+                  : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
               }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
         </div>
