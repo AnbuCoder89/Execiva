@@ -142,11 +142,9 @@ const Vision2: React.FC = () => {
             </h2>
 
             <p className="text-lg text-gray-600 leading-relaxed font-sf-pro-text">
-              We envision a future where technology seamlessly integrates with 
-              human needs, creating solutions that are not just functional but 
-              transformative. Our vision drives us to build platforms that 
-              anticipate tomorrow's challenges while solving today's problems 
-              with elegance and innovation.
+              We envision a world where technology seamlessly integrates with
+              human ambition, creating solutions that don't just meet today's
+              needs but anticipate tomorrow's possibilities.
             </p>
 
             <div className="pt-4">
