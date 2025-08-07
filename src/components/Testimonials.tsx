@@ -25,15 +25,6 @@ const Testimonials: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-slide effect (optional - can be removed if you want manual only)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
   const testimonials = [
     {
       name: "Sarah Chen",
@@ -76,53 +67,41 @@ const Testimonials: React.FC = () => {
     setActiveIndex(index);
   };
 
-  const getCardStyle = (index: number) => {
+  const getCardStyles = (index: number) => {
     const position = index - activeIndex;
     const isActive = index === activeIndex;
     
-    // Base styles for all cards
-    let transform = '';
-    let scale = 1;
-    let opacity = 1;
-    let zIndex = 1;
-    let blur = 0;
-
     if (isActive) {
-      // Center card (active)
-      scale = 1;
-      opacity = 1;
-      zIndex = 10;
-      blur = 0;
+      // Center card - largest and fully focused
+      return {
+        width: '320px',
+        height: '400px',
+        opacity: 1,
+        filter: 'blur(0px)',
+        transform: 'scale(1)',
+        zIndex: 10,
+      };
     } else if (Math.abs(position) === 1) {
-      // Adjacent cards (left and right)
-      scale = 0.85;
-      opacity = 0.7;
-      zIndex = 5;
-      blur = 1;
-      transform = `translateX(${position * 20}px) rotateY(${position * -15}deg)`;
-    } else if (Math.abs(position) === 2) {
-      // Outer cards
-      scale = 0.7;
-      opacity = 0.5;
-      zIndex = 2;
-      blur = 2;
-      transform = `translateX(${position * 40}px) rotateY(${position * -25}deg)`;
+      // Adjacent cards (left and right of center)
+      return {
+        width: '280px',
+        height: '350px',
+        opacity: 0.7,
+        filter: 'blur(1px)',
+        transform: 'scale(0.9)',
+        zIndex: 5,
+      };
     } else {
-      // Hidden cards
-      scale = 0.6;
-      opacity = 0.3;
-      zIndex = 1;
-      blur = 3;
-      transform = `translateX(${position * 60}px) rotateY(${position * -35}deg)`;
+      // Outer cards (far left and far right)
+      return {
+        width: '240px',
+        height: '300px',
+        opacity: 0.5,
+        filter: 'blur(2px)',
+        transform: 'scale(0.8)',
+        zIndex: 2,
+      };
     }
-
-    return {
-      transform: `${transform} scale(${scale})`,
-      opacity,
-      zIndex,
-      filter: `blur(${blur}px)`,
-      transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-    };
   };
 
   return (
@@ -138,27 +117,33 @@ const Testimonials: React.FC = () => {
           </h2>
         </div>
 
-        {/* 3D Carousel Container */}
-        <div className="relative h-96 flex items-center justify-center perspective-1000">
-          <div className="relative w-full max-w-6xl h-full flex items-center justify-center">
-            {testimonials.map((testimonial, index) => (
+        {/* 5-Card Horizontal Carousel */}
+        <div className="flex items-center justify-center gap-6 mb-12">
+          {testimonials.map((testimonial, index) => {
+            const cardStyles = getCardStyles(index);
+            const isActive = index === activeIndex;
+            
+            return (
               <div
                 key={index}
-                className={`absolute w-80 h-80 cursor-pointer transform-gpu ${
-                  index === activeIndex ? 'cursor-default' : 'cursor-pointer hover:scale-105'
+                className={`cursor-pointer transition-all duration-700 ease-out flex-shrink-0 ${
+                  !isActive ? 'hover:opacity-80 hover:scale-105' : ''
                 }`}
-                style={getCardStyle(index)}
+                style={{
+                  ...cardStyles,
+                  transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                }}
                 onClick={() => handleCardClick(index)}
               >
-                <div className={`bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-gray-100 w-full h-full flex flex-col justify-center transition-all duration-300 ${
-                  index === activeIndex 
+                <div className={`bg-white rounded-2xl p-6 shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between transition-all duration-700 ${
+                  isActive 
                     ? 'shadow-2xl border-gray-200' 
                     : 'hover:shadow-xl'
                 }`}>
                   {/* Profile Image */}
                   <div className="flex justify-center mb-4">
                     <div className={`rounded-full overflow-hidden bg-gray-100 transition-all duration-300 ${
-                      index === activeIndex ? 'w-20 h-20' : 'w-16 h-16'
+                      isActive ? 'w-20 h-20' : 'w-16 h-16'
                     }`}>
                       <img
                         src={testimonial.image}
@@ -168,45 +153,48 @@ const Testimonials: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Name */}
-                  <h3 className={`text-center font-semibold text-gray-900 mb-1 font-sf-pro-display transition-all duration-300 ${
-                    index === activeIndex ? 'text-xl' : 'text-lg'
-                  }`}>
-                    {testimonial.name}
-                  </h3>
-
-                  {/* Position */}
-                  <p className={`text-center text-gray-600 mb-4 font-sf-pro-text transition-all duration-300 ${
-                    index === activeIndex ? 'text-base' : 'text-sm'
-                  }`}>
-                    {testimonial.position}
-                  </p>
-
                   {/* Content */}
-                  <p className={`text-gray-700 leading-relaxed mb-4 font-sf-pro-text text-center transition-all duration-300 ${
-                    index === activeIndex ? 'text-base' : 'text-sm'
-                  }`}>
-                    {testimonial.content}
-                  </p>
+                  <div className="flex-1 flex flex-col justify-center">
+                    {/* Name */}
+                    <h3 className={`text-center font-semibold text-gray-900 mb-2 font-sf-pro-display transition-all duration-300 ${
+                      isActive ? 'text-xl' : 'text-lg'
+                    }`}>
+                      {testimonial.name}
+                    </h3>
+
+                    {/* Position */}
+                    <p className={`text-center text-gray-600 mb-4 font-sf-pro-text transition-all duration-300 ${
+                      isActive ? 'text-base' : 'text-sm'
+                    }`}>
+                      {testimonial.position}
+                    </p>
+
+                    {/* Content */}
+                    <p className={`text-gray-700 leading-relaxed mb-4 font-sf-pro-text text-center transition-all duration-300 ${
+                      isActive ? 'text-base' : 'text-sm'
+                    }`}>
+                      {testimonial.content}
+                    </p>
+                  </div>
 
                   {/* Rating */}
                   <div className="flex justify-center space-x-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star 
                         key={i} 
-                        size={index === activeIndex ? 18 : 16} 
+                        size={isActive ? 18 : 16} 
                         className="text-blue-500 fill-current transition-all duration-300" 
                       />
                     ))}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
         {/* Carousel Indicators */}
-        <div className="flex justify-center mt-12 space-x-3">
+        <div className="flex justify-center space-x-3">
           {testimonials.map((_, index) => (
             <button
               key={index}
