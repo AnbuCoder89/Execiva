@@ -16,7 +16,7 @@ const Vision: React.FC = () => {
           <img
             src="/assets/images/mitech-landing-case-study-preview.jpg"
             alt="Mission and Vision"
-            className="w-full h-auto object-contain"
+            className="w-full h-auto object-contain p-4 sm:p-6 md:p-8 lg:p-12"
           />
         </div>
         <div className="w-full lg:w-1/2 flex items-center justify-center">
