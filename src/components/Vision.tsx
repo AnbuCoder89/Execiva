@@ -10,8 +10,8 @@ const Vision: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center h-full">
           <div className="w-full h-64 sm:h-80 md:h-96 lg:h-full flex items-center justify-center overflow-hidden rounded-lg">
             <img
-              src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600"
-              alt="Vision"
+              src="/assets/images/project-mission-vission-illustration_593183-510.webp"
+              alt="Mission and Vision"
               className="w-full h-full object-cover"
             />
           </div>
