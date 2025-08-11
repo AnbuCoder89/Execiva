@@ -4,17 +4,19 @@ const Vision: React.FC = () => {
   return (
     <section
       id="vision"
-      className="w-full h-screen flex items-center px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 bg-white"
+      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-white py-8 md:py-12 lg:py-16"
     >
-      <div className="w-full flex flex-col lg:flex-row gap-8 md:gap-12 items-center h-full">
-        <div className="w-full lg:w-1/2 h-64 sm:h-80 md:h-96 lg:h-full flex items-center justify-center overflow-hidden rounded-lg">
+      <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center justify-center">
+        <div className="w-full lg:w-1/2 flex items-center justify-center">
           <img
-            src="/assets/images/ideas-progress-vision-inspiration-design-concept_53876-123704.jpg" 
+            src="/assets/images/project-mission-vission-illustration_593183-510.webp"
             alt="Mission and Vision"
-            className="w-full h-full object-contain rounded-2xl shadow-2xl"
+            className="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain rounded-2xl shadow-2xl"
           />
         </div>
-        <div className="w-full lg:w-1/2"></div>
+        <div className="w-full lg:w-1/2 flex items-center justify-center">
+          {/* Content can be added here */}
+        </div>
       </div>
     </section>
   );
