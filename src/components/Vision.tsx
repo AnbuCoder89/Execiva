@@ -5,13 +5,13 @@ const Vision: React.FC = () => {
   return (
     <section
       id="vision"
-      className="w-full min-h-screen flex items-center justify-center bg-white"
+      className="w-full min-h-screen flex items-center justify-center bg-white px-0"
       style={{
         paddingTop: 'var(--vision-padding-top, 0)',
         paddingBottom: 'var(--vision-padding-bottom, 0)'
       }}
     >
-      <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center justify-center">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center">
         <div className="w-full lg:w-1/2 flex items-center justify-center">
           <img
             src="/assets/images/mitech-landing-case-study-preview.jpg"
@@ -20,7 +20,7 @@ const Vision: React.FC = () => {
           />
         </div>
         <div className="w-full lg:w-1/2 flex items-center justify-center">
-          <div className="max-w-lg text-center lg:text-left">
+          <div className="max-w-lg text-center lg:text-left px-4">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
               Our <span className="font-bold">Vision</span>
             </h2>
