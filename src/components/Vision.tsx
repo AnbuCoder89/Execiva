@@ -26,9 +26,12 @@ const Vision: React.FC = () => {
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8">
               We envision a future where technology seamlessly integrates with human creativity to solve complex challenges and create extraordinary experiences that transform industries and improve lives.
             </p>
-            <p className="text-base md:text-lg text-gray-500 leading-relaxed font-sf-pro-text">
-              Through innovation, collaboration, and unwavering commitment to excellence, we strive to be the catalyst that empowers businesses to achieve their boldest ambitions and shape tomorrow's digital landscape.
-            </p>
+            <div className="pt-4">
+              <button className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
+                Learn More
+                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
