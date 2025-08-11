@@ -34,7 +34,24 @@ const Vision: React.FC = () => {
     >
       <div className="w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Content */}
+          {/* Left side - Image */}
+          <div
+            className={`transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
+            <div className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-3xl shadow-2xl">
+              <img
+                src="/assets/images/web-development.avif"
+                alt="Our Vision"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+          </div>
+
+          {/* Right side - Content */}
           <div
             className={`transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
@@ -59,23 +76,6 @@ const Vision: React.FC = () => {
               Learn more
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </button>
-          </div>
-
-          {/* Right side - Image */}
-          <div
-            className={`transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-            }`}
-            style={{ transitionDelay: '200ms' }}
-          >
-            <div className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-3xl shadow-2xl">
-              <img
-                src="/assets/images/web-development.avif"
-                alt="Our Vision"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
           </div>
         </div>
       </div>
