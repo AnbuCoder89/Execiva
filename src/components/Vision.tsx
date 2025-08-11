@@ -30,9 +30,9 @@ const Vision: React.FC = () => {
     <section
       id="vision"
       ref={sectionRef}
-      className="relative w-full py-20 md:py-32 overflow-hidden px-3"
+      className="w-full h-screen flex items-center px-32 lg:px-40"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
           <div
