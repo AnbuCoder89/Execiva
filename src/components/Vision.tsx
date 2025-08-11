@@ -4,7 +4,11 @@ const Vision: React.FC = () => {
   return (
     <section
       id="vision"
-      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-white py-8 md:py-12 lg:py-16"
+      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-white"
+      style={{
+        paddingTop: 'var(--vision-padding-top, 0)',
+        paddingBottom: 'var(--vision-padding-bottom, 0)'
+      }}
     >
       <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center justify-center">
         <div className="w-full lg:w-1/2 flex items-center justify-center">
