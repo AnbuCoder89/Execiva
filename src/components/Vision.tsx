@@ -11,14 +11,15 @@ const Vision: React.FC = () => {
         paddingBottom: 'var(--vision-padding-bottom, 0)'
       }}
     >
-      <div className="w-full flex flex-col lg:flex-row items-center justify-center">
-        <div className="w-full lg:w-1/2 flex items-center justify-center gap-8">
-          <img
-            src="/assets/images/mitech-landing-case-study-preview.jpg"
-            alt="Mission and Vision"
-            className="w-full h-auto object-contain"
-          />
-        </div>
+<div className="w-full flex flex-col lg:flex-row items-center justify-center">
+  {/* Image Column */}
+  <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <img
+      src="/assets/images/mitech-landing-case-study-preview.jpg"
+      alt="Mission and Vision"
+      className="max-w-full lg:max-w-md xl:max-w-lg h-auto object-contain"
+    />
+  </div>
         <div className="w-full lg:w-1/2 flex items-center justify-center">
           <div className="max-w-lg text-center lg:text-left px-4">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
