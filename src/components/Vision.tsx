@@ -12,7 +12,7 @@ const Vision: React.FC = () => {
       }}
     >
       <div className="w-full flex flex-col lg:flex-row items-center justify-center">
-        <div className="w-full lg:w-1/2 flex items-center justify-center">
+        <div className="w-full lg:w-1/2 flex items-center justify-center gap-8">
           <img
             src="/assets/images/mitech-landing-case-study-preview.jpg"
             alt="Mission and Vision"
