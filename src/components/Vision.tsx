@@ -14,7 +14,7 @@ const Vision: React.FC = () => {
       <div className="w-full max-w-7xl flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center justify-center">
         <div className="w-full lg:w-1/2 flex items-center justify-center">
           <img
-            src="/assets/images/project-mission-vission-illustration_593183-510.webp"
+            src="/assets/images/mitech-landing-case-study-preview.jpg"
             alt="Mission and Vision"
             className="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain"
           />
