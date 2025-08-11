@@ -5,7 +5,7 @@ const Vision: React.FC = () => {
   return (
     <section
       id="vision"
-      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-white"
+      className="w-full min-h-screen flex items-center justify-center bg-white"
       style={{
         paddingTop: 'var(--vision-padding-top, 0)',
         paddingBottom: 'var(--vision-padding-bottom, 0)'
