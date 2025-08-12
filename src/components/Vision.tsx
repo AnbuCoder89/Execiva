@@ -22,7 +22,7 @@ const Vision: React.FC = () => {
       className="w-[85%] h-auto object-contain"
     />
   </div>
-        <div className="w-full lg:w-1/2 flex items-center justify-start">
+        <div className="w-full lg:w-1/2 flex items-center justify-center">
           <div className="max-w-lg text-center lg:text-left px-4">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
                <span className="font-bold">Our Vision</span>
