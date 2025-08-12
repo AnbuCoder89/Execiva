@@ -25,15 +25,15 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       <span className="flex items-center gap-3">
         <span className="relative z-10">{children}</span>
         
-        {/* Arrow container with fixed width and overflow hidden to prevent layout shift */}
-        <span className="relative inline-block w-4 h-4 overflow-hidden">
-          {/* Default arrow - slides right and fades out on hover */}
-          <span className="absolute inset-0 transition-all duration-300 ease-out group-hover:translate-x-3 group-hover:opacity-0">
+        {/* Arrow container with fixed width to prevent layout shift */}
+        <span className="relative inline-block w-4 h-4">
+          {/* Default arrow */}
+          <span className="absolute inset-0 transition-all duration-300 ease-out group-hover:translate-x-2 group-hover:opacity-0">
             →
           </span>
           
-          {/* Hover arrow - starts from left and slides into position */}
-          <span className="absolute inset-0 transition-all duration-300 ease-in -translate-x-3 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+          {/* Hover arrow that slides in from left */}
+          <span className="absolute inset-0 transition-all duration-300 ease-in -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
             →
           </span>
         </span>
