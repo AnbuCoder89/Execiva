@@ -28,7 +28,7 @@ const Vision: React.FC = () => {
                <span className="font-bold">Our Vision</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 text-justify">
-              To be the go-to innovation partner for businesses navigating change—solving complex problems and turning challenges into opportunities by harnessing the transformative power of AI, empowering organizations to adapt, innovate, and thrive in an ever-evolving world.
+              To be the go-to innovation partner for businesses navigating change solving complex problems and turning challenges into opportunities by harnessing the transformative power of AI, empowering organizations to adapt, innovate, and thrive in an ever-evolving world.
             </p>
             <div className="pt-4">
               <Button
