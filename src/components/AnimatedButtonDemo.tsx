@@ -55,10 +55,11 @@ const AnimatedButtonDemo: React.FC = () => {
           <h3 className="text-lg font-semibold text-gray-900 mb-3">Animation Details</h3>
           <ul className="text-left text-gray-600 space-y-2">
             <li>• Default state shows "Learn More →" with arrow positioned next to text</li>
-            <li>• On hover, current arrow slides right and fades out (ease-out)</li>
-            <li>• New arrow slides in from left simultaneously (ease-in)</li>
+            <li>• On hover, current arrow slides right and fades out (ease-out, 300ms)</li>
+            <li>• New arrow slides in from left simultaneously (ease-in, 300ms)</li>
+            <li>• Both arrows overlap in timing for seamless transition</li>
             <li>• 300ms smooth transition with no layout shift</li>
-            <li>• Uses absolute positioning to keep text perfectly still</li>
+            <li>• Uses absolute positioning + overflow-hidden to prevent layout shift</li>
             <li>• Fully responsive with Tailwind CSS classes</li>
           </ul>
         </div>
