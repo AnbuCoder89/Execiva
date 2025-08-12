@@ -26,7 +26,7 @@ const Vision: React.FC = () => {
                <span className="font-bold">Our Vision</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8">
-              We envision a future where technology seamlessly integrates with human creativity to solve complex challenges and create extraordinary experiences that transform industries and improve lives.
+              To be the go-to innovation partner for businesses navigating change—solving complex problems and turning challenges into opportunities by harnessing the transformative power of AI, empowering organizations to adapt, innovate, and thrive in an ever-evolving world.
             </p>
             <div className="pt-4">
               <button className="px-8 py-4 text-gray-900 border-2 rounded-full transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105" style={{ backgroundColor: '#f4f3ee', borderColor: '#f4f3ee' }}>
