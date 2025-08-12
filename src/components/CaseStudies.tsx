@@ -40,7 +40,7 @@ const CaseStudies: React.FC = () => {
         {/* Image Column */}
         <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-10">
           <img
-            src="/assets/images/data_analytics/data-dashboard-2.jpeg"
+            src="/assets/images/case-studies/case-1.jpeg"
             alt="Case Studies"
             className="w-[85%] h-auto object-contain"
           />
