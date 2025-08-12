@@ -13,6 +13,7 @@ import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AnimatedButtonDemo from './components/AnimatedButtonDemo';
 
 function App() {
   useEffect(() => {
@@ -32,6 +33,7 @@ function App() {
         <Testimonials />
         <Contact />
         <Footer />
+        <AnimatedButtonDemo />
       </div>
     </ParallaxProvider>
   );
