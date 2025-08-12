@@ -29,7 +29,7 @@ const Vision: React.FC = () => {
               We envision a future where technology seamlessly integrates with human creativity to solve complex challenges and create extraordinary experiences that transform industries and improve lives.
             </p>
             <div className="pt-4">
-              <button className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
+              <button className="px-8 py-4 text-gray-900 border-2 rounded-full transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105" style={{ backgroundColor: '#f4f3ee', borderColor: '#f4f3ee' }}>
                 Learn More
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
