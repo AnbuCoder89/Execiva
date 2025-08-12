@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from "lucide-react";
+import Button from "./ui/Button";
 
 
 const CaseStudies: React.FC = () => {
@@ -26,54 +27,41 @@ const CaseStudies: React.FC = () => {
   }, []);
 
   return (
-    <section id="case-studies" className="py-20 md:py-32 px-3" ref={sectionRef}>
-      <div className="mx-auto">
-        <div className={`grid lg:grid-cols-2 gap-20 lg:gap-32 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          
-          {/* Left side - Visual Elements */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <div className="relative">
-              {/* Main showcase image */}
-              <div className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-lg">
-                <img
-                  src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Case Study Showcase"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent"></div>
-              </div>
-              
-              {/* Floating cards */}
-              <div className="absolute -top-4 -right-4 w-32 h-24 bg-white rounded-lg shadow-md p-4 transform rotate-3 border border-gray-100">
-                <div className="text-xs text-gray-500 mb-1">Success Rate</div>
-                <div className="text-2xl font-bold text-gray-700">98%</div>
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 w-36 h-28 bg-light-gray rounded-lg shadow-md p-4 transform -rotate-2 border border-gray-200">
-                <div className="text-xs text-gray-600 mb-1">Projects Completed</div>
-                <div className="text-2xl font-bold text-gray-800">150+</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right side - Content */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '200ms' }}>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-8 leading-tight font-sf-pro-display">
-              Case
-              <span className="block font-bold mt-2">
-                Studies
-              </span>
+    <section
+      id="case-studies"
+      className="w-full min-h-screen flex items-center justify-center bg-gray-50"
+      ref={sectionRef}
+      style={{
+        paddingTop: 'var(--case-studies-padding-top, 0)',
+        paddingBottom: 'var(--case-studies-padding-bottom, 0)'
+      }}
+    >
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center">
+        {/* Image Column */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-10">
+          <img
+            src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Case Studies"
+            className="w-[85%] h-auto object-contain"
+          />
+        </div>
+        <div className="w-full lg:w-1/2 flex items-center justify-start">
+          <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
+              <span className="font-bold">Case Studies</span>
             </h2>
-
-            <p className="text-lg text-gray-600 mb-12 leading-relaxed font-sf-pro-text">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 text-justify">
               Our projects make us proud. We've helped businesses transform their digital presence and achieve remarkable growth through innovative solutions and strategic thinking.
             </p>
-
             <div className="pt-4">
-              <button className="px-8 py-4 bg-gray-900 text-white border-2 border-gray-900 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 font-medium font-sf-pro-text flex items-center gap-2 group shadow-lg hover:shadow-xl transform hover:scale-105">
+              <Button
+                variant="vision"
+                size="lg"
+                icon={ArrowRight}
+                iconPosition="right"
+              >
                 Learn More
-                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              </Button>
             </div>
           </div>
         </div>
