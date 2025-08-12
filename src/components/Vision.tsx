@@ -1,5 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import Button from ""
+
 
 const Vision: React.FC = () => {
   return (
@@ -34,6 +36,17 @@ const Vision: React.FC = () => {
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
+                        <div className="pt-4">
+              <Button
+                variant="vision"
+                size="lg"
+                icon={ArrowRight}
+                iconPosition="right"
+              >
+                Learn More
+              </Button>
+            </div>
+
           </div>
         </div>
       </div>
