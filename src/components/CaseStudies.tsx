@@ -51,7 +51,7 @@ const CaseStudies: React.FC = () => {
               <span className="font-bold">Case Studies</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 text-justify">
-              Our projects make us proud. We've helped businesses transform their digital presence and achieve remarkable growth through innovative solutions and strategic thinking.
+Our case studies showcase how we’ve partnered with businesses to transform their digital presence and drive remarkable growth. Through innovative AI-driven solutions, automation, and data strategies, we solve complex challenges and turn them into scalable opportunities—helping our clients adapt faster, operate smarter, and achieve measurable success.
             </p>
             <div className="pt-4">
               <Button
