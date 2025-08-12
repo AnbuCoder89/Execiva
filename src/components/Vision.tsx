@@ -23,7 +23,7 @@ const Vision: React.FC = () => {
         <div className="w-full lg:w-1/2 flex items-center justify-center">
           <div className="max-w-lg text-center lg:text-left px-4">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
-              Our <span className="font-bold">Vision</span>
+               <span className="font-bold">Our Vision</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8">
               We envision a future where technology seamlessly integrates with human creativity to solve complex challenges and create extraordinary experiences that transform industries and improve lives.
