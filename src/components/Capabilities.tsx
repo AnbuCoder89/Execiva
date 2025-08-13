@@ -35,12 +35,7 @@ const Capabilities: React.FC = () => {
       category: "Cloud",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
     },
-    {
-      title: "AI & Automation",
-      description: "Agentic workflows and copilots that cut cycle times",
-      category: "AI",
-      image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
-    },
+
   ];
 
   useEffect(() => {
