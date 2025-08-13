@@ -119,6 +119,9 @@ const Capabilities: React.FC = () => {
                   >
                   </div>
 
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 rounded-xl pointer-events-none"></div>
+
                   {/* Title */}
                   <div className="absolute top-6 left-6 z-10 pointer-events-none">
                     <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
