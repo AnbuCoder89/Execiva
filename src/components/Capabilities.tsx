@@ -84,7 +84,7 @@ const Capabilities: React.FC = () => {
     Your card content here 
     <div className="w-full mx-auto px-4 sm:px-8">
       <div className="relative flex items-center justify-center w-full">
-        </div>
+      </div>
     </div>
   </div>
 </section>
