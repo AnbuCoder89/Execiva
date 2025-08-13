@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import Button from "./ui/Button";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import "swiper/css";
@@ -132,14 +132,9 @@ const capabilities = [
           <Swiper
             slidesPerView={4}
             spaceBetween={30}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
             speed={800}
             grabCursor={true}
-            modules={[Navigation, Autoplay]}
+            modules={[Navigation]}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
