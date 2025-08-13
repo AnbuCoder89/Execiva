@@ -1,11 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star } from 'lucide-react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { Star, ChevronRight, ChevronLeft } from 'lucide-react';
+import Button from "./ui/Button";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const Testimonials: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(2); // Start with center card active
-  const [isAnimating, setIsAnimating] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -94,144 +99,6 @@ const Testimonials: React.FC = () => {
     }
   ];
 
-  // Get 5 cards to display (always show 5 cards)
-  const getDisplayCards = () => {
-    const cards = [];
-    for (let i = -2; i <= 2; i++) {
-      const index = (activeIndex + i + testimonials.length) % testimonials.length;
-      cards.push({
-        ...testimonials[index],
-        position: i,
-        key: `${index}-${activeIndex}` // Unique key for React
-      });
-    }
-    return cards;
-  };
-
-  const displayCards = getDisplayCards();
-
-  const handleCardClick = (position: number) => {
-    if (isAnimating || position === 0) return; // Don't animate if already center or animating
-    
-    setIsAnimating(true);
-    
-    // Create smooth transition by moving one step at a time
-    const steps = Math.abs(position);
-    const direction = position > 0 ? 1 : -1;
-    let currentStep = 0;
-    
-    const slideStep = () => {
-      if (currentStep < steps) {
-        setActiveIndex(prev => (prev + direction + testimonials.length) % testimonials.length);
-        currentStep++;
-        setTimeout(slideStep, 150); // 150ms between each step
-      } else {
-        setIsAnimating(false);
-      }
-    };
-    
-    slideStep();
-  };
-
-  const handleIndicatorClick = (index: number) => {
-    if (isAnimating || activeIndex === index) return;
-    
-    setIsAnimating(true);
-    
-    // Calculate shortest path to target
-    const totalCards = testimonials.length;
-    const directDistance = index - activeIndex;
-    const wrapDistance = directDistance > 0 
-      ? directDistance - totalCards 
-      : directDistance + totalCards;
-    
-    const shortestDistance = Math.abs(directDistance) <= Math.abs(wrapDistance) 
-      ? directDistance 
-      : wrapDistance;
-    
-    const steps = Math.abs(shortestDistance);
-    const direction = shortestDistance > 0 ? 1 : -1;
-    let currentStep = 0;
-    
-    const slideStep = () => {
-      if (currentStep < steps) {
-        setActiveIndex(prev => (prev + direction + totalCards) % totalCards);
-        currentStep++;
-        setTimeout(slideStep, 120); // Slightly faster for indicator clicks
-      } else {
-        setIsAnimating(false);
-      }
-    };
-    
-    slideStep();
-  };
-
-  const getCardStyles = (position: number) => {
-    const isActive = position === 0;
-    
-    if (isActive) {
-      return {
-        width: '350px',
-        height: '450px',
-        opacity: 1,
-        filter: 'blur(0px)',
-        transform: 'scale(1)',
-        zIndex: 10,
-      };
-    } else if (Math.abs(position) === 1) {
-      return {
-        width: '300px',
-        height: '380px',
-        opacity: 0.7,
-        filter: 'blur(1px)',
-        transform: 'scale(0.9)',
-        zIndex: 5,
-      };
-    } else {
-      return {
-        width: '250px',
-        height: '320px',
-        opacity: 0.5,
-        filter: 'blur(2px)',
-        transform: 'scale(0.8)',
-        zIndex: 2,
-      };
-    }
-  };
-
-  const getTextStyles = (position: number) => {
-    const isActive = position === 0;
-    
-    if (isActive) {
-      return {
-        nameSize: 'text-xl',
-        positionSize: 'text-base',
-        contentSize: 'text-base',
-        imageSize: 'w-20 h-20',
-        starSize: 18,
-        padding: 'p-8'
-      };
-    } else if (Math.abs(position) === 1) {
-      return {
-        nameSize: 'text-lg',
-        positionSize: 'text-sm',
-        contentSize: 'text-sm',
-        imageSize: 'w-16 h-16',
-        starSize: 16,
-        padding: 'p-6'
-      };
-    } else {
-      return {
-        nameSize: 'text-base',
-        positionSize: 'text-xs',
-        contentSize: 'text-xs',
-        imageSize: 'w-12 h-12',
-        starSize: 14,
-        padding: 'p-4'
-      };
-    }
-  };
-
   return (
     <section 
       id="testimonials" 
@@ -249,93 +116,116 @@ const Testimonials: React.FC = () => {
           </h2>
         </div>
 
-        {/* 5-Card Carousel */}
-        <div className="flex justify-center items-center mb-12">
-          <div className="flex items-center justify-center gap-6">
-            {displayCards.map((card) => {
-              const cardStyles = getCardStyles(card.position);
-              const textStyles = getTextStyles(card.position);
-              const isActive = card.position === 0;
-              
-              return (
-                <div
-                  key={card.key}
-                  className={`cursor-pointer transition-all duration-700 ease-out flex-shrink-0 ${
-                    !isActive ? 'hover:opacity-80' : ''
-                  }`}
-                  style={{
-                    ...cardStyles,
-                    transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                  }}
-                  onClick={() => handleCardClick(card.position)}
-                >
-                  <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between transition-all duration-700 ${
-                    textStyles.padding
-                  } ${
-                    isActive 
-                      ? 'shadow-2xl border-gray-200' 
-                      : 'hover:shadow-xl'
-                  }`}>
-                    {/* Profile Image */}
-                    <div className="flex justify-center mb-3">
-                      <div className={`${textStyles.imageSize} rounded-full overflow-hidden bg-gray-100 transition-all duration-300`}>
-                        <img
-                          src={card.image}
-                          alt={card.name}
-                          className="w-full h-full object-cover"
-                        />
+        {/* Horizontal Scroll Testimonials */}
+        <div className="relative w-full flex items-center justify-center px-4 sm:px-6 md:px-16">
+          <div className="w-full h-[500px] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
+            {/* Custom Arrows */}
+            <button
+              ref={prevRef}
+              className="absolute -left-8 top-1/2 -translate-y-1/2 z-10"
+            >
+              <Button
+                variant="vision"
+                size="md"
+                icon={ChevronLeft}
+                iconPosition="left"
+                className="!p-3 !rounded-full shadow hover:shadow-lg"
+              >
+              </Button>
+            </button>
+            <button
+              ref={nextRef}
+              className="absolute -right-8 top-1/2 -translate-y-1/2 z-10"
+            >
+              <Button
+                variant="vision"
+                size="md"
+                icon={ChevronRight}
+                iconPosition="right"
+                className="!p-3 !rounded-full shadow hover:shadow-lg"
+              >
+              </Button>
+            </button>
+
+            <div className="w-full flex items-center">
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={30}
+                speed={800}
+                grabCursor={true}
+                modules={[Navigation]}
+                navigation={{
+                  prevEl: prevRef.current,
+                  nextEl: nextRef.current,
+                }}
+                onBeforeInit={(swiper) => {
+                  if (typeof swiper.params.navigation !== "boolean") {
+                    swiper.params.navigation.prevEl = prevRef.current;
+                    swiper.params.navigation.nextEl = nextRef.current;
+                  }
+                }}
+                breakpoints={{
+                  320: { slidesPerView: 1, spaceBetween: 20 },
+                  768: { slidesPerView: 2, spaceBetween: 25 },
+                  1024: { slidesPerView: 3, spaceBetween: 30 },
+                }}
+                className="w-full h-full !overflow-hidden"
+              >
+                {testimonials.map((testimonial, index) => (
+                  <SwiperSlide key={testimonial.name} className="rounded-xl overflow-hidden">
+                    <div
+                      className={`group relative w-full h-[400px] overflow-hidden rounded-xl 
+                        shadow-xl hover:shadow-2xl transition-all duration-300 bg-white
+                        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                      style={{ transitionDelay: `${index * 100}ms` }}
+                    >
+                      <div className="p-8 h-full flex flex-col justify-between">
+                        {/* Profile Image */}
+                        <div className="flex justify-center mb-6">
+                          <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100">
+                            <img
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 flex flex-col justify-center text-center">
+                          {/* Name */}
+                          <h3 className="text-xl font-semibold text-gray-900 mb-2 font-sf-pro-display">
+                            {testimonial.name}
+                          </h3>
+
+                          {/* Position */}
+                          <p className="text-base text-gray-600 mb-4 font-sf-pro-text">
+                            {testimonial.position}
+                          </p>
+
+                          {/* Content */}
+                          <p className="text-gray-700 leading-relaxed mb-6 font-sf-pro-text">
+                            "{testimonial.content}"
+                          </p>
+                        </div>
+
+                        {/* Rating */}
+                        <div className="flex justify-center space-x-1">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star 
+                              key={i} 
+                              size={18} 
+                              className="text-yellow-400 fill-current" 
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
-
-                    {/* Content */}
-                    <div className="flex-1 flex flex-col justify-center">
-                      {/* Name */}
-                      <h3 className={`text-center font-semibold text-gray-900 mb-2 font-sf-pro-display transition-all duration-300 ${textStyles.nameSize}`}>
-                        {card.name}
-                      </h3>
-
-                      {/* Position */}
-                      <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>
-                      </p>
-
-                      {/* Content */}
-                      <p className={`text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center transition-all duration-300 ${textStyles.contentSize}`}>
-                        {isActive ? card.content : card.content.substring(0, 80) + '...'}
-                      </p>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex justify-center space-x-1">
-                      {[...Array(card.rating)].map((_, i) => (
-                        <Star 
-                          key={i} 
-                          size={textStyles.starSize} 
-                          className="text-blue-500 fill-current transition-all duration-300" 
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
-        </div>
-
-        {/* Carousel Indicators */}
-        <div className="flex justify-center space-x-3">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleIndicatorClick(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                activeIndex === index 
-                  ? 'bg-gray-800 scale-125 shadow-lg' 
-                  : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
-              } ${isAnimating ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
-              aria-label={`Go to testimonial ${index + 1}`}
-              disabled={isAnimating}
-            />
-          ))}
         </div>
       </div>
     </section>
