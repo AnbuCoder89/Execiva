@@ -129,18 +129,18 @@ const Capabilities: React.FC = () => {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 transition-all duration-500 group-hover:from-black/40 group-hover:to-black/80" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 transition-all duration-500" />
 
                   {/* Category Tag */}
-                  <div className="absolute top-6 left-6 z-10 transform transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-105">
-                    <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/20 font-sf-pro-text transition-all duration-300 group-hover:bg-white/90 group-hover:text-gray-900 group-hover:border-gray-200">
+                  <div className="absolute top-6 left-6 z-10 transform transition-all duration-500">
+                    <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/20 font-sf-pro-text transition-all duration-300">
                       {capability.category}
                     </span>
                   </div>
 
                   {/* Article Card Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 z-10 transform transition-all duration-500 group-hover:translate-y-0 translate-y-2">
-                    <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-500 group-hover:bg-white/80 group-hover:backdrop-blur-lg group-hover:shadow-2xl group-hover:border-white/50">
+                  <div className="absolute bottom-6 left-6 right-6 z-10 transform transition-all duration-500">
+                    <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-500">
                       <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-tight mb-3 font-sf-pro-display transition-all duration-300 group-hover:text-gray-800">
                         {capability.title}
                       </h3>
@@ -150,15 +150,6 @@ const Capabilities: React.FC = () => {
                           : capability.description}
                       </p>
                       
-                      {/* Animated Learn More Button */}
-                      <div className="mt-4 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                        <button className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
-                          Learn More
-                          <svg className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                      </div>
                     </div>
                   </div>
                 </div>
