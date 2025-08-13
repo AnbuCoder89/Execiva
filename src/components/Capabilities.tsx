@@ -91,7 +91,7 @@ const Capabilities: React.FC = () => {
   return (
     <section
       id="capabilities"
-      className="w-screen h-screen py-20 md:py-32 bg-gray-50 flex items-center"
+      className="w-screen h-screen py-20 md:py-32 bg-gray-50 flex items-center justify-center"
       ref={sectionRef}
     >
       <div className="mx-auto px-10 relative w-full h-full flex flex-col justify-center">
