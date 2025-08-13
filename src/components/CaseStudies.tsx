@@ -5,9 +5,13 @@ import Button from "./ui/Button";
 
 const CaseStudies: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -23,15 +27,19 @@ const CaseStudies: React.FC = () => {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
     <section
       id="case-studies"
-      className="w-full min-h-screen flex items-center justify-center bg-gray-50"
+      className="relative w-full min-h-screen flex items-center justify-center bg-gray-50 z-60"
       ref={sectionRef}
       style={{
+        transform: `translateY(${scrollY * -0.4}px)`,
         paddingTop: 'var(--case-studies-padding-top, 0)',
         paddingBottom: 'var(--case-studies-padding-bottom, 0)'
       }}

@@ -11,6 +11,7 @@ const Capabilities: React.FC = () => {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
 const capabilities = [
   {
@@ -77,6 +78,9 @@ const capabilities = [
 
 
   useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
@@ -86,6 +90,7 @@ const capabilities = [
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
@@ -94,7 +99,10 @@ const capabilities = [
     <section
       id="capabilities"
       ref={sectionRef}
-      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-16"
+      className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-16 z-50"
+      style={{
+        transform: `translateY(${scrollY * -0.3}px)`,
+      }}
     >
       <div className="text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
         {/* Custom Arrows */}

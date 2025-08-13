@@ -23,7 +23,10 @@ const Testimonials: React.FC = () => {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const testimonials = [
@@ -188,7 +191,14 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-gray-50" ref={sectionRef}>
+    <section 
+      id="testimonials" 
+      className="relative py-20 md:py-32 bg-gray-50 z-70" 
+      ref={sectionRef}
+      style={{
+        transform: `translateY(${scrollY * -0.5}px)`,
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">

@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Send, Facebook, Twitter, Instagram, Linkedin, Yout
 
 const Contact: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +13,9 @@ const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,7 +31,10 @@ const Contact: React.FC = () => {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -56,7 +63,14 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-light-gray" ref={sectionRef}>
+    <section 
+      id="contact" 
+      className="relative py-20 md:py-32 bg-light-gray z-80" 
+      ref={sectionRef}
+      style={{
+        transform: `translateY(${scrollY * -0.6}px)`,
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           
