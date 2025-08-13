@@ -64,16 +64,6 @@ const Capabilities: React.FC = () => {
       ref={sectionRef}
     >
       <div className="w-full max-w-7xl mx-auto px-6">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Our
-            <span className="block font-bold mt-2">
-              Capabilities
-            </span>
-          </h2>
-        </div>
-
         {/* Swiper Container */}
         <div className="relative">
           <Swiper
