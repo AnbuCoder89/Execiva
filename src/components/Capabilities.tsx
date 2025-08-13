@@ -116,7 +116,9 @@ const Capabilities: React.FC = () => {
                     className="absolute inset-0 bg-cover bg-center rounded-xl pointer-events-none"
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   >
-                  
+                    {/* Dark overlay */}
+                   
+                  </div>
 
                   {/* Title */}
                   <div className="absolute top-6 left-6 z-10 pointer-events-none">
