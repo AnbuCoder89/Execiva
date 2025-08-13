@@ -60,12 +60,12 @@ const Capabilities: React.FC = () => {
   return (
     <section
       id="capabilities"
-      className="w-full min-h-screen flex flex-col items-center justify-center"
+      className="w-full min-h-screen flex flex-col items-center justify-center py-20"
       ref={sectionRef}
     >
       <div className="w-full mx-auto px-6">
         {/* Swiper Container */}
-        <div className="relative">
+        <div className="relative flex items-center justify-center">
           <Swiper
             slidesPerView={4}
             spaceBetween={30}
@@ -130,7 +130,7 @@ const Capabilities: React.FC = () => {
           </Swiper>
         </div>
       </div>
-      <div className="w-full max-w-[100vw] px-6 md:px-12 lg:px-16 py-3">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
       </div>
     </section>
   );
