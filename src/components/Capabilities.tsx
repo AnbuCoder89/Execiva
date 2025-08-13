@@ -74,7 +74,7 @@ const Capabilities: React.FC = () => {
       className="w-full min-h-screen flex flex-col items-center justify-center py-20"
       ref={sectionRef}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <div className="w-full px-6 md:px-12 lg:px-16">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display transition-all duration-1000 ${
