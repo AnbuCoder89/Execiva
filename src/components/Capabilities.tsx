@@ -78,13 +78,13 @@ const Capabilities: React.FC = () => {
   return (
 <section
   id="capabilities"
-  className="w-full min-h-screen flex items-center justify-center"
-  ref={sectionRef}
+  className="w-full min-h-screen flex items-center justify-center px-4"
 >
-<div className="bg-black text-white w-full h-full rounded-xl flex items-center justify-center">
-  Your card content here
-</div>
+  <div className="bg-black text-white w-full max-w-5xl h-auto rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10">
+    Your card content here
+  </div>
 </section>
+
   );
 };
 
