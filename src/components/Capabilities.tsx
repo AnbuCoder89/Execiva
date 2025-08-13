@@ -93,7 +93,7 @@ const Capabilities: React.FC = () => {
   };
 
   return (
-    <section id="capabilities" className="w-full min-h-screen flex items-center justify-center bg-gray-50" ref={sectionRef}>
+    <section id="capabilities" className="w-full py-20 md:py-32 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Slider Container */}
         <div className="relative overflow-hidden">
