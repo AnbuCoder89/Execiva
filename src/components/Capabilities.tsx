@@ -80,7 +80,7 @@ const Capabilities: React.FC = () => {
   id="capabilities"
   className="w-full min-h-screen flex items-center justify-center"
 >
-  <div className="bg-black text-white w-full max-w-5xl h-auto rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10">
+  <div className="bg-black text-white w-full max-w-7xl h-auto rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10">
     Your card content here
   </div>
 </section>
