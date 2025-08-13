@@ -76,7 +76,7 @@ const Capabilities: React.FC = () => {
   ];
 
   return (
-    <section id="capabilities2" className="py-20 md:py-32 bg-light-gray" ref={sectionRef}>
+    <section id="capabilities" className="py-20 md:py-32 bg-light-gray" ref={sectionRef}>
       <div className="px-8">
         {/* Header */}
         <div className="text-center mb-16">
