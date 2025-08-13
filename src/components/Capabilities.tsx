@@ -81,7 +81,18 @@ const Capabilities: React.FC = () => {
   className="w-full min-h-screen flex items-center justify-center"
   ref={sectionRef}
 >
-  {/* Your slider goes here */}
+    <div className="grid grid-cols-3 w-full max-w-6xl">
+    {/* Left empty */}
+    <div></div>
+
+    {/* Middle card */}
+    <div className="bg-black text-white p-6 rounded-xl flex items-center justify-center">
+      Your card content here
+    </div>
+
+    {/* Right empty */}
+    <div></div>
+  </div>
 </section>
   );
 };
