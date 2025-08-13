@@ -62,13 +62,13 @@ const Capabilities: React.FC = () => {
         {/* Custom Arrows */}
         <button
           ref={prevRef}
-          className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm text-black p-3 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300"
         >
           ◀
         </button>
         <button
           ref={nextRef}
-          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm text-black p-3 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300"
         >
           ▶
         </button>
