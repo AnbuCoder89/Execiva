@@ -105,10 +105,10 @@ const Capabilities: React.FC = () => {
             className="w-full h-full !overflow-hidden"
           >
             {capabilities.map((capability, index) => (
-              <SwiperSlide key={capability.title} className="rounded-xl overflow-hidden">
+              <SwiperSlide key={capability.title} className="rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
                 <div
                   className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
-                    shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300
+                    shadow-lg hover:shadow-2xl transition-all duration-300
                     ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
