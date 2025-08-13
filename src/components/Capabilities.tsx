@@ -106,30 +106,32 @@ const Capabilities: React.FC = () => {
             {capabilities.map((capability, index) => (
               <SwiperSlide key={capability.title}>
                 <div
-                  className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
-                    shadow-lg hover:-translate-y-2 transition-transform duration-300
-                    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  {/* Background Image (no pointer blocking) */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center rounded-xl pointer-events-none"
-                    style={{ backgroundImage: `url('${capability.image}')` }}
-                  >
-                    {/* Dark overlay */}
-                   
-                  </div>
+  className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
+    shadow-lg transition-transform duration-300
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+    hover:-translate-y-2`}
+  style={{ transitionDelay: `${index * 100}ms` }}
+>
+  {/* Background Image & Overlay in same layer */}
+  <div
+    className="absolute inset-0 bg-cover bg-center rounded-xl pointer-events-none"
+    style={{ backgroundImage: `url('${capability.image}')` }}
+  >
+    {/* Dark overlay */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent h-1/2 rounded-t-xl pointer-events-none" />
+  </div>
 
-                  {/* Title */}
-                  <div className="absolute top-6 left-6 z-10 pointer-events-none">
-                    <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
-                      {capability.title.split(" ")[0]}
-                      <span className="block font-bold mt-1">
-                        {capability.title.split(" ").slice(1).join(" ")}
-                      </span>
-                    </h3>
-                  </div>
-                </div>
+  {/* Title */}
+  <div className="absolute top-6 left-6 z-10 pointer-events-none">
+    <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
+      {capability.title.split(" ")[0]}
+      <span className="block font-bold mt-1">
+        {capability.title.split(" ").slice(1).join(" ")}
+      </span>
+    </h3>
+  </div>
+</div>
+
               </SwiperSlide>
             ))}
           </Swiper>
