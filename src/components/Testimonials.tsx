@@ -114,13 +114,56 @@ const Testimonials: React.FC = () => {
     if (isAnimating || position === 0) return; // Don't animate if already center or animating
     
     setIsAnimating(true);
-    const newActiveIndex = (activeIndex + position + testimonials.length) % testimonials.length;
-    setActiveIndex(newActiveIndex);
     
-    // Reset animation flag after transition
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 700);
+    // Create smooth transition by moving one step at a time
+    const steps = Math.abs(position);
+    const direction = position > 0 ? 1 : -1;
+    let currentStep = 0;
+    
+    const slideStep = () => {
+      if (currentStep < steps) {
+        setActiveIndex(prev => (prev + direction + testimonials.length) % testimonials.length);
+        currentStep++;
+        setTimeout(slideStep, 150); // 150ms between each step
+      } else {
+        setIsAnimating(false);
+      }
+    };
+    
+    slideStep();
+  };
+
+  const handleIndicatorClick = (index: number) => {
+    if (isAnimating || activeIndex === index) return;
+    
+    setIsAnimating(true);
+    
+    // Calculate shortest path to target
+    const totalCards = testimonials.length;
+    const directDistance = index - activeIndex;
+    const wrapDistance = directDistance > 0 
+      ? directDistance - totalCards 
+      : directDistance + totalCards;
+    
+    const shortestDistance = Math.abs(directDistance) <= Math.abs(wrapDistance) 
+      ? directDistance 
+      : wrapDistance;
+    
+    const steps = Math.abs(shortestDistance);
+    const direction = shortestDistance > 0 ? 1 : -1;
+    let currentStep = 0;
+    
+    const slideStep = () => {
+      if (currentStep < steps) {
+        setActiveIndex(prev => (prev + direction + totalCards) % totalCards);
+        currentStep++;
+        setTimeout(slideStep, 120); // Slightly faster for indicator clicks
+      } else {
+        setIsAnimating(false);
+      }
+    };
+    
+    slideStep();
   };
 
   const getCardStyles = (position: number) => {
@@ -283,19 +326,14 @@ const Testimonials: React.FC = () => {
           {testimonials.map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                if (!isAnimating) {
-                  setIsAnimating(true);
-                  setActiveIndex(index);
-                  setTimeout(() => setIsAnimating(false), 700);
-                }
-              }}
+              onClick={() => handleIndicatorClick(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 activeIndex === index 
                   ? 'bg-gray-800 scale-125 shadow-lg' 
                   : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
-              }`}
+              } ${isAnimating ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
               aria-label={`Go to testimonial ${index + 1}`}
+              disabled={isAnimating}
             />
           ))}
         </div>
