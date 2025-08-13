@@ -81,7 +81,7 @@ const Capabilities: React.FC = () => {
       ▶
     </button>
 
-    <div className="w-full h-full">
+    <div className="w-full max-w-[1400px] flex items-center">
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
