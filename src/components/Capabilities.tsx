@@ -86,7 +86,7 @@ const Capabilities: React.FC = () => {
           ▶
         </button>
 
-        <div className="w-full mx-auto px-4 sm:px-8">
+        <div className="w-full">
           <Swiper
             slidesPerView={4}
             spaceBetween={30}
