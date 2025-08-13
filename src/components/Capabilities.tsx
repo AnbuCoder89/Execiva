@@ -36,7 +36,7 @@ const Capabilities: React.FC = () => {
       category: "Cloud",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
     },
-        {
+    {
       title: "Cloud Solutions",
       description: "Implementing scalable cloud infrastructure and services",
       category: "Cloud",
@@ -60,94 +60,91 @@ const Capabilities: React.FC = () => {
 
   return (
     <section
-  id="capabilities"
-  ref={sectionRef}
-  className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-32"
->
-  <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
-    
-    
-    {/* Custom Arrows INSIDE the black card */}
-    <button
-      ref={prevRef}
-      className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+      id="capabilities"
+      ref={sectionRef}
+      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-32"
     >
-      ◀
-    </button>
-    <button
-      ref={nextRef}
-      className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
-    >
-      ▶
-    </button>
+      <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
+        {/* Custom Arrows */}
+        <button
+          ref={prevRef}
+          className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+        >
+          ◀
+        </button>
+        <button
+          ref={nextRef}
+          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+        >
+          ▶
+        </button>
 
-    <div className="w-full flex items-center">
-      <Swiper
-        slidesPerView={4}
-        spaceBetween={30}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        speed={800}
-        grabCursor={true}
-        modules={[Navigation, Autoplay]}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        onBeforeInit={(swiper) => {
-          if (typeof swiper.params.navigation !== "boolean") {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }
-        }}
-        breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 20 },
-          768: { slidesPerView: 2, spaceBetween: 25 },
-          1024: { slidesPerView: 3, spaceBetween: 30 },
-          1280: { slidesPerView: 4, spaceBetween: 30 },
-        }}
-        className="w-full h-full !overflow-hidden"
-      >
-        {capabilities.map((capability, index) => (
-          <SwiperSlide key={capability.title}>
-  <div
-    className={`group relative w-full h-[450px] overflow-hidden rounded-xl transition-all duration-700 ease-out shadow-lg hover:translate-y-[-16px] hover:shadow-2xl ${
-      isVisible
-        ? "opacity-100 translate-y-0"
-        : "opacity-0 translate-y-10"
-    }`}
-    style={{ transitionDelay: `${index * 100}ms` }}
-  >
-    {/* Background Image */}
-    <div
-      className="absolute inset-0 bg-cover bg-center rounded-xl"
-      style={{ backgroundImage: `url('${capability.image}')` }}
-    >
-      {/* Dark overlay at top */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent h-1/2 group-hover:from-black/90 group-hover:via-black/70 rounded-t-xl" />
-      
-      {/* Title positioned at top */}
-      <div className="absolute top-6 left-6 z-10">
-        <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
-          {capability.title.split(' ')[0]}
-          <span className="block font-bold mt-1">
-            {capability.title.split(' ').slice(1).join(' ')}
-          </span>
-        </h3>
+        <div className="w-full flex items-center">
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={30}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={800}
+            grabCursor={true}
+            modules={[Navigation, Autoplay]}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              if (typeof swiper.params.navigation !== "boolean") {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }
+            }}
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 20 },
+              768: { slidesPerView: 2, spaceBetween: 25 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+              1280: { slidesPerView: 4, spaceBetween: 30 },
+            }}
+            className="w-full h-full !overflow-hidden"
+          >
+            {capabilities.map((capability, index) => (
+              <SwiperSlide key={capability.title}>
+                <div
+                  className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
+                    transition-all duration-700 ease-out 
+                    shadow-[0_8px_20px_rgba(0,0,0,0.4)] 
+                    hover:shadow-[0_8px_20px_rgba(0,0,0,0.4),0_-8px_20px_rgba(0,0,0,0.3)]
+                    hover:translate-y-[-16px]
+                    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center rounded-xl"
+                    style={{ backgroundImage: `url('${capability.image}')` }}
+                  >
+                    {/* Dark overlay at top */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent h-1/2 group-hover:from-black/90 group-hover:via-black/70 rounded-t-xl" />
+
+                    {/* Title positioned at top */}
+                    <div className="absolute top-6 left-6 z-10">
+                      <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
+                        {capability.title.split(" ")[0]}
+                        <span className="block font-bold mt-1">
+                          {capability.title.split(" ").slice(1).join(" ")}
+                        </span>
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-    </div>
-  </div>
-</SwiperSlide>
-
-        ))}
-      </Swiper>
-    </div>
-  </div>
-</section>
-
+    </section>
   );
 };
 
