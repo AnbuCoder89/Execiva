@@ -8,6 +8,10 @@ const Testimonials: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleScroll = () => {
+      // Handle scroll logic if needed
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -22,6 +26,8 @@ const Testimonials: React.FC = () => {
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       observer.disconnect();
