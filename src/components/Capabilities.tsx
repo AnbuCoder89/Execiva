@@ -95,16 +95,6 @@ const Capabilities: React.FC = () => {
   return (
     <section id="capabilities" className="w-full py-20 md:py-32 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6 relative">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Our
-            <span className="block font-bold mt-2">
-              Capabilities
-            </span>
-          </h2>
-        </div>
-
         {/* Slider Container */}
         <div className="relative overflow-hidden">
           {/* Cards Grid */}
