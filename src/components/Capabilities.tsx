@@ -35,18 +35,6 @@ const Capabilities: React.FC = () => {
       description: "Implementing scalable cloud infrastructure and services",
       category: "Cloud",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg"
-    },
-        {
-      title: "UI/UX Design",
-      description: "Designing intuitive and beautiful user experiences",
-      category: "Design",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg"
-    },
-    {
-      title: "Cloud Solutions",
-      description: "Implementing scalable cloud infrastructure and services",
-      category: "Cloud",
-      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg"
     }
   ];
 
@@ -72,12 +60,22 @@ const Capabilities: React.FC = () => {
   return (
     <section
       id="capabilities"
-      className="w-screen h-screen py-20 md:py-32 bg-gray-50 flex items-center justify-center"
+      className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-50 py-20 md:py-32"
       ref={sectionRef}
     >
-      <div className="mx-auto px-10 relative w-full h-full flex flex-col justify-center">
+      <div className="w-full max-w-7xl mx-auto px-6">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Our
+            <span className="block font-bold mt-2">
+              Capabilities
+            </span>
+          </h2>
+        </div>
+
         {/* Swiper Container */}
-        <div className="relative flex-grow flex items-center">
+        <div className="relative">
           <Swiper
             slidesPerView={4}
             spaceBetween={30}
@@ -109,7 +107,7 @@ const Capabilities: React.FC = () => {
                 spaceBetween: 30,
               },
             }}
-            className="w-full h-[500px] !overflow-visible"
+            className="w-full h-[600px] !overflow-visible"
           >
             {capabilities.map((capability, index) => (
               <SwiperSlide key={capability.title}>
@@ -127,16 +125,14 @@ const Capabilities: React.FC = () => {
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   />
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 transition-all duration-500" />
-
-                  {/* Article Card Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 z-10 transform transition-all duration-500">
-                    <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-500">
-                      <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-tight mb-3 font-sf-pro-display transition-all duration-300 group-hover:text-gray-800">
-                        {capability.title}
-                      </h3>                      
-                    </div>
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <h3 className="text-3xl md:text-4xl font-light text-white text-center leading-tight font-sf-pro-display">
+                      {capability.title.split(' ')[0]}
+                      <span className="block font-bold mt-2">
+                        {capability.title.split(' ').slice(1).join(' ') || ''}
+                      </span>
+                    </h3>
                   </div>
                 </div>
               </SwiperSlide>
