@@ -117,6 +117,16 @@ const Capabilities: React.FC = () => {
                   transitionDelay: `${(index % cardsPerSlide) * 50}ms`,
                 }}
               >
+            {capabilities.map((capability, index) => (
+              <div
+                key={capability.title}
+                className={`group relative w-full max-w-[450px] mx-auto h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{
+                  transitionDelay: `${(index % cardsPerSlide) * 50}ms`,
+                }}
+              >
                 {/* Background Image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center"
@@ -128,20 +138,20 @@ const Capabilities: React.FC = () => {
 
                 {/* Category Tag */}
                 <div className="absolute top-6 left-6 z-10">
-                  <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-white/20 font-sf-pro-text">
+                  <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/20 font-sf-pro-text">
                     {capability.category}
                   </span>
                 </div>
 
                 {/* Article Card Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="bg-white/60 backdrop-blur-md p-4 md:p-6 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/70 group-hover:backdrop-blur-lg">
-                    <h3 className="text-base md:text-lg font-bold text-gray-900 leading-tight mb-2 font-sf-pro-display">
+                <div className="absolute bottom-6 left-6 right-6 z-10">
+                  <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/70 group-hover:backdrop-blur-lg">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-tight mb-3 font-sf-pro-display">
                       {capability.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-700 leading-relaxed font-sf-pro-text">
-                      {capability.description.length > 60
-                        ? `${capability.description.substring(0, 60)}...`
+                    <p className="text-sm md:text-base text-gray-700 leading-relaxed font-sf-pro-text">
+                      {capability.description.length > 80
+                        ? `${capability.description.substring(0, 80)}...`
                         : capability.description}
                     </p>
                   </div>
