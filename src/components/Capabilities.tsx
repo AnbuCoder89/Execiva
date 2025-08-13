@@ -114,7 +114,7 @@ const Capabilities: React.FC = () => {
         {capabilities.map((capability, index) => (
           <SwiperSlide key={capability.title}>
   <div
-    className={`group relative w-full h-[450px] overflow-hidden rounded-xl transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl ${
+    className={`group relative w-full h-[450px] overflow-hidden rounded-xl transition-all duration-700 ease-out hover:translate-y-[-16px] hover:shadow-2xl ${
       isVisible
         ? "opacity-100 translate-y-0"
         : "opacity-0 translate-y-10"
@@ -123,10 +123,22 @@ const Capabilities: React.FC = () => {
   >
     {/* Background Image */}
     <div
-      className="absolute inset-0 bg-cover bg-center rounded-xl" // added rounded-xl here
+      className="absolute inset-0 bg-cover bg-center rounded-xl"
       style={{ backgroundImage: `url('${capability.image}')` }}
-    />
-    <h3 className="text-xl font-semibold">{capability.title}</h3>
+    >
+      {/* Dark overlay at top */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent h-1/2 group-hover:from-black/90 group-hover:via-black/70 rounded-t-xl" />
+      
+      {/* Title positioned at top */}
+      <div className="absolute top-6 left-6 z-10">
+        <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
+          {capability.title.split(' ')[0]}
+          <span className="block font-bold mt-1">
+            {capability.title.split(' ').slice(1).join(' ')}
+          </span>
+        </h3>
+      </div>
+    </div>
   </div>
 </SwiperSlide>
 
