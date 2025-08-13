@@ -114,7 +114,7 @@ const Capabilities: React.FC = () => {
                 >
                   {/* Background Image (no pointer blocking) */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center rounded-xl pointer-events-none"
+                    className="absolute inset-0 bg-cover bg-center rounded-xl overflow-hidden pointer-events-none"
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   >
                   </div>
