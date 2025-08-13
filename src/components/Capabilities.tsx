@@ -102,7 +102,7 @@ const Capabilities: React.FC = () => {
             1024: { slidesPerView: 3, spaceBetween: 30 },
             1280: { slidesPerView: 4, spaceBetween: 30 },
           }}
-          className="w-full h-[600px]"
+          className="w-full !overflow-visible"
         >
                   {capabilities.map((capability, index) => (
             <SwiperSlide key={capability.title}> </SwiperSlide>
