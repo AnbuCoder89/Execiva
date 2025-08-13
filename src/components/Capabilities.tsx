@@ -29,25 +29,25 @@ const capabilities = [
     title: "UI/UX Design",
     description: "Designing intuitive and beautiful user experiences",
     category: "Design",
-    image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
+    image: "/assets/images/uiux-design.jpeg",
   },
   {
     title: "Cloud Solutions",
     description: "Implementing scalable cloud infrastructure and services",
     category: "Cloud",
-    image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+    image: "/assets/images/cloud-solutions.jpeg",
   },
   {
     title: "E-commerce Development",
     description: "Building high-performance online stores with secure payment systems",
     category: "E-commerce",
-    image: "https://images.pexels.com/photos/896046/pexels-photo-896046.jpeg",
+    image: "/assets/images/e-commerce.jpeg",
   },
   {
     title: "AI & Machine Learning",
     description: "Developing intelligent solutions for automation and predictive insights",
     category: "AI/ML",
-    image: "https://images.pexels.com/photos/843891/pexels-photo-843891.jpeg",
+    image: "/assets/images/ai-machine.jpeg",
   },
   {
     title: "Cybersecurity",
@@ -59,19 +59,19 @@ const capabilities = [
     title: "DevOps & Automation",
     description: "Streamlining deployment pipelines with CI/CD and infrastructure as code",
     category: "DevOps",
-    image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+    image: "/assets/images/devops_automation.jpeg",
   },
   {
     title: "Blockchain Solutions",
     description: "Building decentralized applications and smart contract systems",
     category: "Blockchain",
-    image: "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg",
+    image: "/assets/images/blockchain.jpeg",
   },
   {
     title: "Data Analytics",
     description: "Turning raw data into actionable business insights",
     category: "Analytics",
-    image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg",
+    image: "/assets/images/data-analytics.jpeg",
   }
 ];
 
