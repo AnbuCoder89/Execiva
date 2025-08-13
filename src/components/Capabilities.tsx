@@ -18,42 +18,52 @@ const CapabilitiesCarousel: React.FC = () => {
       title: "Cloud Solutions",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
     },
+    {
+      title: "AI Solutions",
+      image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const cardsPerView = 3; // number of cards to show at once
 
   const prevSlide = () => {
     setCurrentIndex((prev) =>
-      prev === 0 ? capabilities.length - 1 : prev - 1
+      prev === 0 ? capabilities.length - cardsPerView : prev - 1
     );
   };
 
   const nextSlide = () => {
     setCurrentIndex((prev) =>
-      prev === capabilities.length - 1 ? 0 : prev + 1
+      prev >= capabilities.length - cardsPerView ? 0 : prev + 1
     );
   };
 
   return (
     <section className="w-full min-h-screen flex items-center justify-center bg-black px-6">
-      <div className="relative w-full max-w-6xl overflow-hidden rounded-xl">
-        {/* Slides */}
+      <div className="relative w-full max-w-6xl overflow-hidden">
+        {/* Slides wrapper */}
         <div
           className="flex transition-transform duration-500"
           style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
+            transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+            width: `${(capabilities.length / cardsPerView) * 100}%`,
           }}
         >
           {capabilities.map((capability, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-full h-[450px] bg-cover bg-center rounded-xl"
-              style={{
-                backgroundImage: `url(${capability.image})`,
-              }}
+              className="w-1/3 flex-shrink-0 p-2"
             >
-              <div className="bg-black/50 h-full flex items-center justify-center text-white text-3xl font-bold">
-                {capability.title}
+              <div
+                className="h-[350px] bg-cover bg-center rounded-xl shadow-lg"
+                style={{
+                  backgroundImage: `url(${capability.image})`,
+                }}
+              >
+                <div className="bg-black/50 h-full flex items-center justify-center text-white text-xl font-bold rounded-xl">
+                  {capability.title}
+                </div>
               </div>
             </div>
           ))}
