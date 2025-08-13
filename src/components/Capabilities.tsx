@@ -23,7 +23,7 @@ const capabilities = [
     title: "Mobile Apps",
     description: "Building native and cross-platform mobile applications",
     category: "Mobile",
-    image: "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg",
+    image: "/assets/images/mobile-apps.jpeg",
   },
   {
     title: "UI/UX Design",
