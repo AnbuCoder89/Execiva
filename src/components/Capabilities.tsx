@@ -21,8 +21,7 @@ const Capabilities: React.FC = () => {
       title: "Mobile Apps",
       description: "Building native and cross-platform mobile applications",
       category: "Mobile",
-      image:
-        "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg",
+      image: "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg",
     },
     {
       title: "UI/UX Design",
@@ -37,10 +36,10 @@ const Capabilities: React.FC = () => {
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
     },
     {
-      title: "Cloud Solutions",
-      description: "Implementing scalable cloud infrastructure and services",
-      category: "Cloud",
-      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+      title: "AI & Automation",
+      description: "Agentic workflows and copilots that cut cycle times",
+      category: "AI",
+      image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
     },
   ];
 
@@ -64,7 +63,7 @@ const Capabilities: React.FC = () => {
       ref={sectionRef}
       className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-32"
     >
-      <div className="text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
+      <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
         {/* Custom Arrows */}
         <button
           ref={prevRef}
@@ -120,20 +119,23 @@ const Capabilities: React.FC = () => {
                     ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  {/* Background Image */}
+                  {/* Background Image (no pointer blocking) */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center rounded-xl"
+                    className="absolute inset-0 bg-cover bg-center rounded-xl pointer-events-none"
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   >
-                    {/* Title positioned at top */}
-                    <div className="absolute top-6 left-6 z-10">
-                      <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
-                        {capability.title.split(" ")[0]}
-                        <span className="block font-bold mt-1">
-                          {capability.title.split(" ").slice(1).join(" ")}
-                        </span>
-                      </h3>
-                    </div>
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent h-1/2 rounded-t-xl" />
+                  </div>
+
+                  {/* Title */}
+                  <div className="absolute top-6 left-6 z-10 pointer-events-none">
+                    <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
+                      {capability.title.split(" ")[0]}
+                      <span className="block font-bold mt-1">
+                        {capability.title.split(" ").slice(1).join(" ")}
+                      </span>
+                    </h3>
                   </div>
                 </div>
               </SwiperSlide>
