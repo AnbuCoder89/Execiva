@@ -84,6 +84,28 @@ const Capabilities: React.FC = () => {
     Your card content here 
     <div className="w-full mx-auto px-4 sm:px-8">
       <div className="relative flex items-center justify-center w-full">
+                <Swiper
+          slidesPerView={4}
+          spaceBetween={30}
+          navigation={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          speed={800}
+          effect="slide"
+          grabCursor={true}
+          modules={[Navigation, Autoplay]}
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 25 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+            1280: { slidesPerView: 4, spaceBetween: 30 },
+          }}
+          className="w-full h-[600px] !overflow-visible"
+        >
+                  </Swiper>
       </div>
     </div>
   </div>
