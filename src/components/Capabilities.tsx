@@ -82,7 +82,6 @@ const Capabilities: React.FC = () => {
             slidesPerView={4}
             spaceBetween={30}
             navigation={true}
-            loop={true}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
