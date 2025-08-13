@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const Capabilities: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const capabilities = [
     {
@@ -30,18 +34,8 @@ const Capabilities: React.FC = () => {
       description: "Implementing scalable cloud infrastructure and services",
       category: "Cloud",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
-    }, {
-      title: "UI/UX Design",
-      description: "Designing intuitive and beautiful user experiences",
-      category: "Design",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
     },
-    {
-      title: "Cloud Solutions",
-      description: "Implementing scalable cloud infrastructure and services",
-      category: "Cloud",
-      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
-    },
+
   ];
 
   useEffect(() => {
@@ -58,51 +52,6 @@ const Capabilities: React.FC = () => {
     };
   }, []);
 
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % capabilities.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, capabilities.length]);
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-    // Resume auto-play after 5 seconds
-    setTimeout(() => setIsAutoPlaying(true), 5000);
-  };
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + capabilities.length) % capabilities.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 5000);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % capabilities.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 5000);
-  };
-
-  const [cardsToShow, setCardsToShow] = useState(4);
-
-  useEffect(() => {
-    const updateCardsToShow = () => {
-      if (window.innerWidth >= 1280) setCardsToShow(4);
-      else if (window.innerWidth >= 1024) setCardsToShow(3);
-      else if (window.innerWidth >= 768) setCardsToShow(2);
-      else setCardsToShow(1);
-    };
-
-    updateCardsToShow();
-    window.addEventListener('resize', updateCardsToShow);
-    return () => window.removeEventListener('resize', updateCardsToShow);
-  }, []);
-
   return (
     <section
       id="capabilities"
@@ -110,52 +59,68 @@ const Capabilities: React.FC = () => {
       className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-32"
     >
       <div className="text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
-        {/* Custom Navigation Arrows */}
+        {/* Custom Arrows */}
         <button
-          onClick={goToPrevious}
-          className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition-colors duration-300"
+          ref={prevRef}
+          className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
         >
           ◀
         </button>
         <button
-          onClick={goToNext}
-          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition-colors duration-300"
+          ref={nextRef}
+          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
         >
           ▶
         </button>
+        
 
-        <div className="w-full flex items-center overflow-hidden">
-          {/* Custom Carousel Container */}
-          <div className="w-full relative">
-            <div 
-              className="flex transition-transform duration-700 ease-in-out gap-6"
-              style={{
-                transform: `translateX(-${(currentIndex * (100 / cardsToShow))}%)`,
-                width: `${(capabilities.length * 100) / cardsToShow}%`
-              }}
-              onMouseEnter={() => setIsAutoPlaying(false)}
-              onMouseLeave={() => setIsAutoPlaying(true)}
-            >
-              {capabilities.map((capability, index) => (
+        <div className="w-full flex items-center">
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={30}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={800}
+            grabCursor={true}
+            modules={[Navigation, Autoplay]}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              if (typeof swiper.params.navigation !== "boolean") {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }
+            }}
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 20 },
+              768: { slidesPerView: 2, spaceBetween: 25 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+              1280: { slidesPerView: 4, spaceBetween: 30 },
+            }}
+            className="w-full h-full !overflow-hidden"
+          >
+            {capabilities.map((capability, index) => (
+              <SwiperSlide key={capability.title}>
                 <div
-                  key={capability.title}
-                  className={`flex-shrink-0 group relative overflow-hidden rounded-xl 
+                  className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
                     shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300
                     ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-                  style={{ 
-                    width: `${100 / cardsToShow}%`,
-                    height: '450px',
-                    transitionDelay: `${index * 100}ms` 
-                  }}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  {/* Background Image */}
+                  {/* Background Image (no pointer blocking) */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center rounded-xl overflow-hidden"
+                    className="absolute inset-0 bg-cover bg-center rounded-xl overflow-hidden pointer-events-none"
                     style={{ backgroundImage: `url('${capability.image}')` }}
-                  />
+                  >
+                  </div>
 
                   {/* Title */}
-                  <div className="absolute top-6 left-6 z-10">
+                  <div className="absolute top-6 left-6 z-10 pointer-events-none">
                     <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
                       {capability.title.split(" ")[0]}
                       <span className="block font-bold mt-1">
@@ -164,24 +129,10 @@ const Capabilities: React.FC = () => {
                     </h3>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-          {capabilities.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-white scale-125' 
-                  : 'bg-white/50 hover:bg-white/75'
-              }`}
-            />
-          ))}
+              </SwiperSlide>
+            ))}
+            
+          </Swiper>
         </div>
       </div>
     </section>
