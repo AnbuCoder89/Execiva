@@ -74,8 +74,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section
-    >
+    <section id="services" ref={sectionRef}>
       {/* Container with max width */}
       <div className="w-full max-w-[100vw] p-3">
         {/* Services grid */}
