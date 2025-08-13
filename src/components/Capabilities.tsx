@@ -76,25 +76,25 @@ const Capabilities: React.FC = () => {
   ];
 
   return (
-    <section id="capabilities" className="w-full min-h-screen flex items-center justify-center bg-gray-50" ref={sectionRef}>
-      <div className="px-8">
-        {/* <div className="text-center mb-16">
+    <section id="capabilities" className="w-full py-20 md:py-32 bg-gray-50" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
           <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Our
             <span className="block font-bold mt-2">
               Capabilities
             </span>
           </h2>
-        </div> */}
+        </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {capabilities.map((capability, index) => (
             <div
               key={capability.title}
-              className={`group relative w-full max-w-[350px] aspect-[5/7] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative w-full max-w-[350px] mx-auto aspect-[5/7] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{
-                transitionDelay: `${index * 100}ms`,
+                transitionDelay: `${index * 50}ms`,
               }}
             >
               {/* Background Image */}
