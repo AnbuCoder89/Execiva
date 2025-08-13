@@ -127,12 +127,6 @@ const Capabilities: React.FC = () => {
       style={{ backgroundImage: `url('${capability.image}')` }}
     />
     <h3 className="text-xl font-semibold">{capability.title}</h3>
-
-    {/* Overlay */}
-    <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 rounded-b-xl">
-      
-      <p className="text-sm">{capability.description}</p>
-    </div>
   </div>
 </SwiperSlide>
 
