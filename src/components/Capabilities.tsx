@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Autoplay, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 const Capabilities: React.FC = () => {
@@ -82,7 +83,15 @@ const Capabilities: React.FC = () => {
             spaceBetween={30}
             navigation={true}
             loop={true}
-            modules={[Navigation, Pagination]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={800}
+            effect="slide"
+            grabCursor={true}
+            modules={[Navigation, Autoplay]}
             breakpoints={{
               320: {
                 slidesPerView: 1,
@@ -101,45 +110,55 @@ const Capabilities: React.FC = () => {
                 spaceBetween: 30,
               },
             }}
-            className="w-full h-[500px]"
+            className="w-full h-[500px] !overflow-visible"
           >
             {capabilities.map((capability, index) => (
               <SwiperSlide key={capability.title}>
                 <div
-                  className={`group relative w-full h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${
+                  className={`group relative w-full h-[500px] overflow-hidden cursor-pointer transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl hover:scale-105 transform rounded-xl ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{
-                    transitionDelay: `${index * 50}ms`,
+                    transitionDelay: `${index * 100}ms`,
                   }}
                 >
                   {/* Background Image */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center"
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 transition-all duration-500 group-hover:from-black/40 group-hover:to-black/80" />
 
                   {/* Category Tag */}
-                  <div className="absolute top-6 left-6 z-10">
-                    <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/20 font-sf-pro-text">
+                  <div className="absolute top-6 left-6 z-10 transform transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-105">
+                    <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/20 font-sf-pro-text transition-all duration-300 group-hover:bg-white/90 group-hover:text-gray-900 group-hover:border-gray-200">
                       {capability.category}
                     </span>
                   </div>
 
                   {/* Article Card Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 z-10">
-                    <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-300 group-hover:bg-white/70 group-hover:backdrop-blur-lg">
-                      <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-tight mb-3 font-sf-pro-display">
+                  <div className="absolute bottom-6 left-6 right-6 z-10 transform transition-all duration-500 group-hover:translate-y-0 translate-y-2">
+                    <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-500 group-hover:bg-white/80 group-hover:backdrop-blur-lg group-hover:shadow-2xl group-hover:border-white/50">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-tight mb-3 font-sf-pro-display transition-all duration-300 group-hover:text-gray-800">
                         {capability.title}
                       </h3>
-                      <p className="text-sm md:text-base text-gray-700 leading-relaxed font-sf-pro-text">
+                      <p className="text-sm md:text-base text-gray-700 leading-relaxed font-sf-pro-text transition-all duration-300 group-hover:text-gray-600">
                         {capability.description.length > 80
                           ? `${capability.description.substring(0, 80)}...`
                           : capability.description}
                       </p>
+                      
+                      {/* Animated Learn More Button */}
+                      <div className="mt-4 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                        <button className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+                          Learn More
+                          <svg className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
