@@ -30,6 +30,17 @@ const Capabilities: React.FC = () => {
       description: "Implementing scalable cloud infrastructure and services",
       category: "Cloud",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+    }, {
+      title: "UI/UX Design",
+      description: "Designing intuitive and beautiful user experiences",
+      category: "Design",
+      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
+    },
+    {
+      title: "Cloud Solutions",
+      description: "Implementing scalable cloud infrastructure and services",
+      category: "Cloud",
+      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
     },
   ];
 
