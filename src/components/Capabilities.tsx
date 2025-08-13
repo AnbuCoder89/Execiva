@@ -54,54 +54,84 @@ const Capabilities: React.FC = () => {
 
   return (
     <section
-  id="capabilities"
-  className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-32"
->
-  <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-0 sm:p-0 md:p-0 relative overflow-hidden">
-    
-    {/* Arrows */}
-    <button ref={prevRef} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full">◀</button>
-    <button ref={nextRef} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full">▶</button>
-
-    {/* Full-width Swiper */}
-    <Swiper
-      slidesPerView={4}
-      spaceBetween={30}
-      navigation={{
-        prevEl: prevRef.current,
-        nextEl: nextRef.current,
-      }}
-      onBeforeInit={(swiper) => {
-        if (typeof swiper.params.navigation !== "boolean") {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-        }
-      }}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      }}
-      breakpoints={{
-        320: { slidesPerView: 1, spaceBetween: 20 },
-        768: { slidesPerView: 2, spaceBetween: 25 },
-        1024: { slidesPerView: 3, spaceBetween: 30 },
-        1280: { slidesPerView: 4, spaceBetween: 30 },
-      }}
-      className="w-full !overflow-visible"
+      id="capabilities"
+      ref={sectionRef}
+      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-32"
     >
-      {capabilities.map((capability, index) => (
-        <SwiperSlide key={capability.title} className="!w-full">
-          <div className="w-full h-[400px] rounded-xl overflow-hidden">
-            <img src={capability.image} alt={capability.title} className="w-full h-full object-cover" />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+      <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
+        {/* Custom Arrows */}
+        <button
+          ref={prevRef}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+        >
+          ◀
+        </button>
+        <button
+          ref={nextRef}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+        >
+          ▶
+        </button>
 
-  </div>
-</section>
+        <div className="w-full">
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={30}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={800}
+            grabCursor={true}
+            modules={[Navigation, Autoplay]}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              if (typeof swiper.params.navigation !== "boolean") {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }
+            }}
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 20 },
+              768: { slidesPerView: 2, spaceBetween: 25 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+              1280: { slidesPerView: 4, spaceBetween: 30 },
+            }}
+            className="w-full !overflow-visible"
+          >
+            {capabilities.map((capability, index) => (
+              <SwiperSlide key={capability.title}>
+                <div
+                  className={`group relative w-full h-[400px] overflow-hidden rounded-xl transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url('${capability.image}')` }}
+                  />
 
+                  {/* Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60">
+                    <h3 className="text-xl font-semibold">{capability.title}</h3>
+                    <p className="text-sm">{capability.description}</p>
+                  </div>
+                </div>
+                
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
   );
 };
 
