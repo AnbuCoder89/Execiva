@@ -120,7 +120,7 @@ const Capabilities: React.FC = () => {
                     <div className="p-6 md:p-8">
                       <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-tight font-sf-pro-display">
                         {capability.title.split(' ')[0]}
-                        <span className="block font-bold mt-1">
+                        <span className="block ">
                           
                           {capability.title.split(' ').slice(1).join(' ')}
                         </span>
