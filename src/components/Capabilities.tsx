@@ -120,7 +120,7 @@ const Capabilities: React.FC = () => {
                   </div>
 
                   {/* Dark overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 rounded-xl pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-transparent group-hover:from-black/50 group-hover:to-transparent transition-all duration-300 rounded-xl pointer-events-none"></div>
 
                   {/* Title */}
                   <div className="absolute top-6 left-6 z-10 pointer-events-none">
