@@ -86,15 +86,16 @@ const Capabilities: React.FC = () => {
             className="flex transition-transform duration-500 ease-in-out"
             style={{
               transform: `translateX(-${currentSlide * 100}%)`,
-              width: `${totalSlides * 100}%`
+              width: `${totalSlides * 100}%`,
+              minWidth: `${totalSlides * 100}%`
             }}
           >
             {/* First set of 4 cards */}
-            <div className="flex w-full gap-6 px-6">
+            <div className="flex w-full gap-6 px-6 min-w-full">
               {capabilities.map((capability, index) => (
                 <div
                   key={`set1-${capability.title}`}
-                  className={`group relative flex-1 max-w-[450px] h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${
+                  className={`group relative w-1/4 flex-shrink-0 h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{
@@ -135,11 +136,11 @@ const Capabilities: React.FC = () => {
             </div>
             
             {/* Second set of 4 cards (duplicate for looping) */}
-            <div className="flex w-full gap-6 px-6">
+            <div className="flex w-full gap-6 px-6 min-w-full">
               {capabilities.map((capability, index) => (
                 <div
                   key={`set2-${capability.title}`}
-                  className={`group relative flex-1 max-w-[450px] h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${
+                  className={`group relative w-1/4 flex-shrink-0 h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{
