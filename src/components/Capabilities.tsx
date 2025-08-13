@@ -81,7 +81,6 @@ const Capabilities: React.FC = () => {
             slidesPerView={4}
             spaceBetween={30}
             navigation={true}
-            pagination={{ clickable: true }}
             loop={true}
             modules={[Navigation, Pagination]}
             breakpoints={{
