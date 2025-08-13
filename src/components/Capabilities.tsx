@@ -112,7 +112,7 @@ const Capabilities: React.FC = () => {
         className="w-full h-full !overflow-hidden"
       >
         {capabilities.map((capability, index) => (
-          <<SwiperSlide key={capability.title}>
+          <SwiperSlide key={capability.title}>
   <div
     className={`group relative w-full h-[450px] overflow-hidden rounded-xl transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl ${
       isVisible
