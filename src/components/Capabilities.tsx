@@ -36,6 +36,12 @@ const Capabilities: React.FC = () => {
       category: "Cloud",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
     },
+        {
+      title: "Cloud Solutions",
+      description: "Implementing scalable cloud infrastructure and services",
+      category: "Cloud",
+      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+    },
   ];
 
   useEffect(() => {
@@ -57,9 +63,8 @@ const Capabilities: React.FC = () => {
       id="capabilities"
       ref={sectionRef}
       className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-32"
-    >
-      <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
-        {/* Custom Arrows */}
+    
+              {/* Custom Arrows */}
         <button
           ref={prevRef}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
@@ -72,6 +77,8 @@ const Capabilities: React.FC = () => {
         >
           ▶
         </button>
+      <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
+
 
         <div className="w-full">
           <Swiper
