@@ -12,7 +12,7 @@ const Hero = () => {
         <ParallaxLayer offset={0} factor={3} speed={0.2} className="z-0">
           <div className="absolute inset-0 w-full h-full overflow-hidden">
             <img
-              src="/assets/images/hero1.jpeg"
+              src="/assets/images/hero2.jpeg"
               alt="Hero Background"
               className="w-full h-full object-cover"
             />
