@@ -115,14 +115,17 @@ const Capabilities: React.FC = () => {
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   />
 
-                  {/* Content Overlay */}
-<div className="absolute inset-0 bg-black/40">
-  <h3 className="text-3xl md:text-4xl font-light text-white text-center leading-tight font-sf-pro-display ">
-    <span className="block font-bold mt-2">
-      {capability.title}
-    </span>
-  </h3>
-</div>
+                  {/* Dark Overlay at Top */}
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent h-1/2 transition-all duration-300 group-hover:from-black/90 group-hover:via-black/70">
+                    <div className="p-6 md:p-8">
+                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-tight font-sf-pro-display">
+                        {capability.title.split(' ')[0]}
+                        <span className="block font-bold mt-1">
+                          {capability.title.split(' ').slice(1).join(' ')}
+                        </span>
+                      </h3>
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
