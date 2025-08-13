@@ -8,10 +8,6 @@ const Testimonials: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Handle scroll logic if needed
-    };
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,11 +23,8 @@ const Testimonials: React.FC = () => {
       observer.observe(sectionRef.current);
     }
 
-    window.addEventListener('scroll', handleScroll);
-
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -199,11 +192,8 @@ const Testimonials: React.FC = () => {
   return (
     <section 
       id="testimonials" 
-      className="relative py-20 md:py-32 bg-gray-50 z-70" 
+      className="relative py-20 md:py-32 bg-gray-50" 
       ref={sectionRef}
-      style={{
-        transform: `translateY(${scrollY * -0.5}px)`,
-      }}
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}

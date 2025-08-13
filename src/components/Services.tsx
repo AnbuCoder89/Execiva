@@ -3,13 +3,9 @@ import { ArrowRight } from 'lucide-react';
 
 const Services: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -24,7 +20,6 @@ const Services: React.FC = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -80,9 +75,6 @@ const Services: React.FC = () => {
 
   return (
     <section
-      id="services"
-      className="relative w-full py-4 md:py-4 overflow-hidden px-3"
-      ref={sectionRef}
     >
       {/* Container with max width */}
       <div className="w-full max-w-[100vw] p-3">
