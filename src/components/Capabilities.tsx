@@ -112,10 +112,7 @@ const Capabilities: React.FC = () => {
               <SwiperSlide key={capability.title}>
                 <div
                   className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
-                    transition-all duration-700 ease-out 
-                    shadow-[0_8px_20px_rgba(0,0,0,0.4)] 
-                    hover:shadow-[0_8px_20px_rgba(0,0,0,0.4),0_-8px_20px_rgba(0,0,0,0.3)]
-                    hover:translate-y-[-16px]
+                    shadow-lg
                     ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
