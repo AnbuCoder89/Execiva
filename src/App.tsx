@@ -8,7 +8,6 @@ import Hero from './components/Hero';
 import Vision from './components/Vision';
 import Capabilities from './components/Capabilities';
 import Services from './components/Services';
-import TCSServices from './components/TCSServices';
 import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
@@ -26,7 +25,6 @@ function App() {
         <Hero />
         <Vision />
         <Services />
-        <TCSServices />
         <Capabilities />
         <CaseStudies />
         <Testimonials />
