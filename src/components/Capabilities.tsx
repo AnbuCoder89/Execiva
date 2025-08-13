@@ -126,10 +126,11 @@ const Capabilities: React.FC = () => {
       className="absolute inset-0 bg-cover bg-center rounded-xl" // added rounded-xl here
       style={{ backgroundImage: `url('${capability.image}')` }}
     />
+    <h3 className="text-xl font-semibold">{capability.title}</h3>
 
     {/* Overlay */}
     <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 rounded-b-xl">
-      <h3 className="text-xl font-semibold">{capability.title}</h3>
+      
       <p className="text-sm">{capability.description}</p>
     </div>
   </div>
