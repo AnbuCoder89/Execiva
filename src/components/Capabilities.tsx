@@ -111,7 +111,7 @@ const Capabilities: React.FC = () => {
                 >
                   {/* Background Image */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   />
 
