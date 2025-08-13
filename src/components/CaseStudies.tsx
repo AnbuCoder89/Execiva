@@ -37,7 +37,7 @@ const CaseStudies: React.FC = () => {
       }}
     >
       <div className="w-full flex flex-col lg:flex-row items-center justify-center">
-        <div className="w-full lg:w-1/2 flex items-center justify-start">
+        <div className="w-full lg:w-1/2 flex items-center justify-end">
           <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
               <span className="font-bold">Case Studies</span>
