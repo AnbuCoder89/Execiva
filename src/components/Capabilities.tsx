@@ -125,9 +125,6 @@ const Capabilities: React.FC = () => {
                     className="absolute inset-0 bg-cover bg-center rounded-xl"
                     style={{ backgroundImage: `url('${capability.image}')` }}
                   >
-                    {/* Dark overlay at top */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-transparent h-1/2 group-hover:from-black/90 group-hover:via-black/70 rounded-t-xl" />
-
                     {/* Title positioned at top */}
                     <div className="absolute top-6 left-6 z-10">
                       <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
