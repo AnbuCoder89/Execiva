@@ -184,7 +184,7 @@ const capabilities = [
                     <h3 className="text-2xl md:text-3xl font-light text-white leading-tight font-sf-pro-display drop-shadow-lg">
                       {capability.title.split(" ")[0]}
                       <span className="block mt-1">
-                        {capability.title.split(" ").slice(1).join(" ")}
+                        {capability.title}
                       </span>
                     </h3>
                   </div>
