@@ -94,7 +94,7 @@ const Capabilities: React.FC = () => {
       className="w-screen h-screen py-20 md:py-32 bg-gray-50 flex items-center"
       ref={sectionRef}
     >
-      <div className="max-w-7xl mx-auto px-6 relative w-full h-full flex flex-col justify-center">
+      <div className="mx-auto px-6 relative w-full h-full flex flex-col justify-center">
         {/* Slider Container */}
         <div className="relative overflow-hidden flex-grow flex items-center">
           {/* Cards Grid */}
