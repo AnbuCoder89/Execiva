@@ -130,8 +130,10 @@ const Capabilities: React.FC = () => {
           </Swiper>
         </div>
       </div>
+      <div className="w-full max-w-[100vw] px-6 md:px-12 lg:px-16 py-3">
+      </div>
     </section>
   );
-      <div className="w-full max-w-[100vw] px-6 md:px-12 lg:px-16 py-3">
+};
 
 export default Capabilities;
