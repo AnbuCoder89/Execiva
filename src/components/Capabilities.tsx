@@ -82,6 +82,8 @@ const Capabilities: React.FC = () => {
 >
   <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10">
     Your card content here 
+    <div className="w-full mx-auto px-4 sm:px-8">
+      </div>
   </div>
 </section>
 
