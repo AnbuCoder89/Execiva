@@ -10,33 +10,69 @@ const Capabilities: React.FC = () => {
   const nextRef = useRef<HTMLButtonElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const capabilities = [
-    {
-      title: "Web Development",
-      description: "Creating modern, responsive websites with cutting-edge technologies",
-      category: "Development",
-      image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-    },
-    {
-      title: "Mobile Apps",
-      description: "Building native and cross-platform mobile applications",
-      category: "Mobile",
-      image: "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg",
-    },
-    {
-      title: "UI/UX Design",
-      description: "Designing intuitive and beautiful user experiences",
-      category: "Design",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
-    },
-    {
-      title: "Cloud Solutions",
-      description: "Implementing scalable cloud infrastructure and services",
-      category: "Cloud",
-      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
-    },
+const capabilities = [
+  {
+    title: "Web Development",
+    description: "Creating modern, responsive websites with cutting-edge technologies",
+    category: "Development",
+    image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg",
+  },
+  {
+    title: "Mobile Apps",
+    description: "Building native and cross-platform mobile applications",
+    category: "Mobile",
+    image: "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg",
+  },
+  {
+    title: "UI/UX Design",
+    description: "Designing intuitive and beautiful user experiences",
+    category: "Design",
+    image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
+  },
+  {
+    title: "Cloud Solutions",
+    description: "Implementing scalable cloud infrastructure and services",
+    category: "Cloud",
+    image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+  },
+  {
+    title: "E-commerce Development",
+    description: "Building high-performance online stores with secure payment systems",
+    category: "E-commerce",
+    image: "https://images.pexels.com/photos/896046/pexels-photo-896046.jpeg",
+  },
+  {
+    title: "AI & Machine Learning",
+    description: "Developing intelligent solutions for automation and predictive insights",
+    category: "AI/ML",
+    image: "https://images.pexels.com/photos/843891/pexels-photo-843891.jpeg",
+  },
+  {
+    title: "Cybersecurity",
+    description: "Protecting systems and data from digital threats and vulnerabilities",
+    category: "Security",
+    image: "https://images.pexels.com/photos/5380641/pexels-photo-5380641.jpeg",
+  },
+  {
+    title: "DevOps & Automation",
+    description: "Streamlining deployment pipelines with CI/CD and infrastructure as code",
+    category: "DevOps",
+    image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+  },
+  {
+    title: "Blockchain Solutions",
+    description: "Building decentralized applications and smart contract systems",
+    category: "Blockchain",
+    image: "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg",
+  },
+  {
+    title: "Data Analytics",
+    description: "Turning raw data into actionable business insights",
+    category: "Analytics",
+    image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg",
+  }
+];
 
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
