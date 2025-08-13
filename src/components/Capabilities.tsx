@@ -117,16 +117,6 @@ const Capabilities: React.FC = () => {
                   transitionDelay: `${(index % cardsPerSlide) * 50}ms`,
                 }}
               >
-            {capabilities.map((capability, index) => (
-              <div
-                key={capability.title}
-                className={`group relative w-full max-w-[450px] mx-auto h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl transform rounded-xl ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{
-                  transitionDelay: `${(index % cardsPerSlide) * 50}ms`,
-                }}
-              >
                 {/* Background Image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center"
