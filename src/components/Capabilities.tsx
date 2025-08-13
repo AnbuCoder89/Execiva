@@ -105,6 +105,9 @@ const Capabilities: React.FC = () => {
           }}
           className="w-full h-[600px] !overflow-visible"
         >
+                  {capabilities.map((capability, index) => (
+            <SwiperSlide key={capability.title}> </SwiperSlide>
+          ))}
                   </Swiper>
       </div>
     </div>
