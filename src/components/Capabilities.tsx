@@ -102,7 +102,7 @@ const Capabilities: React.FC = () => {
             {capabilities.map((capability, index) => (
               <SwiperSlide key={capability.title}>
                 <div
-                  className={`group relative w-full h-[500px] overflow-hidden cursor-pointer transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl hover:scale-105 transform rounded-xl ${
+                  className={`group relative w-full h-[500px] overflow-hidden cursor-pointer transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl transform rounded-xl ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{
