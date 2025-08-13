@@ -77,7 +77,7 @@ const Capabilities: React.FC = () => {
 
   return (
     <section id="capabilities" className="w-full py-20 md:py-32 bg-gray-50" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Our
