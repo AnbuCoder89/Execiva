@@ -136,4 +136,4 @@ const Capabilities: React.FC = () => {
   );
 };
 
-export default Capabilities2;
+export default Capabilities;
