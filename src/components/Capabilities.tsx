@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import Button from "./ui/Button";
+import { ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -104,9 +106,17 @@ const capabilities = [
         </button>
         <button
           ref={nextRef}
-          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow hover:bg-gray-200 transition"
+          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10"
         >
-          ▶
+          <Button
+            variant="vision"
+            size="md"
+            icon={ChevronRight}
+            iconPosition="right"
+            className="!p-3 !rounded-full shadow hover:shadow-lg"
+          >
+            
+          </Button>
         </button>
         
 
