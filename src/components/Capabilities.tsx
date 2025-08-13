@@ -54,6 +54,10 @@ const Capabilities: React.FC = () => {
       category: "Cloud",
       image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg"
     }
+  ];
+
+  return (
+    <section ref={sectionRef}>
     <div className="relative">
       <div className="bg-black text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10">
         <div className="w-full mx-auto px-4 sm:px-8">
@@ -112,8 +116,7 @@ const Capabilities: React.FC = () => {
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
   );
