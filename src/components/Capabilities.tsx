@@ -77,27 +77,6 @@ const Capabilities: React.FC = () => {
     setTimeout(() => setIsAutoPlaying(true), 5000);
   };
 
-  const getVisibleCards = () => {
-    const cards = [];
-    const totalCards = capabilities.length;
-    
-    // Show 4 cards on desktop, 3 on tablet, 2 on mobile, 1 on small mobile
-    const cardsToShow = window.innerWidth >= 1280 ? 4 : 
-                      window.innerWidth >= 1024 ? 3 : 
-                      window.innerWidth >= 768 ? 2 : 1;
-    
-    for (let i = 0; i < cardsToShow; i++) {
-      const index = (currentIndex + i) % totalCards;
-      cards.push({
-        ...capabilities[index],
-        index: index,
-        position: i
-      });
-    }
-    
-    return cards;
-  };
-
   const [cardsToShow, setCardsToShow] = useState(4);
 
   useEffect(() => {
