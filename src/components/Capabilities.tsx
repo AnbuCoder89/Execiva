@@ -120,10 +120,10 @@ const Capabilities: React.FC = () => {
                   </div>
 
                   {/* Default dark gradient at bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:opacity-0 transition-opacity duration-300 rounded-xl pointer-events-none"></div>
 
                   {/* Dark overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-transparent group-hover:from-black/60 group-hover:to-transparent transition-all duration-300 rounded-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-transparent group-hover:from-black/60 group-hover:to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl"></div>
 
                   {/* Title */}
                   <div className="absolute top-6 left-6 z-10 pointer-events-none">
