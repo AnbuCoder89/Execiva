@@ -63,7 +63,7 @@ const Capabilities: React.FC = () => {
       className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-50 py-20 md:py-32"
       ref={sectionRef}
     >
-      <div className="w-full max-w-7xl mx-auto px-6">
+      <div className="w-full mx-auto px-6">
         {/* Swiper Container */}
         <div className="relative">
           <Swiper
