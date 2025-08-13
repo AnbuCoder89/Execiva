@@ -92,9 +92,9 @@ const capabilities = [
     <section
       id="capabilities"
       ref={sectionRef}
-      className="w-full min-h-screen flex items-center justify-center px-3 sm:px-6 md:px-32"
+      className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-16"
     >
-      <div className="text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-3 sm:p-6 md:p-8 relative">
+      <div className="text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
         {/* Custom Arrows */}
         <button
           ref={prevRef}
