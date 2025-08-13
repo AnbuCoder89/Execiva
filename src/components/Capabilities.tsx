@@ -130,13 +130,6 @@ const Capabilities: React.FC = () => {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70 transition-all duration-500" />
 
-                  {/* Category Tag */}
-                  <div className="absolute top-6 left-6 z-10 transform transition-all duration-500">
-                    <span className="px-4 py-2 bg-gray-800/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/20 font-sf-pro-text transition-all duration-300">
-                      {capability.category}
-                    </span>
-                  </div>
-
                   {/* Article Card Overlay */}
                   <div className="absolute bottom-6 left-6 right-6 z-10 transform transition-all duration-500">
                     <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-500">
