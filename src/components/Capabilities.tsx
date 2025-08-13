@@ -117,7 +117,7 @@ const Capabilities: React.FC = () => {
 
                   {/* Content Overlay */}
 <div className="absolute inset-0 bg-black/40">
-  <h3 className="text-3xl md:text-4xl font-light text-white text-center leading-tight font-sf-pro-display">
+  <h3 className="text-3xl md:text-4xl font-light text-white text-center leading-tight font-sf-pro-display ">
     <span className="block font-bold mt-2">
       {capability.title}
     </span>
