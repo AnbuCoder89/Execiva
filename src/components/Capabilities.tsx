@@ -142,13 +142,7 @@ const Capabilities: React.FC = () => {
                     <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-xl shadow-lg border border-white/30 transition-all duration-500">
                       <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-tight mb-3 font-sf-pro-display transition-all duration-300 group-hover:text-gray-800">
                         {capability.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-gray-700 leading-relaxed font-sf-pro-text transition-all duration-300 group-hover:text-gray-600">
-                        {capability.description.length > 80
-                          ? `${capability.description.substring(0, 80)}...`
-                          : capability.description}
-                      </p>
-                      
+                      </h3>                      
                     </div>
                   </div>
                 </div>
