@@ -112,28 +112,29 @@ const Capabilities: React.FC = () => {
         className="w-full h-full !overflow-hidden"
       >
         {capabilities.map((capability, index) => (
-          <SwiperSlide key={capability.title}>
-            <div
-              className={`group relative w-full h-[450px] overflow-hidden rounded-xl transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('${capability.image}')` }}
-              />
+          <<SwiperSlide key={capability.title}>
+  <div
+    className={`group relative w-full h-[450px] overflow-hidden rounded-xl transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl ${
+      isVisible
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-10"
+    }`}
+    style={{ transitionDelay: `${index * 100}ms` }}
+  >
+    {/* Background Image */}
+    <div
+      className="absolute inset-0 bg-cover bg-center rounded-xl" // added rounded-xl here
+      style={{ backgroundImage: `url('${capability.image}')` }}
+    />
 
-              {/* Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60">
-                <h3 className="text-xl font-semibold">{capability.title}</h3>
-                <p className="text-sm">{capability.description}</p>
-              </div>
-            </div>
-          </SwiperSlide>
+    {/* Overlay */}
+    <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 rounded-b-xl">
+      <h3 className="text-xl font-semibold">{capability.title}</h3>
+      <p className="text-sm">{capability.description}</p>
+    </div>
+  </div>
+</SwiperSlide>
+
         ))}
       </Swiper>
     </div>
