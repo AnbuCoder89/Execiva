@@ -76,13 +76,13 @@ const Capabilities: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="capabilities"
-      className="w-full min-h-screen flex flex-col items-center justify-center py-20"
-      ref={sectionRef}
-    >
-
-    </section>
+<section
+  id="capabilities"
+  className="w-full min-h-screen flex items-center justify-center"
+  ref={sectionRef}
+>
+  {/* Your slider goes here */}
+</section>
   );
 };
 
