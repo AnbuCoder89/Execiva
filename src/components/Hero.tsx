@@ -10,12 +10,14 @@ const Hero = () => {
       <Parallax ref={parallax} pages={3} className="w-full h-full" style={{ overflow: 'hidden' }}>
         {/* Background Image Layer */}
         <ParallaxLayer offset={0} factor={3} speed={0.2} className="z-0">
-          <div className="absolute inset-0 w-full h-full">
-            <img
-              src="/assets/images/hero1.jpeg"
-              alt="Hero Background"
-              className="w-full h-full object-cover object-center"
-            />
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/assets/images/hero1.jpeg')`,
+              minHeight: '100vh',
+              minWidth: '100vw'
+            }}
+          >
           </div>
         </ParallaxLayer>
 
