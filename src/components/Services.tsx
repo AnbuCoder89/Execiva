@@ -103,9 +103,6 @@ const Services: React.FC = () => {
                   <h3 className="text-3xl md:text-4xl font-bold mb-4 font-sf-pro-display">
                     {service.title}
                   </h3>
-                  <p className="text-lg md:text-xl leading-relaxed mb-6 font-sf-pro-text opacity-90">
-                    {service.description}
-                  </p>
                 </div>
                 
                 <div>
