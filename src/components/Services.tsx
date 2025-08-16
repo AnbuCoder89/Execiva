@@ -79,12 +79,13 @@ const Services: React.FC = () => {
       ref={sectionRef}
       className="relative w-full min-h-screen flex items-center justify-center bg-gray-50"
       >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full px-4">
-  <div className="p-6 rounded-2xl shadow bg-white">Service 1</div>
-  <div className="p-6 rounded-2xl shadow bg-white">Service 2</div>
-  <div className="p-6 rounded-2xl shadow bg-white">Service 3</div>
-  <div className="p-6 rounded-2xl shadow bg-white">Service 4</div>
+<div className="grid grid-cols-2 grid-rows-2 gap-6">
+  <div className="p-4 bg-gray-100 rounded">Item 1</div>
+  <div className="p-4 bg-gray-100 rounded">Item 2</div>
+  <div className="p-4 bg-gray-100 rounded">Item 3</div>
+  <div className="p-4 bg-gray-100 rounded">Item 4</div>
 </div>
+
     </section>
   );
 };
