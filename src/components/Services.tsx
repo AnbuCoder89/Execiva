@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
+import Button from './ui/Button';
 
 const Services: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -88,6 +90,16 @@ const Services: React.FC = () => {
                   <p className="text-lg md:text-xl text-center leading-relaxed font-sf-pro-text">
                     {service.description}
                   </p>
+                  <div className="mt-6 flex justify-center">
+                    <Button
+                      variant="vision"
+                      size="md"
+                      icon={ArrowRight}
+                      iconPosition="right"
+                    >
+                      Learn More
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
