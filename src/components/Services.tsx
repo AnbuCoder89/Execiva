@@ -90,16 +90,16 @@ const Services: React.FC = () => {
                   <p className="text-lg md:text-xl text-center leading-relaxed font-sf-pro-text">
                     {service.description}
                   </p>
-                  <div className="mt-6 flex justify-center">
-                    <Button
-                      variant="vision"
-                      size="md"
-                      icon={ArrowRight}
-                      iconPosition="right"
-                    >
-                      Learn More
-                    </Button>
-                  </div>
+                </div>
+                <div className="mt-6 flex justify-center">
+                  <Button
+                    variant="vision"
+                    size="md"
+                    icon={ArrowRight}
+                    iconPosition="right"
+                  >
+                    Learn More
+                  </Button>
                 </div>
               </div>
             </div>
