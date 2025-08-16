@@ -79,10 +79,10 @@ const Services: React.FC = () => {
               }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70" style={{ width: '100%', height: '100%' }}></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
               
               {/* Content */}
-              <div className="relative z-10 p-8 flex flex-col justify-between text-white" style={{ width: '100%', height: '100%' }}>
+              <div className="relative z-10 p-8 flex flex-col justify-between text-white h-full">
                 <div>
                   <h3 className="text-3xl md:text-4xl text-center font-bold mb-4 font-sf-pro-display">
                     {service.title}
@@ -91,7 +91,7 @@ const Services: React.FC = () => {
                     {service.description}
                   </p>
                 </div>
-                <div className="mt-6 flex justify-center">
+                <div className="flex justify-center">
                   <Button
                     variant="vision"
                     size="md"
