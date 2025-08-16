@@ -28,31 +28,29 @@ const Services: React.FC = () => {
       title: 'Web Development',
       description:
         'Custom websites and web applications built for performance and scalability.',
-
       imageUrl:
-        'public/assets/images/web-development/web-development-service.jpeg',
+        '/assets/images/web-development/web-development-service.jpeg',
     },
     {
       title: 'Artificial Intelligence',
       description:
-        'Native and cross-platform mobile apps that deliver exceptional user experiences.',
+        'AI-powered solutions that automate processes and provide intelligent insights.',
       imageUrl:
-        'public/assets/images/Ai-service.jpeg',
+        '/assets/images/Ai-service.jpeg',
     },
     {
       title: 'Digital Strategy',
       description:
         'Comprehensive digital transformation strategies tailored to your business goals.',
-
       imageUrl:
-        'public/assets/images/data_analytics/digital-analytics-service.jpeg',
+        '/assets/images/data_analytics/digital-analytics-service.jpeg',
     },
     {
       title: 'Data Analytics',
       description:
         'Data-driven insights to help you make informed decisions and optimize your operations.',
       imageUrl:
-        'public/assets/images/data_analytics/data-analytics-service.jpeg',
+        '/assets/images/data_analytics/data-analytics-service.jpeg',
     },
   ];
 
@@ -86,24 +84,15 @@ const Services: React.FC = () => {
                   <h3 className="text-3xl md:text-4xl font-bold mb-4 font-sf-pro-display">
                     {service.title}
                   </h3>
-                </div>
-                
-                <div>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm md:text-base font-sf-pro-text">
-                        <ArrowRight className="w-4 h-4 mr-2 text-white/80" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-lg md:text-xl leading-relaxed font-sf-pro-text">
+                    {service.description}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
     </section>
   );
 };
