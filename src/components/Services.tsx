@@ -79,7 +79,7 @@ const Services: React.FC = () => {
       ref={sectionRef}
       className="relative w-full h-screen flex items-center justify-center bg-gray-50 p-8"
       >
-      <div className="w-full h-full max-w-7xl mx-auto">
+      <div className="w-full h-full">
         <div className="grid grid-cols-2 grid-rows-2 gap-6 h-full">
           {services.map((service, index) => (
             <div
