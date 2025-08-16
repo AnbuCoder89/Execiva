@@ -72,14 +72,16 @@ const Services: React.FC = () => {
                 transitionDelay: `${index * 150}ms`,
                 backgroundImage: `url('${service.imageUrl}')`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+                width: '100%',
+                height: '100%'
               }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70" style={{ width: '100%', height: '100%' }}></div>
               
               {/* Content */}
-              <div className="relative z-10 p-8 h-full flex flex-col justify-between text-white">
+              <div className="relative z-10 p-8 flex flex-col justify-between text-white" style={{ width: '100%', height: '100%' }}>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold mb-4 font-sf-pro-display">
                     {service.title}
