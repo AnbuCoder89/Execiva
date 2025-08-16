@@ -28,48 +28,31 @@ const Services: React.FC = () => {
       title: 'Web Development',
       description:
         'Custom websites and web applications built for performance and scalability.',
-      features: [
-        'Responsive Design',
-        'Performance Optimization',
-        'SEO Ready',
-        'Modern Frameworks',
-      ],
+
       imageUrl:
-        'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1470&q=80',
+        'public/assets/images/web-development/web-development-service.jpeg',
     },
     {
-      title: 'Mobile Development',
+      title: 'Artificial Intelligence',
       description:
         'Native and cross-platform mobile apps that deliver exceptional user experiences.',
-      features: [
-        'iOS & Android',
-        'Cross-Platform',
-        'App Store Optimization',
-        'Push Notifications',
-      ],
       imageUrl:
-        'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=1470&q=80',
+        'public/assets/images/Ai-service.jpeg',
     },
     {
       title: 'Digital Strategy',
       description:
         'Comprehensive digital transformation strategies tailored to your business goals.',
-      features: [
-        'Market Analysis',
-        'Technology Roadmap',
-        'Digital Transformation',
-        'Growth Strategy',
-      ],
+
       imageUrl:
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1470&q=80',
+        'public/assets/images/data_analytics/digital-analytics-service.jpeg',
     },
     {
       title: 'Data Analytics',
       description:
         'Data-driven insights to help you make informed decisions and optimize your operations.',
-      features: ['Data Cleaning', 'Data Visualization', 'Data Analysis', 'Data Reporting'],
       imageUrl:
-        'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1470&q=80',
+        'public/assets/images/data_analytics/data-analytics-service.jpeg',
     },
   ];
 
