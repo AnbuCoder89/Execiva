@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import Button from './ui/Button';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -43,10 +44,14 @@ const Hero = () => {
           </h1>
 
           <div className="flex justify-center items-center">
-            <button className="px-8 py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 font-medium font-sf-pro-text flex items-center gap-2 shadow-lg hover:shadow-xl">
+            <Button
+              variant="vision"
+              size="lg"
+              icon={ChevronDown}
+              iconPosition="right"
+            >
               Start Your Journey
-              <ChevronDown className="w-5 h-5" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
