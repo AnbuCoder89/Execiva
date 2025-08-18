@@ -1,27 +1,13 @@
 import React from "react";
-import { useEffect, useState } from 'react';
 import { ArrowRight } from "lucide-react";
 import Button from "./ui/Button"
 
 
 const Vision: React.FC = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section
       id="vision"
       className="relative w-full min-h-screen flex items-center justify-center bg-gray-50 z-30"
-      style={{
-        transform: `translateY(${scrollY * -0.1}px)`,
-        paddingTop: 'var(--vision-padding-top, 0)',
-        paddingBottom: 'var(--vision-padding-bottom, 0)'
-      }}
     >
 <div className="w-full flex flex-col lg:flex-row items-center justify-center">
   {/* Image Column */}
