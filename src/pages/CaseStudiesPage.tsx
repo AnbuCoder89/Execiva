@@ -307,19 +307,7 @@ const CaseStudiesPage: React.FC = () => {
         
         {/* Left Panel - Desktop Only (30%) */}
         <div className="w-[30%] bg-gray-50 relative">
-                      <div className="flex items-center justify-between mb-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={ArrowLeft}
-                iconPosition="left"
-                onClick={() => navigate('/')}
-              >
-                Back
-              </Button>
-          
-            </div>
-          <div className="py-4 px-6">
+          <div className="px-6 pt-4">
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fixed top-20 w-[calc(30%-3rem)] max-h-[calc(100vh-6rem)] overflow-y-auto">
               <div className="space-y-4">
                 <FilterSection
@@ -374,7 +362,7 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Right Panel - Desktop Only (70%) */}
         <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
-          <div className="py-4 px-6 min-h-screen">
+          <div className="px-6 pt-4 min-h-screen">
             {/* First Line: Back button and Results count */}
 
 
