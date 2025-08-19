@@ -29,7 +29,7 @@ function App() {
       <CaseStudies />
       <Testimonials />
       <Contact />
-      <Footer />
+      
     </>
   );
 
@@ -41,6 +41,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
         </Routes>
+        <Footer />
       </div>
     </ParallaxProvider>
   );
