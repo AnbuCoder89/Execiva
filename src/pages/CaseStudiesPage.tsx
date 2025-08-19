@@ -306,11 +306,7 @@ const CaseStudiesPage: React.FC = () => {
         {/* Left Panel - Desktop Only (30%) */}
         <div className="w-[30%] bg-gray-50 relative">
           <div className="py-4 px-6">
-            <div className={`bg-white rounded-lg shadow-sm border border-gray-200 p-6 w-full max-h-[calc(100vh-6rem)] overflow-y-auto transition-all duration-300 ${
-              isLeftPanelFixed 
-                ? 'fixed top-20 w-[calc(30%-3rem)]' 
-                : 'relative'
-            }`}>
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fixed top-20 w-[calc(30%-3rem)] max-h-[calc(100vh-6rem)] overflow-y-auto">
               {/* Case Studies Header in Left Panel */}
               <div className="mb-6">
                 <div className="flex items-center space-x-4 mb-4">
