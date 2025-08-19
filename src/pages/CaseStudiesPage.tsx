@@ -303,6 +303,19 @@ const CaseStudiesPage: React.FC = () => {
 
       {/* Desktop Layout */}
       <div className="hidden lg:flex min-h-screen">
+
+                    <div className="flex items-center justify-between mb-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                icon={ArrowLeft}
+                iconPosition="left"
+                onClick={() => navigate('/')}
+              >
+                Back
+              </Button>
+          
+            </div>
         {/* Left Panel - Desktop Only (30%) */}
         <div className="w-[30%] bg-gray-50 relative">
           <div className="py-4 px-6">
@@ -362,18 +375,7 @@ const CaseStudiesPage: React.FC = () => {
         <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
           <div className="py-4 px-6 min-h-screen">
             {/* First Line: Back button and Results count */}
-            <div className="flex items-center justify-between mb-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={ArrowLeft}
-                iconPosition="left"
-                onClick={() => navigate('/')}
-              >
-                Back
-              </Button>
-          
-            </div>
+
 
             {/* Second Line: Case Studies heading */}
             <div className="flex items-center justify-between mb-6">
