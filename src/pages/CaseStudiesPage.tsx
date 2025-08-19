@@ -192,6 +192,7 @@ const CaseStudiesPage: React.FC = () => {
       <div className="pt-36 flex h-screen">
         {/* Left Panel - Fixed Filters (30%) */}
         <div className="w-[30%] fixed left-0 top-36 bottom-0 bg-white border-r border-gray-200 overflow-y-auto">
+          <div className="p-6">
             <div className="space-y-4">
               <FilterSection
                 title="Topics"
@@ -244,25 +245,26 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Right Panel - Scrollable Content (70%) */}
         <div className="w-[70%] ml-[30%] overflow-y-auto">
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={ArrowLeft}
-                iconPosition="left"
-                onClick={() => navigate('/')}
-                className="!px-3"
-              >
-                Back
-              </Button>
-              <h1 className="text-3xl font-light text-gray-900 font-sf-pro-display">
-                Case Studies
-              </h1>
-              <div className="text-sm text-gray-600 font-sf-pro-text">
-              Showing {filteredCaseStudies.length} of {caseStudies.length} results
-            </div>
+          <div className="p-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  icon={ArrowLeft}
+                  iconPosition="left"
+                  onClick={() => navigate('/')}
+                  className="!px-3"
+                >
+                  Back
+                </Button>
+                <h1 className="text-3xl font-light text-gray-900 font-sf-pro-display">
+                  Case Studies
+                </h1>
+                <div className="text-sm text-gray-600 font-sf-pro-text">
+                  Showing {filteredCaseStudies.length} of {caseStudies.length} results
+                </div>
+              </div>
             </div>
           </div>
                       
@@ -330,6 +332,9 @@ const CaseStudiesPage: React.FC = () => {
               </div>
             )}
           </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
