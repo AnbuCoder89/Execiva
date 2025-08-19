@@ -442,7 +442,7 @@ const CaseStudiesPage: React.FC = () => {
       {/* Mobile/Tablet Cards Layout */}
       <div className="lg:hidden px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {filteredCaseStudies.map((study) => (
+          {currentCaseStudies.map((study) => (
             <div
               key={study.id}
               className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
