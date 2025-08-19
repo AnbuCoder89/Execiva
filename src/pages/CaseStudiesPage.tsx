@@ -307,27 +307,6 @@ const CaseStudiesPage: React.FC = () => {
         <div className="w-[30%] bg-gray-50 relative">
           <div className="py-4 px-6">
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fixed top-20 w-[calc(30%-3rem)] max-h-[calc(100vh-6rem)] overflow-y-auto">
-              {/* Case Studies Header in Left Panel */}
-              <div className="mb-6">
-                <div className="flex items-center space-x-4 mb-4">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    icon={ArrowLeft}
-                    iconPosition="left"
-                    onClick={() => navigate('/')}
-                  >
-                    Back
-                  </Button>
-                </div>
-                <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display mb-2">
-                  Case Studies
-                </h1>
-                <div className="text-sm text-gray-600 font-sf-pro-text mb-6">
-                  Showing {filteredCaseStudies.length} of {caseStudies.length} results
-                </div>
-              </div>
-
               <div className="space-y-4">
                 <FilterSection
                   title="Topics"
@@ -382,6 +361,29 @@ const CaseStudiesPage: React.FC = () => {
         {/* Right Panel - Desktop Only (70%) */}
         <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
           <div className="py-4 px-6 min-h-screen">
+            {/* First Line: Back button and Results count */}
+            <div className="flex items-center justify-between mb-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                icon={ArrowLeft}
+                iconPosition="left"
+                onClick={() => navigate('/')}
+              >
+                Back
+              </Button>
+              <div className="text-sm text-gray-600 font-sf-pro-text">
+                Showing {filteredCaseStudies.length} of {caseStudies.length} results
+              </div>
+            </div>
+
+            {/* Second Line: Case Studies heading */}
+            <div className="mb-6">
+              <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display">
+                Case Studies
+              </h1>
+            </div>
+
             <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
                 <div
