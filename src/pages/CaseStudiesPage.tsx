@@ -192,75 +192,77 @@ const CaseStudiesPage: React.FC = () => {
       <div className="flex min-h-screen">
         {/* Left Panel - Scrollable Filters (30%) */}
         <div className="w-[30%] bg-gray-50">
-          <div className="py-4 px-6">
-            {/* Case Studies Header in Left Panel */}
-            <div className="mb-6">
-              <div className="flex items-center space-x-4 mb-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  icon={ArrowLeft}
-                  iconPosition="left"
-                  onClick={() => navigate('/')}
-                >
-                  Back
-                </Button>
+          <div className="p-4">
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+              {/* Case Studies Header in Left Panel */}
+              <div className="mb-6">
+                <div className="flex items-center space-x-4 mb-4">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    icon={ArrowLeft}
+                    iconPosition="left"
+                    onClick={() => navigate('/')}
+                  >
+                    Back
+                  </Button>
+                </div>
+                <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display mb-2">
+                  Case Studies
+                </h1>
+                <div className="text-sm text-gray-600 font-sf-pro-text mb-6">
+                  Showing {filteredCaseStudies.length} of {caseStudies.length} results
+                </div>
               </div>
-              <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display mb-2">
-                Case Studies
-              </h1>
-              <div className="text-sm text-gray-600 font-sf-pro-text mb-6">
-                Showing {filteredCaseStudies.length} of {caseStudies.length} results
-              </div>
-            </div>
 
-            <div className="space-y-4">
-              <FilterSection
-                title="Topics"
-                filterKey="topics"
-                options={filterOptions.topics}
-              />
-              <FilterSection
-                title="Industry"
-                filterKey="industry"
-                options={filterOptions.industry}
-              />
-              <FilterSection
-                title="Region"
-                filterKey="region"
-                options={filterOptions.region}
-              />
-              <FilterSection
-                title="Channels"
-                filterKey="channels"
-                options={filterOptions.channels}
-              />
-              <FilterSection
-                title="Products"
-                filterKey="products"
-                options={filterOptions.products}
-              />
-            </div>
-
-            {/* Clear Filters Button */}
-            {Object.values(selectedFilters).some(filters => filters.length > 0) && (
-              <div className="mt-6 pt-4 border-t border-gray-200">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setSelectedFilters({
-                    topics: [],
-                    industry: [],
-                    region: [],
-                    channels: [],
-                    products: []
-                  })}
-                  className="w-full"
-                >
-                  Clear All Filters
-                </Button>
+              <div className="space-y-4">
+                <FilterSection
+                  title="Topics"
+                  filterKey="topics"
+                  options={filterOptions.topics}
+                />
+                <FilterSection
+                  title="Industry"
+                  filterKey="industry"
+                  options={filterOptions.industry}
+                />
+                <FilterSection
+                  title="Region"
+                  filterKey="region"
+                  options={filterOptions.region}
+                />
+                <FilterSection
+                  title="Channels"
+                  filterKey="channels"
+                  options={filterOptions.channels}
+                />
+                <FilterSection
+                  title="Products"
+                  filterKey="products"
+                  options={filterOptions.products}
+                />
               </div>
-            )}
+
+              {/* Clear Filters Button */}
+              {Object.values(selectedFilters).some(filters => filters.length > 0) && (
+                <div className="mt-6 pt-4 border-t border-gray-200">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setSelectedFilters({
+                      topics: [],
+                      industry: [],
+                      region: [],
+                      channels: [],
+                      products: []
+                    })}
+                    className="w-full"
+                  >
+                    Clear All Filters
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
