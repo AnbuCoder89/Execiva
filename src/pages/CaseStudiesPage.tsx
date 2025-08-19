@@ -245,28 +245,7 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Right Panel - Scrollable Content (70%) */}
         <div className="w-[70%] ml-[30%] overflow-y-auto h-[calc(100vh-8rem)]">
-          <div className="p-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  icon={ArrowLeft}
-                  iconPosition="left"
-                  onClick={() => navigate('/')}
-                  className="!px-3"
-                >
-                  Back
-                </Button>
-                <h1 className="text-3xl font-light text-gray-900 font-sf-pro-display">
-                  Case Studies
-                </h1>
-                <div className="text-sm text-gray-600 font-sf-pro-text">
-                  Showing {filteredCaseStudies.length} of {caseStudies.length} results
-                </div>
-              </div>
-            </div>
-          </div>
+
                       
           <div className="p-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
