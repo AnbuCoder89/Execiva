@@ -192,16 +192,6 @@ const CaseStudiesPage: React.FC = () => {
       <div className="pt-36 flex h-screen">
         {/* Left Panel - Fixed Filters (30%) */}
         <div className="w-[30%] fixed left-0 top-36 bottom-0 bg-white border-r border-gray-200 overflow-y-auto">
-          <div className="p-6">
-            <div className="mb-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-1 font-sf-pro-display">
-                Filter by
-              </h2>
-              <p className="text-sm text-gray-600 font-sf-pro-text">
-                The latest
-              </p>
-            </div>
-
             <div className="space-y-4">
               <FilterSection
                 title="Topics"
