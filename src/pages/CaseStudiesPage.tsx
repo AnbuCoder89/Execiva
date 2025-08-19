@@ -89,7 +89,7 @@ const CaseStudiesPage: React.FC = () => {
       region: 'Global',
       channel: 'Programmatic',
       product: 'Analytics Suite',
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpg',
+      image: '/assets/images/case-studies/case-2.jpeg',
       description: 'Freestar leveraged our advanced analytics platform to optimize their programmatic advertising revenue streams.'
     },
     {
@@ -102,7 +102,7 @@ const CaseStudiesPage: React.FC = () => {
       region: 'Global',
       channel: 'Mobile',
       product: 'AI Platform',
-      image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpg',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
       description: 'World of Hyatt transformed guest experiences through AI-powered personalization across all touchpoints.'
     },
     {
@@ -115,7 +115,7 @@ const CaseStudiesPage: React.FC = () => {
       region: 'Europe',
       channel: 'OTT',
       product: 'Data Platform',
-      image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpg',
+      image: '/assets/images/case-studies/case-1.jpeg',
       description: 'Sky Deutschland utilized our data insights platform to significantly improve viewer engagement and content strategy.'
     }
   ];
