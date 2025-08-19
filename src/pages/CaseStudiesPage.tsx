@@ -184,33 +184,31 @@ const CaseStudiesPage: React.FC = () => {
     filterKey: keyof typeof selectedFilters;
     options: string[];
   }> = ({ title, filterKey, options }) => (
-    <div className="border-b border-gray-200 pb-2 mb-4">
+    <div className="border-b border-gray-200 pb-4 mb-4">
       <button
         onClick={() => toggleFilterExpansion(filterKey)}
-        className="flex items-center justify-between w-full text-left font-medium text-gray-900 hover:text-gray-700 transition-colors py-3 border-b border-gray-300"
+        className="flex items-center justify-between w-full text-left font-medium text-gray-900 hover:text-gray-700 transition-colors"
       >
         <span className="font-sf-pro-display">{title}</span>
         <ChevronDown
           size={16}
           className={`transform transition-transform ${
-            expandedFilters[filterKey] ? 'rotate-180' : 'rotate-0'
+            expandedFilters[filterKey] ? 'rotate-180' : ''
           }`}
         />
       </button>
       {expandedFilters[filterKey] && (
-        <div className="mt-2 bg-white border border-gray-200 rounded-lg shadow-sm max-h-48 overflow-y-auto">
+        <div className="mt-3 space-y-2">
           {options.map(option => (
-            <button
-              key={option}
-              onClick={() => toggleFilter(filterKey, option)}
-              className={`w-full text-left px-4 py-3 text-sm font-sf-pro-text transition-colors hover:bg-gray-50 ${
-                selectedFilters[filterKey].includes(option)
-                  ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-500'
-                  : 'text-gray-700'
-              }`}
-            >
-              {option}
-            </button>
+            <label key={option} className="flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                checked={selectedFilters[filterKey].includes(option)}
+                onChange={() => toggleFilter(filterKey, option)}
+                className="w-4 h-4 text-gray-600 bg-white border-gray-300 rounded focus:ring-gray-400 focus:ring-2"
+              />
+              <span className="ml-2 text-sm text-gray-700 font-sf-pro-text">{option}</span>
+            </label>
           ))}
         </div>
       )}
