@@ -63,7 +63,7 @@ const CaseStudiesPage: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [filteredCaseStudies.length]);
 
   const caseStudies: CaseStudy[] = [
     {
