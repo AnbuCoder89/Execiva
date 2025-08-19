@@ -478,8 +478,3 @@ const CaseStudiesPage: React.FC = () => {
     </div>
   );
 };
-
-export default CaseStudiesPage;
-
-
-export default CaseStudiesPage
