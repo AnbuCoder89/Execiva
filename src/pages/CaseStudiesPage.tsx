@@ -319,7 +319,7 @@ const CaseStudiesPage: React.FC = () => {
               </Button>
           
             </div>
-          <div className=" pt-8 py-4 px-6">
+          <div className=" pt-16 py-4 px-6">
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fixed top-20 w-[calc(30%-3rem)] max-h-[calc(100vh-6rem)] overflow-y-auto">
               <div className="space-y-4">
                 <FilterSection
