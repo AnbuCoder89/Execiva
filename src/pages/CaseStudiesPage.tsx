@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ArrowLeft, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
