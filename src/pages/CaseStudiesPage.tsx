@@ -39,32 +39,6 @@ const CaseStudiesPage: React.FC = () => {
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!rightPanelRef.current) return;
-
-      const rightPanel = rightPanelRef.current;
-      const rightPanelRect = rightPanel.getBoundingClientRect();
-      const rightPanelBottom = rightPanelRect.bottom;
-      const windowHeight = window.innerHeight;
-
-      // Check if we've scrolled past the right panel content
-      // When the bottom of the right panel is at or above the bottom of the viewport
-      if (rightPanelBottom <= windowHeight) {
-        setIsLeftPanelFixed(false);
-      } else {
-        setIsLeftPanelFixed(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [filteredCaseStudies.length]);
-
   const caseStudies: CaseStudy[] = [
     {
       id: '1',
@@ -154,6 +128,42 @@ const CaseStudiesPage: React.FC = () => {
     products: ['Data Platform', 'OpenPath', 'Video Platform', 'Analytics Suite', 'AI Platform']
   };
 
+  const filteredCaseStudies = caseStudies.filter(study => {
+    const matchesTopics = selectedFilters.topics.length === 0 || selectedFilters.topics.includes(study.topic);
+    const matchesIndustry = selectedFilters.industry.length === 0 || selectedFilters.industry.includes(study.industry);
+    const matchesRegion = selectedFilters.region.length === 0 || selectedFilters.region.includes(study.region);
+    const matchesChannels = selectedFilters.channels.length === 0 || selectedFilters.channels.includes(study.channel);
+    const matchesProducts = selectedFilters.products.length === 0 || selectedFilters.products.includes(study.product);
+
+    return matchesTopics && matchesIndustry && matchesRegion && matchesChannels && matchesProducts;
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!rightPanelRef.current) return;
+
+      const rightPanel = rightPanelRef.current;
+      const rightPanelRect = rightPanel.getBoundingClientRect();
+      const rightPanelBottom = rightPanelRect.bottom;
+      const windowHeight = window.innerHeight;
+
+      // Check if we've scrolled past the right panel content
+      // When the bottom of the right panel is at or above the bottom of the viewport
+      if (rightPanelBottom <= windowHeight) {
+        setIsLeftPanelFixed(false);
+      } else {
+        setIsLeftPanelFixed(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [filteredCaseStudies.length]);
+
   const toggleFilter = (filterType: keyof typeof selectedFilters, value: string) => {
     setSelectedFilters(prev => ({
       ...prev,
@@ -169,16 +179,6 @@ const CaseStudiesPage: React.FC = () => {
       [filterType]: !prev[filterType]
     }));
   };
-
-  const filteredCaseStudies = caseStudies.filter(study => {
-    const matchesTopics = selectedFilters.topics.length === 0 || selectedFilters.topics.includes(study.topic);
-    const matchesIndustry = selectedFilters.industry.length === 0 || selectedFilters.industry.includes(study.industry);
-    const matchesRegion = selectedFilters.region.length === 0 || selectedFilters.region.includes(study.region);
-    const matchesChannels = selectedFilters.channels.length === 0 || selectedFilters.channels.includes(study.channel);
-    const matchesProducts = selectedFilters.products.length === 0 || selectedFilters.products.includes(study.product);
-
-    return matchesTopics && matchesIndustry && matchesRegion && matchesChannels && matchesProducts;
-  });
 
   const FilterSection: React.FC<{
     title: string;
