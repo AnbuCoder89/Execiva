@@ -187,10 +187,10 @@ const CaseStudiesPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
-        <div className="px-6 py-6">
+    <div className="min-h-screen bg-gray-50">
+      {/* Fixed Header */}
+      <div className="fixed top-20 left-0 right-0 z-40 bg-white shadow-sm border-b border-gray-200">
+        <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Button
@@ -214,10 +214,11 @@ const CaseStudiesPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-6 py-8">
-        <div className="flex gap-8">
-          {/* Left Panel - Filters (30%) */}
-          <div className="w-[30%] bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit">
+      {/* Main Content Area */}
+      <div className="pt-36 flex h-screen">
+        {/* Left Panel - Fixed Filters (30%) */}
+        <div className="w-[30%] fixed left-0 top-36 bottom-0 bg-white border-r border-gray-200 overflow-y-auto">
+          <div className="p-6">
             <div className="mb-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-1 font-sf-pro-display">
                 Filter by
@@ -275,9 +276,11 @@ const CaseStudiesPage: React.FC = () => {
               </div>
             )}
           </div>
+        </div>
 
-          {/* Right Panel - Case Studies Grid (70%) */}
-          <div className="w-[70%]">
+        {/* Right Panel - Scrollable Content (70%) */}
+        <div className="w-[70%] ml-[30%] overflow-y-auto">
+          <div className="p-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
                 <div
