@@ -293,9 +293,6 @@ const CaseStudiesPage: React.FC = () => {
                     <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-tight font-sf-pro-display">
                       {study.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed font-sf-pro-text">
-                      {study.description}
-                    </p>
                   </div>
 
                   {/* Footer */}
