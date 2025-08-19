@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ArrowLeft, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
@@ -19,6 +20,8 @@ interface CaseStudy {
 
 const CaseStudiesPage: React.FC = () => {
   const navigate = useNavigate();
+  const rightPanelRef = useRef<HTMLDivElement>(null);
+  const [isLeftPanelFixed, setIsLeftPanelFixed] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState({
     topics: [] as string[],
     industry: [] as string[],
@@ -36,6 +39,32 @@ const CaseStudiesPage: React.FC = () => {
   });
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!rightPanelRef.current) return;
+
+      const rightPanel = rightPanelRef.current;
+      const rightPanelRect = rightPanel.getBoundingClientRect();
+      const rightPanelBottom = rightPanelRect.bottom;
+      const windowHeight = window.innerHeight;
+
+      // Check if we've scrolled past the right panel content
+      // When the bottom of the right panel is at or above the bottom of the viewport
+      if (rightPanelBottom <= windowHeight) {
+        setIsLeftPanelFixed(false);
+      } else {
+        setIsLeftPanelFixed(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [filteredCaseStudies.length]);
 
   const caseStudies: CaseStudy[] = [
     {
@@ -278,7 +307,11 @@ const CaseStudiesPage: React.FC = () => {
         {/* Left Panel - Desktop Only (30%) */}
         <div className="w-[30%] bg-gray-50 relative">
           <div className="py-4 px-6">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fixed top-20 w-[calc(30%-3rem)] max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <div className={`bg-white rounded-lg shadow-sm border border-gray-200 p-6 w-full max-h-[calc(100vh-6rem)] overflow-y-auto transition-all duration-300 ${
+              isLeftPanelFixed 
+                ? 'fixed top-20 w-[calc(30%-3rem)]' 
+                : 'relative'
+            }`}>
               {/* Case Studies Header in Left Panel */}
               <div className="mb-6">
                 <div className="flex items-center space-x-4 mb-4">
@@ -352,7 +385,7 @@ const CaseStudiesPage: React.FC = () => {
         </div>
 
         {/* Right Panel - Desktop Only (70%) */}
-        <div className="w-[70%] bg-gray-50">
+        <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
           <div className="py-4 px-6 min-h-screen">
             <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
