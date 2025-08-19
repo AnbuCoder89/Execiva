@@ -294,18 +294,6 @@ const CaseStudiesPage: React.FC = () => {
                       {study.title}
                     </h3>
                   </div>
-
-                  {/* Footer */}
-                  <div className="px-6 pb-6">
-                    <div className="flex flex-wrap gap-2">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        {study.industry}
-                      </span>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                        {study.topic}
-                      </span>
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>
