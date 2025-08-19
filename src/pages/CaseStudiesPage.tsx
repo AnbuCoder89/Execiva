@@ -119,6 +119,32 @@ const CaseStudiesPage: React.FC = () => {
       product: 'Data Platform',
       image: '/assets/images/case-studies/case-1.jpeg',
       description: 'Sky Deutschland utilized our data insights platform to significantly improve viewer engagement and content strategy.'
+    },
+    {
+      id: '7',
+      title: 'Sky Deutschland enhances viewer engagement through data insights',
+      subtitle: 'CASE STUDIES | DATA INSIGHTS',
+      category: 'CASE STUDIES',
+      topic: 'Data Analytics',
+      industry: 'Broadcasting',
+      region: 'Europe',
+      channel: 'OTT',
+      product: 'Data Platform',
+      image: '/assets/images/case-studies/case-1.jpeg',
+      description: 'Sky Deutschland utilized our data insights platform to significantly improve viewer engagement and content strategy.'
+    },
+    {
+      id: '8',
+      title: 'Sky Deutschland enhances viewer engagement through data insights',
+      subtitle: 'CASE STUDIES | DATA INSIGHTS',
+      category: 'CASE STUDIES',
+      topic: 'Data Analytics',
+      industry: 'Broadcasting',
+      region: 'Europe',
+      channel: 'OTT',
+      product: 'Data Platform',
+      image: '/assets/images/case-studies/case-1.jpeg',
+      description: 'Sky Deutschland utilized our data insights platform to significantly improve viewer engagement and content strategy.'
     }
   ];
 
