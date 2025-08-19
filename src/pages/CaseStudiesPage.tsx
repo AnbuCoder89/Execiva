@@ -375,9 +375,6 @@ const CaseStudiesPage: React.FC = () => {
               <h1 className="text-xl font-bold text-gray-700 font-sf-pro-display">
                 Case Studies
               </h1>
-              <div className="text-sm text-gray-600 font-sf-pro-text">
-                Showing {filteredCaseStudies.length} of {caseStudies.length} results
-              </div>
             </div>
 
             <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
