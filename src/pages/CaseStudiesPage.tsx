@@ -316,6 +316,10 @@ const CaseStudiesPage: React.FC = () => {
              onClick={() => {
                navigate('/');
                setTimeout(() => {
+                // Set active section in header
+                window.dispatchEvent(new CustomEvent('setActiveSection', { detail: 'case-studies' }));
+                 // Set active section in header
+                 window.dispatchEvent(new CustomEvent('setActiveSection', { detail: 'case-studies' }));
                  const element = document.getElementById('case-studies');
                  if (element) {
                    element.scrollIntoView({ behavior: 'smooth' });

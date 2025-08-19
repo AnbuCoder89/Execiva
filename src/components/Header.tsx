@@ -43,10 +43,17 @@ const Header = () => {
       }
     };
 
+    const handleSetActiveSection = (event: CustomEvent) => {
+      setActiveSection(event.detail);
+    };
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("setActiveSection", handleSetActiveSection as EventListener);
     handleScroll(); // Initialize active section
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("setActiveSection", handleSetActiveSection as EventListener);
+    };
   }, []);
 
   const navItems = [
@@ -65,6 +72,7 @@ const Header = () => {
       navigate('/');
       // Wait for navigation to complete, then scroll
       setTimeout(() => {
+        setActiveSection(id);
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
