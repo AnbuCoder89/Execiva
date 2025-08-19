@@ -372,7 +372,7 @@ const CaseStudiesPage: React.FC = () => {
         <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
           <div className="pb-4 px-6 min-h-screen">
             <div className="flex items-center justify-between mb-6">
-              <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display">
+              <h1 className="text-xl font-bold text-gray-900 font-sf-pro-display">
                 Case Studies
               </h1>
               <div className="text-sm text-gray-600 font-sf-pro-text">
