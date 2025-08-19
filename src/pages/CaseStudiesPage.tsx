@@ -140,17 +140,6 @@ const CaseStudiesPage: React.FC = () => {
     return matchesTopics && matchesIndustry && matchesRegion && matchesChannels && matchesProducts;
   });
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredCaseStudies.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentCaseStudies = filteredCaseStudies.slice(startIndex, endIndex);
-
-  // Reset to page 1 when filters change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedFilters]);
-
   // Updated scroll logic
   useEffect(() => {
     const handleScroll = () => {
@@ -172,7 +161,7 @@ const CaseStudiesPage: React.FC = () => {
     handleScroll(); // initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [currentCaseStudies.length]);
+  }, [filteredCaseStudies.length]);
 
   const toggleFilter = (filterType: keyof typeof selectedFilters, value: string) => {
     setSelectedFilters(prev => ({
@@ -387,12 +376,12 @@ const CaseStudiesPage: React.FC = () => {
                 Case Studies
               </h1>
               <div className="text-sm text-gray-600 font-sf-pro-text">
-                Showing {Math.min(startIndex + 1, filteredCaseStudies.length)}-{Math.min(endIndex, filteredCaseStudies.length)} of {filteredCaseStudies.length} results
+                Showing {filteredCaseStudies.length} of {caseStudies.length} results
               </div>
             </div>
 
             <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
-              {currentCaseStudies.map((study) => (
+              {filteredCaseStudies.map((study) => (
                 <div
                   key={study.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
@@ -442,7 +431,7 @@ const CaseStudiesPage: React.FC = () => {
       {/* Mobile/Tablet Cards Layout */}
       <div className="lg:hidden px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {currentCaseStudies.map((study) => (
+          {filteredCaseStudies.map((study) => (
             <div
               key={study.id}
               className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
@@ -491,3 +480,6 @@ const CaseStudiesPage: React.FC = () => {
 };
 
 export default CaseStudiesPage;
+
+
+export default CaseStudiesPage
