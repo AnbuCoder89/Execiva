@@ -401,7 +401,7 @@ const CaseStudiesPage: React.FC = () => {
                         {study.subtitle}
                       </span>
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-tight font-sf-pro-display">
+                    <h3 className="text-lg font-semibold text-gray-500 mb-3 leading-tight font-sf-pro-display">
                       {study.title}
                     </h3>
                   </div>
