@@ -313,7 +313,23 @@ const CaseStudiesPage: React.FC = () => {
               size="sm"
               icon={ArrowLeft}
               iconPosition="left"
-              onClick={() => navigate('/')}
+             onClick={() => {
+               navigate('/');
+               setTimeout(() => {
+                 const element = document.getElementById('case-studies');
+                 if (element) {
+                   element.scrollIntoView({ behavior: 'smooth' });
+                 }
+               }, 100);
+             }}
+               navigate('/');
+               setTimeout(() => {
+                 const element = document.getElementById('case-studies');
+                 if (element) {
+                   element.scrollIntoView({ behavior: 'smooth' });
+                 }
+               }, 100);
+             }}
             >
               Back
             </Button>
