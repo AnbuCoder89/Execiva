@@ -187,12 +187,33 @@ const CaseStudiesPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
-      {/* Main Content Area */}
-      <div className="pt-36 flex h-screen">
+    <div className="min-h-screen bg-gray-50 pt-20">
+      {/* Main Content Area - Seamless with header */}
+      <div className="flex min-h-screen">
         {/* Left Panel - Fixed Filters (30%) */}
-        <div className="w-[30%] fixed left-0 top-32 bottom-0 bg-white border-r border-gray-200 overflow-y-auto">
-          <div className="p-6">
+        <div className="w-[30%] fixed left-0 top-20 bottom-0 bg-gray-50 overflow-y-auto">
+          <div className="py-4 px-6">
+            {/* Case Studies Header in Left Panel */}
+            <div className="mb-6">
+              <div className="flex items-center space-x-4 mb-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  icon={ArrowLeft}
+                  iconPosition="left"
+                  onClick={() => navigate('/')}
+                >
+                  Back
+                </Button>
+              </div>
+              <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display mb-2">
+                Case Studies
+              </h1>
+              <div className="text-sm text-gray-600 font-sf-pro-text mb-6">
+                Showing {filteredCaseStudies.length} of {caseStudies.length} results
+              </div>
+            </div>
+
             <div className="space-y-4">
               <FilterSection
                 title="Topics"
@@ -244,10 +265,8 @@ const CaseStudiesPage: React.FC = () => {
         </div>
 
         {/* Right Panel - Scrollable Content (70%) */}
-        <div className="w-[70%] ml-[30%] overflow-y-auto h-[calc(100vh-8rem)]">
-
-                      
-          <div className="p-6">
+        <div className="w-[70%] ml-[30%] bg-gray-50">
+          <div className="py-4 px-6 min-h-screen">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
                 <div
