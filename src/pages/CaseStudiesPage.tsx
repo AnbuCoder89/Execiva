@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ArrowLeft, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
-import CaseStudyCard from '../components/CaseStudyCard';
-import MobileCaseStudyCard from '../components/MobileCaseStudyCard';
 
 interface CaseStudy {
   id: string;
@@ -386,11 +384,32 @@ const CaseStudiesPage: React.FC = () => {
           <div className="py-4 px-6 min-h-screen">
             <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
-                <CaseStudyCard
+                <div
                   key={study.id}
-                  study={study}
-                  onClick={() => console.log('Clicked case study:', study.id)}
-                />
+                  className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
+                >
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={study.image}
+                      alt={study.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="mb-3">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide font-sf-pro-text">
+                        {study.subtitle}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-tight font-sf-pro-display">
+                      {study.title}
+                    </h3>
+                  </div>
+                </div>
               ))}
             </div>
 
@@ -418,11 +437,32 @@ const CaseStudiesPage: React.FC = () => {
       <div className="lg:hidden px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {filteredCaseStudies.map((study) => (
-            <MobileCaseStudyCard
+            <div
               key={study.id}
-              study={study}
-              onClick={() => console.log('Clicked case study:', study.id)}
-            />
+              className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
+            >
+              {/* Image */}
+              <div className="relative h-40 md:h-48 overflow-hidden">
+                <img
+                  src={study.image}
+                  alt={study.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 md:p-6">
+                <div className="mb-2 md:mb-3">
+                  <span className="text-xs font-medium text-gray-500 uppercase tracking-wide font-sf-pro-text">
+                    {study.subtitle}
+                  </span>
+                </div>
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2 md:mb-3 leading-tight font-sf-pro-display">
+                  {study.title}
+                </h3>
+              </div>
+            </div>
           ))}
         </div>
 
