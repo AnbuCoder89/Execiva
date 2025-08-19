@@ -187,11 +187,11 @@ const CaseStudiesPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Main Content Area - Seamless with header */}
-      <div className="flex min-h-screen">
+    <div className="bg-gray-50 pt-20">
+      {/* Case Studies Content */}
+      <div className="flex">
         {/* Left Panel - Fixed Filters (30%) */}
-        <div className="w-[30%] fixed left-0 top-20 bottom-0 bg-gray-50 overflow-y-auto">
+        <div className="w-[30%] fixed left-0 top-20 h-screen bg-gray-50 overflow-y-auto z-30">
           <div className="py-4 px-6">
             {/* Case Studies Header in Left Panel */}
             <div className="mb-6">
