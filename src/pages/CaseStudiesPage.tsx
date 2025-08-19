@@ -217,8 +217,6 @@ const CaseStudiesPage: React.FC = () => {
   );
 
   return (
-     <div className="bg-gray-50 pt-20 min-h-screen">
-       </div>
     <div className="bg-gray-50 pt-20 min-h-screen">
       {/* Mobile/Tablet Header */}
       <div className="lg:hidden px-4 py-4">
