@@ -187,11 +187,11 @@ const CaseStudiesPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pt-24">
       {/* Main Content Area */}
       <div className="pt-36 flex h-screen">
         {/* Left Panel - Fixed Filters (30%) */}
-        <div className="w-[30%] fixed left-0 top-36 bottom-0 bg-white border-r border-gray-200 overflow-y-auto">
+        <div className="w-[30%] fixed left-0 top-32 bottom-0 bg-white border-r border-gray-200 overflow-y-auto">
           <div className="p-6">
             <div className="space-y-4">
               <FilterSection
@@ -244,7 +244,7 @@ const CaseStudiesPage: React.FC = () => {
         </div>
 
         {/* Right Panel - Scrollable Content (70%) */}
-        <div className="w-[70%] ml-[30%] overflow-y-auto">
+        <div className="w-[70%] ml-[30%] overflow-y-auto h-[calc(100vh-8rem)]">
           <div className="p-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
