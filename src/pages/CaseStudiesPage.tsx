@@ -306,7 +306,7 @@ const CaseStudiesPage: React.FC = () => {
 
         
         {/* Left Panel - Desktop Only (30%) */}
-        <div className="w-[30%] bg-gray-50 relative">
+        <div className="pt-8 w-[30%] bg-gray-50 relative">
                       <div className="flex items-center justify-between mb-4">
               <Button
                 variant="ghost"
