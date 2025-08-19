@@ -320,7 +320,7 @@ const CaseStudiesPage: React.FC = () => {
           
             </div>
           <div className="fixed top-[120px] w-[calc(30%-3rem)] py-4 px-6">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6 w-full max-h-[80vh] overflow-y-auto">
               <div className="space-y-4">
                 <FilterSection
                   title="Topics"
