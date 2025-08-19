@@ -189,9 +189,9 @@ const CaseStudiesPage: React.FC = () => {
   return (
     <div className="bg-gray-50 pt-20">
       {/* Case Studies Content */}
-      <div className="flex">
-        {/* Left Panel - Fixed Filters (30%) */}
-        <div className="w-[30%] fixed left-0 top-20 h-screen bg-gray-50 overflow-y-auto z-30">
+      <div className="flex min-h-screen">
+        {/* Left Panel - Scrollable Filters (30%) */}
+        <div className="w-[30%] bg-gray-50">
           <div className="py-4 px-6">
             {/* Case Studies Header in Left Panel */}
             <div className="mb-6">
@@ -264,8 +264,8 @@ const CaseStudiesPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Panel - Scrollable Content (70%) */}
-        <div className="w-[70%] ml-[30%] bg-gray-50">
+        {/* Right Panel - Case Studies Content (70%) */}
+        <div className="w-[70%] bg-gray-50">
           <div className="py-4 px-6 min-h-screen">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
