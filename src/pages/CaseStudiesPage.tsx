@@ -322,14 +322,6 @@ const CaseStudiesPage: React.FC = () => {
                  }
                }, 100);
              }}
-               navigate('/');
-               setTimeout(() => {
-                 const element = document.getElementById('case-studies');
-                 if (element) {
-                   element.scrollIntoView({ behavior: 'smooth' });
-                 }
-               }, 100);
-             }}
             >
               Back
             </Button>
