@@ -230,7 +230,7 @@ const CaseStudiesPage: React.FC = () => {
             Back
           </Button>
           <Button
-            variant="outline"
+            variant="vision"
             size="sm"
             icon={Filter}
             iconPosition="left"
