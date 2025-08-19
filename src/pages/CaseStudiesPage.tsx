@@ -38,6 +38,8 @@ const CaseStudiesPage: React.FC = () => {
   });
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   const caseStudies: CaseStudy[] = [
     {
@@ -138,6 +140,17 @@ const CaseStudiesPage: React.FC = () => {
     return matchesTopics && matchesIndustry && matchesRegion && matchesChannels && matchesProducts;
   });
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredCaseStudies.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentCaseStudies = filteredCaseStudies.slice(startIndex, endIndex);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilters]);
+
   // Updated scroll logic
   useEffect(() => {
     const handleScroll = () => {
@@ -159,7 +172,7 @@ const CaseStudiesPage: React.FC = () => {
     handleScroll(); // initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [filteredCaseStudies.length]);
+  }, [currentCaseStudies.length]);
 
   const toggleFilter = (filterType: keyof typeof selectedFilters, value: string) => {
     setSelectedFilters(prev => ({
@@ -374,12 +387,12 @@ const CaseStudiesPage: React.FC = () => {
                 Case Studies
               </h1>
               <div className="text-sm text-gray-600 font-sf-pro-text">
-                Showing {filteredCaseStudies.length} of {caseStudies.length} results
+                Showing {Math.min(startIndex + 1, filteredCaseStudies.length)}-{Math.min(endIndex, filteredCaseStudies.length)} of {filteredCaseStudies.length} results
               </div>
             </div>
 
             <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
-              {filteredCaseStudies.map((study) => (
+              {currentCaseStudies.map((study) => (
                 <div
                   key={study.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
