@@ -207,9 +207,6 @@ const CaseStudiesPage: React.FC = () => {
                 Case Studies
               </h1>
             </div>
-            <div className="text-sm text-gray-600 font-sf-pro-text">
-              Showing {filteredCaseStudies.length} of {caseStudies.length} results
-            </div>
           </div>
         </div>
       </div>
@@ -280,6 +277,9 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Right Panel - Scrollable Content (70%) */}
         <div className="w-[70%] ml-[30%] overflow-y-auto">
+                      <div className="text-sm text-gray-600 font-sf-pro-text">
+              Showing {filteredCaseStudies.length} of {caseStudies.length} results
+            </div>
           <div className="p-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
