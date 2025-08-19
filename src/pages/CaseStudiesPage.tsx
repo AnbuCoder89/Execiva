@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ArrowLeft, Filter } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../components/ui/Button';
 
 interface CaseStudy {
@@ -19,6 +19,7 @@ interface CaseStudy {
 
 const CaseStudiesPage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const rightPanelRef = useRef<HTMLDivElement>(null);
   const [isLeftPanelFixed, setIsLeftPanelFixed] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState({
@@ -40,6 +41,11 @@ const CaseStudiesPage: React.FC = () => {
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const caseStudies: CaseStudy[] = [
     {
