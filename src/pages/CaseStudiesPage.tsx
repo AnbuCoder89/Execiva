@@ -188,13 +188,6 @@ const CaseStudiesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Fixed Header */}
-      <div className="fixed top-20 left-0 right-0 z-40 bg-white shadow-sm border-b border-gray-200">
-        <div className="px-6 py-4">
-          
-        </div>
-      </div>
-
       {/* Main Content Area */}
       <div className="pt-36 flex h-screen">
         {/* Left Panel - Fixed Filters (30%) */}
