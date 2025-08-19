@@ -304,7 +304,10 @@ const CaseStudiesPage: React.FC = () => {
       {/* Desktop Layout */}
       <div className="hidden lg:flex min-h-screen">
 
-                    <div className="flex items-center justify-between mb-4">
+        
+        {/* Left Panel - Desktop Only (30%) */}
+        <div className="w-[30%] bg-gray-50 relative">
+                      <div className="flex items-center justify-between mb-4">
               <Button
                 variant="ghost"
                 size="sm"
@@ -316,8 +319,6 @@ const CaseStudiesPage: React.FC = () => {
               </Button>
           
             </div>
-        {/* Left Panel - Desktop Only (30%) */}
-        <div className="w-[30%] bg-gray-50 relative">
           <div className="py-4 px-6">
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fixed top-20 w-[calc(30%-3rem)] max-h-[calc(100vh-6rem)] overflow-y-auto">
               <div className="space-y-4">
