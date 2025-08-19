@@ -138,18 +138,17 @@ const CaseStudiesPage: React.FC = () => {
     return matchesTopics && matchesIndustry && matchesRegion && matchesChannels && matchesProducts;
   });
 
+  // Updated scroll logic
   useEffect(() => {
     const handleScroll = () => {
       if (!rightPanelRef.current) return;
 
       const rightPanel = rightPanelRef.current;
-      const rightPanelRect = rightPanel.getBoundingClientRect();
-      const rightPanelBottom = rightPanelRect.bottom;
+      const rightPanelBottom = rightPanel.offsetTop + rightPanel.offsetHeight;
+      const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
 
-      // Check if we've scrolled past the right panel content
-      // When the bottom of the right panel is at or above the bottom of the viewport
-      if (rightPanelBottom <= windowHeight) {
+      if (scrollY + windowHeight >= rightPanelBottom) {
         setIsLeftPanelFixed(false);
       } else {
         setIsLeftPanelFixed(true);
@@ -157,11 +156,9 @@ const CaseStudiesPage: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
+    handleScroll(); // initial check
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [filteredCaseStudies.length]);
 
   const toggleFilter = (filterType: keyof typeof selectedFilters, value: string) => {
@@ -303,23 +300,20 @@ const CaseStudiesPage: React.FC = () => {
 
       {/* Desktop Layout */}
       <div className="hidden lg:flex min-h-screen">
-
-        
         {/* Left Panel - Desktop Only (30%) */}
         <div className="w-[30%] bg-gray-50 relative">
-                      <div className="flex items-center justify-between mb-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={ArrowLeft}
-                iconPosition="left"
-                onClick={() => navigate('/')}
-              >
-                Back
-              </Button>
-          
-            </div>
-          <div className="fixed top-[120px] w-[calc(30%-3rem)] py-4 px-6">
+          <div className="flex items-center justify-between mb-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              icon={ArrowLeft}
+              iconPosition="left"
+              onClick={() => navigate('/')}
+            >
+              Back
+            </Button>
+          </div>
+          <div className={`py-4 px-6 ${isLeftPanelFixed ? 'fixed top-[120px] w-[calc(30%-3rem)]' : ''}`}>
             <div className="p-6 w-full max-h-[80vh] overflow-y-auto">
               <div className="space-y-4">
                 <FilterSection
@@ -375,15 +369,11 @@ const CaseStudiesPage: React.FC = () => {
         {/* Right Panel - Desktop Only (70%) */}
         <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
           <div className="pb-4 px-6 min-h-screen">
-            {/* First Line: Back button and Results count */}
-
-
-            {/* Second Line: Case Studies heading */}
             <div className="flex items-center justify-between mb-6">
               <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display">
                 Case Studies
               </h1>
-                  <div className="text-sm text-gray-600 font-sf-pro-text">
+              <div className="text-sm text-gray-600 font-sf-pro-text">
                 Showing {filteredCaseStudies.length} of {caseStudies.length} results
               </div>
             </div>
@@ -394,7 +384,6 @@ const CaseStudiesPage: React.FC = () => {
                   key={study.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
                 >
-                  {/* Image */}
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={study.image}
@@ -404,7 +393,6 @@ const CaseStudiesPage: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   </div>
 
-                  {/* Content */}
                   <div className="p-6">
                     <div className="mb-3">
                       <span className="text-xs font-medium text-gray-500 uppercase tracking-wide font-sf-pro-text">
@@ -419,7 +407,6 @@ const CaseStudiesPage: React.FC = () => {
               ))}
             </div>
 
-            {/* No Results Message */}
             {filteredCaseStudies.length === 0 && (
               <div className="text-center py-12">
                 <div className="text-gray-400 mb-4">
@@ -447,7 +434,6 @@ const CaseStudiesPage: React.FC = () => {
               key={study.id}
               className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
             >
-              {/* Image */}
               <div className="relative h-40 md:h-48 overflow-hidden">
                 <img
                   src={study.image}
@@ -457,7 +443,6 @@ const CaseStudiesPage: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               </div>
 
-              {/* Content */}
               <div className="p-4 md:p-6">
                 <div className="mb-2 md:mb-3">
                   <span className="text-xs font-medium text-gray-500 uppercase tracking-wide font-sf-pro-text">
@@ -472,7 +457,6 @@ const CaseStudiesPage: React.FC = () => {
           ))}
         </div>
 
-        {/* No Results Message - Mobile/Tablet */}
         {filteredCaseStudies.length === 0 && (
           <div className="text-center py-12">
             <div className="text-gray-400 mb-4">
