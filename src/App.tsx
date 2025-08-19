@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -12,24 +13,34 @@ import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CaseStudiesPage from './pages/CaseStudiesPage';
 
 function App() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  const HomePage = () => (
+    <>
+      <Hero />
+      <Vision />
+      <Services />
+      <Capabilities />
+      <CaseStudies />
+      <Testimonials />
+      <Contact />
+      <Footer />
+    </>
+  );
+
   return (
     <ParallaxProvider>
       <div className="min-h-screen bg-gradient-to-br from-white via-light-gray to-beige scroll-smooth">
         <Header />
-        <Hero />
-        <Vision />
-        <Services />
-        <Capabilities />
-        <CaseStudies />
-        <Testimonials />
-        <Contact />
-        <Footer />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/case-studies" element={<CaseStudiesPage />} />
+        </Routes>
       </div>
     </ParallaxProvider>
   );

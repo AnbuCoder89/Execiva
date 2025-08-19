@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from "lucide-react";
 import Button from "./ui/Button";
 
 
 const CaseStudies: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,6 +51,7 @@ Our case studies showcase how we’ve partnered with businesses to transform the
                 size="lg"
                 icon={ArrowRight}
                 iconPosition="right"
+                onClick={() => navigate('/case-studies')}
               >
                 Learn More
               </Button>

@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -9,6 +12,9 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Only update active section on home page
+      if (location.pathname !== '/') return;
 
       // Update active section based on scroll position
       const sections = [
@@ -54,6 +60,20 @@ const Header = () => {
   ];
 
   const scrollToSection = (id: string) => {
+    // If not on home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -85,7 +105,7 @@ const Header = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium font-sf-pro-text transition-all duration-300 ${
-                  activeSection === item.id
+                  activeSection === item.id && location.pathname === '/'
                     ? "bg-[#f4f3ee] text-gray-900 border-2 border-[#f4f3ee]"
                     : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                 }`}
@@ -117,7 +137,7 @@ const Header = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`block w-full text-left px-6 py-3 text-sm font-medium transition-colors ${
-                  activeSection === item.id
+                  activeSection === item.id && location.pathname === '/'
                     ? "bg-[#f4f3ee] text-gray-900"
                     : "text-gray-700 hover:bg-gray-50"
                 }`}
