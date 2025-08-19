@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ArrowLeft } from 'lucide-react';
+import { ChevronDown, ArrowLeft, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
 
@@ -34,6 +34,8 @@ const CaseStudiesPage: React.FC = () => {
     channels: false,
     products: false
   });
+
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
   const caseStudies: CaseStudy[] = [
     {
@@ -187,10 +189,93 @@ const CaseStudiesPage: React.FC = () => {
   );
 
   return (
-    <div className="bg-gray-50 pt-20">
-      {/* Case Studies Content */}
-      <div className="flex min-h-screen">
-        {/* Left Panel - Scrollable Filters (30%) */}
+    <div className="bg-gray-50 pt-20 min-h-screen">
+      {/* Mobile/Tablet Header */}
+      <div className="lg:hidden px-4 py-4">
+        <div className="flex items-center justify-between mb-4">
+          <Button
+            variant="ghost"
+            size="sm"
+            icon={ArrowLeft}
+            iconPosition="left"
+            onClick={() => navigate('/')}
+          >
+            Back
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            icon={Filter}
+            iconPosition="left"
+            onClick={() => setIsMobileFiltersOpen(!isMobileFiltersOpen)}
+          >
+            Filters
+          </Button>
+        </div>
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 font-sf-pro-display mb-2">
+          Case Studies
+        </h1>
+        <div className="text-sm text-gray-600 font-sf-pro-text mb-4">
+          Showing {filteredCaseStudies.length} of {caseStudies.length} results
+        </div>
+
+        {/* Mobile/Tablet Filters */}
+        {isMobileFiltersOpen && (
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+            <div className="space-y-4">
+              <FilterSection
+                title="Topics"
+                filterKey="topics"
+                options={filterOptions.topics}
+              />
+              <FilterSection
+                title="Industry"
+                filterKey="industry"
+                options={filterOptions.industry}
+              />
+              <FilterSection
+                title="Region"
+                filterKey="region"
+                options={filterOptions.region}
+              />
+              <FilterSection
+                title="Channels"
+                filterKey="channels"
+                options={filterOptions.channels}
+              />
+              <FilterSection
+                title="Products"
+                filterKey="products"
+                options={filterOptions.products}
+              />
+            </div>
+
+            {/* Clear Filters Button */}
+            {Object.values(selectedFilters).some(filters => filters.length > 0) && (
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setSelectedFilters({
+                    topics: [],
+                    industry: [],
+                    region: [],
+                    channels: [],
+                    products: []
+                  })}
+                  className="w-full"
+                >
+                  Clear All Filters
+                </Button>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex min-h-screen">
+        {/* Left Panel - Desktop Only (30%) */}
         <div className="w-[30%] bg-gray-50 relative">
           <div className="py-4 px-6">
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 fixed top-20 w-[calc(30%-3rem)] max-h-[calc(100vh-6rem)] overflow-y-auto">
@@ -266,10 +351,10 @@ const CaseStudiesPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Panel - Case Studies Content (70%) */}
+        {/* Right Panel - Desktop Only (70%) */}
         <div className="w-[70%] bg-gray-50">
           <div className="py-4 px-6 min-h-screen">
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
               {filteredCaseStudies.map((study) => (
                 <div
                   key={study.id}
@@ -318,6 +403,57 @@ const CaseStudiesPage: React.FC = () => {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Mobile/Tablet Cards Layout */}
+      <div className="lg:hidden px-4 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {filteredCaseStudies.map((study) => (
+            <div
+              key={study.id}
+              className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] cursor-pointer"
+            >
+              {/* Image */}
+              <div className="relative h-40 md:h-48 overflow-hidden">
+                <img
+                  src={study.image}
+                  alt={study.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 md:p-6">
+                <div className="mb-2 md:mb-3">
+                  <span className="text-xs font-medium text-gray-500 uppercase tracking-wide font-sf-pro-text">
+                    {study.subtitle}
+                  </span>
+                </div>
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2 md:mb-3 leading-tight font-sf-pro-display">
+                  {study.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* No Results Message - Mobile/Tablet */}
+        {filteredCaseStudies.length === 0 && (
+          <div className="text-center py-12">
+            <div className="text-gray-400 mb-4">
+              <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2 font-sf-pro-display">
+              No case studies found
+            </h3>
+            <p className="text-gray-600 font-sf-pro-text">
+              Try adjusting your filters to see more results.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
