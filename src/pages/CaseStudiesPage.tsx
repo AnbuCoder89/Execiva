@@ -372,16 +372,17 @@ const CaseStudiesPage: React.FC = () => {
               >
                 Back
               </Button>
-              <div className="text-sm text-gray-600 font-sf-pro-text">
-                Showing {filteredCaseStudies.length} of {caseStudies.length} results
-              </div>
+          
             </div>
 
             {/* Second Line: Case Studies heading */}
-            <div className="mb-6">
+            <div className="flex items-center justify-between mb-6">
               <h1 className="text-3xl font-bold text-gray-900 font-sf-pro-display">
                 Case Studies
               </h1>
+                  <div className="text-sm text-gray-600 font-sf-pro-text">
+                Showing {filteredCaseStudies.length} of {caseStudies.length} results
+              </div>
             </div>
 
             <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
