@@ -374,7 +374,7 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Right Panel - Desktop Only (70%) */}
         <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
-          <div className="py-4 px-6 min-h-screen">
+          <div className="pt-8 pb-4 px-6 min-h-screen">
             {/* First Line: Back button and Results count */}
 
 
