@@ -164,7 +164,7 @@ const Testimonials: React.FC = () => {
   const getCardStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
     const isActive = position === 0;
-    const cardSpacing = 350; // Reduced spacing to match reference
+    const cardSpacing = 300; // Reduced spacing to match reference
     
     if (isActive) {
       return {
