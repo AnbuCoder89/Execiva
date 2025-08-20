@@ -37,21 +37,21 @@ const Services: React.FC = () => {
       description:
         'AI-powered solutions that automate processes and provide intelligent insights.',
       imageUrl:
-        '/assets/images/Ai-service.jpeg',
+        '/assets/images/Artificial_Intelligence.jpg',
     },
     {
       title: 'Digital Strategy',
       description:
         'Comprehensive digital transformation strategies tailored to your business goals.',
       imageUrl:
-        '/assets/images/data_analytics/digital-analytics-service.jpeg',
+        '/assets/images/Digital_Statergy.jpeg',
     },
     {
       title: 'Data Analytics',
       description:
         'Data-driven insights to help you make informed decisions and optimize your operations.',
       imageUrl:
-        '/assets/images/data_analytics/data-analytics-service.jpeg',
+        '/assets/images/data_analytics/Data_Analytics.jpg',
     },
   ];
 
