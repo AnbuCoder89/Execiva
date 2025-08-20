@@ -94,22 +94,6 @@ const Testimonials: React.FC = () => {
     }
   ];
 
-  // Get 5 cards to display (always show 5 cards)
-  const getDisplayCards = () => {
-    const cards = [];
-    for (let i = -2; i <= 2; i++) {
-      const index = (activeIndex + i + testimonials.length) % testimonials.length;
-      cards.push({
-        ...testimonials[index],
-        position: i,
-        key: index // Stable key to prevent remounting
-      });
-    }
-    return cards;
-  };
-
-  const displayCards = getDisplayCards();
-
   const handleCardClick = (position: number) => {
     if (isAnimating || position === 0) return; // Don't animate if already center or animating
     
@@ -166,40 +150,51 @@ const Testimonials: React.FC = () => {
     slideStep();
   };
 
-  const getCardStyles = (position: number) => {
+  // Calculate position of each card relative to active index
+  const getCardPosition = (cardIndex: number) => {
+    const diff = cardIndex - activeIndex;
+    if (diff > testimonials.length / 2) {
+      return diff - testimonials.length;
+    } else if (diff < -testimonials.length / 2) {
+      return diff + testimonials.length;
+    }
+    return diff;
+  };
+
+  const getCardStyles = (cardIndex: number) => {
+    const position = getCardPosition(cardIndex);
     const isActive = position === 0;
+    const cardSpacing = 380; // Base spacing between cards
     
     if (isActive) {
       return {
         width: '350px',
         height: '450px',
-        opacity: 1,
-        filter: 'blur(0px)',
         transform: 'scale(1)',
+        translateX: position * cardSpacing,
         zIndex: 10,
       };
     } else if (Math.abs(position) === 1) {
       return {
         width: '300px',
         height: '380px',
-        opacity: 0.7,
-        filter: 'blur(1px)',
         transform: 'scale(0.9)',
+        translateX: position * cardSpacing,
         zIndex: 5,
       };
     } else {
       return {
         width: '250px',
         height: '320px',
-        opacity: 0.5,
-        filter: 'blur(2px)',
         transform: 'scale(0.8)',
+        translateX: position * cardSpacing,
         zIndex: 2,
       };
     }
   };
 
-  const getTextStyles = (position: number) => {
+  const getTextStyles = (cardIndex: number) => {
+    const position = getCardPosition(cardIndex);
     const isActive = position === 0;
     
     if (isActive) {
@@ -249,25 +244,31 @@ const Testimonials: React.FC = () => {
           </h2>
         </div>
 
-        {/* 5-Card Carousel */}
-        <div className="flex justify-center items-center mb-12">
-          <div className="flex items-center justify-center gap-6">
-            {displayCards.map((card) => {
-              const cardStyles = getCardStyles(card.position);
-              const textStyles = getTextStyles(card.position);
-              const isActive = card.position === 0;
+        {/* Sliding Carousel */}
+        <div className="flex justify-center items-center mb-12 overflow-hidden">
+          <div className="relative flex items-center justify-center" style={{ width: '1400px', height: '500px' }}>
+            {testimonials.map((card, cardIndex) => {
+              const cardStyles = getCardStyles(cardIndex);
+              const textStyles = getTextStyles(cardIndex);
+              const position = getCardPosition(cardIndex);
+              const isActive = position === 0;
+              const isVisible = Math.abs(position) <= 2; // Only show cards within 2 positions
               
               return (
                 <div
-                  key={card.key}
-                  className={`cursor-pointer flex-shrink-0 ${
+                  key={cardIndex}
+                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out ${
                     !isActive ? 'hover:opacity-80' : ''
-                  }`}
+                  } ${!isVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                   style={{
-                    ...cardStyles,
-                    transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    width: cardStyles.width,
+                    height: cardStyles.height,
+                    transform: `translateX(${cardStyles.translateX}px) ${cardStyles.transform}`,
+                    zIndex: cardStyles.zIndex,
+                    left: '50%',
+                    marginLeft: '-175px', // Half of max card width to center
                   }}
-                  onClick={() => handleCardClick(card.position)}
+                  onClick={() => handleCardClick(position)}
                 >
                   <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
                     textStyles.padding
@@ -280,7 +281,10 @@ const Testimonials: React.FC = () => {
                     <div className="flex justify-center mb-3">
                       <div 
                         className="rounded-full overflow-hidden bg-gray-100"
-                        style={{ width: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px', height: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                        style={{ 
+                          width: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px', 
+                          height: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px'
+                        }}
                       >
                         <img
                           src={card.image}
@@ -295,7 +299,7 @@ const Testimonials: React.FC = () => {
                       {/* Name */}
                       <h3 
                         className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
-                        style={{ fontSize: textStyles.nameSize === 'text-xl' ? '1.25rem' : textStyles.nameSize === 'text-lg' ? '1.125rem' : '1rem', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                        style={{ fontSize: textStyles.nameSize === 'text-xl' ? '1.25rem' : textStyles.nameSize === 'text-lg' ? '1.125rem' : '1rem' }}
                       >
                         {card.name}
                       </h3>
@@ -303,14 +307,15 @@ const Testimonials: React.FC = () => {
                       {/* Position */}
                       <p 
                         className="text-center text-gray-600 mb-3 font-sf-pro-text"
-                        style={{ fontSize: textStyles.positionSize === 'text-base' ? '1rem' : textStyles.positionSize === 'text-sm' ? '0.875rem' : '0.75rem', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                        style={{ fontSize: textStyles.positionSize === 'text-base' ? '1rem' : textStyles.positionSize === 'text-sm' ? '0.875rem' : '0.75rem' }}
                       >
+                        {card.position}
                       </p>
 
                       {/* Content */}
                       <p 
                         className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
-                        style={{ fontSize: textStyles.contentSize === 'text-base' ? '1rem' : textStyles.contentSize === 'text-sm' ? '0.875rem' : '0.75rem', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                        style={{ fontSize: textStyles.contentSize === 'text-base' ? '1rem' : textStyles.contentSize === 'text-sm' ? '0.875rem' : '0.75rem' }}
                       >
                         {isActive ? card.content : card.content.substring(0, 80) + '...'}
                       </p>
@@ -323,7 +328,6 @@ const Testimonials: React.FC = () => {
                           key={i} 
                           size={textStyles.starSize}
                           className="text-blue-500 fill-current"
-                          style={{ transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                         />
                       ))}
                     </div>
