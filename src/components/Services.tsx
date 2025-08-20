@@ -30,7 +30,7 @@ const Services: React.FC = () => {
       description:
         'Custom websites and web applications built for performance and scalability.',
       imageUrl:
-        '/assets/images/web-development/web-development-service.jpeg',
+        '/assets/images/web-development/web_development-6.jpeg',
     },
     {
       title: 'Artificial Intelligence',
