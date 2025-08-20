@@ -164,12 +164,12 @@ const Testimonials: React.FC = () => {
   const getCardStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
     const isActive = position === 0;
-    const cardSpacing = 320; // Consistent spacing between card centers
+    const cardSpacing = 280; // Adjusted spacing for better alignment
     
     if (isActive) {
       return {
-        width: '350px',
-        height: '450px',
+        width: '380px',
+        height: '480px',
         scale: 1,
         translateX: position * cardSpacing + 'px',
         zIndex: 10,
@@ -178,23 +178,23 @@ const Testimonials: React.FC = () => {
       };
     } else if (Math.abs(position) === 1) {
       return {
-        width: '300px',
-        height: '380px',
-        scale: 0.9,
+        width: '320px',
+        height: '400px',
+        scale: 0.85,
         translateX: position * cardSpacing + 'px',
         zIndex: 5,
         filter: 'blur(2px)',
-        opacity: 0.7,
+        opacity: 0.8,
       };
     } else {
       return {
-        width: '250px',
-        height: '320px',
-        scale: 0.8,
+        width: '280px',
+        height: '350px',
+        scale: 0.7,
         translateX: position * cardSpacing + 'px',
         zIndex: 2,
         filter: 'blur(3px)',
-        opacity: 0.5,
+        opacity: 0.6,
       };
     }
   };
@@ -252,13 +252,13 @@ const Testimonials: React.FC = () => {
 
         {/* Sliding Carousel */}
         <div className="flex justify-center items-center mb-12 overflow-hidden">
-          <div className="relative flex items-center justify-center" style={{ width: '1600px', height: '500px' }}>
+          <div className="relative flex items-center justify-center" style={{ width: '1400px', height: '520px' }}>
             {testimonials.map((card, cardIndex) => {
               const cardStyles = getCardStyles(cardIndex);
               const textStyles = getTextStyles(cardIndex);
               const position = getCardPosition(cardIndex);
               const isActive = position === 0;
-              const isVisible = Math.abs(position) <= 3; // Show more cards for better context
+              const isVisible = Math.abs(position) <= 2; // Show 5 cards total (center + 2 on each side)
               
               return (
                 <div
@@ -274,7 +274,7 @@ const Testimonials: React.FC = () => {
                     opacity: isVisible ? cardStyles.opacity : 0,
                     zIndex: cardStyles.zIndex,
                     left: '50%',
-                    marginLeft: '-175px', // Center point for all cards
+                    marginLeft: '-190px', // Adjusted center point for proper alignment
                   }}
                   onClick={() => handleCardClick(position)}
                 >
