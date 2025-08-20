@@ -241,12 +241,13 @@ const Testimonials: React.FC = () => {
     >
       <div className="px-6">
         {/* Header */}
-          <h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            We Care About Our Customers
-            <span className="block font-normal text-gray-600 mt-2">
-              Experience Too
-            </span>
-          </h2>
+<h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display text-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+  We Care About Our Customers
+  <span className="block font-normal text-gray-600 mt-2">
+    Experience Too
+  </span>
+</h2>
+
         </div>
 
         {/* Sliding Carousel */}
