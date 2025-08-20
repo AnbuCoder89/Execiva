@@ -164,31 +164,37 @@ const Testimonials: React.FC = () => {
   const getCardStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
     const isActive = position === 0;
-    const cardSpacing = 380; // Base spacing between cards
+    const cardSpacing = 320; // Consistent spacing between card centers
     
     if (isActive) {
       return {
         width: '350px',
         height: '450px',
-        transform: 'scale(1)',
-        translateX: position * cardSpacing,
+        scale: 1,
+        translateX: position * cardSpacing + 'px',
         zIndex: 10,
+        filter: 'blur(0px)',
+        opacity: 1,
       };
     } else if (Math.abs(position) === 1) {
       return {
         width: '300px',
         height: '380px',
-        transform: 'scale(0.9)',
-        translateX: position * cardSpacing,
+        scale: 0.9,
+        translateX: position * cardSpacing + 'px',
         zIndex: 5,
+        filter: 'blur(2px)',
+        opacity: 0.7,
       };
     } else {
       return {
         width: '250px',
         height: '320px',
-        transform: 'scale(0.8)',
-        translateX: position * cardSpacing,
+        scale: 0.8,
+        translateX: position * cardSpacing + 'px',
         zIndex: 2,
+        filter: 'blur(3px)',
+        opacity: 0.5,
       };
     }
   };
@@ -246,27 +252,29 @@ const Testimonials: React.FC = () => {
 
         {/* Sliding Carousel */}
         <div className="flex justify-center items-center mb-12 overflow-hidden">
-          <div className="relative flex items-center justify-center" style={{ width: '1400px', height: '500px' }}>
+          <div className="relative flex items-center justify-center" style={{ width: '1600px', height: '500px' }}>
             {testimonials.map((card, cardIndex) => {
               const cardStyles = getCardStyles(cardIndex);
               const textStyles = getTextStyles(cardIndex);
               const position = getCardPosition(cardIndex);
               const isActive = position === 0;
-              const isVisible = Math.abs(position) <= 2; // Only show cards within 2 positions
+              const isVisible = Math.abs(position) <= 3; // Show more cards for better context
               
               return (
                 <div
                   key={cardIndex}
-                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out ${
+                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out will-change-transform ${
                     !isActive ? 'hover:opacity-80' : ''
-                  } ${!isVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                  } ${!isVisible ? 'pointer-events-none' : ''}`}
                   style={{
                     width: cardStyles.width,
                     height: cardStyles.height,
-                    transform: `translateX(${cardStyles.translateX}px) ${cardStyles.transform}`,
+                    transform: `translateX(${cardStyles.translateX}) scale(${cardStyles.scale})`,
+                    filter: cardStyles.filter,
+                    opacity: isVisible ? cardStyles.opacity : 0,
                     zIndex: cardStyles.zIndex,
                     left: '50%',
-                    marginLeft: '-175px', // Half of max card width to center
+                    marginLeft: '-175px', // Center point for all cards
                   }}
                   onClick={() => handleCardClick(position)}
                 >
