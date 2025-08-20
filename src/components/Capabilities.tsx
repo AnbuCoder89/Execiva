@@ -96,6 +96,19 @@ const capabilities = [
       ref={sectionRef}
       className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-16"
     >
+      {/* Centered Text Block */}
+      <div className="absolute top-20 left-0 right-0 z-20 text-center px-4">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
+          Innovation is our language,
+          <span className="block font-bold mt-2">
+            execution is our craft
+          </span>
+        </h2>
+        <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-4xl mx-auto">
+          From AI and Data to SEO, we transform complexity into clarity, building solutions that not only solve today's challenges but also create tomorrow's opportunities.
+        </p>
+      </div>
+
       <div className="text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
         {/* Custom Arrows */}
         <button
