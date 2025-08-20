@@ -164,12 +164,12 @@ const Testimonials: React.FC = () => {
   const getCardStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
     const isActive = position === 0;
-    const cardSpacing = 280; // Adjusted spacing for better alignment
+    const cardSpacing = 220; // Reduced spacing to match reference
     
     if (isActive) {
       return {
-        width: '380px',
-        height: '480px',
+        width: '300px',
+        height: '380px',
         scale: 1,
         translateX: position * cardSpacing + 'px',
         zIndex: 10,
@@ -178,8 +178,8 @@ const Testimonials: React.FC = () => {
       };
     } else if (Math.abs(position) === 1) {
       return {
-        width: '320px',
-        height: '400px',
+        width: '260px',
+        height: '320px',
         scale: 0.85,
         translateX: position * cardSpacing + 'px',
         zIndex: 5,
@@ -188,8 +188,8 @@ const Testimonials: React.FC = () => {
       };
     } else {
       return {
-        width: '280px',
-        height: '350px',
+        width: '220px',
+        height: '280px',
         scale: 0.7,
         translateX: position * cardSpacing + 'px',
         zIndex: 2,
@@ -205,30 +205,30 @@ const Testimonials: React.FC = () => {
     
     if (isActive) {
       return {
-        nameSize: 'text-xl',
-        positionSize: 'text-base',
-        contentSize: 'text-base',
-        imageSize: 'w-20 h-20',
-        starSize: 18,
-        padding: 'p-8'
-      };
-    } else if (Math.abs(position) === 1) {
-      return {
         nameSize: 'text-lg',
         positionSize: 'text-sm',
         contentSize: 'text-sm',
         imageSize: 'w-16 h-16',
-        starSize: 16,
+        starSize: 18,
         padding: 'p-6'
+      };
+    } else if (Math.abs(position) === 1) {
+      return {
+        nameSize: 'text-base',
+        positionSize: 'text-sm',
+        contentSize: 'text-xs',
+        imageSize: 'w-12 h-12',
+        starSize: 16,
+        padding: 'p-4'
       };
     } else {
       return {
-        nameSize: 'text-base',
+        nameSize: 'text-sm',
         positionSize: 'text-xs',
         contentSize: 'text-xs',
-        imageSize: 'w-12 h-12',
+        imageSize: 'w-10 h-10',
         starSize: 14,
-        padding: 'p-4'
+        padding: 'p-3'
       };
     }
   };
@@ -241,7 +241,6 @@ const Testimonials: React.FC = () => {
     >
       <div className="px-6">
         {/* Header */}
-        <div className="text-center mb-16">
           <h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             We Care About Our Customers
             <span className="block font-normal text-gray-600 mt-2">
@@ -252,7 +251,7 @@ const Testimonials: React.FC = () => {
 
         {/* Sliding Carousel */}
         <div className="flex justify-center items-center mb-12 overflow-hidden">
-          <div className="relative flex items-center justify-center" style={{ width: '1400px', height: '520px' }}>
+          <div className="relative flex items-center justify-center" style={{ width: '1200px', height: '400px' }}>
             {testimonials.map((card, cardIndex) => {
               const cardStyles = getCardStyles(cardIndex);
               const textStyles = getTextStyles(cardIndex);
@@ -274,7 +273,7 @@ const Testimonials: React.FC = () => {
                     opacity: isVisible ? cardStyles.opacity : 0,
                     zIndex: cardStyles.zIndex,
                     left: '50%',
-                    marginLeft: '-190px', // Adjusted center point for proper alignment
+                    marginLeft: '-150px', // Adjusted center point for proper alignment
                   }}
                   onClick={() => handleCardClick(position)}
                 >
