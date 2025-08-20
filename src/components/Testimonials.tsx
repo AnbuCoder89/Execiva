@@ -102,7 +102,7 @@ const Testimonials: React.FC = () => {
       cards.push({
         ...testimonials[index],
         position: i,
-        key: `${index}-${activeIndex}` // Unique key for React
+        key: index // Stable key to prevent remounting
       });
     }
     return cards;
@@ -260,16 +260,16 @@ const Testimonials: React.FC = () => {
               return (
                 <div
                   key={card.key}
-                  className={`cursor-pointer transition-all duration-700 ease-out flex-shrink-0 ${
+                  className={`cursor-pointer flex-shrink-0 ${
                     !isActive ? 'hover:opacity-80' : ''
                   }`}
                   style={{
                     ...cardStyles,
-                    transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                   }}
                   onClick={() => handleCardClick(card.position)}
                 >
-                  <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between transition-all duration-700 ${
+                  <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
                     textStyles.padding
                   } ${
                     isActive 
@@ -278,7 +278,10 @@ const Testimonials: React.FC = () => {
                   }`}>
                     {/* Profile Image */}
                     <div className="flex justify-center mb-3">
-                      <div className={`${textStyles.imageSize} rounded-full overflow-hidden bg-gray-100 transition-all duration-300`}>
+                      <div 
+                        className="rounded-full overflow-hidden bg-gray-100"
+                        style={{ width: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px', height: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                      >
                         <img
                           src={card.image}
                           alt={card.name}
@@ -290,16 +293,25 @@ const Testimonials: React.FC = () => {
                     {/* Content */}
                     <div className="flex-1 flex flex-col justify-center">
                       {/* Name */}
-                      <h3 className={`text-center font-semibold text-gray-900 mb-2 font-sf-pro-display transition-all duration-300 ${textStyles.nameSize}`}>
+                      <h3 
+                        className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
+                        style={{ fontSize: textStyles.nameSize === 'text-xl' ? '1.25rem' : textStyles.nameSize === 'text-lg' ? '1.125rem' : '1rem', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                      >
                         {card.name}
                       </h3>
 
                       {/* Position */}
-                      <p className={`text-center text-gray-600 mb-3 font-sf-pro-text transition-all duration-300 ${textStyles.positionSize}`}>
+                      <p 
+                        className="text-center text-gray-600 mb-3 font-sf-pro-text"
+                        style={{ fontSize: textStyles.positionSize === 'text-base' ? '1rem' : textStyles.positionSize === 'text-sm' ? '0.875rem' : '0.75rem', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                      >
                       </p>
 
                       {/* Content */}
-                      <p className={`text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center transition-all duration-300 ${textStyles.contentSize}`}>
+                      <p 
+                        className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
+                        style={{ fontSize: textStyles.contentSize === 'text-base' ? '1rem' : textStyles.contentSize === 'text-sm' ? '0.875rem' : '0.75rem', transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+                      >
                         {isActive ? card.content : card.content.substring(0, 80) + '...'}
                       </p>
                     </div>
@@ -309,8 +321,9 @@ const Testimonials: React.FC = () => {
                       {[...Array(card.rating)].map((_, i) => (
                         <Star 
                           key={i} 
-                          size={textStyles.starSize} 
-                          className="text-blue-500 fill-current transition-all duration-300" 
+                          size={textStyles.starSize}
+                          className="text-blue-500 fill-current"
+                          style={{ transition: 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                         />
                       ))}
                     </div>
