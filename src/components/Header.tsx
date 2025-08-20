@@ -94,8 +94,8 @@ const Header = () => {
   className={`fixed w-full z-50 transition-all duration-500 ${
     isScrolled
       ? "bg-white/80 shadow-sm py-2"
-      : "bg-white/80 shadow-sm py-2"
-  }`}
+      : "bg-transparent"
+  } py-2`}
 >
 
       <nav className="max-w-7xl mx-auto px-6">
