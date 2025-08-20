@@ -115,8 +115,8 @@ const Header = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium font-sf-pro-text transition-all duration-300 ${
                   activeSection === item.id && location.pathname === '/'
-                    ? "bg-[#f4f3ee] text-gray-900 border-2 border-[#f4f3ee]"
-                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                    ? "bg-[#f4f3ee] text-black border-2 border-[#f4f3ee]"
+                    : "text-black hover:text-black hover:bg-gray-100"
                 }`}
               >
                 {item.name}
@@ -147,8 +147,8 @@ const Header = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`block w-full text-left px-6 py-3 text-sm font-medium transition-colors ${
                   activeSection === item.id && location.pathname === '/'
-                    ? "bg-[#f4f3ee] text-gray-900"
-                    : "text-gray-700 hover:bg-gray-50"
+                    ? "bg-[#f4f3ee] text-black"
+                    : "text-black hover:bg-gray-50"
                 }`}
               >
                 {item.name}
