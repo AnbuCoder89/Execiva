@@ -235,7 +235,7 @@ const Testimonials: React.FC = () => {
   return (
     <section 
       id="testimonials" 
-      className="relative w-full min-h-screen py-20 md:py-32 bg-gray-50" 
+      className="relative w-full min-h-screen py-20 md:pb-32 bg-gray-50" 
       ref={sectionRef}
     >
       <div className="px-6">
