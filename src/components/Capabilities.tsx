@@ -94,10 +94,10 @@ const capabilities = [
     <section
       id="capabilities"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-16"
+      className="relative w-full min-h-screen flex flex-col justify-center py-20 px-4 sm:px-6 md:px-16"
     >
-      {/* Centered Text Block */}
-      <div className="absolute top-20 left-0 right-0 z-20 text-center px-4">
+      {/* Text Block */}
+      <div className="text-center px-4 mb-16">
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
           Innovation is our language,
           <span className="block font-bold mt-2">
@@ -109,7 +109,7 @@ const capabilities = [
         </p>
       </div>
 
-      <div className="text-white w-full h-[80vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
+      <div className="text-white w-full h-[60vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
         {/* Custom Arrows */}
         <button
           ref={prevRef}
@@ -169,7 +169,7 @@ const capabilities = [
             {capabilities.map((capability, index) => (
               <SwiperSlide key={capability.title} className="rounded-xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
                 <div
-                  className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
+                  className={`group relative w-full h-[350px] overflow-hidden rounded-xl 
                     shadow-xl hover:shadow-2xl transition-all duration-300
                     ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
