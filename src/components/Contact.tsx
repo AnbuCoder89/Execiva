@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
   return (
     <section 
       id="contact" 
-      className="relative py-20 md:py-32 bg-light-gray" 
+      className="relative py-20 md:py-32 bg-white" 
       ref={sectionRef}
     >
       <div className="max-w-7xl mx-auto px-6">

@@ -33,7 +33,7 @@ const CaseStudies: React.FC = () => {
   return (
     <section
       id="case-studies"
-      className="relative w-full min-h-screen flex items-center justify-center bg-gray-50"
+      className="relative w-full min-h-screen flex items-center justify-center bg-white"
       ref={sectionRef}
     >
       <div className="w-full flex flex-col lg:flex-row items-center justify-center">

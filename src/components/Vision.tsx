@@ -7,7 +7,7 @@ const Vision: React.FC = () => {
   return (
     <section
       id="vision"
-      className="relative w-full min-h-screen flex items-center justify-center bg-gray-50 z-30"
+      className="relative w-full min-h-screen flex items-center justify-center bg-white z-30"
     >
 <div className="w-full flex flex-col lg:flex-row items-center justify-center">
   {/* Image Column */}
