@@ -274,7 +274,7 @@ const Testimonials: React.FC = () => {
                     opacity: isVisible ? cardStyles.opacity : 0,
                     zIndex: cardStyles.zIndex,
                     left: '50%',
-                    marginLeft: 'translateX(${cardStyles.translateX}) scale(${cardStyles.scale}) translateX(-50%)', // Adjusted center point for proper alignment
+                    transform: `translateX(calc(${cardStyles.translateX} - 50%)) scale(${cardStyles.scale})`,
                   }}
                   onClick={() => handleCardClick(position)}
                 >
