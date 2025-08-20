@@ -361,7 +361,6 @@ const Testimonials: React.FC = () => {
             />
           ))}
         </div>
-      </div>
     </section>
   );
 };
