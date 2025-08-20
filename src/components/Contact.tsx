@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
               
               <div className="bg-gray-100 p-6 rounded-lg border-l-4 border-gray-400 mb-8">
                 <p className="text-gray-700 leading-relaxed font-sf-pro-text">
-                  Etiam sit amet convallis erat - class aptent taciti sociosqu ad litora torquent per conubia! Maecenas gravida lacus. Lorem etiam sit amet convallis erat.
+We’d love to hear from you! Whether you have a project in mind, a question to ask, or just want to say hello our team is ready to connect and help you bring your ideas to life
                 </p>
               </div>
             </div>
