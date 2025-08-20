@@ -98,7 +98,7 @@ const Header = () => {
   } py-2`}
 >
 
-      <nav className="max-w-7xl mx-auto px-6">
+      <nav className="px-6">
         <div className="flex items-center justify-between">
           <div
             className="text-2xl font-bold text-gray-900 font-sf-pro-display cursor-pointer hover:opacity-80 transition-opacity"
