@@ -154,9 +154,9 @@ We’d love to hear from you! Whether you have a project in mind, a question to 
                   className="mt-1 w-4 h-4 text-gray-600 bg-white border-gray-300 rounded focus:ring-gray-400 focus:ring-2"
                 />
                 <label htmlFor="terms" className="text-sm text-gray-600 font-sf-pro-text">
-                  I accept the{' '}
+                  I agree to the{' '}
                   <a href="#" className="text-blue-500 hover:text-blue-600 underline">
-                    Terms of Service
+                    Terms of Service and Privacy Policy
                   </a>
                 </label>
               </div>
