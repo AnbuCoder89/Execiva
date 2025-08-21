@@ -6,12 +6,30 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Update background based on scroll position
+      setIsScrolled(currentScrollY > 20);
+      
+      // Show/hide header based on scroll direction
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        // Scrolling up or near top - show header
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past threshold - hide header
+        setIsVisible(false);
+        // Close mobile menu when hiding header
+        setIsMobileMenuOpen(false);
+      }
+      
+      setLastScrollY(currentScrollY);
 
       // Only update active section on home page
       if (location.pathname !== '/') return;
@@ -26,14 +44,14 @@ const Header = () => {
         "testimonials",
         "contact",
       ];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = currentScrollY + 100;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { top, bottom } = element.getBoundingClientRect();
-          const offsetTop = top + window.scrollY;
-          const offsetBottom = bottom + window.scrollY;
+          const offsetTop = top + currentScrollY;
+          const offsetBottom = bottom + currentScrollY;
 
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setActiveSection(section);
@@ -54,7 +72,7 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("setActiveSection", handleSetActiveSection as EventListener);
     };
-  }, []);
+  }, [lastScrollY]);
 
   const navItems = [
     { name: "Home", id: "home" },
@@ -92,6 +110,8 @@ const Header = () => {
   return (
 <header
   className={`fixed w-full z-50 transition-all duration-500 ${
+    isVisible ? 'translate-y-0' : '-translate-y-full'
+  } ${
     isScrolled
       ? "bg-white/80 shadow-sm py-2"
       : "bg-transparent"
