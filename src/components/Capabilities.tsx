@@ -17,7 +17,7 @@ const capabilities = [
     title: "Web Development",
     description: "Creating modern, responsive websites with cutting-edge technologies",
     category: "Development",
-    image: "/assets/images/web_development.jpeg",
+    image: "/assets/images/web-development-capabilities.jpeg",
   },
   {
     title: "Mobile Apps",
