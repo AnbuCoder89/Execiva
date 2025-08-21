@@ -70,14 +70,16 @@ const Services: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ 
-                transitionDelay: `${index * 150}ms`,
-                backgroundImage: `url('${service.imageUrl}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                width: '100%',
-                height: '100%'
+                transitionDelay: `${index * 150}ms`
               }}
             >
+              {/* Background Image */}
+              <img
+                src={service.imageUrl}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-contain bg-gray-100"
+              />
+              
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
               
