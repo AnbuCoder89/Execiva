@@ -108,7 +108,7 @@ const Testimonials: React.FC = () => {
       if (currentStep < steps) {
         setActiveIndex(prev => (prev + direction + testimonials.length) % testimonials.length);
         currentStep++;
-        setTimeout(slideStep, 150); // 150ms between each step
+        setTimeout(slideStep, 200); // 200ms between each step for smoother feel
       } else {
         setIsAnimating(false);
       }
@@ -141,7 +141,7 @@ const Testimonials: React.FC = () => {
       if (currentStep < steps) {
         setActiveIndex(prev => (prev + direction + totalCards) % totalCards);
         currentStep++;
-        setTimeout(slideStep, 120); // Slightly faster for indicator clicks
+        setTimeout(slideStep, 180); // Balanced speed for indicator clicks
       } else {
         setIsAnimating(false);
       }
@@ -306,7 +306,7 @@ const Testimonials: React.FC = () => {
               return (
                 <div
                   key={cardIndex}
-                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-500 ease-out will-change-transform ${
+                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out will-change-transform ${
                     absPosition !== 0 ? 'hover:opacity-90' : ''
                   } ${!isVisible ? 'pointer-events-none' : ''}`}
                   style={{
@@ -324,7 +324,10 @@ const Testimonials: React.FC = () => {
                   <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
                     absPosition === 0 ? 'shadow-2xl border-gray-200' : 'hover:shadow-xl'
                   }`}
-                  style={{ padding: `${textStyles.padding}px` }}>
+                  style={{ 
+                    padding: `${textStyles.padding}px`,
+                    transition: 'padding 0.7s ease-in-out'
+                  }}>
                     {/* Profile Image */}
                     <div className="flex justify-center mb-3">
                       <div 
@@ -332,7 +335,7 @@ const Testimonials: React.FC = () => {
                         style={{ 
                           width: `${textStyles.imageSize}px`, 
                           height: `${textStyles.imageSize}px`,
-                          transition: 'all 0.5s ease-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         <img
@@ -350,7 +353,7 @@ const Testimonials: React.FC = () => {
                         className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
                         style={{ 
                           fontSize: `${textStyles.nameSize}px`,
-                          transition: 'all 0.5s ease-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         {card.name}
@@ -361,7 +364,7 @@ const Testimonials: React.FC = () => {
                         className="text-center text-gray-600 mb-3 font-sf-pro-text"
                         style={{ 
                           fontSize: `${textStyles.positionSize}px`,
-                          transition: 'all 0.5s ease-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         {card.position}
@@ -372,7 +375,7 @@ const Testimonials: React.FC = () => {
                         className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
                         style={{ 
                           fontSize: `${textStyles.contentSize}px`,
-                          transition: 'all 0.5s ease-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         {contentStyles.showFullContent 
@@ -389,7 +392,7 @@ const Testimonials: React.FC = () => {
                           key={i} 
                           size={textStyles.starSize}
                           className="text-blue-500 fill-current"
-                          style={{ transition: 'all 0.5s ease-out' }}
+                          style={{ transition: 'all 0.7s ease-in-out' }}
                         />
                       ))}
                     </div>
