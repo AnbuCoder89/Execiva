@@ -59,35 +59,28 @@ const Services: React.FC = () => {
 <section
   id="services"
   ref={sectionRef}
-  className="relative w-full min-h-screen flex items-center justify-center bg-white z-30 p-4 lg:p-10"
+  className="relative w-full min-h-screen flex items-center justify-center bg-white z-30"
 >
-  <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 grid-rows-2 gap-6">
+  <div className="w-full h-full grid grid-cols-2 grid-rows-2 gap-0">
     {services.map((service, index) => (
       <div
         key={service.title}
-        className={`relative flex items-center justify-center overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-        style={{ transitionDelay: `${index * 150}ms` }}
+        className={`relative w-full h-full flex items-center justify-center overflow-hidden`}
       >
         {/* Image */}
         <img
           src={service.imageUrl}
           alt={service.title}
-          className="w-full h-full object-contain rounded-2xl"
+          className="w-full h-full object-contain"
         />
 
         {/* Overlay + Content */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70 flex flex-col justify-between p-6 text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70 flex flex-col justify-between p-4 text-white">
           <div className="text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-2 font-sf-pro-display">
-              {service.title}
-            </h3>
-            <p className="text-sm md:text-base leading-relaxed font-sf-pro-text">
-              {service.description}
-            </p>
+            <h3 className="text-xl md:text-2xl font-bold mb-2">{service.title}</h3>
+            <p className="text-sm md:text-base leading-relaxed">{service.description}</p>
           </div>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-2">
             <Button
               variant="vision"
               size="sm"
@@ -102,6 +95,7 @@ const Services: React.FC = () => {
     ))}
   </div>
 </section>
+
 
   );
 };
