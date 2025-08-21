@@ -56,44 +56,41 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section 
-      id="services" 
-      ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center bg-white z-30"
-    >
-      <div className="w-full min-h-screen p-4 lg:p-10 flex items-center justify-center">
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full h-full">
+<section
+  id="services"
+  ref={sectionRef}
+  className="relative w-full min-h-screen flex items-center justify-center bg-white z-30 p-4 lg:p-10"
+>
+  <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 grid-rows-2 gap-6">
     {services.map((service, index) => (
       <div
         key={service.title}
-        className={`relative flex flex-col items-center justify-between overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
+        className={`relative flex items-center justify-center overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
         style={{ transitionDelay: `${index * 150}ms` }}
       >
         {/* Image */}
-        <div className="w-full h-full flex items-center justify-center">
-          <img
-            src={service.imageUrl}
-            alt={service.title}
-            className="max-w-full max-h-full object-contain rounded-2xl"
-          />
-        </div>
+        <img
+          src={service.imageUrl}
+          alt={service.title}
+          className="w-full h-full object-contain rounded-2xl"
+        />
 
         {/* Overlay + Content */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70 flex flex-col justify-between p-8 text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70 flex flex-col justify-between p-6 text-white">
           <div className="text-center">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4 font-sf-pro-display">
+            <h3 className="text-2xl md:text-3xl font-bold mb-2 font-sf-pro-display">
               {service.title}
             </h3>
-            <p className="text-lg md:text-xl leading-relaxed font-sf-pro-text">
+            <p className="text-sm md:text-base leading-relaxed font-sf-pro-text">
               {service.description}
             </p>
           </div>
           <div className="flex justify-center mt-4">
             <Button
               variant="vision"
-              size="md"
+              size="sm"
               icon={ArrowRight}
               iconPosition="right"
             >
@@ -104,9 +101,8 @@ const Services: React.FC = () => {
       </div>
     ))}
   </div>
-</div>
+</section>
 
-    </section>
   );
 };
 
