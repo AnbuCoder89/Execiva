@@ -164,28 +164,43 @@ const Testimonials: React.FC = () => {
   const getCardStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
     const absPosition = Math.abs(position);
-    const cardSpacing = 280; // Optimized spacing for smoother transitions
+    const cardSpacing = 300; // Reduced spacing to match reference
     
-    // Dynamic interpolation with smooth falloff based on distance from center
-    let scale, width, height, opacity, blur, zIndex;
+    // Smooth interpolation based on distance from center
+    let scale, width, height, opacity, blur;
     
-    // Smooth interpolation using exponential falloff for natural transitions
-    const falloff = Math.pow(0.85, absPosition);
-    const sizeFalloff = Math.pow(0.88, absPosition);
-    
-    scale = Math.max(0.5, falloff);
-    width = Math.max(180, 300 * sizeFalloff);
-    height = Math.max(240, 380 * sizeFalloff);
-    opacity = Math.max(0.3, falloff);
-    blur = Math.min(5, absPosition * 1.2);
-    zIndex = Math.max(1, 20 - absPosition);
+    if (absPosition === 0) {
+      scale = 1;
+      width = 300;
+      height = 380;
+      opacity = 1;
+      blur = 0;
+    } else if (absPosition === 1) {
+      scale = 0.85;
+      width = 260;
+      height = 320;
+      opacity = 0.8;
+      blur = 2;
+    } else if (absPosition === 2) {
+      scale = 0.7;
+      width = 220;
+      height = 280;
+      opacity = 0.6;
+      blur = 3;
+    } else {
+      scale = 0.6;
+      width = 200;
+      height = 260;
+      opacity = 0.4;
+      blur = 4;
+    }
     
     return {
       width: width + 'px',
       height: height + 'px',
       scale: scale,
       translateX: position * cardSpacing + 'px',
-      zIndex: zIndex,
+      zIndex: 10 - absPosition,
       filter: `blur(${blur}px)`,
       opacity: opacity,
     };
@@ -195,17 +210,38 @@ const Testimonials: React.FC = () => {
     const position = getCardPosition(cardIndex);
     const absPosition = Math.abs(position);
     
-    // Smooth text scaling with exponential falloff
-    const textFalloff = Math.pow(0.9, absPosition);
-    const imageFalloff = Math.pow(0.85, absPosition);
-    const paddingFalloff = Math.pow(0.8, absPosition);
+    // Dynamic text sizing based on position
+    let nameSize, positionSize, contentSize, imageSize, starSize, padding;
     
-    const nameSize = Math.max(12, 20 * textFalloff);
-    const positionSize = Math.max(10, 16 * textFalloff);
-    const contentSize = Math.max(10, 16 * textFalloff);
-    const imageSize = Math.max(32, 72 * imageFalloff);
-    const starSize = Math.max(12, 20 * textFalloff);
-    const padding = Math.max(8, 28 * paddingFalloff);
+    if (absPosition === 0) {
+      nameSize = 18;
+      positionSize = 14;
+      contentSize = 14;
+      imageSize = 64;
+      starSize = 18;
+      padding = 24;
+    } else if (absPosition === 1) {
+      nameSize = 16;
+      positionSize = 13;
+      contentSize = 12;
+      imageSize = 48;
+      starSize = 16;
+      padding = 16;
+    } else if (absPosition === 2) {
+      nameSize = 14;
+      positionSize = 12;
+      contentSize = 11;
+      imageSize = 40;
+      starSize = 14;
+      padding = 12;
+    } else {
+      nameSize = 12;
+      positionSize = 11;
+      contentSize = 10;
+      imageSize = 32;
+      starSize = 12;
+      padding = 8;
+    }
     
     return {
       nameSize,
@@ -221,15 +257,22 @@ const Testimonials: React.FC = () => {
     const position = getCardPosition(cardIndex);
     const absPosition = Math.abs(position);
     
-    // Dynamic content length based on distance from center
-    const baseLength = 180;
-    const lengthFalloff = Math.pow(0.4, absPosition);
-    const maxLength = Math.max(40, baseLength * lengthFalloff);
-    
-    return {
-      showFullContent: absPosition === 0,
-      maxLength: Math.floor(maxLength)
-    };
+    if (absPosition === 0) {
+      return {
+        showFullContent: true,
+        maxLength: 200
+      };
+    } else if (absPosition === 1) {
+      return {
+        showFullContent: false,
+        maxLength: 80
+      };
+    } else {
+      return {
+        showFullContent: false,
+        maxLength: 60
+      };
+    }
   };
 
   return (
@@ -263,7 +306,7 @@ const Testimonials: React.FC = () => {
               return (
                 <div
                   key={cardIndex}
-                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-800 ease-in-out will-change-transform ${
+                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out will-change-transform ${
                     absPosition !== 0 ? 'hover:opacity-90' : ''
                   } ${!isVisible ? 'pointer-events-none' : ''}`}
                   style={{
@@ -283,7 +326,7 @@ const Testimonials: React.FC = () => {
                   }`}
                   style={{ 
                     padding: `${textStyles.padding}px`,
-                    transition: 'padding 0.8s ease-in-out'
+                    transition: 'padding 0.7s ease-in-out'
                   }}>
                     {/* Profile Image */}
                     <div className="flex justify-center mb-3">
@@ -292,7 +335,7 @@ const Testimonials: React.FC = () => {
                         style={{ 
                           width: `${textStyles.imageSize}px`, 
                           height: `${textStyles.imageSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         <img
@@ -310,7 +353,7 @@ const Testimonials: React.FC = () => {
                         className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
                         style={{ 
                           fontSize: `${textStyles.nameSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         {card.name}
@@ -321,7 +364,7 @@ const Testimonials: React.FC = () => {
                         className="text-center text-gray-600 mb-3 font-sf-pro-text"
                         style={{ 
                           fontSize: `${textStyles.positionSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         {card.position}
@@ -332,7 +375,7 @@ const Testimonials: React.FC = () => {
                         className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
                         style={{ 
                           fontSize: `${textStyles.contentSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.7s ease-in-out'
                         }}
                       >
                         {contentStyles.showFullContent 
@@ -349,7 +392,7 @@ const Testimonials: React.FC = () => {
                           key={i} 
                           size={textStyles.starSize}
                           className="text-blue-500 fill-current"
-                          style={{ transition: 'all 0.8s ease-in-out' }}
+                          style={{ transition: 'all 0.7s ease-in-out' }}
                         />
                       ))}
                     </div>
