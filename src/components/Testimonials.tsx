@@ -323,7 +323,6 @@ const Testimonials: React.FC = () => {
                 >
                   <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
                     absPosition === 0 ? 'shadow-2xl border-gray-200' : 'hover:shadow-xl'
-                  } ${
                   }`}
                   style={{ padding: `${textStyles.padding}px` }}>
                     {/* Profile Image */}
