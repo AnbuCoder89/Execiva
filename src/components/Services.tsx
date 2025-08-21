@@ -56,47 +56,57 @@ const Services: React.FC = () => {
   ];
 
   return (
-<section
-  id="services"
-  ref={sectionRef}
-  className="relative w-full min-h-screen flex items-center justify-center bg-white z-30"
->
-  <div className="w-full h-full grid grid-cols-2 grid-rows-2 gap-0">
-    {services.map((service, index) => (
-      <div
-        key={service.title}
-        className={`relative w-full h-full flex items-center justify-center overflow-hidden`}
+    <section 
+      id="services" 
+      ref={sectionRef}
+      className="relative w-full h-screen flex items-center justify-center bg-white p-8"
       >
-        {/* Image */}
-        <img
-          src={service.imageUrl}
-          alt={service.title}
-          className="w-full h-full object-contain"
-        />
-
-        {/* Overlay + Content */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70 flex flex-col justify-between p-4 text-white">
-          <div className="text-center">
-            <h3 className="text-xl md:text-2xl font-bold mb-2">{service.title}</h3>
-            <p className="text-sm md:text-base leading-relaxed">{service.description}</p>
-          </div>
-          <div className="flex justify-center mt-2">
-            <Button
-              variant="vision"
-              size="sm"
-              icon={ArrowRight}
-              iconPosition="right"
+      <div className="w-full h-full">
+        <div className="grid grid-cols-2 grid-rows-2 gap-6 h-full">
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className={`relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ 
+                transitionDelay: `${index * 150}ms`,
+                backgroundImage: `url('${service.imageUrl}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                width: '100%',
+                height: '100%'
+              }}
             >
-              Learn More
-            </Button>
-          </div>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 p-8 flex flex-col justify-between text-white h-full">
+                <div>
+                  <h3 className="text-3xl md:text-4xl text-center font-bold mb-4 font-sf-pro-display">
+                    {service.title}
+                  </h3>
+                  <p className="text-lg md:text-xl text-center leading-relaxed font-sf-pro-text">
+                    {service.description}
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <Button
+                    variant="vision"
+                    size="md"
+                    icon={ArrowRight}
+                    iconPosition="right"
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</section>
-
-
+    </section>
   );
 };
 
