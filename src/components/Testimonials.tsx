@@ -163,72 +163,114 @@ const Testimonials: React.FC = () => {
 
   const getCardStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
-    const isActive = position === 0;
+    const absPosition = Math.abs(position);
     const cardSpacing = 300; // Reduced spacing to match reference
     
-    if (isActive) {
-      return {
-        width: '300px',
-        height: '380px',
-        scale: 1,
-        translateX: position * cardSpacing + 'px',
-        zIndex: 10,
-        filter: 'blur(0px)',
-        opacity: 1,
-      };
-    } else if (Math.abs(position) === 1) {
-      return {
-        width: '260px',
-        height: '320px',
-        scale: 0.85,
-        translateX: position * cardSpacing + 'px',
-        zIndex: 5,
-        filter: 'blur(2px)',
-        opacity: 0.8,
-      };
+    // Smooth interpolation based on distance from center
+    let scale, width, height, opacity, blur;
+    
+    if (absPosition === 0) {
+      scale = 1;
+      width = 300;
+      height = 380;
+      opacity = 1;
+      blur = 0;
+    } else if (absPosition === 1) {
+      scale = 0.85;
+      width = 260;
+      height = 320;
+      opacity = 0.8;
+      blur = 2;
+    } else if (absPosition === 2) {
+      scale = 0.7;
+      width = 220;
+      height = 280;
+      opacity = 0.6;
+      blur = 3;
     } else {
-      return {
-        width: '220px',
-        height: '280px',
-        scale: 0.7,
-        translateX: position * cardSpacing + 'px',
-        zIndex: 2,
-        filter: 'blur(3px)',
-        opacity: 0.6,
-      };
+      scale = 0.6;
+      width = 200;
+      height = 260;
+      opacity = 0.4;
+      blur = 4;
     }
+    
+    return {
+      width: width + 'px',
+      height: height + 'px',
+      scale: scale,
+      translateX: position * cardSpacing + 'px',
+      zIndex: 10 - absPosition,
+      filter: `blur(${blur}px)`,
+      opacity: opacity,
+    };
   };
 
   const getTextStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
-    const isActive = position === 0;
+    const absPosition = Math.abs(position);
     
-    if (isActive) {
+    // Dynamic text sizing based on position
+    let nameSize, positionSize, contentSize, imageSize, starSize, padding;
+    
+    if (absPosition === 0) {
+      nameSize = 18;
+      positionSize = 14;
+      contentSize = 14;
+      imageSize = 64;
+      starSize = 18;
+      padding = 24;
+    } else if (absPosition === 1) {
+      nameSize = 16;
+      positionSize = 13;
+      contentSize = 12;
+      imageSize = 48;
+      starSize = 16;
+      padding = 16;
+    } else if (absPosition === 2) {
+      nameSize = 14;
+      positionSize = 12;
+      contentSize = 11;
+      imageSize = 40;
+      starSize = 14;
+      padding = 12;
+    } else {
+      nameSize = 12;
+      positionSize = 11;
+      contentSize = 10;
+      imageSize = 32;
+      starSize = 12;
+      padding = 8;
+    }
+    
+    return {
+      nameSize,
+      positionSize,
+      contentSize,
+      imageSize,
+      starSize,
+      padding
+    };
+  };
+
+  const getContentLength = (cardIndex: number) => {
+    const position = getCardPosition(cardIndex);
+    const absPosition = Math.abs(position);
+    
+    if (absPosition === 0) {
       return {
-        nameSize: 'text-lg',
-        positionSize: 'text-sm',
-        contentSize: 'text-sm',
-        imageSize: 'w-16 h-16',
-        starSize: 18,
-        padding: 'p-6'
+        showFullContent: true,
+        maxLength: 200
       };
-    } else if (Math.abs(position) === 1) {
+    } else if (absPosition === 1) {
       return {
-        nameSize: 'text-base',
-        positionSize: 'text-sm',
-        contentSize: 'text-xs',
-        imageSize: 'w-12 h-12',
-        starSize: 16,
-        padding: 'p-4'
+        showFullContent: false,
+        maxLength: 80
       };
     } else {
       return {
-        nameSize: 'text-sm',
-        positionSize: 'text-xs',
-        contentSize: 'text-xs',
-        imageSize: 'w-10 h-10',
-        starSize: 14,
-        padding: 'p-3'
+        showFullContent: false,
+        maxLength: 60
       };
     }
   };
@@ -256,15 +298,16 @@ const Testimonials: React.FC = () => {
             {testimonials.map((card, cardIndex) => {
               const cardStyles = getCardStyles(cardIndex);
               const textStyles = getTextStyles(cardIndex);
+              const contentStyles = getContentLength(cardIndex);
               const position = getCardPosition(cardIndex);
-              const isActive = position === 0;
-              const isVisible = Math.abs(position) <= 2; // Show 5 cards total (center + 2 on each side)
+              const absPosition = Math.abs(position);
+              const isVisible = absPosition <= 3; // Show more cards for smoother transitions
               
               return (
                 <div
                   key={cardIndex}
-                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out will-change-transform ${
-                    !isActive ? 'hover:opacity-80' : ''
+                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-500 ease-out will-change-transform ${
+                    absPosition !== 0 ? 'hover:opacity-90' : ''
                   } ${!isVisible ? 'pointer-events-none' : ''}`}
                   style={{
                     width: cardStyles.width,
@@ -279,19 +322,18 @@ const Testimonials: React.FC = () => {
                   onClick={() => handleCardClick(position)}
                 >
                   <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
-                    textStyles.padding
+                    absPosition === 0 ? 'shadow-2xl border-gray-200' : 'hover:shadow-xl'
                   } ${
-                    isActive 
-                      ? 'shadow-2xl border-gray-200' 
-                      : 'hover:shadow-xl'
-                  }`}>
+                  }`}
+                  style={{ padding: `${textStyles.padding}px` }}>
                     {/* Profile Image */}
                     <div className="flex justify-center mb-3">
                       <div 
                         className="rounded-full overflow-hidden bg-gray-100"
                         style={{ 
-                          width: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px', 
-                          height: textStyles.imageSize.split(' ')[0].replace('w-', '') === '20' ? '80px' : textStyles.imageSize.split(' ')[0].replace('w-', '') === '16' ? '64px' : '48px'
+                          width: `${textStyles.imageSize}px`, 
+                          height: `${textStyles.imageSize}px`,
+                          transition: 'all 0.5s ease-out'
                         }}
                       >
                         <img
@@ -307,7 +349,10 @@ const Testimonials: React.FC = () => {
                       {/* Name */}
                       <h3 
                         className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
-                        style={{ fontSize: textStyles.nameSize === 'text-xl' ? '1.25rem' : textStyles.nameSize === 'text-lg' ? '1.125rem' : '1rem' }}
+                        style={{ 
+                          fontSize: `${textStyles.nameSize}px`,
+                          transition: 'all 0.5s ease-out'
+                        }}
                       >
                         {card.name}
                       </h3>
@@ -315,7 +360,10 @@ const Testimonials: React.FC = () => {
                       {/* Position */}
                       <p 
                         className="text-center text-gray-600 mb-3 font-sf-pro-text"
-                        style={{ fontSize: textStyles.positionSize === 'text-base' ? '1rem' : textStyles.positionSize === 'text-sm' ? '0.875rem' : '0.75rem' }}
+                        style={{ 
+                          fontSize: `${textStyles.positionSize}px`,
+                          transition: 'all 0.5s ease-out'
+                        }}
                       >
                         {card.position}
                       </p>
@@ -323,9 +371,15 @@ const Testimonials: React.FC = () => {
                       {/* Content */}
                       <p 
                         className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
-                        style={{ fontSize: textStyles.contentSize === 'text-base' ? '1rem' : textStyles.contentSize === 'text-sm' ? '0.875rem' : '0.75rem' }}
+                        style={{ 
+                          fontSize: `${textStyles.contentSize}px`,
+                          transition: 'all 0.5s ease-out'
+                        }}
                       >
-                        {isActive ? card.content : card.content.substring(0, 80) + '...'}
+                        {contentStyles.showFullContent 
+                          ? card.content 
+                          : card.content.substring(0, contentStyles.maxLength) + '...'
+                        }
                       </p>
                     </div>
 
@@ -336,6 +390,7 @@ const Testimonials: React.FC = () => {
                           key={i} 
                           size={textStyles.starSize}
                           className="text-blue-500 fill-current"
+                          style={{ transition: 'all 0.5s ease-out' }}
                         />
                       ))}
                     </div>
