@@ -99,55 +99,26 @@ const Testimonials: React.FC = () => {
     
     setIsAnimating(true);
     
-    // Create smooth transition by moving one step at a time
-    const steps = Math.abs(position);
-    const direction = position > 0 ? 1 : -1;
-    let currentStep = 0;
+    // Direct transition with preemptive styling
+    const targetIndex = (activeIndex + position + testimonials.length) % testimonials.length;
+    setActiveIndex(targetIndex);
     
-    const slideStep = () => {
-      if (currentStep < steps) {
-        setActiveIndex(prev => (prev + direction + testimonials.length) % testimonials.length);
-        currentStep++;
-        setTimeout(slideStep, 200); // 200ms between each step for smoother feel
-      } else {
-        setIsAnimating(false);
-      }
-    };
-    
-    slideStep();
+    // Allow time for transition to complete
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 600);
   };
 
   const handleIndicatorClick = (index: number) => {
     if (isAnimating || activeIndex === index) return;
     
     setIsAnimating(true);
+    setActiveIndex(index);
     
-    // Calculate shortest path to target
-    const totalCards = testimonials.length;
-    const directDistance = index - activeIndex;
-    const wrapDistance = directDistance > 0 
-      ? directDistance - totalCards 
-      : directDistance + totalCards;
-    
-    const shortestDistance = Math.abs(directDistance) <= Math.abs(wrapDistance) 
-      ? directDistance 
-      : wrapDistance;
-    
-    const steps = Math.abs(shortestDistance);
-    const direction = shortestDistance > 0 ? 1 : -1;
-    let currentStep = 0;
-    
-    const slideStep = () => {
-      if (currentStep < steps) {
-        setActiveIndex(prev => (prev + direction + totalCards) % totalCards);
-        currentStep++;
-        setTimeout(slideStep, 180); // Balanced speed for indicator clicks
-      } else {
-        setIsAnimating(false);
-      }
-    };
-    
-    slideStep();
+    // Allow time for transition to complete
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 600);
   };
 
   // Calculate position of each card relative to active index
@@ -164,20 +135,21 @@ const Testimonials: React.FC = () => {
   const getCardStyles = (cardIndex: number) => {
     const position = getCardPosition(cardIndex);
     const absPosition = Math.abs(position);
-    const cardSpacing = 280; // Optimized spacing for smoother transitions
+    const cardSpacing = 300; // Spacing for card positioning
     
-    // Dynamic interpolation with smooth falloff based on distance from center
+    // Preemptive styling with smooth interpolation
     let scale, width, height, opacity, blur, zIndex;
     
-    // Smooth interpolation using exponential falloff for natural transitions
-    const falloff = Math.pow(0.85, absPosition);
-    const sizeFalloff = Math.pow(0.88, absPosition);
+    // Enhanced falloff curves for preemptive styling
+    const opacityFalloff = Math.pow(0.82, absPosition);
+    const sizeFalloff = Math.pow(0.85, absPosition);
+    const scaleFalloff = Math.pow(0.88, absPosition);
     
-    scale = Math.max(0.5, falloff);
-    width = Math.max(180, 300 * sizeFalloff);
-    height = Math.max(240, 380 * sizeFalloff);
-    opacity = Math.max(0.3, falloff);
-    blur = Math.min(5, absPosition * 1.2);
+    scale = Math.max(0.45, scaleFalloff);
+    width = Math.max(160, 320 * sizeFalloff);
+    height = Math.max(220, 400 * sizeFalloff);
+    opacity = Math.max(0.25, opacityFalloff);
+    blur = Math.min(6, absPosition * 1.5);
     zIndex = Math.max(1, 20 - absPosition);
     
     return {
@@ -195,17 +167,17 @@ const Testimonials: React.FC = () => {
     const position = getCardPosition(cardIndex);
     const absPosition = Math.abs(position);
     
-    // Smooth text scaling with exponential falloff
-    const textFalloff = Math.pow(0.9, absPosition);
-    const imageFalloff = Math.pow(0.85, absPosition);
-    const paddingFalloff = Math.pow(0.8, absPosition);
+    // Preemptive text scaling with enhanced falloff curves
+    const textFalloff = Math.pow(0.88, absPosition);
+    const imageFalloff = Math.pow(0.82, absPosition);
+    const paddingFalloff = Math.pow(0.75, absPosition);
     
-    const nameSize = Math.max(12, 20 * textFalloff);
-    const positionSize = Math.max(10, 16 * textFalloff);
-    const contentSize = Math.max(10, 16 * textFalloff);
-    const imageSize = Math.max(32, 72 * imageFalloff);
-    const starSize = Math.max(12, 20 * textFalloff);
-    const padding = Math.max(8, 28 * paddingFalloff);
+    const nameSize = Math.max(10, 22 * textFalloff);
+    const positionSize = Math.max(8, 18 * textFalloff);
+    const contentSize = Math.max(8, 17 * textFalloff);
+    const imageSize = Math.max(28, 80 * imageFalloff);
+    const starSize = Math.max(10, 22 * textFalloff);
+    const padding = Math.max(6, 32 * paddingFalloff);
     
     return {
       nameSize,
@@ -221,9 +193,9 @@ const Testimonials: React.FC = () => {
     const position = getCardPosition(cardIndex);
     const absPosition = Math.abs(position);
     
-    // Dynamic content length based on distance from center
-    const baseLength = 180;
-    const lengthFalloff = Math.pow(0.4, absPosition);
+    // Preemptive content length adjustment
+    const baseLength = 200;
+    const lengthFalloff = Math.pow(0.35, absPosition);
     const maxLength = Math.max(40, baseLength * lengthFalloff);
     
     return {
@@ -258,12 +230,12 @@ const Testimonials: React.FC = () => {
               const contentStyles = getContentLength(cardIndex);
               const position = getCardPosition(cardIndex);
               const absPosition = Math.abs(position);
-              const isVisible = absPosition <= 3; // Show more cards for smoother transitions
+              const isVisible = absPosition <= 4; // Show more cards for preemptive styling
               
               return (
                 <div
                   key={cardIndex}
-                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-800 ease-in-out will-change-transform ${
+                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-600 ease-in-out will-change-transform ${
                     absPosition !== 0 ? 'hover:opacity-90' : ''
                   } ${!isVisible ? 'pointer-events-none' : ''}`}
                   style={{
@@ -283,7 +255,7 @@ const Testimonials: React.FC = () => {
                   }`}
                   style={{ 
                     padding: `${textStyles.padding}px`,
-                    transition: 'padding 0.8s ease-in-out'
+                    transition: 'padding 0.6s ease-in-out'
                   }}>
                     {/* Profile Image */}
                     <div className="flex justify-center mb-3">
@@ -292,7 +264,7 @@ const Testimonials: React.FC = () => {
                         style={{ 
                           width: `${textStyles.imageSize}px`, 
                           height: `${textStyles.imageSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.6s ease-in-out'
                         }}
                       >
                         <img
@@ -310,7 +282,7 @@ const Testimonials: React.FC = () => {
                         className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
                         style={{ 
                           fontSize: `${textStyles.nameSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.6s ease-in-out'
                         }}
                       >
                         {card.name}
@@ -321,7 +293,7 @@ const Testimonials: React.FC = () => {
                         className="text-center text-gray-600 mb-3 font-sf-pro-text"
                         style={{ 
                           fontSize: `${textStyles.positionSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.6s ease-in-out'
                         }}
                       >
                         {card.position}
@@ -332,7 +304,7 @@ const Testimonials: React.FC = () => {
                         className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
                         style={{ 
                           fontSize: `${textStyles.contentSize}px`,
-                          transition: 'all 0.8s ease-in-out'
+                          transition: 'all 0.6s ease-in-out'
                         }}
                       >
                         {contentStyles.showFullContent 
@@ -349,7 +321,7 @@ const Testimonials: React.FC = () => {
                           key={i} 
                           size={textStyles.starSize}
                           className="text-blue-500 fill-current"
-                          style={{ transition: 'all 0.8s ease-in-out' }}
+                          style={{ transition: 'all 0.6s ease-in-out' }}
                         />
                       ))}
                     </div>
