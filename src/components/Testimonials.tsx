@@ -29,7 +29,20 @@ const Testimonials: React.FC = () => {
       content: "From concept to launch, they guided us every step of the way. The result exceeded our wildest dreams and transformed our industry presence.",
       rating: 5
     },
-    // ... add other testimonials here
+        {
+      name: "Michael Rodriguez",
+      position: "CTO, FinanceFirst",
+      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "The level of professionalism and technical expertise is unmatched. They delivered a solution that perfectly aligned with our vision.",
+      rating: 5
+    },
+    {
+      name: "Emily Johnson",
+      position: "Founder, MedConnect",
+      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "From concept to launch, they guided us every step of the way. The result exceeded our wildest dreams and transformed our industry presence.",
+      rating: 5
+    },
   ];
 
   useEffect(() => {
