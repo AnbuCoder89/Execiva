@@ -51,7 +51,7 @@ const Services: React.FC = () => {
       description:
         'Data-driven insights to help you make informed decisions and optimize your operations.',
       imageUrl:
-        '/assets/images/Data_Analytics.jpg',
+        '/assets/images/data_analytics/Data_Analytics.jpg',
     },
   ];
 
@@ -59,7 +59,7 @@ const Services: React.FC = () => {
     <section 
       id="services" 
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center bg-white z-30"
+      className="relative w-full h-screen flex items-center justify-center bg-white p-8"
       >
       <div className="w-full h-full">
         <div className="grid grid-cols-2 grid-rows-2 gap-6 h-full">
@@ -70,16 +70,14 @@ const Services: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ 
-                transitionDelay: `${index * 150}ms`
+                transitionDelay: `${index * 150}ms`,
+                backgroundImage: `url('${service.imageUrl}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                width: '100%',
+                height: '100%'
               }}
             >
-              {/* Background Image */}
-              <img
-                src={service.imageUrl}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-contain bg-gray-100"
-              />
-              
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
               
