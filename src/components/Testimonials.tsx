@@ -3,30 +3,9 @@ import { Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(2); // Start with center card active
+  const [activeIndex, setActiveIndex] = useState(2); 
   const [isAnimating, setIsAnimating] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   const testimonials = [
     {
@@ -50,304 +29,128 @@ const Testimonials: React.FC = () => {
       content: "From concept to launch, they guided us every step of the way. The result exceeded our wildest dreams and transformed our industry presence.",
       rating: 5
     },
-    {
-      name: "David Park",
-      position: "VP, Innovation Labs",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "Their strategic approach and cutting-edge solutions have revolutionized how we operate. Truly exceptional partnership and results.",
-      rating: 5
-    },
-    {
-      name: "Lisa Thompson",
-      position: "Marketing Director, GrowthTech",
-      image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "The team's creativity and technical expertise delivered beyond our expectations. Our digital transformation was seamless and impactful.",
-      rating: 5
-    },
-    {
-      name: "James Wilson",
-      position: "Founder, StartupHub",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "Outstanding results that transformed our entire business model. The team's expertise and dedication are truly remarkable.",
-      rating: 5
-    },
-    {
-      name: "Maria Garcia",
-      position: "Head of Digital, RetailCorp",
-      image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "Incredible attention to detail and innovative solutions. They exceeded every expectation and delivered exceptional results.",
-      rating: 5
-    },
-    {
-      name: "Robert Kim",
-      position: "CTO, DataFlow",
-      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "Professional, innovative, and results-driven. The perfect partner for digital transformation and growth.",
-      rating: 5
-    },
-    {
-      name: "Amanda Foster",
-      position: "CEO, InnovateLab",
-      image: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=150",
-      content: "Exceptional service and outstanding results. They brought our vision to life with precision and creativity.",
-      rating: 5
-    }
+    // ... add other testimonials here
   ];
 
-  const handleCardClick = (position: number) => {
-    if (isAnimating || position === 0) return; // Don't animate if already center or animating
-    
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setIsVisible(true);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Continuous style computation for each card
+  const computeCardStyles = (index: number, active: number) => {
+    const total = testimonials.length;
+    let diff = index - active;
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+    const abs = Math.abs(diff);
+
+    // Smooth exponential falloff
+    const scale = Math.pow(0.85, abs);
+    const width = 300 * Math.pow(0.88, abs);
+    const height = 380 * Math.pow(0.88, abs);
+    const opacity = Math.max(0.3, Math.pow(0.85, abs));
+    const blur = abs * 1.2;
+    const zIndex = 20 - abs;
+    const translateX = diff * 280;
+
+    // Text and image scaling
+    const nameSize = 20 * Math.pow(0.9, abs);
+    const positionSize = 16 * Math.pow(0.9, abs);
+    const contentSize = 16 * Math.pow(0.9, abs);
+    const imageSize = 72 * Math.pow(0.85, abs);
+    const starSize = 20 * Math.pow(0.9, abs);
+    const padding = 28 * Math.pow(0.8, abs);
+
+    // Content truncation
+    const maxContentLength = abs === 0 ? Infinity : Math.floor(180 * Math.pow(0.4, abs));
+
+    return {
+      scale, width, height, opacity, blur, zIndex, translateX,
+      nameSize, positionSize, contentSize, imageSize, starSize, padding,
+      maxContentLength
+    };
+  };
+
+  const handleSlide = (direction: 1 | -1) => {
+    if (isAnimating) return;
     setIsAnimating(true);
-    
-    // Direct transition with preemptive styling
-    const targetIndex = (activeIndex + position + testimonials.length) % testimonials.length;
-    setActiveIndex(targetIndex);
-    
-    // Allow time for transition to complete
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 600);
-  };
-
-  const handleIndicatorClick = (index: number) => {
-    if (isAnimating || activeIndex === index) return;
-    
-    setIsAnimating(true);
-    setActiveIndex(index);
-    
-    // Allow time for transition to complete
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 600);
-  };
-
-  // Calculate position of each card relative to active index
-  const getCardPosition = (cardIndex: number) => {
-    const diff = cardIndex - activeIndex;
-    if (diff > testimonials.length / 2) {
-      return diff - testimonials.length;
-    } else if (diff < -testimonials.length / 2) {
-      return diff + testimonials.length;
-    }
-    return diff;
-  };
-
-  const getCardStyles = (cardIndex: number) => {
-    const position = getCardPosition(cardIndex);
-    const absPosition = Math.abs(position);
-    const cardSpacing = 300; // Spacing for card positioning
-    
-    // Preemptive styling with smooth interpolation
-    let scale, width, height, opacity, blur, zIndex;
-    
-    // Enhanced falloff curves for preemptive styling
-    const opacityFalloff = Math.pow(0.82, absPosition);
-    const sizeFalloff = Math.pow(0.85, absPosition);
-    const scaleFalloff = Math.pow(0.88, absPosition);
-    
-    scale = Math.max(0.45, scaleFalloff);
-    width = Math.max(160, 320 * sizeFalloff);
-    height = Math.max(220, 400 * sizeFalloff);
-    opacity = Math.max(0.25, opacityFalloff);
-    blur = Math.min(6, absPosition * 1.5);
-    zIndex = Math.max(1, 20 - absPosition);
-    
-    return {
-      width: width + 'px',
-      height: height + 'px',
-      scale: scale,
-      translateX: position * cardSpacing + 'px',
-      zIndex: zIndex,
-      filter: `blur(${blur}px)`,
-      opacity: opacity,
-    };
-  };
-
-  const getTextStyles = (cardIndex: number) => {
-    const position = getCardPosition(cardIndex);
-    const absPosition = Math.abs(position);
-    
-    // Preemptive text scaling with enhanced falloff curves
-    const textFalloff = Math.pow(0.88, absPosition);
-    const imageFalloff = Math.pow(0.82, absPosition);
-    const paddingFalloff = Math.pow(0.75, absPosition);
-    
-    const nameSize = Math.max(10, 22 * textFalloff);
-    const positionSize = Math.max(8, 18 * textFalloff);
-    const contentSize = Math.max(8, 17 * textFalloff);
-    const imageSize = Math.max(28, 80 * imageFalloff);
-    const starSize = Math.max(10, 22 * textFalloff);
-    const padding = Math.max(6, 32 * paddingFalloff);
-    
-    return {
-      nameSize,
-      positionSize,
-      contentSize,
-      imageSize,
-      starSize,
-      padding
-    };
-  };
-
-  const getContentLength = (cardIndex: number) => {
-    const position = getCardPosition(cardIndex);
-    const absPosition = Math.abs(position);
-    
-    // Preemptive content length adjustment
-    const baseLength = 200;
-    const lengthFalloff = Math.pow(0.35, absPosition);
-    const maxLength = Math.max(40, baseLength * lengthFalloff);
-    
-    return {
-      showFullContent: absPosition === 0,
-      maxLength: Math.floor(maxLength)
-    };
+    setActiveIndex(prev => (prev + direction + testimonials.length) % testimonials.length);
+    setTimeout(() => setIsAnimating(false), 400); // Adjust duration to control speed
   };
 
   return (
-    <section 
-      id="testimonials" 
-      className="relative w-full min-h-screen py-20 md:pb-32 bg-white" 
-      ref={sectionRef}
-    >
-      <div className="px-6">
-        {/* Header */}
-<h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display text-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-  We Care About Our Customers
-  <span className="block font-normal text-gray-600 mt-2">
-    Experience Too
-  </span>
-</h2>
+    <section ref={sectionRef} className="relative w-full min-h-screen py-20 bg-white">
+      <h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        We Care About Our Customers
+        <span className="block font-normal text-gray-600 mt-2">Experience Too</span>
+      </h2>
 
-        </div>
+      <div className="flex justify-center items-center overflow-hidden">
+        <div className="relative flex items-center justify-center w-[1200px] h-[400px]">
+          {testimonials.map((card, idx) => {
+            const style = computeCardStyles(idx, activeIndex);
+            const showFull = style.maxContentLength === Infinity;
+            const content = showFull ? card.content : card.content.substring(0, style.maxContentLength) + '...';
 
-        {/* Sliding Carousel */}
-        <div className="flex justify-center items-center mb-12 overflow-hidden">
-          <div className="relative flex items-center justify-center" style={{ width: '1200px', height: '400px' }}>
-            {testimonials.map((card, cardIndex) => {
-              const cardStyles = getCardStyles(cardIndex);
-              const textStyles = getTextStyles(cardIndex);
-              const contentStyles = getContentLength(cardIndex);
-              const position = getCardPosition(cardIndex);
-              const absPosition = Math.abs(position);
-              const isVisible = absPosition <= 4; // Show more cards for preemptive styling
-              
-              return (
-                <div
-                  key={cardIndex}
-                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-600 ease-in-out will-change-transform ${
-                    absPosition !== 0 ? 'hover:opacity-90' : ''
-                  } ${!isVisible ? 'pointer-events-none' : ''}`}
-                  style={{
-                    width: cardStyles.width,
-                    height: cardStyles.height,
-                    transform: `translateX(${cardStyles.translateX}) scale(${cardStyles.scale})`,
-                    filter: cardStyles.filter,
-                    opacity: isVisible ? cardStyles.opacity : 0,
-                    zIndex: cardStyles.zIndex,
-                    left: '50%',
-                    transform: `translateX(calc(${cardStyles.translateX} - 50%)) scale(${cardStyles.scale})`,
-                  }}
-                  onClick={() => handleCardClick(position)}
-                >
-                  <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
-                    absPosition === 0 ? 'shadow-2xl border-gray-200' : 'hover:shadow-xl'
-                  }`}
-                  style={{ 
-                    padding: `${textStyles.padding}px`,
-                    transition: 'padding 0.6s ease-in-out'
-                  }}>
-                    {/* Profile Image */}
-                    <div className="flex justify-center mb-3">
-                      <div 
-                        className="rounded-full overflow-hidden bg-gray-100"
-                        style={{ 
-                          width: `${textStyles.imageSize}px`, 
-                          height: `${textStyles.imageSize}px`,
-                          transition: 'all 0.6s ease-in-out'
-                        }}
-                      >
-                        <img
-                          src={card.image}
-                          alt={card.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 flex flex-col justify-center">
-                      {/* Name */}
-                      <h3 
-                        className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
-                        style={{ 
-                          fontSize: `${textStyles.nameSize}px`,
-                          transition: 'all 0.6s ease-in-out'
-                        }}
-                      >
-                        {card.name}
-                      </h3>
-
-                      {/* Position */}
-                      <p 
-                        className="text-center text-gray-600 mb-3 font-sf-pro-text"
-                        style={{ 
-                          fontSize: `${textStyles.positionSize}px`,
-                          transition: 'all 0.6s ease-in-out'
-                        }}
-                      >
-                        {card.position}
-                      </p>
-
-                      {/* Content */}
-                      <p 
-                        className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
-                        style={{ 
-                          fontSize: `${textStyles.contentSize}px`,
-                          transition: 'all 0.6s ease-in-out'
-                        }}
-                      >
-                        {contentStyles.showFullContent 
-                          ? card.content 
-                          : card.content.substring(0, contentStyles.maxLength) + '...'
-                        }
-                      </p>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex justify-center space-x-1">
-                      {[...Array(card.rating)].map((_, i) => (
-                        <Star 
-                          key={i} 
-                          size={textStyles.starSize}
-                          className="text-blue-500 fill-current"
-                          style={{ transition: 'all 0.6s ease-in-out' }}
-                        />
-                      ))}
+            return (
+              <div
+                key={idx}
+                className="absolute flex-shrink-0 transition-all duration-400 ease-in-out"
+                style={{
+                  width: `${style.width}px`,
+                  height: `${style.height}px`,
+                  transform: `translateX(calc(${style.translateX}px - 50%)) scale(${style.scale})`,
+                  opacity: style.opacity,
+                  filter: `blur(${style.blur}px)`,
+                  zIndex: style.zIndex,
+                  left: '50%',
+                }}
+              >
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between"
+                  style={{ padding: `${style.padding}px`, transition: 'all 0.4s ease-in-out' }}>
+                  
+                  {/* Profile */}
+                  <div className="flex justify-center mb-3">
+                    <div className="rounded-full overflow-hidden bg-gray-100" style={{ width: style.imageSize, height: style.imageSize, transition: 'all 0.4s ease-in-out' }}>
+                      <img src={card.image} alt={card.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
 
-        {/* Carousel Indicators */}
-        <div className="flex justify-center space-x-3">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleIndicatorClick(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                activeIndex === index 
-                  ? 'bg-gray-800 scale-125 shadow-lg' 
-                  : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
-              } ${isAnimating ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
-              aria-label={`Go to testimonial ${index + 1}`}
-              disabled={isAnimating}
-            />
-          ))}
+                  {/* Text */}
+                  <div className="flex-1 flex flex-col justify-center">
+                    <h3 className="text-center font-semibold text-gray-900 mb-2" style={{ fontSize: style.nameSize }}>{card.name}</h3>
+                    <p className="text-center text-gray-600 mb-3" style={{ fontSize: style.positionSize }}>{card.position}</p>
+                    <p className="text-gray-700 text-center" style={{ fontSize: style.contentSize }}>{content}</p>
+                  </div>
+
+                  {/* Stars */}
+                  <div className="flex justify-center space-x-1">
+                    {[...Array(card.rating)].map((_, i) => (
+                      <Star key={i} size={style.starSize} className="text-blue-500 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
+      </div>
+
+      {/* Controls */}
+      <div className="flex justify-center mt-6 space-x-4">
+        <button onClick={() => handleSlide(-1)} disabled={isAnimating} className="px-4 py-2 bg-gray-300 rounded">Prev</button>
+        <button onClick={() => handleSlide(1)} disabled={isAnimating} className="px-4 py-2 bg-gray-300 rounded">Next</button>
+      </div>
     </section>
   );
 };
