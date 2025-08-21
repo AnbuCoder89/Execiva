@@ -59,39 +59,38 @@ const Services: React.FC = () => {
     <section 
       id="services" 
       ref={sectionRef}
-      className="relative w-full h-screen flex items-center justify-center bg-white p-8"
-      >
-      <div className="w-full h-full">
-        <div className="grid grid-cols-2 grid-rows-2 gap-6 h-full">
+      className="relative w-full min-h-screen flex items-center justify-center bg-white z-30"
+    >
+      <div className="w-full h-full p-4 lg:p-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
+              className={`relative flex flex-col items-center justify-between overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
-              style={{ 
-                transitionDelay: `${index * 150}ms`,
-                backgroundImage: `url('${service.imageUrl}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                width: '100%',
-                height: '100%'
-              }}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
-              
-              {/* Content */}
-              <div className="relative z-10 p-8 flex flex-col justify-between text-white h-full">
-                <div>
-                  <h3 className="text-3xl md:text-4xl text-center font-bold mb-4 font-sf-pro-display">
+              {/* Image */}
+              <div className="w-full h-64 sm:h-80 lg:h-96">
+                <img
+                  src={service.imageUrl}
+                  alt={service.title}
+                  className="w-full h-full object-contain rounded-2xl"
+                />
+              </div>
+
+              {/* Overlay + Content */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70 flex flex-col justify-between p-8 text-white">
+                <div className="text-center">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 font-sf-pro-display">
                     {service.title}
                   </h3>
-                  <p className="text-lg md:text-xl text-center leading-relaxed font-sf-pro-text">
+                  <p className="text-lg md:text-xl leading-relaxed font-sf-pro-text">
                     {service.description}
                   </p>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center mt-4">
                   <Button
                     variant="vision"
                     size="md"
