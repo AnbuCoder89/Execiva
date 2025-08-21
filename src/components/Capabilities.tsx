@@ -189,7 +189,7 @@ const capabilities = [
 
                   {/* Title */}
                   <div className="absolute top-6 left-6 z-10 pointer-events-none">
-                    <h3 className="text-2xl md:text-3xl font-light text-white text-gray-900 leading-tight font-sf-pro-display drop-shadow-lg">   
+                    <h3 className="text-2xl md:text-3xl font-light text-gray-900 leading-tight font-sf-pro-display drop-shadow-lg">   
                       <span className="block mt-1">
                         {capability.title}
                       </span>
