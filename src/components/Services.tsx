@@ -51,7 +51,7 @@ const Services: React.FC = () => {
       description:
         'Data-driven insights to help you make informed decisions and optimize your operations.',
       imageUrl:
-        '/assets/images/data_analytics/Data_Analytics.jpg',
+        '/assets/images/Data_Analytics.jpg',
     },
   ];
 
