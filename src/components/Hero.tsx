@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Button from './ui/Button';
+import { BrowserWindow } from './ui';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -45,20 +46,8 @@ const Hero = () => {
             {/* Right Column - Browser Mockup with Floating Elements */}
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
               
-
-                
-                {/* Coin 3 */}
+              <BrowserWindow className="mx-auto" />
    
-                
-
-                
-                {/* Additional floating elements */}
-  
-
-
-        
-                {/* Floating shadow */}
-              
             </div>
           </div>
         </div>
