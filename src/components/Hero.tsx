@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react';
 import Button from './ui/Button';
 
 const Hero = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section 
       id="home" 
-      className="relative w-full min-h-screen bg-white overflow-hidden"
+      className="relative w-full min-h-screen bg-white"
     >
       {/* Main Content */}
       <div className="relative z-20 flex items-center justify-center min-h-screen pt-20 md:pt-24 px-4 sm:px-6 lg:px-8">
-        <div className="w-full">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Left Column - Text Content */}
@@ -35,97 +26,28 @@ const Hero = () => {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Book intro call
                 </Button>
               </div>
             </div>
 
-            {/* Right Column - Browser Mockup with Floating Elements */}
+            {/* Right Column - Browser Mockup */}
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-              
-              {/* Floating Coins - Background Elements */}
-              <div className="absolute inset-0 pointer-events-none">
-                {/* Coin 1 */}
-                <div 
-                  className="absolute w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full opacity-20 blur-sm"
-                  style={{
-                    top: '10%',
-                    left: '10%',
-                    transform: `translateY(${scrollY * 0.1}px) rotate(${scrollY * 0.2}deg)`,
-                  }}
-                />
-                
-                {/* Coin 2 */}
-                <div 
-                  className="absolute w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full opacity-15 blur-sm"
-                  style={{
-                    top: '60%',
-                    left: '5%',
-                    transform: `translateY(${scrollY * -0.15}px) rotate(${scrollY * -0.3}deg)`,
-                  }}
-                />
-                
-                {/* Coin 3 */}
-                <div 
-                  className="absolute w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full opacity-10 blur-sm"
-                  style={{
-                    top: '30%',
-                    right: '5%',
-                    transform: `translateY(${scrollY * 0.08}px) rotate(${scrollY * 0.15}deg)`,
-                  }}
-                />
-                
-                {/* Coin 4 */}
-                <div 
-                  className="absolute w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full opacity-12 blur-sm"
-                  style={{
-                    bottom: '20%',
-                    right: '15%',
-                    transform: `translateY(${scrollY * -0.12}px) rotate(${scrollY * -0.25}deg)`,
-                  }}
-                />
-                
-                {/* Additional floating elements */}
-                <div 
-                  className="absolute w-8 h-8 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full opacity-18 blur-sm"
-                  style={{
-                    top: '80%',
-                    left: '20%',
-                    transform: `translateY(${scrollY * 0.2}px) rotate(${scrollY * 0.4}deg)`,
-                  }}
-                />
-                
-                <div 
-                  className="absolute w-10 h-10 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full opacity-14 blur-sm"
-                  style={{
-                    top: '15%',
-                    right: '25%',
-                    transform: `translateY(${scrollY * -0.18}px) rotate(${scrollY * -0.35}deg)`,
-                  }}
-                />
-              </div>
-
-              {/* Browser Mockup */}
-              <div 
-                className="relative z-10 max-w-lg w-full"
-                style={{
-                  transform: `translateY(${scrollY * 0.05}px)`,
-                }}
-              >
+              <div className="relative z-10 w-full max-w-lg">
                 {/* Browser Window */}
-                <div className="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                <div className="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
                   
                   {/* Browser Header */}
-                  <div className="bg-gray-100 px-4 py-3 flex items-center space-x-2 border-b border-gray-200">
+                  <div className="bg-gray-50 px-4 py-3 flex items-center space-x-2 border-b border-gray-200">
                     <div className="flex space-x-2">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                     </div>
                     <div className="flex-1 mx-4">
-                      <div className="bg-white rounded-md px-3 py-1 text-xs text-gray-500 border">
+                      <div className="bg-white rounded-md px-3 py-1 text-xs text-gray-500 border border-gray-300">
                         https://webstacks.com
                       </div>
                     </div>
@@ -138,14 +60,11 @@ const Hero = () => {
                       alt="Website Screenshot"
                       className="w-full h-auto object-cover"
                     />
-                    
-                    {/* Overlay for better visual integration */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent pointer-events-none"></div>
                   </div>
                 </div>
                 
-                {/* Floating shadow */}
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-3/4 h-8 bg-gray-900/10 rounded-full blur-xl"></div>
+                {/* Subtle shadow */}
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3/4 h-6 bg-gray-900/5 rounded-full blur-lg"></div>
               </div>
             </div>
           </div>
