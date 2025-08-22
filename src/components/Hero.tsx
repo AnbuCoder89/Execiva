@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Button from './ui/Button';
 import { BrowserWindow } from './ui';
-import { BrowserWindow } from './ui';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
