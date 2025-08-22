@@ -17,7 +17,7 @@ const Hero = () => {
     >
       {/* Main Content */}
       <div className="relative z-20 flex items-center justify-center min-h-screen pt-20 md:pt-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl w-full">
+        <div className="w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Left Column - Text Content */}
