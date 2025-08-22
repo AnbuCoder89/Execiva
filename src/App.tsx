@@ -14,7 +14,6 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CaseStudiesPage from './pages/CaseStudiesPage';
-import BrowserDemoPage from './pages/BrowserDemoPage';
 
 function App() {
   useEffect(() => {
@@ -41,7 +40,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/browser-demo" element={<BrowserDemoPage />} />
         </Routes>
         <Footer />
       </div>
