@@ -6,11 +6,11 @@ const Hero = () => {
       id="home" 
       className="relative w-full h-screen bg-white overflow-hidden"
     >
-      <div className="w-full h-full pt-20 md:pt-24">
+      <div className="w-full h-full">
         <div className="grid lg:grid-cols-2 h-full items-center">
             
           {/* Left Column - Text Content */}
-          <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12 xl:px-16 order-2 lg:order-1 h-full">
+          <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12 xl:px-16 order-2 lg:order-1 h-full pt-20 md:pt-24">
             <div className="text-center lg:text-left w-full">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight font-sf-pro-display">
                 We craft fast, scalable sites for teams of all sizes.
@@ -34,8 +34,8 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Browser Mockup (Full Coverage) */}
-          <div className="relative order-1 lg:order-2 h-full flex items-center justify-center bg-gray-100">
-            <div className="relative w-full h-full flex items-center justify-center p-4 lg:p-6">
+          <div className="relative order-1 lg:order-2 min-h-screen flex items-start justify-center pt-0">
+            <div className="relative w-full h-full flex items-start justify-center pt-4 lg:pt-6">
               {/* Browser Window - Covers full right column */}
               <div className="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
                 
