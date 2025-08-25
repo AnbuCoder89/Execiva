@@ -36,7 +36,7 @@ const Hero = () => {
           {/* Right Column - Browser Mockup */}
           <div className="relative order-1 lg:order-2 flex items-center justify-center h-full">
             <div className="relative w-full flex items-center justify-center pt-4 lg:pt-6">
-              <div className="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
+              <div className="bg-white rounded-xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
                 
                 {/* Browser Header */}
                 <div className="bg-gray-50 px-3 lg:px-4 py-2 lg:py-3 flex items-center space-x-2 border-b border-gray-200">
