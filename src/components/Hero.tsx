@@ -69,6 +69,10 @@ const Hero = () => {
       <div className="h-full flex items-center justify-center bg-gradient-to-br from-white to-gray-100 snap-start">
         <span className="text-gray-500">Page 2</span>
       </div>
+            {/* Page 2 */}
+      <div className="h-full flex items-center justify-center bg-gradient-to-br from-white to-gray-100 snap-start">
+        <span className="text-gray-500">Page 3</span>
+      </div>
     </div>
 
   </div>
