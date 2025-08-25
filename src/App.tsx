@@ -34,7 +34,7 @@ function App() {
 
   return (
     <ParallaxProvider>
-      <div className="min-h-screen bg-gradient-to-br from-white via-light-gray to-beige scroll-smooth">
+      <div className="min-h-screen scroll-smooth">
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
