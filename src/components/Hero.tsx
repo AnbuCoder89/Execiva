@@ -54,7 +54,7 @@ const Hero = () => {
                 
                 {/* Browser Content */}
                 <div className="relative">
-                  <div className="w-full h-[350px] lg:h-[350px] border-2 border-gray-300 flex items-center justify-center bg-gray-50">
+                  <div className="w-full h-[350px] lg:h-[450px] border-2 border-gray-300 flex items-center justify-center bg-gray-50">
                     <span className="text-gray-400 text-sm">Content Preview</span>
                   </div>
                 </div>
