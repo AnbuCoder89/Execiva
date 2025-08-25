@@ -71,7 +71,7 @@ const capabilities = [
     title: "Data Analytics",
     description: "Turning raw data into actionable business insights",
     category: "Analytics",
-    image: "/assets/images/data-analytics.jpeg",
+    image: "/assets/images/data-analytics-capabilities.jpg",
   }
 ];
 
