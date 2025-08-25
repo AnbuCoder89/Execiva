@@ -14,7 +14,7 @@ const Capabilities: React.FC = () => {
 
 const capabilities = [
   {
-    title: "Full-Stack Solutions",
+    title: "FullStack Solutions",
     description: "Creating modern, responsive websites with cutting-edge technologies",
     category: "Development",
     image: "/assets/images/web-development-capabilities.jpeg",
