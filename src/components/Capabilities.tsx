@@ -20,7 +20,7 @@ const capabilities = [
     image: "/assets/images/web-development-capabilities.jpeg",
   },
   {
-    title: "Mobile Apps",
+    title: "Automation & Workflows",
     description: "Building native and cross-platform mobile applications",
     category: "Mobile",
     image: "/assets/images/mobile-apps.jpeg",
