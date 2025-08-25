@@ -29,7 +29,7 @@ const capabilities = [
     title: "UI/UX Design",
     description: "Designing intuitive and beautiful user experiences",
     category: "Design",
-    image: "/assets/images/uiux-design.jpeg",
+    image: "/assets/images/ui-ux-capabilities.jpeg",
   },
   {
     title: "Cloud Solutions",
