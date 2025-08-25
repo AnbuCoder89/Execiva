@@ -19,17 +19,6 @@ const Hero = () => {
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-6 lg:mb-8">
                 Webstacks empowers marketing teams to break free from website bottlenecks with a composable approach built for speed and scale.
               </p>
-
-              {/* Button */}
-              <div className="flex justify-center lg:justify-start">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Book intro call
-                </Button>
-              </div>
             </div>
           </div>
 
