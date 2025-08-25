@@ -50,7 +50,7 @@ const capabilities = [
     image: "/assets/images/ai-machine.jpeg",
   },
   {
-    title: "Cybersecurity",
+    title: "",
     description: "Protecting systems and data from digital threats and vulnerabilities",
     category: "Security",
     image: "https://images.pexels.com/photos/5380641/pexels-photo-5380641.jpeg",
