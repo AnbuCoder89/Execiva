@@ -53,11 +53,27 @@ const Hero = () => {
                 </div>
                 
                 {/* Browser Content */}
-                <div className="relative">
-                  <div className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[450px] border border-gray-300 flex items-center justify-center bg-gray-50">
-                    <span className="text-gray-400 text-sm">Content Preview</span>
-                  </div>
-                </div>
+{/* Browser Content */}
+<div className="relative overflow-hidden">
+  <div className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[450px] border border-gray-300 bg-gray-50 relative overflow-hidden">
+    
+    {/* Parallax Container */}
+    <div className="absolute inset-0 overflow-y-scroll no-scrollbar snap-y snap-mandatory">
+      
+      {/* Page 1 */}
+      <div className="h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 snap-start">
+        <span className="text-gray-500">Page 1</span>
+      </div>
+      
+      {/* Page 2 */}
+      <div className="h-full flex items-center justify-center bg-gradient-to-br from-white to-gray-100 snap-start">
+        <span className="text-gray-500">Page 2</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
               </div>
             </div>
