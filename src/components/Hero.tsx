@@ -54,11 +54,7 @@ const Hero = () => {
                 
                 {/* Browser Content */}
                 <div className="relative">
-                  <img
-                    src="/assets/images/web-development-capabilities.jpeg"
-                    alt="Website Screenshot"
-                    className="w-full h-auto object-cover"
-                  />
+
                 </div>
               </div>
             </div>
