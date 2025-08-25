@@ -36,7 +36,7 @@ const Hero = () => {
                   </div>
                   <div className="flex-1 mx-2 lg:mx-4">
                     <div className="bg-white rounded-md px-2 lg:px-3 py-1 text-xs text-gray-500 border border-gray-300 truncate">
-                      https://webstacks.com
+                      https://execiva.com
                     </div>
                   </div>
                 </div>
