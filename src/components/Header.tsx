@@ -109,17 +109,16 @@ const Header = () => {
   };
 
   return (
-<header
-  className={`fixed w-full z-50 transition-all duration-500 ${
-    isVisible ? 'translate-y-0' : '-translate-y-full'
-  } ${
-    isScrolled
-      ? "bg-white/80 shadow-sm py-2"
-      : "bg-transparent"
-  } py-2`}
->
-
-      <nav className="container mx-auto px-4">
+    <header
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-sm shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
           {/* Logo - Left */}
           <div
@@ -130,15 +129,15 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation - Center */}
-          <div className="hidden lg:flex items-center justify-center space-x-1">
+          <div className="hidden lg:flex items-center justify-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium font-sf-pro-text transition-all duration-300 ${
+                className={`px-4 py-2 text-sm font-medium font-sf-pro-text transition-all duration-300 hover:text-gray-600 ${
                   activeSection === item.id && location.pathname === '/'
-                    ? "bg-[#f4f3ee] text-black border-2 border-[#f4f3ee]"
-                    : "text-black hover:text-black hover:bg-gray-100"
+                    ? "text-gray-900 border-b-2 border-gray-900"
+                    : "text-gray-700"
                 }`}
               >
                 {item.name}
@@ -154,6 +153,7 @@ const Header = () => {
                 variant="vision"
                 size="md"
                 onClick={() => scrollToSection("contact")}
+                className="shadow-md hover:shadow-lg"
               >
                 Get Started
               </Button>
@@ -172,7 +172,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`lg:hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen ? "max-h-96 py-2" : "max-h-0 py-0"
           }`}
         >
@@ -183,8 +183,8 @@ const Header = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`block w-full text-left px-6 py-3 text-sm font-medium transition-colors ${
                   activeSection === item.id && location.pathname === '/'
-                    ? "bg-[#f4f3ee] text-black"
-                    : "text-black hover:bg-gray-50"
+                    ? "bg-gray-50 text-gray-900 border-l-4 border-gray-900"
+                    : "text-gray-700 hover:bg-gray-50"
                 }`}
               >
                 {item.name}
@@ -200,10 +200,19 @@ const Header = () => {
                   scrollToSection("contact");
                   setIsMobileMenuOpen(false);
                 }}
-                className="w-full"
+                className="w-full shadow-md"
               >
                 Get Started
               </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
             </div>
           </div>
         </div>
