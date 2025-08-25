@@ -35,7 +35,7 @@ const capabilities = [
     title: "Cloud Solutions",
     description: "Implementing scalable cloud infrastructure and services",
     category: "Cloud",
-    image: "/assets/images/cloud-solutions.jpeg",
+    image: "/assets/images/cloud-solution-capabilities.jpg",
   },
   {
     title: "E-commerce Development",
