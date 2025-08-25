@@ -1,3 +1,36 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowRight } from "lucide-react";
+import Button from "./ui/Button";
+
+
+const CaseStudies: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
 <section
   id="case-studies"
   className="relative w-full min-h-screen flex items-center justify-center bg-white"
@@ -40,3 +73,8 @@
     </div>
   </div>
 </section>
+
+  );
+};
+
+export default CaseStudies;
