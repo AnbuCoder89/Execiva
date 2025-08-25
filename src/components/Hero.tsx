@@ -4,9 +4,9 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative w-full h-screen bg-white overflow-hidden"
+      className="relative w-full min-h-screen lg:h-screen bg-white overflow-hidden"
     >
-      <div className="w-full h-full">
+      <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 h-full items-center">
             
           {/* Left Column - Text Content */}
