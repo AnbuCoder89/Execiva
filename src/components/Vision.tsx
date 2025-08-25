@@ -19,7 +19,7 @@ const Vision: React.FC = () => {
     />
   </div>
         <div className="w-full lg:w-1/2 flex items-center justify-start">
-          <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4">
+          <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
                <span className="font-bold">Our Vision</span>
             </h2>

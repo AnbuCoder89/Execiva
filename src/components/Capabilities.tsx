@@ -94,10 +94,10 @@ const capabilities = [
     <section
       id="capabilities"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex flex-col justify-center py-20 px-4 sm:px-6 md:px-16 bg-white"
+      className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white"
     >
       {/* Text Block */}
-      <div className="text-center px-4">
+      <div className="text-center">
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-4 leading-tight font-sf-pro-display">
           Innovation is our language,
           <span className="block mt-2">

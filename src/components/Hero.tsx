@@ -10,8 +10,8 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 h-full items-center">
             
           {/* Left Column - Text Content */}
-          <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12 xl:px-16 order-2 lg:order-1 h-full pt-20 md:pt-24">
-            <div className="text-center lg:text-left w-full">
+          <div className="flex items-center justify-center order-2 lg:order-1 h-full pt-20 md:pt-24">
+            <div className="text-center lg:text-left w-full max-w-2xl">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight font-sf-pro-display">
                 We craft fast, scalable sites for teams of all sizes.
               </h1>
