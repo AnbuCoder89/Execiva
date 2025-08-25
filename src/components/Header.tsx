@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import Button from "./ui/Button";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -119,7 +120,8 @@ const Header = () => {
 >
 
       <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
+          {/* Logo - Left */}
           <div
             className="text-2xl font-bold text-gray-900 font-sf-pro-display cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => scrollToSection("home")}
@@ -127,8 +129,8 @@ const Header = () => {
             Execiva
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          {/* Desktop Navigation - Center */}
+          <div className="hidden lg:flex items-center justify-center space-x-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -144,19 +146,33 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* CTA Button & Mobile Menu - Right */}
+          <div className="flex items-center justify-end space-x-4">
+            {/* CTA Button - Desktop */}
+            <div className="hidden lg:block">
+              <Button
+                variant="vision"
+                size="md"
+                onClick={() => scrollToSection("contact")}
+              >
+                Get Started
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`lg:hidden mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen ? "max-h-96 py-2" : "max-h-0 py-0"
           }`}
         >
@@ -174,6 +190,21 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            
+            {/* Mobile CTA Button */}
+            <div className="p-4 border-t border-gray-100">
+              <Button
+                variant="vision"
+                size="md"
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full"
+              >
+                Get Started
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
