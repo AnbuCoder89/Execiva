@@ -22,7 +22,7 @@ const capabilities = [
   {
     title: "Automation & Workflows",
     description: "Building native and cross-platform mobile applications",
-    category: "Mobile",
+    category: "AI",
     image: "/assets/images/mobile-apps.jpeg",
   },
   {
