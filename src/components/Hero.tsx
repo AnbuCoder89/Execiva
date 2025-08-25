@@ -7,10 +7,10 @@ const Hero = () => {
       className="relative w-full min-h-screen lg:h-screen bg-white overflow-hidden"
     >
       <div className="container mx-auto px-4 h-full">
-        <div className="grid lg:grid-cols-2 h-full items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 h-full items-center gap-8">
             
           {/* Left Column - Text Content */}
-          <div className="flex items-center justify-center order-2 lg:order-1 h-full pt-20 md:pt-24">
+          <div className="flex items-center justify-center h-full pt-20 md:pt-24">
             <div className="text-center lg:text-left w-full max-w-2xl">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 lg:mb-6 leading-tight font-sf-pro-display">
                 We craft fast, scalable sites for teams of all sizes.
@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Browser Mockup */}
-          <div className="relative order-1 lg:order-2 flex items-center justify-center h-full">
+          <div className="relative flex items-center justify-center h-full">
             <div className="relative w-full flex items-center justify-center pt-4 lg:pt-6">
               <div className="bg-white rounded-xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
                 
@@ -46,7 +46,7 @@ const Hero = () => {
                     <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
                   </div>
                   <div className="flex-1 mx-2 lg:mx-4">
-                    <div className="bg-white rounded-md px-2 lg:px-3 py-1 text-xs text-gray-500 border border-gray-300">
+                    <div className="bg-white rounded-md px-2 lg:px-3 py-1 text-xs text-gray-500 border border-gray-300 truncate">
                       https://webstacks.com
                     </div>
                   </div>
@@ -54,7 +54,7 @@ const Hero = () => {
                 
                 {/* Browser Content */}
                 <div className="relative">
-                  <div className="w-full h-[350px] lg:h-[500px] border-1 border-gray-300 flex items-center justify-center bg-gray-50">
+                  <div className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[450px] border border-gray-300 flex items-center justify-center bg-gray-50">
                     <span className="text-gray-400 text-sm">Content Preview</span>
                   </div>
                 </div>
