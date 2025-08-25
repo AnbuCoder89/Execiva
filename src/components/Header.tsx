@@ -213,12 +213,3 @@ const Header = () => {
 };
 
 export default Header;
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-  );
-};
-
-export default Header;
