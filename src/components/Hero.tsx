@@ -6,7 +6,7 @@ const Hero = () => {
       id="home" 
       className="relative w-full min-h-screen lg:h-screen bg-white overflow-hidden"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 h-full">
         <div className="grid lg:grid-cols-2 h-full items-center">
             
           {/* Left Column - Text Content */}
@@ -33,10 +33,9 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Browser Mockup (Full Coverage) */}
-          <div className="relative order-1 lg:order-2 min-h-screen flex items-start justify-center pt-0">
-            <div className="relative w-full h-full flex items-start justify-center pt-4 lg:pt-6">
-              {/* Browser Window - Covers full right column */}
+          {/* Right Column - Browser Mockup */}
+          <div className="relative order-1 lg:order-2 flex items-center justify-center h-full">
+            <div className="relative w-full flex items-center justify-center pt-4 lg:pt-6">
               <div className="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
                 
                 {/* Browser Header */}
