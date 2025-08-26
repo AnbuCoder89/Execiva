@@ -37,7 +37,7 @@ const CaseStudies: React.FC = () => {
   ref={sectionRef}
 >
   <div className="w-full">
-    <div className="w-full flex flex-col lg:flex-row items-center justify-center">
+    <div className="w-full flex flex-col lg:flex-row items-center justify-start">
       
       {/* Left Text Block */}
       <div className="w-full lg:w-1/2 flex items-center justify-end">
