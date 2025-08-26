@@ -137,7 +137,7 @@ const capabilities = [
           Web Development
         </Typography>
         <Typography variant="h5" className="mb-4 text-gray-400">
-          Tania Andrew
+          Custom websites and web applications built for performance and scalability.
         </Typography>
       
       </CardBody>
