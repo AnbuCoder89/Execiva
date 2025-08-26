@@ -222,7 +222,7 @@ const CaseStudiesPage: React.FC = () => {
   );
 
   return (
-    <div className="bg-gray-50 pt-20 min-h-screen">
+    <div className="bg-white pt-20 min-h-screen">
       {/* Mobile/Tablet Header */}
       <div className="lg:hidden w-full px-4 py-4">
         <div className="flex items-center justify-between mb-4">
@@ -306,7 +306,7 @@ const CaseStudiesPage: React.FC = () => {
       {/* Desktop Layout */}
       <div className="hidden lg:flex min-h-screen">
         {/* Left Panel - Desktop Only (30%) */}
-        <div className="w-[30%] bg-gray-50 relative">
+        <div className="w-[30%] bg-white relative">
           <div className="flex items-center justify-between mb-4">
             <Button
               variant="ghost"
@@ -384,7 +384,7 @@ const CaseStudiesPage: React.FC = () => {
         </div>
 
         {/* Right Panel - Desktop Only (70%) */}
-        <div className="w-[70%] bg-gray-50" ref={rightPanelRef}>
+        <div className="w-[70%] bg-white" ref={rightPanelRef}>
           <div className="pb-4 px-6 min-h-screen">
             <div className="flex items-center justify-between mb-6">
               <h1 className="text-xl font-bold text-gray-700 font-sf-pro-display">
