@@ -160,17 +160,6 @@ const Capabilities: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* View All Button */}
-      <div className="w-full text-center mt-12">
-        <Button
-          variant="vision"
-          size="lg"
-          className="px-8 py-4"
-        >
-          View All Capabilities
-        </Button>
-      </div>
     </section>
   );
 };
