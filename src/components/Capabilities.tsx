@@ -7,28 +7,28 @@ const Capabilities: React.FC = () => {
 
   const capabilities = [
     {
-      title: "FullStack Solutions",
-      description: "Creating modern, responsive websites with cutting-edge technologies",
+      title: "Web Development",
+      description: "Custom websites and web applications built for performance and scalability",
       category: "Development",
-      image: "/assets/images/web-development-capabilities.jpeg",
+      image: "/assets/images/web-development/web_development-6.jpeg",
     },
     {
-      title: "Automation & Workflows",
-      description: "Building native and cross-platform mobile applications",
+      title: "Artificial Intelligence",
+      description: "AI-powered solutions that automate processes and provide intelligent insights.",
       category: "AI",
-      image: "/assets/images/AI_Capabilities.jpg",
+      image: "/assets/images/Artificial_Intelligence.jpg",
     },
     {
-      title: "UI/UX Design",
-      description: "Designing intuitive and beautiful user experiences",
-      category: "Design",
-      image: "/assets/images/ui-ux-capabilities (2).jpeg",
+      title: "Data Analytics",
+      description: "Data-driven insights to help you make informed decisions and optimize your operations",
+      category: "Analytics",
+      image: "/assets/images/Data_Analytics.jpg",
     },
     {
-      title: "Cloud Solutions",
-      description: "Implementing scalable cloud infrastructure and services",
-      category: "Cloud",
-      image: "/assets/images/cloud-solution-capabilities.jpg",
+      title: "Digital Strategy",
+      description: "Comprehensive digital transformation strategies tailored to your business goals",
+      category: "Statergy",
+      image: "/assets/images/Digital_Statergy.jpeg",
     },
   ];
 
