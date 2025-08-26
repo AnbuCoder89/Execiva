@@ -27,14 +27,6 @@ const Hero = () => {
             <div className="relative w-full flex items-center justify-center pt-4 lg:pt-6">
               <div className="bg-white rounded-xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
                 
-                {/* Browser Header */}
-                <div className="bg-gray-50 px-3 lg:px-4 py-2 lg:py-3 flex items-center space-x-2 border-b border-gray-200">
-                  <div className="flex space-x-1 lg:space-x-2">
-                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
