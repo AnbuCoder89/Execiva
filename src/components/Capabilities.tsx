@@ -94,7 +94,7 @@ const capabilities = [
     <section
       id="capabilities"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white"
+      className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white px-4 sm:px-6 lg:px-8"
     >
       {/* Text Block */}
       <div className="text-center">
@@ -109,11 +109,11 @@ const capabilities = [
         </p>
       </div>
 
-      <div className="text-white w-full h-[60vh] rounded-xl flex items-center justify-center p-6 sm:p-8 md:p-10 relative">
+      <div className="text-white w-full h-[60vh] rounded-xl flex items-center justify-center py-6 sm:py-8 md:py-10 relative">
         {/* Custom Arrows */}
         <button
           ref={prevRef}
-          className="absolute -left-8 top-1/2 -translate-y-1/2 z-10"
+          className="absolute left-2 sm:-left-8 top-1/2 -translate-y-1/2 z-10"
         >
           <Button
             variant="vision"
@@ -127,7 +127,7 @@ const capabilities = [
         </button>
         <button
           ref={nextRef}
-          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10"
+          className="absolute right-2 sm:-right-8 top-1/2 -translate-y-1/2 z-10"
         >
           <Button
             variant="vision"

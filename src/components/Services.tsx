@@ -60,10 +60,10 @@ const Services: React.FC = () => {
     <section 
       id="services" 
       ref={sectionRef}
-      className="relative w-full h-screen flex items-center justify-center bg-white p-8"
+      className="relative w-full min-h-screen flex items-center justify-center bg-white py-8 px-4 sm:px-6 lg:px-8"
       >
       <div className="w-full h-full">
-        <div className="grid grid-cols-2 grid-rows-2 gap-6 h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-4 sm:grid-rows-2 gap-4 sm:gap-6 h-full min-h-[80vh]">
           {services.map((service, index) => (
             <div
               key={service.title}

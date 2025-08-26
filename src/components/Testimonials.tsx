@@ -278,10 +278,10 @@ const Testimonials: React.FC = () => {
   return (
     <section 
       id="testimonials" 
-      className="relative w-full min-h-screen py-20 bg-white" 
+      className="relative w-full min-h-screen py-20 bg-white px-4 sm:px-6 lg:px-8" 
       ref={sectionRef}
     >
-      <div>
+      <div className="w-full">
         {/* Header */}
 <h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display text-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
   We Care About Our Customers

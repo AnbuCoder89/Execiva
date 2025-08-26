@@ -224,7 +224,7 @@ const CaseStudiesPage: React.FC = () => {
   return (
     <div className="bg-gray-50 pt-20 min-h-screen">
       {/* Mobile/Tablet Header */}
-      <div className="lg:hidden px-4 py-4">
+      <div className="lg:hidden w-full px-4 py-4">
         <div className="flex items-center justify-between mb-4">
           <Button
             variant="ghost"
@@ -251,7 +251,7 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Mobile/Tablet Filters */}
         {isMobileFiltersOpen && (
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+          <div className="w-full bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
             <div className="space-y-4">
               <FilterSection
                 title="Topics"
@@ -441,7 +441,7 @@ const CaseStudiesPage: React.FC = () => {
       </div>
 
       {/* Mobile/Tablet Cards Layout */}
-      <div className="lg:hidden px-4 pb-8">
+      <div className="lg:hidden w-full px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {filteredCaseStudies.map((study) => (
             <div

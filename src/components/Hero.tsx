@@ -6,10 +6,10 @@ const Hero = () => {
       id="home" 
       className="relative w-full min-h-screen bg-beige overflow-hidden flex items-center justify-center"
     >
-      <div className="container mx-auto px-4 h-full">
+      <div className="w-full h-full">
         <div className="flex items-center justify-center min-h-screen">
           {/* Single Column - Centered Content */}
-          <div className="text-center w-full max-w-4xl mx-auto py-20">
+          <div className="text-center w-full max-w-4xl mx-auto py-20 px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight font-sf-pro-display">
               We craft fast, scalable sites for teams of all sizes.
             </h1>

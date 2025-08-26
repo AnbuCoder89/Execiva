@@ -33,15 +33,15 @@ const CaseStudies: React.FC = () => {
   return (
 <section
   id="case-studies"
-  className="relative w-full min-h-screen flex items-center justify-center bg-white"
+  className="relative w-full min-h-screen flex items-center justify-center bg-white px-4 sm:px-6 lg:px-8"
   ref={sectionRef}
 >
-  <div className="container mx-auto px-4">
+  <div className="w-full">
     <div className="w-full flex flex-col lg:flex-row items-center justify-center">
       
       {/* Left Text Block */}
       <div className="w-full lg:w-1/2 flex items-center justify-end">
-        <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left">
+        <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4 lg:px-0">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
             <span className="font-bold">Case Studies</span>
           </h2>

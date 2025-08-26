@@ -7,11 +7,11 @@ const Vision: React.FC = () => {
   return (
     <section
       id="vision"
-      className="relative w-full min-h-screen flex items-center justify-center bg-white z-30"
+      className="relative w-full min-h-screen flex items-center justify-center bg-white"
     >
-<div className="w-full flex flex-col lg:flex-row items-center justify-center">
+<div className="w-full flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8">
   {/* Image Column */}
-  <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-10">
+  <div className="w-full lg:w-1/2 flex items-center justify-center py-4 sm:py-6 lg:py-10">
     <img
       src="/assets/images/vision3.jpeg"
       alt="Mission and Vision"
@@ -19,7 +19,7 @@ const Vision: React.FC = () => {
     />
   </div>
         <div className="w-full lg:w-1/2 flex items-center justify-start">
-          <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left">
+          <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4 lg:px-0">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
                <span className="font-bold">Our Vision</span>
             </h2>

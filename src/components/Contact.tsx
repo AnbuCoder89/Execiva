@@ -60,10 +60,10 @@ const Contact: React.FC = () => {
   return (
     <section 
       id="contact" 
-      className="relative py-20 bg-white" 
+      className="relative w-full min-h-screen py-20 bg-white px-4 sm:px-6 lg:px-8" 
       ref={sectionRef}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           {/* Left side - Content */}
