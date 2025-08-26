@@ -153,7 +153,7 @@ const Header = () => {
                 onClick={() => scrollToSection("contact")}
                 className="shadow-md hover:shadow-lg"
               >
-                Get Started
+                Contact Now
               </Button>
             </div>
 
