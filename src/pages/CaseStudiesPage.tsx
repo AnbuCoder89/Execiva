@@ -58,7 +58,7 @@ const CaseStudiesPage: React.FC = () => {
       region: 'Global',
       channel: 'Digital',
       product: 'Data Platform',
-      image: '/assets/images/case-studies/case-1.jpeg',
+      image: '/image/case-studies/case-1.jpeg',
       description: 'Samsung leveraged our advanced data activation platform to significantly expand their customer reach and improve targeting precision.'
     },
     {
@@ -71,7 +71,7 @@ const CaseStudiesPage: React.FC = () => {
       region: 'North America',
       channel: 'Programmatic',
       product: 'OpenPath',
-      image: '/assets/images/case-studies/case-2.jpeg',
+      image: '/image/case-studies/case-2.jpeg',
       description: 'Hearst Newspapers achieved remarkable improvements in ad fill rates through our innovative OpenPath technology solution.'
     },
     {
@@ -97,7 +97,7 @@ const CaseStudiesPage: React.FC = () => {
       region: 'Global',
       channel: 'Programmatic',
       product: 'Analytics Suite',
-      image: '/assets/images/case-studies/case-2.jpeg',
+      image: '/image/case-studies/case-2.jpeg',
       description: 'Freestar leveraged our advanced analytics platform to optimize their programmatic advertising revenue streams.'
     },
     {
@@ -123,7 +123,7 @@ const CaseStudiesPage: React.FC = () => {
       region: 'Europe',
       channel: 'OTT',
       product: 'Data Platform',
-      image: '/assets/images/case-studies/case-1.jpeg',
+      image: '/image/case-studies/case-1.jpeg',
       description: 'Sky Deutschland utilized our data insights platform to significantly improve viewer engagement and content strategy.'
     }
   ];

@@ -10,25 +10,25 @@ const Services: React.FC = () => {
       title: "Web Development",
       description: "Custom websites and web applications built for performance and scalability",
       category: "Development",
-      image: "/assets/images/web-development/web_development-6.jpeg",
+      image: "/image/services/web_development-6.jpeg",
     },
     {
       title: "Artificial Intelligence",
       description: "AI-powered solutions that automate processes and provide intelligent insights.",
       category: "AI",
-      image: "/assets/images/Artificial_Intelligence.jpg",
+      image: "/image/services/Artificial_Intelligence.jpg",
     },
     {
       title: "Data Analytics",
       description: "Data-driven insights to help you make informed decisions and optimize your operations",
       category: "Analytics",
-      image: "/assets/images/Data_Analytics.jpg",
+      image: "/image/services/Data_Analytics.jpg",
     },
     {
       title: "Digital Strategy",
       description: "Comprehensive digital transformation strategies tailored to your business goals",
       category: "Statergy",
-      image: "/assets/images/Digital_Statergy.jpeg",
+      image: "/image/services/Digital_Statergy.jpeg",
     },
   ];
 

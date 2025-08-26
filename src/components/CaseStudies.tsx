@@ -65,7 +65,7 @@ const CaseStudies: React.FC = () => {
       {/* Right Image Block */}
       <div className="w-full lg:w-1/2 flex items-center justify-center">
         <img
-          src="/assets/images/case-studies/case-1.jpeg"
+          src="/image/case-studies/case-1.jpeg"
           alt="Case Studies"
           className="w-[85%] h-auto object-contain rounded-2xl"
         />
