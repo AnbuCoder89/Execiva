@@ -42,30 +42,6 @@ const Capabilities: React.FC = () => {
       category: "AI/ML",
       image: "/assets/images/aiintelligence-capabilities.jpg",
     },
-    {
-      title: "Cyber Security",
-      description: "Protecting systems and data from digital threats and vulnerabilities",
-      category: "Security",
-      image: "/assets/images/cybersecurity-capabilities.jpg",
-    },
-    {
-      title: "DevOps & Automation",
-      description: "Streamlining deployment pipelines with CI/CD and infrastructure as code",
-      category: "DevOps",
-      image: "/assets/images/devops-capabilities.jpg",
-    },
-    {
-      title: "Blockchain Solutions",
-      description: "Building decentralized applications and smart contract systems",
-      category: "Blockchain",
-      image: "/assets/images/block-chain-capabilities.jpg",
-    },
-    {
-      title: "Data Analytics",
-      description: "Turning raw data into actionable business insights",
-      category: "Analytics",
-      image: "/assets/images/data-analytics-capabilities.jpg",
-    }
   ];
 
   useEffect(() => {
