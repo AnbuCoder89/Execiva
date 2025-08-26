@@ -63,7 +63,7 @@ const Hero = () => {
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
                 E-Commerce Solutions
               </div>
-              <div className="text-red-400 font-bold text-lg md:text-xl font-sf-pro-display">
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
                 UI/UX Design
               </div>
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
