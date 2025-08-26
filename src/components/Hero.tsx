@@ -40,7 +40,7 @@ const Hero = () => {
         </div>
 
         {/* Capabilities Tagline Section */}
-        <div className="w-full py-6 sm:py-8 md:py-10 border-t border-gray-200">
+        <div className="w-full py-6 sm:py-8 md:py-10">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             {/* Horizontal Divider Line */}
             <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-4 sm:mb-6"></div>
