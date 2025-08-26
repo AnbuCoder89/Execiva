@@ -69,7 +69,7 @@ const Hero = () => {
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
                 Consulting & Strategy
               </div>
-              <div className="text-black-400 font-bold text-lg md:text-xl font-sf-pro-display">
+              <div className="text-black-300 font-bold text-lg md:text-xl font-sf-pro-display">
                 AI & Data Insights
               </div>
             </div>
