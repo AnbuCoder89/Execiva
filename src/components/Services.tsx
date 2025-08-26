@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "./ui/Button";
 
-const Capabilities: React.FC = () => {
+const Services: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const capabilities = [
+  const services = [
     {
       title: "Web Development",
       description: "Custom websites and web applications built for performance and scalability",
@@ -48,7 +48,7 @@ const Capabilities: React.FC = () => {
 
   return (
     <section
-      id="capabilities"
+      id="services"
       ref={sectionRef}
       className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white"
     >
@@ -65,12 +65,12 @@ const Capabilities: React.FC = () => {
         </p>
       </div>
 
-      {/* Capabilities Grid */}
+      {/* Services Grid */}
       <div className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
-          {capabilities.slice(0, 8).map((capability, index) => (
+          {services.slice(0, 8).map((service, index) => (
             <div
-              key={capability.title}
+              key={service.title}
               className={`group relative w-full h-[400px] overflow-hidden rounded-xl 
                 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-2
                 h-[280px] sm:h-[320px] md:h-[350px] lg:h-[400px] xl:h-[450px]
@@ -80,7 +80,7 @@ const Capabilities: React.FC = () => {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center rounded-xl overflow-hidden"
-                style={{ backgroundImage: `url('${capability.image}')` }}
+                style={{ backgroundImage: `url('${service.image}')` }}
               />
 
               {/* Default dark gradient at bottom */}
@@ -94,7 +94,7 @@ const Capabilities: React.FC = () => {
                 {/* Category Badge */}
                 <div className="flex justify-start">
                   <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium uppercase tracking-wide">
-                    {capability.category}
+                    {service.category}
                   </span>
                 </div>
 
@@ -102,10 +102,10 @@ const Capabilities: React.FC = () => {
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-3 font-sf-pro-display leading-tight">
-                      {capability.title}
+                      {service.title}
                     </h3>
                     <p className="text-sm md:text-base leading-relaxed font-sf-pro-text opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                      {capability.description}
+                      {service.description}
                     </p>
                   </div>
 
@@ -129,4 +129,4 @@ const Capabilities: React.FC = () => {
   );
 };
 
-export default Capabilities;
+export default Services;
