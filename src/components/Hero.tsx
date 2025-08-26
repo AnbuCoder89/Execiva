@@ -78,6 +78,9 @@ const Hero = () => {
               <div className="text-black font-sf-pro-display">
                 AI & Data Insights
               </div>
+              <div className="text-black font-sf-pro-display">
+                Digital Marketing & SEO
+              </div>
             </div>
           </div>
         </div>
