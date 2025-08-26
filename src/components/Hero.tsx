@@ -72,15 +72,6 @@ const Hero = () => {
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
                 AI & Data Insights
               </div>
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                SOLANA
-              </div>
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                truepic
-              </div>
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                Credly
-              </div>
             </div>
           </div>
         </div>
