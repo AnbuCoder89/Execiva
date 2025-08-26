@@ -29,9 +29,9 @@ const Hero = () => {
                 Get Started
               </Button>
               <Button
-                variant="outline"
+                variant="vision"
                 size="lg"
-                className="w-full sm:w-auto text-base sm:text-lg px-8 py-4"
+                className="w-full shadow-md hover:shadow-lg sm:w-auto text-base sm:text-lg px-8 py-4"
               >
                 Explore Services
               </Button>
