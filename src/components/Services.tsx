@@ -90,7 +90,7 @@ const Services: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl" />
 
               {/* Content */}
-              <div className="relative z-10 p-6 flex flex-col justify-between text-white h-full">
+              <div className="relative z-10 p-6 flex flex-col justify-between text-black h-full">
                 {/* Category Badge */}
                 <div className="flex justify-start">
                   <span className="px-3 py-1 bg-beige backdrop-blur-sm rounded-full text-xs font-medium uppercase tracking-wide">
