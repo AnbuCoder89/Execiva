@@ -37,6 +37,54 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
+        {/* Capabilities Tagline Section */}
+        <div className="absolute bottom-0 left-0 right-0 bg-white py-8 border-t border-gray-100">
+          <div className="w-full px-4 sm:px-6 lg:px-8">
+            {/* Tagline Text */}
+            <div className="text-center mb-8">
+              <p className="text-sm md:text-base text-gray-600 font-sf-pro-text">
+                Trusted by the world's fastest growing{' '}
+                <span className="font-semibold text-gray-900 underline decoration-gray-300 underline-offset-2">
+                  Startups
+                </span>
+                {' '}and Enterprises
+              </p>
+            </div>
+
+            {/* Company Logos */}
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 opacity-60">
+              {/* Logo placeholders - you can replace these with actual company logos */}
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                Mutiny
+              </div>
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                HeyGen
+              </div>
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                SevenRooms
+              </div>
+              <div className="text-red-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                Redis
+              </div>
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                asana
+              </div>
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                Routable
+              </div>
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                SOLANA
+              </div>
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                truepic
+              </div>
+              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+                Credly
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
