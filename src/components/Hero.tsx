@@ -54,19 +54,19 @@ const Hero = () => {
             {/* Company Logos */}
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 opacity-60">
               {/* Logo placeholders - you can replace these with actual company logos */}
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+              <div className="text-black font-sf-pro-display">
                 FullStack Solutions
               </div>
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+              <div className="text-black font-sf-pro-display">
                 Automation & Workflows
               </div>
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+              <div className="text-black font-sf-pro-display">
                 E-Commerce Solutions
               </div>
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+              <div className="text-black font-sf-pro-display">
                 UI/UX Design
               </div>
-              <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
+              <div className="text-black font-sf-pro-display">
                 Consulting & Strategy
               </div>
               <div className="text-black font-sf-pro-display">
