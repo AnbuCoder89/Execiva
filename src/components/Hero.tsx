@@ -45,7 +45,7 @@ const Hero = () => {
      
             
             {/* Tagline Text */}
-            <div className="text-center mb-4 sm:mb-6">
+            <div className="text-left mb-4 sm:mb-6">
               <p className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text leading-relaxed">
                 Our{' '}
                 <span className="font-semibold text-gray-900 underline decoration-gray-300 underline-offset-2">
