@@ -18,11 +18,28 @@ const Hero = () => {
               
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-6 lg:mb-8">
                 Webstacks empowers marketing teams to break free from website bottlenecks with a composable approach built for speed and scale.
+                
               </p>
             </div>
           </div>
 
-          {/* Right Column - Browser Mockup */
+          {/* Right Column - Browser Mockup */}
+          <div className="relative flex items-center justify-center h-full">
+            <div className="relative w-full flex items-center justify-center pt-4 lg:pt-6">
+              <div className="bg-white rounded-xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
+                
+                {/* Browser Header */}
+                <div className="bg-gray-50 px-3 lg:px-4 py-2 lg:py-3 flex items-center space-x-2 border-b border-gray-200">
+                  <div className="flex space-x-1 lg:space-x-2">
+                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-yellow-400 rounded-full"></div>
+                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
