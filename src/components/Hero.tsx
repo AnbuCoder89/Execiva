@@ -44,11 +44,10 @@ const Hero = () => {
             {/* Tagline Text */}
             <div className="text-center mb-8">
               <p className="text-sm md:text-base text-gray-600 font-sf-pro-text">
-                Trusted by the world's fastest growing{' '}
+                Our{' '}
                 <span className="font-semibold text-gray-900 underline decoration-gray-300 underline-offset-2">
-                  Startups
+                  Capabilities
                 </span>
-                {' '}and Enterprises
               </p>
             </div>
 
