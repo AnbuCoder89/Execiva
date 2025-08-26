@@ -42,8 +42,7 @@ const Hero = () => {
         {/* Capabilities Tagline Section */}
         <div className="w-full py-6 sm:py-8 md:py-10">
           <div className="w-full px-4 sm:px-6 lg:px-8">
-            {/* Horizontal Divider Line */}
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-4 sm:mb-6"></div>
+     
             
             {/* Tagline Text */}
             <div className="text-center mb-4 sm:mb-6">
@@ -54,6 +53,9 @@ const Hero = () => {
                 </span>
               </p>
             </div>
+
+                   {/* Horizontal Divider Line */}
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-4 sm:mb-6"></div>
 
             {/* Company Logos */}
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 opacity-60 hover:opacity-80 transition-opacity duration-300">
