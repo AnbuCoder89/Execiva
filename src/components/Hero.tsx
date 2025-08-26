@@ -22,14 +22,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Browser Mockup */}
-          <div className="relative flex items-center justify-center h-full">
-            <div className="relative w-full flex items-center justify-center pt-4 lg:pt-6">
-              <div className="bg-white rounded-xl border border-gray-200 overflow-hidden w-[85%] lg:w-[90%] max-w-xl lg:max-w-2xl">
-                
-              </div>
-            </div>
-          </div>
+          {/* Right Column - Browser Mockup */
         </div>
       </div>
     </section>
