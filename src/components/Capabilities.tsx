@@ -134,7 +134,7 @@ const capabilities = [
           color="white"
           className="mb-6 font-medium leading-[1.5]"
         >
-          How we design and code open-source projects?
+          Web Development
         </Typography>
         <Typography variant="h5" className="mb-4 text-gray-400">
           Tania Andrew
