@@ -4,12 +4,13 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative w-full min-h-screen bg-beige overflow-hidden flex items-center justify-center"
+      className="relative w-full min-h-screen bg-beige overflow-hidden flex flex-col"
     >
-      <div className="w-full h-full">
-        <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full flex-1 flex flex-col">
+        {/* Main Hero Content - Takes most of the screen */}
+        <div className="flex-1 flex items-center justify-center">
           {/* Single Column - Centered Content */}
-          <div className="text-center w-full max-w-4xl mx-auto py-20 px-4">
+          <div className="text-center w-full max-w-4xl mx-auto px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight font-sf-pro-display">
               We craft fast, scalable sites for teams of all sizes.
             </h1>
@@ -39,14 +40,14 @@ const Hero = () => {
         </div>
 
         {/* Capabilities Tagline Section */}
-        <div className="w-full py-8 sm:py-10 md:py-12 lg:py-16 bg-white border-t border-gray-200">
+        <div className="w-full py-6 sm:py-8 md:py-10 bg-white border-t border-gray-200">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             {/* Horizontal Divider Line */}
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6 sm:mb-8"></div>
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-4 sm:mb-6"></div>
             
             {/* Tagline Text */}
-            <div className="text-center mb-6 sm:mb-8 md:mb-10">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 font-sf-pro-text leading-relaxed">
+            <div className="text-center mb-4 sm:mb-6">
+              <p className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text leading-relaxed">
                 Our{' '}
                 <span className="font-semibold text-gray-900 underline decoration-gray-300 underline-offset-2">
                   Capabilities
@@ -55,7 +56,7 @@ const Hero = () => {
             </div>
 
             {/* Company Logos */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16 opacity-60 hover:opacity-80 transition-opacity duration-300">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 opacity-60 hover:opacity-80 transition-opacity duration-300">
               {/* Logo placeholders - you can replace these with actual company logos */}
               <div className="text-black font-sf-pro-display">
                 FullStack Solutions
