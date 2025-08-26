@@ -34,11 +34,6 @@ const Hero = () => {
                     <div className="w-2 h-2 lg:w-3 lg:h-3 bg-yellow-400 rounded-full"></div>
                     <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
                   </div>
-                  <div className="flex-1 mx-2 lg:mx-4">
-                    <div className="bg-white rounded-md px-2 lg:px-3 py-1 text-xs text-gray-500 border border-gray-300 truncate">
-                      https://execiva.com
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
