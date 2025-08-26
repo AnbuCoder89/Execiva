@@ -30,18 +30,6 @@ const Capabilities: React.FC = () => {
       category: "Cloud",
       image: "/assets/images/cloud-solution-capabilities.jpg",
     },
-    {
-      title: "E-commerce Development",
-      description: "Building high-performance online stores with secure payment systems",
-      category: "E-commerce",
-      image: "/assets/images/ecommerce-capabilities.jpeg",
-    },
-    {
-      title: "AI & Machine Learning",
-      description: "Developing intelligent solutions for automation and predictive insights",
-      category: "AI/ML",
-      image: "/assets/images/aiintelligence-capabilities.jpg",
-    },
   ];
 
   useEffect(() => {
