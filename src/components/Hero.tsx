@@ -39,7 +39,7 @@ const Hero = () => {
         </div>
 
         {/* Capabilities Tagline Section */}
-        <div className="absolute bottom-0 left-0 right-0 bg-white py-8 border-t border-gray-100">
+        <div className="absolute bottom-0 left-0 right-0 py-8 border-t border-gray-100">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             {/* Tagline Text */}
             <div className="text-center mb-8">
