@@ -39,11 +39,14 @@ const Hero = () => {
         </div>
 
         {/* Capabilities Tagline Section */}
-        <div className="absolute bottom-0 left-0 right-0 py-8 border-t border-gray-100">
+        <div className="w-full py-8 sm:py-10 md:py-12 lg:py-16 bg-white border-t border-gray-200">
           <div className="w-full px-4 sm:px-6 lg:px-8">
+            {/* Horizontal Divider Line */}
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6 sm:mb-8"></div>
+            
             {/* Tagline Text */}
-            <div className="text-center mb-8">
-              <p className="text-sm md:text-base text-gray-600 font-sf-pro-text">
+            <div className="text-center mb-6 sm:mb-8 md:mb-10">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 font-sf-pro-text leading-relaxed">
                 Our{' '}
                 <span className="font-semibold text-gray-900 underline decoration-gray-300 underline-offset-2">
                   Capabilities
@@ -52,7 +55,7 @@ const Hero = () => {
             </div>
 
             {/* Company Logos */}
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 opacity-60">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16 opacity-60 hover:opacity-80 transition-opacity duration-300">
               {/* Logo placeholders - you can replace these with actual company logos */}
               <div className="text-black font-sf-pro-display">
                 FullStack Solutions
