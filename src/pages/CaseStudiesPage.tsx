@@ -224,7 +224,7 @@ const CaseStudiesPage: React.FC = () => {
   return (
     <div className="bg-gray-50 pt-20 min-h-screen">
       {/* Mobile/Tablet Header */}
-      <div className="lg:hidden container-padding py-4">
+      <div className="lg:hidden px-4 py-4">
         <div className="flex items-center justify-between mb-4">
           <Button
             variant="ghost"
@@ -441,7 +441,7 @@ const CaseStudiesPage: React.FC = () => {
       </div>
 
       {/* Mobile/Tablet Cards Layout */}
-      <div className="lg:hidden container-padding pb-8">
+      <div className="lg:hidden px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {filteredCaseStudies.map((study) => (
             <div

@@ -6,7 +6,7 @@ const Hero = () => {
       id="home" 
       className="relative w-full min-h-screen bg-beige overflow-hidden flex items-center justify-center"
     >
-      <div className="container-padding h-full">
+      <div className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-center min-h-screen">
           {/* Single Column - Centered Content */}
           <div className="text-center w-full max-w-4xl mx-auto py-20">

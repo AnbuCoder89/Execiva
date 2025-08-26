@@ -118,7 +118,7 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="container-padding py-4">
+      <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
           {/* Logo - Left */}
           <div

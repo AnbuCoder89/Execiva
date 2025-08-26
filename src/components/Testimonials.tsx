@@ -278,7 +278,7 @@ const Testimonials: React.FC = () => {
   return (
     <section 
       id="testimonials" 
-      className="relative w-full min-h-screen py-20 bg-white container-padding" 
+      className="relative w-full min-h-screen py-20 bg-white" 
       ref={sectionRef}
     >
       <div>
