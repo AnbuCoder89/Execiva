@@ -36,7 +36,7 @@ const CaseStudies: React.FC = () => {
   className="relative w-full min-h-screen flex items-center justify-center bg-white"
   ref={sectionRef}
 >
-  <div className="container mx-auto px-4">
+  <div className="container-padding">
     <div className="w-full flex flex-col lg:flex-row items-center justify-center">
       
       {/* Left Text Block */}

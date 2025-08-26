@@ -94,7 +94,7 @@ const capabilities = [
     <section
       id="capabilities"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white"
+      className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white container-padding"
     >
       {/* Text Block */}
       <div className="text-center">

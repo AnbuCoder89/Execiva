@@ -23,3 +23,39 @@ html, body {
   overflow-x: hidden;
   width: 100%;
 }
+
+/* Global Container Class */
+.container-padding {
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .container-padding {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem; /* sm:px-6 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-padding {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem; /* lg:px-8 */
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-padding {
+    padding-left: 2.5rem; /* xl:px-10 */
+    padding-right: 2.5rem; /* xl:px-10 */
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-padding {
+    padding-left: 3rem; /* 2xl:px-12 */
+    padding-right: 3rem; /* 2xl:px-12 */
+  }
+}
