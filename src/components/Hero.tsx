@@ -55,22 +55,22 @@ const Hero = () => {
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 opacity-60">
               {/* Logo placeholders - you can replace these with actual company logos */}
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                Mutiny
+                FullStack Solutions
               </div>
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                HeyGen
+                Automation & Workflows
               </div>
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                SevenRooms
+                E-Commerce Solutions
               </div>
               <div className="text-red-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                Redis
+                UI/UX Design
               </div>
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                asana
+                Consulting & Strategy
               </div>
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
-                Routable
+                AI & Data Insights
               </div>
               <div className="text-gray-400 font-bold text-lg md:text-xl font-sf-pro-display">
                 SOLANA
