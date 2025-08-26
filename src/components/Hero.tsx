@@ -32,7 +32,7 @@ const Hero = () => {
                 size="lg"
                 className="w-full sm:w-auto text-base sm:text-lg px-8 py-4"
               >
-                Learn More
+                Explore Services
               </Button>
             </div>
           </div>
