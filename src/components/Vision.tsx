@@ -11,7 +11,7 @@ const Vision: React.FC = () => {
     >
 <div className="w-full flex flex-col lg:flex-row items-center justify-start px-4 sm:px-6 lg:px-8">
   {/* Image Column */}
-  <div className="w-full lg:w-1/2 flex items-center justify-center py-4 sm:py-6 lg:py-10">
+  <div className="w-full lg:w-1/2 flex items-center justify-start py-4 sm:py-6 lg:py-10">
     <img
       src="/image/vision/vision3.jpeg"
       alt="Mission and Vision"
