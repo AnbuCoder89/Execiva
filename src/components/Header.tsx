@@ -127,12 +127,12 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation - Center */}
-          <div className="hidden lg:flex items-center justify-center space-x-8">
+          <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-6 2xl:space-x-8 whitespace-nowrap">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-4 py-2 text-sm font-medium font-sf-pro-text transition-all duration-300 hover:text-gray-600 ${
+                className={`px-2 xl:px-3 2xl:px-4 py-2 text-sm xl:text-base font-medium font-sf-pro-text transition-all duration-300 hover:text-gray-600 whitespace-nowrap ${
                   activeSection === item.id && location.pathname === '/'
                     ? "text-gray-900 border-b-2 border-gray-900"
                     : "text-gray-700"
