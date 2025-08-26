@@ -41,7 +41,7 @@ const CaseStudies: React.FC = () => {
       
       {/* Left Text Block */}
       <div className="w-full lg:w-1/2 flex items-center justify-start">
-        <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4 lg:px-0">
+        <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4 lg:px-8">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
             <span className="font-bold">Case Studies</span>
           </h2>
