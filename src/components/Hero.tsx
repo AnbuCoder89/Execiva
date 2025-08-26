@@ -31,6 +31,7 @@ const Hero = () => {
               <Button
                 variant="vision"
                 size="lg"
+                onClick={() => scrollToSection("services")}
                 className="w-full shadow-md hover:shadow-lg sm:w-auto text-base sm:text-lg px-8 py-4"
               >
                 Explore Services
