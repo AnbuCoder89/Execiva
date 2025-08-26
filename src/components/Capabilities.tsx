@@ -71,7 +71,7 @@ const Capabilities: React.FC = () => {
           {capabilities.slice(0, 8).map((capability, index) => (
             <div
               key={capability.title}
-              className={`group relative w-full h-[450px] overflow-hidden rounded-xl 
+              className={`group relative w-full h-[400px] overflow-hidden rounded-xl 
                 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-2
                 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${index * 100}ms` }}
