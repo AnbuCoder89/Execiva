@@ -40,7 +40,6 @@ const Header = () => {
         "home",
         "vision",
         "services",
-        "capabilities",
         "case-studies",
         "testimonials",
         "contact",
