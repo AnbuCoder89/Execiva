@@ -78,7 +78,6 @@ const Header = () => {
     { name: "Home", id: "home" },
     { name: "Vision", id: "vision" },
     { name: "Services", id: "services" },
-    { name: "Capabilities", id: "capabilities" },
     { name: "Case Studies", id: "case-studies" },
     { name: "Testimonials", id: "testimonials" },
     { name: "Contact", id: "contact" },
