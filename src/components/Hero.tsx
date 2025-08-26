@@ -58,7 +58,7 @@ const Hero = () => {
             <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-4 sm:mb-6"></div>
 
             {/* Company Logos */}
-            <div className="flex flex-wrap items-left justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 opacity-60 hover:opacity-80 transition-opacity duration-300">
+            <div className="flex flex-wrap items-left justify-left gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 opacity-60 hover:opacity-80 transition-opacity duration-300">
               {/* Logo placeholders - you can replace these with actual company logos */}
               <div className="text-black font-sf-pro-display">
                 FullStack Solutions
