@@ -25,7 +25,6 @@ const CaseStudies: React.FC = () => {
       observer.observe(sectionRef.current);
     }
 
-    
     return () => {
       observer.disconnect();
     };
@@ -68,7 +67,7 @@ const CaseStudies: React.FC = () => {
             <img
               src="/image/case-studies/case-1.jpeg"
               alt="Case Studies"
-              className="w-full h-auto max-w-md rounded-2xl shadow-lg object-contain"
+              className="w-full max-w-md h-auto object-contain rounded-2xl shadow-lg"
             />
           </div>
         </div>
