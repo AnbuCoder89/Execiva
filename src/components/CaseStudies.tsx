@@ -68,6 +68,12 @@ const CaseStudies: React.FC = () => {
             <img
               src="/image/case-studies/case-1.jpeg"
               alt="Case Studies"
+              className="w-full h-auto max-w-md rounded-2xl shadow-lg object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
