@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Capabilities from './components/Capabilities';
 import Vision from './components/Vision';
 import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
@@ -22,6 +23,7 @@ function App() {
   const HomePage = () => (
     <div className="w-full">
       <Hero />
+      <Capabilities />
       <Vision />
       <Services />
       <CaseStudies />
