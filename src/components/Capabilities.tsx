@@ -52,7 +52,7 @@ const Capabilities: React.FC = () => {
   const getDisplayText = () => {
     if (hoveredCapability) {
       const capability = capabilities.find(cap => cap.name === hoveredCapability);
-      return `We've got experts in\n${capability?.name || 'the composable stack'}.`;
+      return `We've got experts in\n${capability?.name || 'future-ready solutions'}.`;
     }
     return defaultText;
   };
