@@ -13,7 +13,7 @@ const Capabilities: React.FC = () => {
 
   return (
     <section className="w-full py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="mb-12">
           <h2 className="text-2xl sm:text-3xl font-medium text-gray-900 mb-4 font-sf-pro-display">
