@@ -1,7 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import Button from "./ui/Button"
-
+import Button from "./ui/Button";
 
 const Vision: React.FC = () => {
   return (
@@ -9,24 +8,31 @@ const Vision: React.FC = () => {
       id="vision"
       className="relative w-full min-h-screen flex items-center justify-center bg-white"
     >
-<div className="w-full flex flex-col lg:flex-row items-center justify-start px-4 sm:px-6 lg:px-8">
-  {/* Image Column */}
-  <div className="w-full lg:w-1/2 flex items-center justify-start py-4 sm:py-6 lg:py-10">
-    <img
-      src="/image/vision/vision3.jpeg"
-      alt="Mission and Vision"
-      className="w-[85%] h-auto object-contain"
-    />
-  </div>
-        <div className="w-full lg:w-1/2 flex items-center justify-start">
-          <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left px-4 lg:px-0">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-12 gap-12">
+        
+        {/* Image Column */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start">
+          <img
+            src="/image/vision/vision3.jpeg"
+            alt="Mission and Vision"
+            className="w-[85%] h-auto object-contain rounded-xl shadow-lg"
+          />
+        </div>
+
+        {/* Content Column */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start">
+          <div className="max-w-lg lg:max-w-[45rem] text-center lg:text-left">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
-               <span className="font-bold">Our Vision</span>
+              <span className="font-bold">Our Vision</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 text-justify">
-              To be the go-to innovation partner for businesses navigating change solving complex problems and turning challenges into opportunities by harnessing the transformative power of AI, empowering organizations to adapt, innovate, and thrive in an ever-evolving world.
+              To be the go-to innovation partner for businesses navigating
+              change, solving complex problems, and turning challenges into
+              opportunities by harnessing the transformative power of AI —
+              empowering organizations to adapt, innovate, and thrive in an
+              ever-evolving world.
             </p>
-            <div className="pt-4">
+            <div>
               <Button
                 variant="vision"
                 size="lg"
@@ -36,9 +42,9 @@ const Vision: React.FC = () => {
                 Learn More
               </Button>
             </div>
-
           </div>
         </div>
+
       </div>
     </section>
   );
