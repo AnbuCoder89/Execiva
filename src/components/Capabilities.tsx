@@ -66,7 +66,7 @@ const Capabilities: React.FC = () => {
           <div className="flex flex-col items-center w-full lg:shrink-0 lg:flex-row lg:justify-center lg:gap-2 xl:flex-col xl:items-start xl:w-fit xl:gap-0 xl:pb-6 text-3xl sm:text-4xl font-medium leading-tight font-sf-pro-display text-gray-400">
             <span>We've got experts in </span>
             <span 
-              className="text-white transition-all duration-300" 
+              className="text-white transition-all duration-300 font-sf-pro-display" 
               style={{ opacity: 1, transform: 'none' }}
             >
               {hoveredCapability ? hoveredCapability : 'the composable stack.'}
