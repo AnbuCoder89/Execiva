@@ -48,7 +48,7 @@ const Capabilities: React.FC = () => {
     }
   ];
 
-  const defaultText = "We've got experts in\nthe composable stack.";
+  const defaultText = "We've got experts in\nfuture-ready solutions.";
   const getDisplayText = () => {
     if (hoveredCapability) {
       const capability = capabilities.find(cap => cap.name === hoveredCapability);
@@ -69,7 +69,7 @@ const Capabilities: React.FC = () => {
               className="text-gray-900 transition-all duration-300 font-sf-pro-display" 
               style={{ opacity: 1, transform: 'none' }}
             >
-              {hoveredCapability ? hoveredCapability : 'the composable stack.'}
+              {hoveredCapability ? hoveredCapability : 'future-ready solutions.'}
             </span>
           </div>
 
