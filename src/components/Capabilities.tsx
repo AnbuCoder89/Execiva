@@ -58,44 +58,40 @@ const Capabilities: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-16 lg:py-24 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="relative bg-gray-900 text-white pt-12 pb-12">
+      <div className="container relative flex flex-col gap-14 overflow-hidden max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex flex-col gap-[53px] xl:gap-16 items-center xl:flex-row xl:justify-between">
           
           {/* Left Side - Text */}
-          <div className="text-left">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight font-sf-pro-display">
-              {getDisplayText().split('\n').map((line, index) => (
-                <span key={index} className="block">
-                  {line}
-                </span>
-              ))}
-            </h2>
+          <div className="flex flex-col items-center w-full lg:shrink-0 lg:flex-row lg:justify-center lg:gap-2 xl:flex-col xl:items-start xl:w-fit xl:gap-0 xl:pb-6 text-3xl sm:text-4xl font-medium leading-tight font-sf-pro-display text-gray-400">
+            <span>We've got experts in </span>
+            <span 
+              className="text-white transition-all duration-300" 
+              style={{ opacity: 1, transform: 'none' }}
+            >
+              {hoveredCapability ? hoveredCapability : 'the composable stack.'}
+            </span>
           </div>
 
           {/* Right Side - Logo Grid */}
-          <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:gap-8">
-            {capabilities.map((capability, index) => (
-              <div
-                key={index}
-                className="group relative w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white rounded-2xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-2xl"
-                onMouseEnter={() => setHoveredCapability(capability.name)}
-                onMouseLeave={() => setHoveredCapability(null)}
-              >
-                {/* Logo/Icon */}
-                <div className="text-2xl sm:text-3xl lg:text-4xl transition-transform duration-300 group-hover:scale-110">
-                  {capability.logo}
-                </div>
-                
-                {/* Tooltip on hover */}
-                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="bg-white text-gray-900 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap shadow-lg font-sf-pro-text">
-                    {capability.shortName}
+          <div className="w-fit">
+            <ul className="group grid grid-cols-4 sm:grid-cols-6 gap-2 lg:flex lg:flex-wrap">
+              {capabilities.map((capability, index) => (
+                <li key={index} className="size-16">
+                  <div 
+                    className="block size-full cursor-pointer rounded-xl border border-transparent transition-all duration-300 hover:border-blue-600"
+                    onMouseEnter={() => setHoveredCapability(capability.name)}
+                    onMouseLeave={() => setHoveredCapability(null)}
+                  >
+                    <span className="flex items-center justify-center size-full p-2 transition-all duration-300 cursor-pointer grayscale brightness-50 group-hover:opacity-50 hover:!opacity-100 invert">
+                      <div className="size-full flex items-center justify-center text-2xl">
+                        {capability.logo}
+                      </div>
+                    </span>
                   </div>
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-2 h-2 bg-white rotate-45"></div>
-                </div>
-              </div>
-            ))}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
