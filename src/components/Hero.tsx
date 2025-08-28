@@ -19,7 +19,7 @@ const Hero = () => {
           {/* Single Column - Centered Content */}
           <div className="text-center w-full max-w-4xl mx-auto px-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight font-sf-pro-display">
-              We craft fast, scalable sites for teams of all sizes.
+              Your technology, simplified. Your business, amplified.
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 lg:mb-12 max-w-3xl mx-auto">
