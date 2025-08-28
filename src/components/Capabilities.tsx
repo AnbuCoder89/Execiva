@@ -58,15 +58,15 @@ const Capabilities: React.FC = () => {
   };
 
   return (
-    <section className="relative text-black pt-12 pb-12">
+    <section className="relative bg-white text-black pt-12 pb-12">
       <div className="container relative flex flex-col gap-14 overflow-hidden mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex flex-col gap-[53px] xl:gap-16 items-center xl:flex-row xl:justify-between">
           
           {/* Left Side - Text */}
-          <div className="flex flex-col items-center w-full lg:shrink-0 lg:flex-row lg:justify-center lg:gap-2 xl:flex-col xl:items-start xl:w-fit xl:gap-0 xl:pb-6 text-3xl sm:text-4xl font-medium leading-tight font-sf-pro-display text-gray-400">
+          <div className="flex flex-col items-center w-full lg:shrink-0 lg:flex-row lg:justify-center lg:gap-2 xl:flex-col xl:items-start xl:w-fit xl:gap-0 xl:pb-6 text-3xl sm:text-4xl font-medium leading-tight font-sf-pro-display text-gray-600">
             <span>We've got experts in </span>
             <span 
-              className="text-white transition-all duration-300 font-sf-pro-display" 
+              className="text-gray-900 transition-all duration-300 font-sf-pro-display" 
               style={{ opacity: 1, transform: 'none' }}
             >
               {hoveredCapability ? hoveredCapability : 'the composable stack.'}
@@ -83,7 +83,7 @@ const Capabilities: React.FC = () => {
                     onMouseEnter={() => setHoveredCapability(capability.name)}
                     onMouseLeave={() => setHoveredCapability(null)}
                   >
-                    <span className="flex items-center justify-center size-full p-2 transition-all duration-300 cursor-pointer grayscale brightness-50 group-hover:opacity-50 hover:!opacity-100 invert">
+                    <span className="flex items-center justify-center size-full p-2 transition-all duration-300 cursor-pointer grayscale brightness-50 group-hover:opacity-50 hover:!opacity-100">
                       <div className="size-full flex items-center justify-center text-2xl">
                         {capability.logo}
                       </div>
