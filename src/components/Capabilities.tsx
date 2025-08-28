@@ -58,7 +58,7 @@ const Capabilities: React.FC = () => {
   };
 
   return (
-    <section className="relative text-white pt-12 pb-12">
+    <section className="relative text-black pt-12 pb-12">
       <div className="container relative flex flex-col gap-14 overflow-hidden mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex flex-col gap-[53px] xl:gap-16 items-center xl:flex-row xl:justify-between">
           
