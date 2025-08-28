@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex flex-col items-center justify-center bg-beige overflow-hidden pt-28"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-beige-200 overflow-hidden pt-28"
     >
       <div className="w-full flex-1 flex flex-col">
         {/* Main Hero Content */}
