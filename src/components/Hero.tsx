@@ -23,7 +23,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 lg:mb-12 max-w-3xl mx-auto">
-              Webstacks empowers marketing teams to break free from website bottlenecks with a composable approach built for speed and scale.
+              Execiva partners with you across web development, business intelligence, and AI, so your  systems work seamlessly, and your team can focus on impact.
             </p>
 
             {/* Call-to-Action Buttons */}
