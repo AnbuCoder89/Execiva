@@ -8,7 +8,6 @@ interface StatItem {
 
 const Stats: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState<boolean[]>([false, false, false, false]);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const stats: StatItem[] = [
@@ -40,16 +39,6 @@ const Stats: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // Trigger stat animations with delays
-            stats.forEach((_, index) => {
-              setTimeout(() => {
-                setAnimatedStats(prev => {
-                  const newState = [...prev];
-                  newState[index] = true;
-                  return newState;
-                });
-              }, stats[index].animationDelay || 0);
-            });
           }
         });
       },
@@ -64,29 +53,6 @@ const Stats: React.FC = () => {
       observer.disconnect();
     };
   }, []);
-
-  const AnimatedStat: React.FC<{ value: string; isAnimated: boolean }> = ({ value, isAnimated }) => {
-    return (
-      <div className="flex text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-light text-gray-900">
-        {value.split('').map((char, index) => (
-          <div
-            key={index}
-            className={`relative overflow-hidden transition-all duration-1000 ${
-              isAnimated ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
-            style={{ 
-              transitionDelay: `${index * 100}ms`,
-              width: char === '.' ? '20px' : char === '+' ? '40px' : char === '%' ? '50px' : char === 'B' ? '60px' : char === 'M' ? '70px' : '50px'
-            }}
-          >
-            <span className="block font-sf-pro-display">
-              {char}
-            </span>
-          </div>
-        ))}
-      </div>
-    );
-  };
 
   return (
     <>
@@ -117,19 +83,23 @@ const Stats: React.FC = () => {
 
       {/* Stats Section */}
       <section className="relative bg-white text-gray-900 pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
-        <div className="container flex w-full flex-col gap-14 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid w-full grid-cols-2 gap-px bg-gray-200 lg:flex lg:gap-0">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid w-full grid-cols-2 gap-px bg-gray-200 lg:grid-cols-4 lg:gap-0">
             {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="flex w-full flex-col items-center p-6 bg-white lg:p-8 lg:shrink-0 lg:grow lg:basis-0"
+                className="flex w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8 bg-white min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px]"
               >
-                <div className="flex mb-4">
-                  <AnimatedStat value={stat.value} isAnimated={animatedStats[index]} />
+                <div className={`flex mb-4 transition-all duration-1000 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`} style={{ transitionDelay: `${(stat.animationDelay || 0) + 200}ms` }}>
+                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-light text-gray-900 font-sf-pro-display">
+                    {stat.value}
+                  </div>
                 </div>
-                <div className={`text-base text-center text-gray-600 sm:text-lg lg:text-xl font-sf-pro-text transition-all duration-1000 ${
-                  animatedStats[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                }`} style={{ transitionDelay: `${(stat.animationDelay || 0) + 500}ms` }}>
+                <div className={`text-sm sm:text-base lg:text-lg xl:text-xl text-center text-gray-600 font-sf-pro-text transition-all duration-1000 leading-relaxed ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                }`} style={{ transitionDelay: `${(stat.animationDelay || 0) + 400}ms` }}>
                   <p>{stat.label}</p>
                 </div>
               </div>
