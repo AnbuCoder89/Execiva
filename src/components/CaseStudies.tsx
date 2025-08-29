@@ -36,7 +36,7 @@ const CaseStudies: React.FC = () => {
       ref={sectionRef}
     >
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex w-full flex-col gap-8 lg:justify-between lg:gap-24 lg:flex-row-reverse">
+        <div className="flex w-full flex-col gap-8 lg:justify-between lg:gap-24 lg:flex-row">
           
           {/* Content Column */}
           <div className={`flex w-full flex-col justify-center gap-8 lg:max-w-[700px] transition-all duration-1000 ${
