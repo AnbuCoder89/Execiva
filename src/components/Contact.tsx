@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
       className="relative w-full min-h-screen flex items-center justify-center bg-white" 
       ref={sectionRef}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
           {/* Content Column - Left on desktop, top on mobile */}
