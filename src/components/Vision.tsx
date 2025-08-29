@@ -33,7 +33,7 @@ const Vision: React.FC = () => {
       className="relative bg-white text-gray-900 pt-12 pb-12"
       ref={sectionRef}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex w-full flex-col gap-8 lg:justify-between lg:gap-24 lg:flex-row-reverse">
           
           {/* Content Column */}
