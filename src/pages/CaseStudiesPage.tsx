@@ -45,7 +45,7 @@ const CaseStudiesPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const caseStudies: CaseStudy[] = [
+  const allCaseStudies: CaseStudy[] = [
     {
       id: '1',
       title: 'Samsung scales first-party data activation to reach 43% more customers',
@@ -123,6 +123,162 @@ const CaseStudiesPage: React.FC = () => {
       product: 'Data Platform',
       image: '/image/case-studies/case-1.jpeg',
       description: 'Sky Deutschland utilized our data insights platform to significantly improve viewer engagement and content strategy.'
+    },
+    {
+      id: '7',
+      title: 'Netflix optimizes content recommendations with machine learning',
+      subtitle: 'CASE STUDIES | AI/ML',
+      category: 'CASE STUDIES',
+      topic: 'AI/ML',
+      industry: 'Entertainment',
+      region: 'Global',
+      channel: 'Digital',
+      product: 'AI Platform',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      description: 'Netflix leveraged our AI platform to enhance content recommendation algorithms and improve user engagement.'
+    },
+    {
+      id: '8',
+      title: 'Spotify increases user retention through personalized playlists',
+      subtitle: 'CASE STUDIES | PERSONALIZATION',
+      category: 'CASE STUDIES',
+      topic: 'AI/ML',
+      industry: 'Entertainment',
+      region: 'Global',
+      channel: 'Mobile',
+      product: 'AI Platform',
+      image: '/image/case-studies/case-2.jpeg',
+      description: 'Spotify used our personalization engine to create dynamic playlists that increased user engagement by 45%.'
+    },
+    {
+      id: '9',
+      title: 'Tesla accelerates autonomous driving with edge computing',
+      subtitle: 'CASE STUDIES | EDGE COMPUTING',
+      category: 'CASE STUDIES',
+      topic: 'Platform',
+      industry: 'Automotive',
+      region: 'Global',
+      channel: 'Edge',
+      product: 'Edge Platform',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      description: 'Tesla implemented our edge computing solutions to process real-time data for autonomous vehicle systems.'
+    },
+    {
+      id: '10',
+      title: 'Airbnb enhances booking experience with predictive analytics',
+      subtitle: 'CASE STUDIES | ANALYTICS',
+      category: 'CASE STUDIES',
+      topic: 'Data Analytics',
+      industry: 'Hospitality',
+      region: 'Global',
+      channel: 'Digital',
+      product: 'Analytics Suite',
+      image: '/image/case-studies/case-1.jpeg',
+      description: 'Airbnb utilized our predictive analytics to optimize pricing and improve booking conversion rates.'
+    },
+    {
+      id: '11',
+      title: 'Walmart transforms supply chain with IoT integration',
+      subtitle: 'CASE STUDIES | IOT',
+      category: 'CASE STUDIES',
+      topic: 'Platform',
+      industry: 'Retail',
+      region: 'North America',
+      channel: 'Digital',
+      product: 'IoT Platform',
+      image: '/image/case-studies/case-2.jpeg',
+      description: 'Walmart revolutionized their supply chain management using our IoT platform for real-time tracking.'
+    },
+    {
+      id: '12',
+      title: 'Microsoft Azure scales cloud infrastructure globally',
+      subtitle: 'CASE STUDIES | CLOUD',
+      category: 'CASE STUDIES',
+      topic: 'Platform',
+      industry: 'Technology',
+      region: 'Global',
+      channel: 'Digital',
+      product: 'Cloud Platform',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      description: 'Microsoft Azure leveraged our solutions to enhance global cloud infrastructure performance.'
+    },
+    {
+      id: '13',
+      title: 'Uber optimizes ride matching with real-time algorithms',
+      subtitle: 'CASE STUDIES | ALGORITHMS',
+      category: 'CASE STUDIES',
+      topic: 'AI/ML',
+      industry: 'Transportation',
+      region: 'Global',
+      channel: 'Mobile',
+      product: 'AI Platform',
+      image: '/image/case-studies/case-1.jpeg',
+      description: 'Uber improved ride matching efficiency by 60% using our real-time algorithmic solutions.'
+    },
+    {
+      id: '14',
+      title: 'Amazon Prime Video enhances streaming quality with CDN',
+      subtitle: 'CASE STUDIES | CDN',
+      category: 'CASE STUDIES',
+      topic: 'Platform',
+      industry: 'Entertainment',
+      region: 'Global',
+      channel: 'OTT',
+      product: 'CDN Platform',
+      image: '/image/case-studies/case-2.jpeg',
+      description: 'Amazon Prime Video achieved 99.9% uptime and reduced buffering by 80% with our CDN solutions.'
+    },
+    {
+      id: '15',
+      title: 'PayPal secures transactions with blockchain technology',
+      subtitle: 'CASE STUDIES | BLOCKCHAIN',
+      category: 'CASE STUDIES',
+      topic: 'Security',
+      industry: 'FinTech',
+      region: 'Global',
+      channel: 'Digital',
+      product: 'Security Platform',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      description: 'PayPal enhanced transaction security and reduced fraud by 75% using our blockchain solutions.'
+    },
+    {
+      id: '16',
+      title: 'Shopify powers e-commerce growth with scalable architecture',
+      subtitle: 'CASE STUDIES | E-COMMERCE',
+      category: 'CASE STUDIES',
+      topic: 'Platform',
+      industry: 'E-commerce',
+      region: 'Global',
+      channel: 'Digital',
+      product: 'E-commerce Platform',
+      image: '/image/case-studies/case-1.jpeg',
+      description: 'Shopify scaled to handle 10x traffic growth during peak seasons with our platform solutions.'
+    },
+    {
+      id: '17',
+      title: 'Zoom ensures seamless video conferencing at scale',
+      subtitle: 'CASE STUDIES | VIDEO',
+      category: 'CASE STUDIES',
+      topic: 'Platform',
+      industry: 'Technology',
+      region: 'Global',
+      channel: 'Digital',
+      product: 'Video Platform',
+      image: '/image/case-studies/case-2.jpeg',
+      description: 'Zoom maintained high-quality video calls for millions of users with our scalable video platform.'
+    },
+    {
+      id: '18',
+      title: 'LinkedIn improves professional networking with AI matching',
+      subtitle: 'CASE STUDIES | NETWORKING',
+      category: 'CASE STUDIES',
+      topic: 'AI/ML',
+      industry: 'Social Media',
+      region: 'Global',
+      channel: 'Digital',
+      product: 'AI Platform',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+      description: 'LinkedIn enhanced professional connections by 40% using our AI-powered matching algorithms.'
     }
   ];
 
@@ -134,7 +290,13 @@ const CaseStudiesPage: React.FC = () => {
     products: ['Data Platform', 'OpenPath', 'Video Platform', 'Analytics Suite', 'AI Platform']
   };
 
-  const filteredCaseStudies = caseStudies.filter(study => {
+  // Pagination logic
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  const totalPages = Math.ceil(allCaseStudies.length / itemsPerPage);
+
+  // Filter case studies first, then paginate
+  const filteredCaseStudies = allCaseStudies.filter(study => {
     const matchesTopics = selectedFilters.topics.length === 0 || selectedFilters.topics.includes(study.topic);
     const matchesIndustry = selectedFilters.industry.length === 0 || selectedFilters.industry.includes(study.industry);
     const matchesRegion = selectedFilters.region.length === 0 || selectedFilters.region.includes(study.region);
@@ -143,6 +305,12 @@ const CaseStudiesPage: React.FC = () => {
 
     return matchesTopics && matchesIndustry && matchesRegion && matchesChannels && matchesProducts;
   });
+
+  // Apply pagination to filtered results
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedCaseStudies = filteredCaseStudies.slice(startIndex, endIndex);
+  const paginatedTotalPages = Math.ceil(filteredCaseStudies.length / itemsPerPage);
 
   // Updated scroll logic
   useEffect(() => {
@@ -161,11 +329,14 @@ const CaseStudiesPage: React.FC = () => {
       }
     };
 
+    // Reset to first page when filters change
+    setCurrentPage(1);
+
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [filteredCaseStudies.length]);
+  }, [filteredCaseStudies.length, selectedFilters]);
 
   const toggleFilter = (filterType: keyof typeof selectedFilters, value: string) => {
     setSelectedFilters(prev => ({
@@ -174,6 +345,11 @@ const CaseStudiesPage: React.FC = () => {
         ? prev[filterType].filter(item => item !== value)
         : [...prev[filterType], value]
     }));
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const toggleFilterExpansion = (filterType: keyof typeof expandedFilters) => {
@@ -407,7 +583,7 @@ const CaseStudiesPage: React.FC = () => {
 
               {/* Case Studies Grid */}
               <div id="list" className="grid gap-6 sm:grid-cols-2 lg:gap-10 lg:grid-cols-3">
-                {filteredCaseStudies.map((study) => (
+                {paginatedCaseStudies.map((study) => (
                   <article key={study.id} className="group">
                     <div className="flex flex-col h-full cursor-pointer">
                       <figure>
@@ -438,7 +614,7 @@ const CaseStudiesPage: React.FC = () => {
               </div>
 
               {/* No Results State */}
-              {filteredCaseStudies.length === 0 && (
+              {paginatedCaseStudies.length === 0 && (
                 <div className="text-center py-12">
                   <div className="text-gray-400 mb-4">
                     <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -455,46 +631,115 @@ const CaseStudiesPage: React.FC = () => {
               )}
 
               {/* Pagination */}
-              {filteredCaseStudies.length > 0 && (
+              {filteredCaseStudies.length > 0 && paginatedTotalPages > 1 && (
                 <div className="flex flex-col gap-4 items-center">
                   <nav className="flex gap-4 justify-center items-center w-full" aria-label="Pagination">
                     {/* Previous Button */}
                     <button
-                      className="flex items-center justify-center w-[25px] h-[25px] rounded-full transition pointer-events-none bg-gray-200/60"
+                      className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
+                        currentPage === 1 
+                          ? 'pointer-events-none bg-gray-200/60' 
+                          : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
+                      }`}
                       aria-label="Go to previous page"
-                      disabled
+                      disabled={currentPage === 1}
+                      onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
                     >
-                      <ChevronDown className="w-[9px] h-[11px] stroke-current rotate-90 opacity-20" />
+                      <ChevronDown className={`w-[9px] h-[11px] stroke-current rotate-90 ${
+                        currentPage === 1 ? 'opacity-20' : 'opacity-100'
+                      }`} />
                     </button>
 
                     {/* Page Numbers */}
                     <ul className="flex gap-4">
+                      {/* First page */}
+                      {currentPage > 2 && (
+                        <li>
+                          <button 
+                            className="transition font-sf-pro-text hover:text-blue-600" 
+                            onClick={() => handlePageChange(1)}
+                            aria-label="Go to page 1"
+                          >
+                            1
+                          </button>
+                        </li>
+                      )}
+                      
+                      {/* Ellipsis before current page */}
+                      {currentPage > 3 && (
+                        <li>
+                          <span className="font-sf-pro-text">...</span>
+                        </li>
+                      )}
+                      
+                      {/* Previous page */}
+                      {currentPage > 1 && (
+                        <li>
+                          <button 
+                            className="transition font-sf-pro-text hover:text-blue-600" 
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            aria-label={`Go to page ${currentPage - 1}`}
+                          >
+                            {currentPage - 1}
+                          </button>
+                        </li>
+                      )}
+                      
+                      {/* Current page */}
                       <li>
                         <span className="text-blue-600 font-medium font-sf-pro-text" aria-current="page">
-                          1
+                          {currentPage}
                         </span>
                       </li>
-                      <li>
-                        <button className="transition font-sf-pro-text hover:text-blue-600" aria-label="Go to page 2">
-                          2
-                        </button>
-                      </li>
-                      <li>
-                        <span className="font-sf-pro-text">...</span>
-                      </li>
-                      <li>
-                        <button className="transition font-sf-pro-text hover:text-blue-600" aria-label="Go to page 5">
-                          5
-                        </button>
-                      </li>
+                      
+                      {/* Next page */}
+                      {currentPage < paginatedTotalPages && (
+                        <li>
+                          <button 
+                            className="transition font-sf-pro-text hover:text-blue-600" 
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            aria-label={`Go to page ${currentPage + 1}`}
+                          >
+                            {currentPage + 1}
+                          </button>
+                        </li>
+                      )}
+                      
+                      {/* Ellipsis after current page */}
+                      {currentPage < paginatedTotalPages - 2 && (
+                        <li>
+                          <span className="font-sf-pro-text">...</span>
+                        </li>
+                      )}
+                      
+                      {/* Last page */}
+                      {currentPage < paginatedTotalPages - 1 && (
+                        <li>
+                          <button 
+                            className="transition font-sf-pro-text hover:text-blue-600" 
+                            onClick={() => handlePageChange(paginatedTotalPages)}
+                            aria-label={`Go to page ${paginatedTotalPages}`}
+                          >
+                            {paginatedTotalPages}
+                          </button>
+                        </li>
+                      )}
                     </ul>
 
                     {/* Next Button */}
                     <button
-                      className="flex items-center justify-center w-[25px] h-[25px] rounded-full transition bg-gray-200 hover:bg-gray-200/60"
+                      className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
+                        currentPage === paginatedTotalPages 
+                          ? 'pointer-events-none bg-gray-200/60' 
+                          : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
+                      }`}
                       aria-label="Go to next page"
+                      disabled={currentPage === paginatedTotalPages}
+                      onClick={() => currentPage < paginatedTotalPages && handlePageChange(currentPage + 1)}
                     >
-                      <ChevronDown className="w-[9px] h-[11px] stroke-current -rotate-90" />
+                      <ChevronDown className={`w-[9px] h-[11px] stroke-current -rotate-90 ${
+                        currentPage === paginatedTotalPages ? 'opacity-20' : 'opacity-100'
+                      }`} />
                     </button>
                   </nav>
                 </div>
@@ -507,7 +752,7 @@ const CaseStudiesPage: React.FC = () => {
       {/* Mobile Cards Layout */}
       <div className="md:hidden w-full px-8 pb-8">
         <div className="grid grid-cols-1 gap-4">
-          {filteredCaseStudies.map((study) => (
+          {paginatedCaseStudies.map((study) => (
             <article key={study.id} className="group">
               <div className="flex flex-col h-full cursor-pointer">
                 <figure>
@@ -535,7 +780,7 @@ const CaseStudiesPage: React.FC = () => {
           ))}
         </div>
 
-        {filteredCaseStudies.length === 0 && (
+        {paginatedCaseStudies.length === 0 && (
           <div className="text-center py-12">
             <div className="text-gray-400 mb-4">
               <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -548,6 +793,50 @@ const CaseStudiesPage: React.FC = () => {
             <p className="text-gray-600 font-sf-pro-text">
               Try adjusting your filters to see more results.
             </p>
+          </div>
+        )}
+        
+        {/* Mobile Pagination */}
+        {filteredCaseStudies.length > 0 && paginatedTotalPages > 1 && (
+          <div className="flex flex-col gap-4 items-center mt-8">
+            <nav className="flex gap-4 justify-center items-center w-full" aria-label="Pagination">
+              {/* Previous Button */}
+              <button
+                className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
+                  currentPage === 1 
+                    ? 'pointer-events-none bg-gray-200/60' 
+                    : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
+                }`}
+                aria-label="Go to previous page"
+                disabled={currentPage === 1}
+                onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
+              >
+                <ChevronDown className={`w-[9px] h-[11px] stroke-current rotate-90 ${
+                  currentPage === 1 ? 'opacity-20' : 'opacity-100'
+                }`} />
+              </button>
+
+              {/* Page Numbers - Simplified for mobile */}
+              <span className="text-sm font-sf-pro-text text-gray-600">
+                Page {currentPage} of {paginatedTotalPages}
+              </span>
+
+              {/* Next Button */}
+              <button
+                className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
+                  currentPage === paginatedTotalPages 
+                    ? 'pointer-events-none bg-gray-200/60' 
+                    : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
+                }`}
+                aria-label="Go to next page"
+                disabled={currentPage === paginatedTotalPages}
+                onClick={() => currentPage < paginatedTotalPages && handlePageChange(currentPage + 1)}
+              >
+                <ChevronDown className={`w-[9px] h-[11px] stroke-current -rotate-90 ${
+                  currentPage === paginatedTotalPages ? 'opacity-20' : 'opacity-100'
+                }`} />
+              </button>
+            </nav>
           </div>
         )}
       </div>
