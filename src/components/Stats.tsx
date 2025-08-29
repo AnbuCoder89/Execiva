@@ -58,19 +58,19 @@ const Stats: React.FC = () => {
     <>
       {/* Header Section */}
       <section 
-        className="relative bg-white text-gray-900 pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24"
+        className="relative bg-white text-gray-900 pt-12 pb-6 sm:pt-16 sm:pb-8 md:pt-20 md:pb-12 lg:pt-24 lg:pb-16"
         ref={sectionRef}
       >
-        <div className="container flex w-full flex-col gap-8 items-center justify-center text-center mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl flex flex-col gap-8 items-center justify-center text-center mx-auto px-8">
           <div className="flex w-full flex-col gap-2 max-w-[970px] items-center">
-            <h2 className={`leading-tight text-gray-900 mb-0 text-3xl md:text-4xl lg:text-5xl font-medium font-sf-pro-display transition-all duration-1000 ${
+            <h2 className={`leading-tight text-gray-900 mb-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium font-sf-pro-display transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
               The numbers behind our rise.
             </h2>
           </div>
           <div className="flex w-full flex-col gap-8 justify-center items-center max-w-[970px]">
-            <div className={`flex flex-col gap-6 text-gray-600 items-center text-center text-base lg:text-xl transition-all duration-1000 ${
+            <div className={`flex flex-col gap-6 text-gray-600 items-center text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`} style={{ transitionDelay: '200ms' }}>
               <p className="font-sf-pro-text">
@@ -82,22 +82,22 @@ const Stats: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="relative bg-white text-gray-900 pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
-        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid w-full grid-cols-2 gap-px bg-gray-200 lg:grid-cols-4 lg:gap-0">
+      <section className="relative bg-white text-gray-900 pt-6 pb-12 sm:pt-8 sm:pb-16 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24">
+        <div className="w-full max-w-7xl mx-auto px-8">
+          <div className="grid w-full grid-cols-2 gap-px bg-gray-200 lg:grid-cols-4">
             {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="flex w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8 bg-white min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px]"
+                className="flex w-full flex-col items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 bg-white min-h-[160px] sm:min-h-[200px] md:min-h-[240px] lg:min-h-[280px] xl:min-h-[320px] 2xl:min-h-[360px]"
               >
                 <div className={`flex mb-4 transition-all duration-1000 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`} style={{ transitionDelay: `${(stat.animationDelay || 0) + 200}ms` }}>
-                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-light text-gray-900 font-sf-pro-display">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-gray-900 font-sf-pro-display leading-none">
                     {stat.value}
                   </div>
                 </div>
-                <div className={`text-sm sm:text-base lg:text-lg xl:text-xl text-center text-gray-600 font-sf-pro-text transition-all duration-1000 leading-relaxed ${
+                <div className={`text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-center text-gray-600 font-sf-pro-text transition-all duration-1000 leading-relaxed px-2 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
                 }`} style={{ transitionDelay: `${(stat.animationDelay || 0) + 400}ms` }}>
                   <p>{stat.label}</p>
