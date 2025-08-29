@@ -71,11 +71,11 @@ const Vision: React.FC = () => {
                 {/* CTA Button */}
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Button
-                    variant="primary"
+                    variant="vision"
                     size="lg"
                     icon={ArrowRight}
                     iconPosition="right"
-                    className="bg-blue-700 text-white hover:bg-blue-800 px-6 py-3 h-[46px] flex-shrink-0"
+                    className="px-6 py-3 h-[46px] flex-shrink-0"
                   >
                     Learn More
                   </Button>
