@@ -120,10 +120,14 @@ const Header = () => {
         <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
           {/* Logo - Left */}
           <div
-            className="text-2xl font-bold text-gray-900 font-sf-pro-display cursor-pointer hover:opacity-80 transition-opacity"
+            className="flex items-center cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => scrollToSection("home")}
           >
-            Execiva
+            <img 
+              src="/logo/1.png" 
+              alt="Execiva" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation - Center */}
