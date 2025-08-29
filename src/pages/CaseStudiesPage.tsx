@@ -595,7 +595,7 @@ const CaseStudiesPage: React.FC = () => {
               {/* Header Section */}
               <div className="border-b border-gray-200 pb-4">
                 <div className="text-sm mb-2.5 font-sf-pro-text">
-                  <p className="text-gray-600">The latest</p>
+                  <p className="text-gray-600">Featured Case Studies</p>
                 </div>
               </div>
 
