@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-gray-950 text-white py-20">
+    <footer className="relative bg-white text-gray-900 py-20 border-t border-gray-200">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand Section */}
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
                 className="h-8 w-auto"
               />
             </div>
-            <p className="text-gray-400 leading-relaxed mb-6 font-sf-pro-text">
+            <p className="text-gray-600 leading-relaxed mb-6 font-sf-pro-text">
               We create extraordinary digital experiences that drive business growth and transform industries.
             </p>
             <div className="flex space-x-4">
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                  className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors duration-300 text-gray-600 hover:text-gray-800"
                 >
                   <social.icon size={18} />
                 </a>
@@ -63,13 +63,13 @@ const Footer: React.FC = () => {
           {/* Footer Links */}
           {footerLinks.map((section, index) => (
             <div key={index}>
-              <h3 className="font-semibold mb-4 font-sf-pro-display">{section.title}</h3>
+              <h3 className="font-semibold mb-4 font-sf-pro-display text-gray-900">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <a
                       href="#"
-                      className="text-gray-400 hover:text-white transition-colors duration-300 font-sf-pro-text"
+                      className="text-gray-600 hover:text-gray-900 transition-colors duration-300 font-sf-pro-text"
                     >
                       {link}
                     </a>
@@ -81,11 +81,11 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm font-sf-pro-text">
+        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-gray-600 text-sm font-sf-pro-text">
             © {currentYear} YourBrand. All rights reserved.
           </div>
-          <div className="text-gray-400 text-sm mt-4 md:mt-0 font-sf-pro-text">
+          <div className="text-gray-600 text-sm mt-4 md:mt-0 font-sf-pro-text">
             Made with ❤️ for businesses that dare to dream big.
           </div>
         </div>
