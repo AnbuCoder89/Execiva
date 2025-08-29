@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <img 
-                src="/logo/1b.png" 
+                src="/logo/1.png" 
                 alt="Execiva" 
                 className="h-8 w-auto"
               />
