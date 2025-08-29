@@ -405,8 +405,26 @@ const CaseStudiesPage: React.FC = () => {
 
   return (
     <div className="bg-white pt-20 min-h-screen">
+      {/* Header Section */}
+      <section className="relative bg-white text-gray-900 pt-24 pb-16">
+        <div className="container flex w-full flex-col gap-8 items-center justify-center text-center mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex w-full flex-col gap-2 max-w-[970px] items-center">
+            <h2 className="leading-tight text-gray-900 mb-0 text-3xl lg:text-4xl font-medium font-sf-pro-display">
+              <p>See the Impact of Our Work in Action.</p>
+            </h2>
+          </div>
+          <div className="flex w-full flex-col gap-8 justify-center items-center max-w-[970px]">
+            <div className="flex flex-col gap-6 text-gray-600 items-center text-center text-base lg:text-xl">
+              <p className="font-sf-pro-text">
+                Discover how our tailored strategies and innovative solutions have helped clients overcome challenges, unlock growth, and achieve measurable success across industries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mobile Header */}
-      <div className="md:hidden w-full px-8 py-4">
+      <div className="md:hidden w-full px-8 py-4 pt-0">
         <div className="flex items-center justify-between mb-4">
           <Button
             variant="ghost"
