@@ -41,12 +41,7 @@ const Vision: React.FC = () => {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
             <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-4 text-gray-900">
-                {/* Eyebrow/Category */}
-                <h4 className="flex w-fit text-base items-center gap-2.5 text-blue-600 uppercase font-medium font-sf-pro-text tracking-wide">
-                  <p>Our Mission</p>
-                </h4>
-                
+              <div className="flex flex-col gap-4 text-gray-900">                
                 {/* Main Heading */}
                 <div className="pt-2">
                   <h2 className="mb-0 text-3xl lg:text-4xl xl:text-5xl font-medium leading-tight font-sf-pro-display">
