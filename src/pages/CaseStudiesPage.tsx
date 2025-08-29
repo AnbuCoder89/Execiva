@@ -230,7 +230,7 @@ const CaseStudiesPage: React.FC = () => {
   return (
     <div className="bg-white pt-20 min-h-screen">
       {/* Mobile Header */}
-      <div className="md:hidden w-full px-4 py-4">
+      <div className="md:hidden w-full px-8 py-4">
         <div className="flex items-center justify-between mb-4">
           <Button
             variant="ghost"
@@ -254,7 +254,7 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Mobile Filters */}
         {isMobileFiltersOpen && (
-          <div className="w-full bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+          <div className="w-full bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6 mx-0">
             <div className="overflow-y-auto max-h-screen">
               <ul className="divide-y border-b">
                 <FilterSection
@@ -310,12 +310,12 @@ const CaseStudiesPage: React.FC = () => {
 
       {/* Desktop Layout */}
       <div className="hidden md:block">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-6 lg:gap-10">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-6 lg:gap-10 px-8">
           {/* Left Panel - Filters (3 columns) */}
           <aside className={`sticky z-40 self-start bg-white border-b md:z-0 md:col-span-3 md:border-b-0 md:max-w-[17.1875rem] ${
             isLeftPanelFixed ? 'top-[113px]' : ''
           }`}>
-            <div className="px-4 md:px-0">
+            <div className="md:px-0">
               <div className="flex items-center justify-between mb-4">
                 <Button
                   variant="ghost"
@@ -505,7 +505,7 @@ const CaseStudiesPage: React.FC = () => {
       </div>
 
       {/* Mobile Cards Layout */}
-      <div className="md:hidden w-full px-4 pb-8">
+      <div className="md:hidden w-full px-8 pb-8">
         <div className="grid grid-cols-1 gap-4">
           {filteredCaseStudies.map((study) => (
             <article key={study.id} className="group">
