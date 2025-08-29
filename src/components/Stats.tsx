@@ -83,7 +83,7 @@ const Stats: React.FC = () => {
 
       {/* Stats Section */}
       <section className="relative bg-white text-gray-900 pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid w-full grid-cols-2 gap-px bg-gray-200 lg:grid-cols-4 lg:gap-0">
             {stats.map((stat, index) => (
               <div 
