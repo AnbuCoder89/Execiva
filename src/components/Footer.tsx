@@ -36,7 +36,13 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <div className="text-2xl font-bold mb-4 font-sf-pro-display">YourBrand</div>
+            <div className="mb-4">
+              <img 
+                src="/logo/1b.png" 
+                alt="Execiva" 
+                className="h-8 w-auto"
+              />
+            </div>
             <p className="text-gray-400 leading-relaxed mb-6 font-sf-pro-text">
               We create extraordinary digital experiences that drive business growth and transform industries.
             </p>
