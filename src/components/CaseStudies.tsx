@@ -45,7 +45,7 @@ const CaseStudies: React.FC = () => {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-4 text-gray-900">
                 {/* Eyebrow */}
-                <h4 className="flex w-fit text-base items-center gap-2.5 text-blue-600 uppercase font-medium font-sf-pro-text">
+                <h4 className="flex w-fit text-base items-center gap-2.5 text-black-600 uppercase font-medium font-sf-pro-text">
                   <p>Success Stories</p>
                 </h4>
                 
