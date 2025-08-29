@@ -81,14 +81,11 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-600 text-sm font-sf-pro-text">
-            © {currentYear} YourBrand. All rights reserved.
-          </div>
-          <div className="text-gray-600 text-sm mt-4 md:mt-0 font-sf-pro-text">
-            Made with ❤️ for businesses that dare to dream big.
-          </div>
+
+        <div className="text-gray-600 text-sm font-sf-pro-text">
+          © {currentYear} YourBrand. All rights reserved.
         </div>
+
       </div>
     </footer>
   );

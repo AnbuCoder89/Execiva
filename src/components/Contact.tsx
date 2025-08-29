@@ -39,15 +39,38 @@ const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!acceptTerms) {
-      alert('Please accept the Terms of Service');
-      return;
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!acceptTerms) {
+    alert('Please accept the Terms of Service');
+    return;
+  }
+
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzYFrUnRMw5vTDGq64_81OsnAOT2AeujhRtItFL4Z0d1rcT5oLhuoT7iFe7R3COTbcbPQ/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert("✅ Message sent successfully!");
+      setFormData({ name: '', email: '', message: '' }); // reset form
+      setAcceptTerms(false);
+    } else {
+      alert("❌ Failed to send. Please try again later.");
     }
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
+  } catch (err) {
+    console.error("Error submitting form:", err);
+    alert("⚠️ Something went wrong.");
+  }
+};
+
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },

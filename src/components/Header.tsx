@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 
+
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -80,7 +81,6 @@ const Header = () => {
     { name: "Services", id: "services" },
     { name: "Case Studies", id: "case-studies" },
     { name: "Testimonials", id: "testimonials" },
-    { name: "Contact", id: "contact" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -149,8 +149,8 @@ const Header = () => {
 
           {/* CTA Button & Mobile Menu - Right */}
           <div className="flex items-center justify-end space-x-4">
-            {/* CTA Button - Desktop */}
-            <div className="hidden lg:block">
+            {/* CTA Button - Desktop and Tablet */}
+            <div className="hidden md:block">
               <Button
                 variant="vision"
                 size="md"
@@ -193,8 +193,8 @@ const Header = () => {
               </button>
             ))}
             
-            {/* Mobile CTA Button */}
-            <div className="p-4 border-t border-gray-100">
+            {/* Mobile CTA Button - Only on mobile, not tablet */}
+            <div className="md:hidden p-4 border-t border-gray-100">
               <Button
                 variant="vision"
                 size="md"
@@ -204,7 +204,7 @@ const Header = () => {
                 }}
                 className="w-full shadow-md"
               >
-                Get Started
+                Contact Us
               </Button>
             </div>
           </div>

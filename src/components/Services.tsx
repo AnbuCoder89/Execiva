@@ -67,13 +67,13 @@ const Services: React.FC = () => {
 
       {/* Services Grid */}
       <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
           {services.slice(0, 8).map((service, index) => (
             <div
               key={service.title}
               className={`group relative w-full h-[400px] overflow-hidden rounded-xl 
                 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-2
-                h-[280px] sm:h-[320px] md:h-[350px] lg:h-[400px] xl:h-[450px]
+                h-[320px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px]
                 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
