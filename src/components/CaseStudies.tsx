@@ -95,7 +95,7 @@ const CaseStudies: React.FC = () => {
               <div className="w-full overflow-hidden">
                 <div className="group relative w-full overflow-hidden">
                   <img
-                    src="/image/case-studies/case-1.jpeg"
+                    src="/image/case-studies/case-studies.jpg"
                     alt="Case Studies"
                     className="w-full rounded-xl object-contain shadow-lg"
                     loading="lazy"
