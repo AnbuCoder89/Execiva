@@ -48,28 +48,31 @@ const handleSubmit = async (e: React.FormEvent) => {
   }
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzYFrUnRMw5vTDGq64_81OsnAOT2AeujhRtItFL4Z0d1rcT5oLhuoT7iFe7R3COTbcbPQ/exec", {
+    const formDataObj = new FormData();
+    formDataObj.append("name", formData.name);
+    formDataObj.append("email", formData.email);
+    formDataObj.append("message", formData.message);
+
+    const response = await fetch("/contact.php", {   // 👈 local PHP file on Hostinger
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      body: formDataObj,
     });
 
     const result = await response.json();
 
     if (result.success) {
-      alert("✅ Message sent successfully!");
-      setFormData({ name: '', email: '', message: '' }); // reset form
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
       setAcceptTerms(false);
     } else {
-      alert("❌ Failed to send. Please try again later.");
+      alert("Failed to send. Please try again later.");
     }
   } catch (err) {
     console.error("Error submitting form:", err);
     alert("⚠️ Something went wrong.");
   }
 };
+
 
 
   const socialLinks = [
