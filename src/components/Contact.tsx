@@ -53,7 +53,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     formDataObj.append("email", formData.email);
     formDataObj.append("message", formData.message);
 
-    const response = await fetch("/contact.php", {   // 👈 local PHP file on Hostinger
+    const response = await fetch("https://development.execiva.com/contact.php", {   // 👈 local PHP file on Hostinger
       method: "POST",
       body: formDataObj,
     });
