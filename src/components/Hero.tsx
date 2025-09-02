@@ -8,16 +8,17 @@ const Hero = () => {
     }
   };
 
-  const trustedLogos = [
-    { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-    { name: 'Google', src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-    { name: 'Amazon', src: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-    { name: 'Apple', src: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-    { name: 'Meta', src: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
-    { name: 'Netflix', src: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
-    { name: 'Tesla', src: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg' },
-    { name: 'Spotify', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' }
+  const capabilities = [
+    { name: 'Web Development', icon: '🌐' },
+    { name: 'Artificial Intelligence', icon: '🤖' },
+    { name: 'Data Analytics', icon: '📊' },
+    { name: 'Digital Strategy', icon: '💡' },
+    { name: 'Cloud Solutions', icon: '☁️' },
+    { name: 'Mobile Apps', icon: '📱' },
+    { name: 'E-Commerce', icon: '🛒' },
+    { name: 'SEO & Marketing', icon: '📈' }
   ];
+
   return (
     <>
     <section 
@@ -73,29 +74,23 @@ const Hero = () => {
           <div className="block sm:hidden relative overflow-hidden">
             <div className="flex animate-marquee space-x-8">
               {/* First set of logos */}
-              {trustedLogos.map((logo, index) => (
+              {capabilities.map((capability, index) => (
                 <div
                   key={`first-${index}`}
-                  className="flex-shrink-0 w-20 h-12 flex items-center justify-center grayscale opacity-40 hover:opacity-60 transition-opacity duration-300"
+                  className="flex-shrink-0 w-20 h-12 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                 >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    className="max-w-full max-h-full object-contain filter brightness-0"
-                  />
+                  <div className="text-2xl mb-1">{capability.icon}</div>
+                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
-              {trustedLogos.map((logo, index) => (
+              {capabilities.map((capability, index) => (
                 <div
                   key={`second-${index}`}
-                  className="flex-shrink-0 w-20 h-12 flex items-center justify-center grayscale opacity-40 hover:opacity-60 transition-opacity duration-300"
+                  className="flex-shrink-0 w-20 h-12 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                 >
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    className="max-w-full max-h-full object-contain filter brightness-0"
-                  />
+                  <div className="text-2xl mb-1">{capability.icon}</div>
+                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
                 </div>
               ))}
             </div>
@@ -103,16 +98,13 @@ const Hero = () => {
 
           {/* Tablet and Desktop: Static Grid */}
           <div className="hidden sm:flex justify-center items-center space-x-8 md:space-x-12 lg:space-x-16 xl:space-x-20">
-            {trustedLogos.slice(0, 6).map((logo, index) => (
+            {capabilities.slice(0, 6).map((capability, index) => (
               <div
                 key={index}
-                className="w-16 h-10 sm:w-20 sm:h-12 md:w-24 md:h-14 lg:w-28 lg:h-16 flex items-center justify-center grayscale opacity-40 hover:opacity-70 transition-all duration-300 hover:scale-105"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300 hover:scale-105"
               >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="max-w-full max-h-full object-contain filter brightness-0"
-                />
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2">{capability.icon}</div>
+                <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
               </div>
             ))}
           </div>
