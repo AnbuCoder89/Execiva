@@ -26,10 +26,6 @@ const Hero = () => {
       icon: '/logo/data.png',
     },
     { 
-      name: 'Digital Strategy', 
-      icon: '/logo/data.png',
-    },
-    { 
       name: 'Cloud Solutions', 
       icon: '/logo/connected-cloudscape.png',
     },
