@@ -16,7 +16,7 @@ const Hero = () => {
     },
     { 
       name: 'Web Development', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/11493/11493972.png',
+      icon: '/logo/coding.png',
       credit: 'Coding icons created by Freepik - Flaticon'
     },
     { 
