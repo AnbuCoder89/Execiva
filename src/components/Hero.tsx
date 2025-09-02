@@ -93,51 +93,51 @@ const Hero = () => {
 
           {/* Mobile: Scrolling Marquee */}
           <div className="block sm:hidden relative overflow-hidden">
-            <div className="flex animate-marquee space-x-8">
+            <div className="flex animate-marquee space-x-6">
               {/* First set of logos */}
               {capabilities.map((capability, index) => (
                 <div
                   key={`first-${index}`}
-                  className="flex-shrink-0 w-20 h-12 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
+                  className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                 >
                   <img 
                     src={capability.icon} 
                     alt={capability.name}
-                    className="w-6 h-6 mb-1 filter grayscale opacity-70"
+                    className="w-8 h-8 mb-1 filter grayscale opacity-70"
                   />
-                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
+                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
               {capabilities.map((capability, index) => (
                 <div
                   key={`second-${index}`}
-                  className="flex-shrink-0 w-20 h-12 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
+                  className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                 >
                   <img 
                     src={capability.icon} 
                     alt={capability.name}
-                    className="w-6 h-6 mb-1 filter grayscale opacity-70"
+                    className="w-8 h-8 mb-1 filter grayscale opacity-70"
                   />
-                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
+                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Tablet and Desktop: Static Grid */}
-          <div className="hidden sm:flex justify-center items-center space-x-8 md:space-x-12 lg:space-x-16 xl:space-x-20">
+          <div className="hidden sm:flex justify-center items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16">
             {capabilities.slice(0, 6).map((capability, index) => (
               <div
                 key={index}
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300 hover:scale-105"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300 hover:scale-105"
               >
                 <img 
                   src={capability.icon} 
                   alt={capability.name}
-                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
                 />
-                <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
+                <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
               </div>
             ))}
           </div>
