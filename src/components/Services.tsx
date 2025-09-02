@@ -61,7 +61,7 @@ const Services: React.FC = () => {
           </span>
         </h2>
         <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-         From AI and SEO to Web Development and Data Analytics, we transform complexity into clarity—crafting solutions that address today’s challenges while unlocking tomorrow’s opportunities.
+         From AI and SEO to Web Development and Data Analytics, we transform complexity into clarity crafting solutions that address today’s challenges while unlocking tomorrow’s opportunities.
         </p>
       </div>
 
