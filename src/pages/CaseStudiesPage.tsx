@@ -105,6 +105,7 @@ const CaseStudiesPage: React.FC = () => {
   const location = useLocation();
   const rightPanelRef = useRef<HTMLDivElement>(null);
   const [isLeftPanelFixed, setIsLeftPanelFixed] = useState(true);
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState({
     topics: [] as string[],
     industry: [] as string[],
@@ -523,14 +524,14 @@ const CaseStudiesPage: React.FC = () => {
                 className="flex w-full flex-col items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 bg-white min-h-[160px] sm:min-h-[200px] md:min-h-[240px] lg:min-h-[280px] xl:min-h-[320px] 2xl:min-h-[360px]"
               >
                 <div className={`flex mb-4 transition-all duration-1000 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  isStatsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`} style={{ transitionDelay: `${stat.delay + 200}ms` }}>
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-gray-900 font-sf-pro-display leading-none">
                     <StatCounter value={stat.value} delay={stat.delay} />
                   </div>
                 </div>
                 <div className={`text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-center text-gray-600 font-sf-pro-text transition-all duration-1000 leading-relaxed px-2 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                  isStatsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
                 }`} style={{ transitionDelay: `${stat.delay + 400}ms` }}>
                   <p>{stat.label}</p>
                 </div>
@@ -539,6 +540,25 @@ const CaseStudiesPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Intersection Observer for Stats */}
+      <div 
+        ref={(el) => {
+          if (el) {
+            const observer = new IntersectionObserver(
+              ([entry]) => {
+                if (entry.isIntersecting) {
+                  setIsStatsVisible(true);
+                }
+              },
+              { threshold: 0.3 }
+            );
+            observer.observe(el);
+            return () => observer.disconnect();
+          }
+        }}
+        className="absolute top-0 left-0 w-full h-1 pointer-events-none"
+      />
 
       {/* Mobile Header */}
       <div className="md:hidden w-full px-8 py-4 pt-0">
