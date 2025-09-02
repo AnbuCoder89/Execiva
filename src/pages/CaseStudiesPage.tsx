@@ -17,6 +17,97 @@ interface CaseStudy {
   description: string;
 }
 
+interface StatCounterProps {
+  value: string;
+  delay?: number;
+}
+
+const StatCounter: React.FC<StatCounterProps> = ({ value, delay = 0 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [displayValue, setDisplayValue] = useState('0');
+  const counterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const timer = setTimeout(() => {
+      // Extract numeric part and suffix
+      const numericMatch = value.match(/^(\d+(?:\.\d+)?)/);
+      const suffix = value.replace(/^(\d+(?:\.\d+)?)/, '');
+      
+      if (numericMatch) {
+        const targetNumber = parseFloat(numericMatch[1]);
+        const duration = 2000; // 2 seconds
+        const steps = 60;
+        const increment = targetNumber / steps;
+        let current = 0;
+        let step = 0;
+
+        const counter = setInterval(() => {
+          step++;
+          current = Math.min(current + increment, targetNumber);
+          
+          // Format the number based on target
+          let formattedNumber;
+          if (targetNumber >= 1000) {
+            formattedNumber = Math.floor(current).toLocaleString();
+          } else if (targetNumber % 1 !== 0) {
+            formattedNumber = current.toFixed(1);
+          } else {
+            formattedNumber = Math.floor(current).toString();
+          }
+          
+          setDisplayValue(formattedNumber + suffix);
+          
+          if (step >= steps || current >= targetNumber) {
+            setDisplayValue(value);
+            clearInterval(counter);
+          }
+        }, duration / steps);
+
+        return () => clearInterval(counter);
+      } else {
+        setDisplayValue(value);
+      }
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [isVisible, value, delay]);
+
+  return (
+    <div
+      ref={counterRef}
+      className={`transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="text-center">
+        <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-gray-900 font-sf-pro-display leading-none mb-2">
+          {displayValue}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const CaseStudiesPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -44,6 +135,13 @@ const CaseStudiesPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  const statsData = [
+    { value: '500+', delay: 0 },
+    { value: '2.1B', delay: 200 },
+    { value: '98%', delay: 400 },
+    { value: '50M+', delay: 600 }
+  ];
 
   const allCaseStudies: CaseStudy[] = [
     {
@@ -419,6 +517,19 @@ const CaseStudiesPage: React.FC = () => {
                 Discover how our tailored strategies and innovative solutions have helped clients overcome challenges, unlock growth, and achieve measurable success across industries.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Counter Section */}
+      <section className="relative bg-white py-16 md:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {statsData.map((stat, index) => (
+              <div key={index} className="flex justify-center">
+                <StatCounter value={stat.value} delay={stat.delay} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
