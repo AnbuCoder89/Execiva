@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Send, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import Button from './ui/Button';
 
 const Contact: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -190,12 +191,16 @@ const handleSubmit = async (e: React.FormEvent) => {
                   </label>
                 </div>
 
-                <button
+                <Button
                   type="submit"
-                  className="bg-gray-400 hover:bg-gray-500 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] font-sf-pro-text"
+                  variant="vision"
+                  size="lg"
+                  icon={Send}
+                  iconPosition="right"
+                  className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   Submit
-                </button>
+                </Button>
               </form>
             </div>
           </div>
