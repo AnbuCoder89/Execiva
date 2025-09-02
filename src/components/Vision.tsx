@@ -6,6 +6,7 @@ const Vision: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const imageY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -225,5 +226,3 @@ const Vision: React.FC = () => {
     </section>
   );
 };
-
-export default Vision;
