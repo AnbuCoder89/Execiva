@@ -66,7 +66,7 @@ const Hero = () => {
         <div className="w-full pt-16 sm:pt-20 md:pt-24">
           {/* Headline */}
           <p className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 sm:mb-10 md:mb-12 font-medium tracking-wide">
-            Trusted by the world's fastest growing Startups and Enterprises
+            Our Capabilities
           </p>
 
           {/* Mobile: Scrolling Marquee */}
