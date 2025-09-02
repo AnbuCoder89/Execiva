@@ -85,7 +85,7 @@ const Hero = () => {
         </div>
 
         {/* Trusted By Section */}
-        <div className="w-full">
+        <div className="w-full pt-10 sm:pt-10 md:pt-10">
           {/* Headline */}
           <p className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 sm:mb-10 md:mb-12 font-medium tracking-wide">
             Our Capabilities
