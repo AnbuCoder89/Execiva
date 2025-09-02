@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-white text-gray-900 py-20 border-t border-gray-200">
+    <footer className="relative bg-white text-gray-900 py-20 border-t">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand Section */}
