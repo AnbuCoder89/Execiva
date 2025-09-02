@@ -126,7 +126,7 @@ const Header = () => {
             <img 
               src="/logo/1.png" 
               alt="Execiva" 
-              className="h-8 w-auto"
+              className="h-6 w-auto"
             />
           </div>
 
