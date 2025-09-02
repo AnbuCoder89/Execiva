@@ -24,7 +24,7 @@ function App() {
   const HomePage = () => (
     <div className="w-full">
       <Hero />
-      <Capabilities />
+      {/* <Capabilities /> */}
       <Vision />
       <Services />
       <Stats />
