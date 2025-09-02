@@ -21,7 +21,7 @@ const Hero = () => {
         
         {/* Subheadline */}
         <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-4xl mx-auto font-light">
-          Execiva partners with you across web development, business intelligence, and AI, so your systems work seamlessly, and your team can focus on impact.
+          Execiva partners with you across AI, SEO, Web Development, and Data Analytics—ensuring your systems work seamlessly so your team can focus on impact.
         </p>
 
         {/* Call-to-Action Buttons */}
