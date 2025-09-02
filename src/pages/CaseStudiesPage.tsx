@@ -523,7 +523,7 @@ const CaseStudiesPage: React.FC = () => {
 
       {/* Stats Counter Section */}
       <section className="relative bg-white py-16 md:py-20 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {statsData.map((stat, index) => (
               <div key={index} className="flex justify-center">
