@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   const capabilities = [
-    { name: 'Web Development', icon: 'https://icons8.com/icon/7jfk7xt9O2Mj/web-development' },
+    { name: 'Web Development', icon: '🌐' },
     { name: 'Artificial Intelligence', icon: '🤖' },
     { name: 'Data Analytics', icon: '📊' },
     { name: 'Digital Strategy', icon: '💡' },
@@ -19,6 +19,7 @@ const Hero = () => {
     { name: 'SEO & Marketing', icon: '📈' }
   ];
 
+  
   return (
     <>
     <section 
