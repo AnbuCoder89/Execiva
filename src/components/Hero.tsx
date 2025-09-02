@@ -11,32 +11,31 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative h-screen flex items-center justify-center bg-beige overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-beige overflow-hidden px-6 sm:px-8 lg:px-12 pt-24" 
+      // pt-24 prevents overlap with navbar
     >
-      <div className="text-center w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-        {/* Headline - Split into two lines */}
-        <h1 className="text-gray-900 mb-4 sm:mb-6 md:mb-8 lg:mb-10 leading-[0.9] sm:leading-[0.95] md:leading-[0.9] lg:leading-[0.85] xl:leading-[0.8] font-sf-pro-display">
-          <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light tracking-tight sm:tracking-normal md:tracking-wide lg:tracking-wider">
+      <div className="text-center w-full max-w-5xl mx-auto">
+        {/* Headline */}
+        <h1 className="font-bold text-gray-900 mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight">
+          <span className="block text-[clamp(2rem,6vw,4rem)] sm:text-[clamp(2.5rem,5vw,5rem)] md:text-[clamp(3rem,4.5vw,5.5rem)] lg:text-[clamp(3.5rem,4vw,6rem)]">
             Your technology, simplified.
           </span>
-          <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-medium sm:font-semibold md:font-bold tracking-tight sm:tracking-normal md:tracking-wide lg:tracking-wider mt-1 sm:mt-2 md:mt-3 lg:mt-4">
+          <span className="block font-extrabold text-[clamp(2.5rem,6vw,4.5rem)] sm:text-[clamp(3rem,5vw,5.5rem)] md:text-[clamp(3.5rem,4.5vw,6rem)] lg:text-[clamp(4rem,4vw,6.5rem)] text-gray-900">
             Your business, amplified.
           </span>
         </h1>
         
         {/* Subheadline */}
-        <div className="flex justify-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20">
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-600 leading-relaxed sm:leading-relaxed md:leading-loose lg:leading-loose font-sf-pro-text font-light sm:font-normal max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl px-2 sm:px-4 md:px-6 lg:px-8">
-            Execiva partners with you across AI, SEO, Web Development, and Data Analytics ensuring your systems work seamlessly so your team can focus on impact.
-          </p>
-        </div>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-3xl mx-auto font-light">
+          Execiva partners with you across AI, SEO, Web Development, and Data Analytics ensuring your systems work seamlessly so your team can focus on impact.
+        </p>
 
         {/* Call-to-Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-center items-center px-4 sm:px-6 md:px-8">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pb-10">
           <Button
             variant="vision"
             size="lg"
-            className="w-full sm:w-auto text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 font-medium sm:font-semibold shadow-md hover:shadow-lg transform hover:scale-105"
+            className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium"
           >
             Get Started
           </Button>
@@ -44,7 +43,7 @@ const Hero = () => {
             variant="vision"
             size="lg"
             onClick={() => scrollToSection("services")}
-            className="w-full sm:w-auto text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 font-medium sm:font-semibold shadow-md hover:shadow-lg transform hover:scale-105"
+            className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium shadow-md hover:shadow-lg"
           >
             Explore Services
           </Button>
