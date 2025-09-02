@@ -20,7 +20,7 @@ const Hero = () => {
           <span className="block text-[clamp(2rem,6vw,4rem)] sm:text-[clamp(2.5rem,5vw,5rem)] md:text-[clamp(3rem,4.5vw,5.5rem)] lg:text-[clamp(3.5rem,4vw,6rem)]">
             Your technology, simplified.
           </span>
-          <span className="block font-extrabold text-[clamp(2.5rem,6vw,4.5rem)] sm:text-[clamp(3rem,5vw,5.5rem)] md:text-[clamp(3.5rem,4.5vw,6rem)] lg:text-[clamp(4rem,4vw,6.5rem)] text-gray-900">
+          <span className="block font-extrabold text-[clamp(2.5rem,6vw,4.5rem)] sm:text-[clamp(3rem,5vw,5.5rem)] md:text-[clamp(3.5rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4.5vw,6rem)] text-gray-900">
             Your business, amplified.
           </span>
         </h1>
