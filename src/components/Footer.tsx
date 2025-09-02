@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
 
         <div className="text-gray-600 text-sm font-sf-pro-text">
-          © {currentYear} YourBrand. All rights reserved.
+          © {currentYear} Execiva. All rights reserved.
         </div>
 
       </div>
