@@ -16,15 +16,17 @@ const Hero = () => {
     >
       <div className="text-center w-full max-w-5xl mx-auto">
         {/* Headline */}
-        <h1 className="font-bold text-gray-900 mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight">
-          <span className="block text-[clamp(2rem,6vw,4rem)] sm:text-[clamp(2.5rem,5vw,5rem)] md:text-[clamp(3rem,4.5vw,5.5rem)] lg:text-[clamp(4rem,4vw,6.5rem)]">
+        <h1 className="mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight text-gray-900">
+          {/* Line 1 */}
+          <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)]">
             Your technology, simplified.
           </span>
-          <span className="block text-[clamp(2.5rem,6vw,4.5rem)] sm:text-[clamp(3rem,5vw,5.5rem)] md:text-[clamp(3.5rem,4.5vw,6rem)] lg:text-[clamp(4rem,4vw,6.5rem)] text-gray-900">
+        
+          {/* Line 2 */}
+          <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)] text-gray-900">
             Your business, amplified.
           </span>
-        </h1>
-        
+        </h1> 
         {/* Subheadline */}
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-3xl mx-auto font-light">
           Execiva partners with you across AI, SEO, Web Development, and Data Analytics ensuring your systems work seamlessly so your team can focus on impact.
