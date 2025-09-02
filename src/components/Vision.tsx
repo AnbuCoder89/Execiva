@@ -1,133 +1,167 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Button from "./ui/Button";
 
-const Services: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+const Vision: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  const services = [
-    {
-      title: "Web Development",
-      description: "Custom websites and web applications built for performance and scalability",
-      category: "Development",
-      image: "/image/services/web_development-6.jpeg",
-    },
-    {
-      title: "Artificial Intelligence",
-      description: "AI-powered solutions that automate processes and provide intelligent insights.",
-      category: "AI",
-      image: "/image/services/Artificial_Intelligence.jpg",
-    },
-    {
-      title: "Data Analytics",
-      description: "Data-driven insights to help you make informed decisions and optimize your operations",
-      category: "Analytics",
-      image: "/image/services/Data_Analytics.jpg",
-    },
-    {
-      title: "Digital Strategy",
-      description: "Comprehensive digital transformation strategies tailored to your business goals",
-      category: "Statergy",
-      image: "/image/services/Digital_Statergy.jpeg",
-    },
-  ];
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      observer.disconnect();
     };
   }, []);
 
-  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.95,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.3
+      }
+    }
+  };
+
   return (
     <section
-      id="services"
+      id="vision"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white"
+      className="relative bg-white py-24 md:py-32 lg:py-40"
     >
-      {/* Header Text */}
-      <div className="w-full text-center mb-16">
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-4 leading-tight font-sf-pro-display">
-          Innovation is our language,
-          <span className="block mt-2">
-            execution is our craft
-          </span>
-        </h2>
-        <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          From AI and Data to SEO, we transform complexity into clarity, building solutions that not only solve today's challenges but also create tomorrow's opportunities.
-        </p>
-      </div>
+      <div className="mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 items-center"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {/* Left Column - Content */}
+          <div className="space-y-8">
+            <motion.div variants={itemVariants}>
+              <p className="text-sm font-medium text-slate-500 uppercase tracking-wider font-sf-pro-text mb-4">
+                Our Vision
+              </p>
+            </motion.div>
 
-      {/* Services Grid */}
-      <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
-          {services.slice(0, 8).map((service, index) => (
-            <div
-              key={service.title}
-              className={`group relative w-full h-[400px] overflow-hidden rounded-xl 
-                shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-2
-                h-[320px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px]
-                ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+            <motion.h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
+              variants={itemVariants}
             >
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center rounded-xl overflow-hidden"
-                style={{ backgroundImage: `url('${service.image}')` }}
+              Shaping the future
+              <span className="block font-medium mt-2">
+                of digital innovation
+              </span>
+            </motion.h2>
+
+            <motion.div 
+              className="space-y-6"
+              variants={itemVariants}
+            >
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text">
+                We envision a world where technology seamlessly integrates with human potential, 
+                creating solutions that not only solve today's challenges but anticipate tomorrow's opportunities.
+              </p>
+              
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed font-sf-pro-text">
+                Through cutting-edge AI, intelligent automation, and data-driven insights, 
+                we're building the foundation for businesses to thrive in an ever-evolving digital landscape.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="pt-4"
+              variants={itemVariants}
+            >
+              <Button
+                variant="vision"
+                size="lg"
+                icon={ArrowRight}
+                iconPosition="right"
+                className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Learn More
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Image */}
+          <motion.div 
+            className="relative order-first lg:order-last"
+            variants={imageVariants}
+          >
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src="/image/vision/vision3.jpeg"
+                alt="Our vision for the future of technology"
+                className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                loading="lazy"
               />
-
-              {/* Default dark gradient at bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:opacity-0 transition-opacity duration-300 rounded-xl" />
-
-              {/* Dark overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl" />
-
-              {/* Content */}
-              <div className="relative z-10 p-6 flex flex-col justify-between text-white h-full">
-                {/* Category Badge */}
-                <div className="flex justify-start">
-                  <span className="px-3 py-1 bg-beige backdrop-blur-sm rounded-full text-black text-xs font-medium uppercase tracking-wide">
-                    {service.category}
-                  </span>
-                </div>
-
-                {/* Bottom Content */}
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-3 font-sf-pro-display leading-tight">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm md:text-base leading-relaxed font-sf-pro-text opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Learn More Button */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <Button
-                      variant="vision"
-                      size="sm"
-                      className="text-gray-900 bg-white/90 hover:bg-white border-white/90 hover:border-white"
-                    >
-                      Learn More
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              
+              {/* Subtle overlay for premium feel */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
             </div>
-          ))}
-        </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full blur-xl opacity-60" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-tr from-purple-100 to-pink-100 rounded-full blur-xl opacity-40" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default Services;
+export default Vision;
