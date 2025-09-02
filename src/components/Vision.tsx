@@ -1,103 +1,122 @@
-import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
-import Button from "./ui/Button";
+import React from "react";
+import { motion } from "framer-motion";
 
 const Vision: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
     }
+  };
 
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.95,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.3
+      }
+    }
+  };
 
   return (
     <section
       id="vision"
-      className="relative bg-white text-gray-900 pt-12 pb-12"
-      ref={sectionRef}
+      className="relative bg-white py-24 md:py-32 lg:py-40"
     >
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex w-full flex-col gap-8 lg:justify-between lg:gap-24 lg:flex-row-reverse">
-          
-          {/* Content Column */}
-          <div className={`flex w-full flex-col justify-center gap-8 lg:max-w-[700px] transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-          }`}>
-            <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-4 text-gray-900">                
-                {/* Main Heading */}
-                <div className="pt-2">
-                  <h2 className="mb-0 text-3xl lg:text-4xl xl:text-5xl font-medium leading-tight font-sf-pro-display">
-                    <p>Our Vision</p>
-                  </h2>
-                </div>
-                
-                {/* Subheading */}
-                <div className="pt-2">
-                  <h3 className="text-xl lg:text-2xl font-light text-gray-600 font-sf-pro-text">
-                    Shaping the future of digital innovation
-                  </h3>
-                </div>
-              </div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 items-center"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {/* Left Column - Content */}
+          <div className="space-y-8">
+            <motion.div variants={itemVariants}>
+              <p className="text-sm font-medium text-slate-500 uppercase tracking-wider font-sf-pro-text mb-4">
+                Our Vision
+              </p>
+            </motion.div>
+
+            <motion.h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
+              variants={itemVariants}
+            >
+              Shaping tomorrow's
+              <span className="block font-medium mt-2">
+                digital landscape
+              </span>
+            </motion.h2>
+
+            <motion.div 
+              className="space-y-6"
+              variants={itemVariants}
+            >
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text">
+                We envision a future where technology seamlessly integrates with human potential, 
+                creating extraordinary experiences that drive meaningful progress.
+              </p>
               
-              {/* Content */}
-              <div className="flex w-full flex-col gap-6 text-gray-900">
-                <p className="text-lg leading-relaxed font-sf-pro-text">
-                  To be the go-to innovation partner for businesses navigating change, solving complex problems, and turning challenges into opportunities by harnessing the transformative power of AI. We empower organizations to adapt, innovate, and thrive in an ever-evolving world.
-                </p>
-                
-                {/* CTA Button */}
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <Button
-                    variant="vision"
-                    size="lg"
-                    icon={ArrowRight}
-                    iconPosition="right"
-                    className="px-6 py-3 h-[46px] flex-shrink-0"
-                  >
-                    Learn More
-                  </Button>
-                </div>
-              </div>
-            </div>
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed font-sf-pro-text">
+                Through innovative AI solutions and thoughtful design, we empower organizations 
+                to transcend limitations and achieve unprecedented growth.
+              </p>
+            </motion.div>
           </div>
 
-          {/* Image Column */}
-          <div className={`flex w-full items-center pt-8 md:pt-0 lg:max-w-[700px] transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-          }`} style={{ transitionDelay: '200ms' }}>
-            <div className="flex w-full justify-start">
-              <div className="w-full overflow-hidden">
-                <div className="group relative w-full overflow-hidden">
-                  <img
-                    src="/image/vision/vision3.jpeg"
-                    alt="Our Vision"
-                    className="w-full rounded-xl object-contain shadow-lg"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
+          {/* Right Column - Image */}
+          <motion.div 
+            className="relative"
+            variants={imageVariants}
+          >
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src="/image/vision/vision3.jpeg"
+                alt="Our vision for the future"
+                className="w-full h-[500px] md:h-[600px] object-cover"
+                loading="lazy"
+              />
+              
+              {/* Subtle overlay for premium feel */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
             </div>
-          </div>
-
-        </div>
+            
+            {/* Decorative element */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-xl opacity-60" />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-amber-100 to-orange-100 rounded-full blur-xl opacity-40" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
