@@ -15,7 +15,7 @@ const Services: React.FC = () => {
     {
       title: "SEO",
       description: "Comprehensive digital transformation strategies tailored to your business goals",
-      category: "Statergy",
+      category: "SEO",
       image: "/image/services/Digital_Statergy.jpeg",
     },
     {
