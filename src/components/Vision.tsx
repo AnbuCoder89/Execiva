@@ -223,5 +223,7 @@ const Vision: React.FC = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default Vision;
