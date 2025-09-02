@@ -19,6 +19,7 @@ const Hero = () => {
     { name: 'Spotify', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' }
   ];
   return (
+    <>
     <section 
       id="home" 
       className="relative min-h-screen flex items-center justify-center bg-beige overflow-hidden px-6 sm:px-8 lg:px-12 pt-24" 
@@ -62,8 +63,8 @@ const Hero = () => {
         </div>
       </div>
     </section>
-        {/* Trusted By Section */}
-        <div className="w-full">
+      {/* Trusted By Section */}
+      <div className="w-full">
           {/* Headline */}
           <p className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 sm:mb-10 md:mb-12 font-medium tracking-wide">
             Trusted by the world's fastest growing Startups and Enterprises
@@ -117,6 +118,7 @@ const Hero = () => {
             ))}
           </div>
         </div>
+    </>
   );
 };
 
