@@ -23,7 +23,7 @@ const Hero = () => {
     },
     { 
       name: 'Data Analytics', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/2906/2906356.png',
+      icon: '/logo/data.png',
     },
     { 
       name: 'Digital Strategy', 
