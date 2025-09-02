@@ -66,8 +66,30 @@ const CaseStudies: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Left Column - Content */}
-          <div className="space-y-8">
+          {/* Left Column - Image */}
+          <motion.div 
+            className="relative"
+            variants={imageVariants}
+          >
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src="/image/case-studies/case-studies.jpg"
+                alt="Success stories and case studies"
+                className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                loading="lazy"
+              />
+              
+              {/* Subtle overlay for premium feel */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full blur-xl opacity-60" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-tr from-blue-100 to-indigo-100 rounded-full blur-xl opacity-40" />
+          </motion.div>
+
+          {/* Right Column - Content */}
+          <div className="space-y-8 order-first lg:order-last">
             <motion.div variants={itemVariants}>
               <p className="text-sm font-medium text-slate-500 uppercase tracking-wider font-sf-pro-text mb-4">
                 Success Stories
@@ -115,28 +137,6 @@ const CaseStudies: React.FC = () => {
               </Button>
             </motion.div>
           </div>
-
-          {/* Right Column - Image */}
-          <motion.div 
-            className="relative order-first lg:order-last"
-            variants={imageVariants}
-          >
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <img
-                src="/image/case-studies/case-studies.jpg"
-                alt="Success stories and case studies"
-                className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
-                loading="lazy"
-              />
-              
-              {/* Subtle overlay for premium feel */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-            </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full blur-xl opacity-60" />
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-emerald-100 to-teal-100 rounded-full blur-xl opacity-40" />
-          </motion.div>
         </motion.div>
       </div>
     </section>
