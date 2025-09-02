@@ -70,21 +70,6 @@ const Vision: React.FC = () => {
                 Our Vision
               </p>
             </motion.div>
-
-            <motion.div 
-              className="pt-4"
-              variants={itemVariants}
-            >
-              <Button
-                variant="vision"
-                size="lg"
-                icon={ArrowRight}
-                iconPosition="right"
-                className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                Learn More
-              </Button>
-            </motion.div>
             <motion.h2 
               className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
               variants={itemVariants}
@@ -108,6 +93,20 @@ const Vision: React.FC = () => {
                 Through innovative AI solutions and thoughtful design, we empower organizations 
                 to transcend limitations and achieve unprecedented growth.
               </p>
+            </motion.div>
+            <motion.div 
+              className="pt-4"
+              variants={itemVariants}
+            >
+              <Button
+                variant="vision"
+                size="lg"
+                icon={ArrowRight}
+                iconPosition="right"
+                className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Learn More
+              </Button>
             </motion.div>
           </div>
 
