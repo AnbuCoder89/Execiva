@@ -9,6 +9,11 @@ const Hero = () => {
   };
 
   const capabilities = [
+     { 
+      name: 'SEO', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/6062/6062646.png',
+      credit: 'Coding icons created by Freepik - Flaticon'
+    },
     { 
       name: 'Web Development', 
       icon: 'https://cdn-icons-png.flaticon.com/512/11493/11493972.png',
