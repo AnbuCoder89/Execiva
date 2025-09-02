@@ -11,7 +11,7 @@ const Hero = () => {
   const capabilities = [
      { 
       name: 'SEO', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/6062/6062646.png',
+      icon: '/logo/seo-search-symbol.png',
       credit: 'Coding icons created by Freepik - Flaticon'
     },
     { 
