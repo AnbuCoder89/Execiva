@@ -12,42 +12,34 @@ const Hero = () => {
      { 
       name: 'SEO', 
       icon: '/logo/seo-search-symbol.png',
-      credit: 'Coding icons created by Freepik - Flaticon'
     },
     { 
       name: 'Web Development', 
       icon: '/logo/coding.png',
-      credit: 'Coding icons created by Freepik - Flaticon'
     },
     { 
       name: 'Artificial Intelligence', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/4140/4140048.png',
-      credit: 'Machine learning icons created by VectorPortal - Flaticon'
+      icon: '/logo/machine-learning.png',
     },
     { 
       name: 'Data Analytics', 
       icon: 'https://cdn-icons-png.flaticon.com/512/2906/2906356.png',
-      credit: 'Analysis icons created by monkik - Flaticon'
     },
     { 
       name: 'Digital Strategy', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/3602/3602123.png',
-      credit: 'Strategy icons created by Freepik - Flaticon'
+      icon: '/logo/data.png',
     },
     { 
       name: 'Cloud Solutions', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/1370/1370907.png',
-      credit: 'Pixel cloud solutions icons created by blinixsolutions - Flaticon'
+      icon: '/logo/connected-cloudscape.png',
     },
     { 
       name: 'Mobile Apps', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/906/906343.png',
-      credit: 'Mobile app icons created by Kalashnyk - Flaticon'
+      icon: '/logo/mobile-development.png',
     },
     { 
       name: 'E-Commerce', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/891/891462.png',
-      credit: 'E-commerce icons created by Freepik - Flaticon'
+      icon: '/logo/shopping-cart.png',
     },
   ];
 
