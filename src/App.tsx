@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Capabilities from './components/Capabilities';
 import Vision from './components/Vision';
+import Mission from './components/Mission';
 import Services from './components/Services';
 import Stats from './components/Stats';
 import CaseStudies from './components/CaseStudies';
@@ -26,6 +27,7 @@ function App() {
       <Hero />
       {/* <Capabilities /> */}
       <Vision />
+      <Mission />
       <Services />
       <Stats />
       <CaseStudies />
