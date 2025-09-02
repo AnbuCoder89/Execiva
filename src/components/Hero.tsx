@@ -9,14 +9,46 @@ const Hero = () => {
   };
 
   const capabilities = [
-    { name: 'Web Development', icon: '🌐' },
-    { name: 'Artificial Intelligence', icon: '🤖' },
-    { name: 'Data Analytics', icon: '📊' },
-    { name: 'Digital Strategy', icon: '💡' },
-    { name: 'Cloud Solutions', icon: '☁️' },
-    { name: 'Mobile Apps', icon: '📱' },
-    { name: 'E-Commerce', icon: '🛒' },
-    { name: 'SEO & Marketing', icon: '📈' }
+    { 
+      name: 'Web Development', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/11493/11493972.png',
+      credit: 'Coding icons created by Freepik - Flaticon'
+    },
+    { 
+      name: 'Artificial Intelligence', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/4140/4140048.png',
+      credit: 'Machine learning icons created by VectorPortal - Flaticon'
+    },
+    { 
+      name: 'Data Analytics', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/2906/2906356.png',
+      credit: 'Analysis icons created by monkik - Flaticon'
+    },
+    { 
+      name: 'Digital Strategy', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/3602/3602123.png',
+      credit: 'Strategy icons created by Freepik - Flaticon'
+    },
+    { 
+      name: 'Cloud Solutions', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/1370/1370907.png',
+      credit: 'Pixel cloud solutions icons created by blinixsolutions - Flaticon'
+    },
+    { 
+      name: 'Mobile Apps', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/906/906343.png',
+      credit: 'Mobile app icons created by Kalashnyk - Flaticon'
+    },
+    { 
+      name: 'E-Commerce', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/891/891462.png',
+      credit: 'E-commerce icons created by Freepik - Flaticon'
+    },
+    { 
+      name: 'SEO & Marketing', 
+      icon: 'https://cdn-icons-png.flaticon.com/512/6062/6062646.png',
+      credit: 'SEO icons created by Freepik - Flaticon'
+    }
   ];
 
   
@@ -80,7 +112,11 @@ const Hero = () => {
                   key={`first-${index}`}
                   className="flex-shrink-0 w-20 h-12 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                 >
-                  <div className="text-2xl mb-1">{capability.icon}</div>
+                  <img 
+                    src={capability.icon} 
+                    alt={capability.name}
+                    className="w-6 h-6 mb-1 filter grayscale opacity-70"
+                  />
                   <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
                 </div>
               ))}
@@ -90,7 +126,11 @@ const Hero = () => {
                   key={`second-${index}`}
                   className="flex-shrink-0 w-20 h-12 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                 >
-                  <div className="text-2xl mb-1">{capability.icon}</div>
+                  <img 
+                    src={capability.icon} 
+                    alt={capability.name}
+                    className="w-6 h-6 mb-1 filter grayscale opacity-70"
+                  />
                   <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
                 </div>
               ))}
@@ -104,7 +144,11 @@ const Hero = () => {
                 key={index}
                 className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300 hover:scale-105"
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2">{capability.icon}</div>
+                <img 
+                  src={capability.icon} 
+                  alt={capability.name}
+                  className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
+                />
                 <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight">{capability.name}</span>
               </div>
             ))}
