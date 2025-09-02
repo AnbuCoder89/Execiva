@@ -49,11 +49,6 @@ const Hero = () => {
       icon: 'https://cdn-icons-png.flaticon.com/512/891/891462.png',
       credit: 'E-commerce icons created by Freepik - Flaticon'
     },
-    { 
-      name: 'SEO & Marketing', 
-      icon: 'https://cdn-icons-png.flaticon.com/512/6062/6062646.png',
-      credit: 'SEO icons created by Freepik - Flaticon'
-    }
   ];
 
   
