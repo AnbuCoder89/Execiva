@@ -100,7 +100,7 @@ const Mission: React.FC = () => {
         <div className="space-y-10 md:space-y-20">
           {/* Header */}
           <motion.div 
-            className="mx-auto text-center max-w-5xl"
+            className="mx-auto text-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
