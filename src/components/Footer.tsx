@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               <img 
                 src="/logo/1.png" 
                 alt="Execiva" 
-                className="h-8 w-auto"
+                className="h-6 w-auto"
               />
             </div>
             <p className="text-gray-600 leading-relaxed mb-6 font-sf-pro-text">
