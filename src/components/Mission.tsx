@@ -100,12 +100,13 @@ const Mission: React.FC = () => {
         <div className="space-y-10 md:space-y-20">
           {/* Header */}
           <motion.div 
-            className="mx-auto text-center"
+            className="mx-auto text-center max-w-5xl"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
+            
             <div className="space-y-4 md:space-y-10">
               <div className="space-y-2 md:space-y-4">
                 <motion.p 
