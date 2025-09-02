@@ -219,11 +219,5 @@ const Vision: React.FC = () => {
                 delay: 1
               }}
             />
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-export default Vision;
+  )
+}
