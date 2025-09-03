@@ -157,24 +157,21 @@ const Header: React.FC = () => {
   };
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
-          : 'bg-transparent'
-      }`}
-      animate={{
-        y: isVisible ? 0 : '-100%'
-      }}
-      transition={{
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        type: "tween"
-      }}
-      initial="hidden"
-      whileInView="visible"
-      variants={headerVariants}
-    >
+      <motion.header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
+            : 'bg-transparent'
+        }`}
+        animate={{
+          y: isVisible ? 0 : '-100%'
+        }}
+        transition={{
+          duration: 0.4,
+          ease: [0.25, 0.46, 0.45, 0.94],
+          type: "tween"
+        }}
+      >
       <motion.div 
         className="mx-auto px-6 sm:px-8 lg:px-12"
         variants={navVariants}
