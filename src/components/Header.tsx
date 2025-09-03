@@ -172,44 +172,63 @@ const Header: React.FC = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <motion.nav 
-            className="hidden md:flex items-center space-x-8"
-            variants={navVariants}
-          >
-            {navItems.map((item) => (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-all duration-300 font-sf-pro-text relative ${
-                  activeSection === item.id
-                    ? isScrolled 
-                      ? 'text-gray-900' 
-                      : 'text-gray-900'
-                    : isScrolled 
-                      ? 'text-gray-600 hover:text-gray-900' 
-                      : 'text-gray-700 hover:text-gray-900'
-                }`}
-                variants={navItemVariants}
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -1,
-                  transition: { type: "spring", stiffness: 400, damping: 17 }
-                }}
-                whileTap={{ scale: 0.95 }}
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex flex-1 justify-center">
+            <motion.nav 
+              className="flex items-center space-x-8"
+              variants={navVariants}
+            >
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm font-medium transition-all duration-300 font-sf-pro-text relative ${
+                    activeSection === item.id
+                      ? isScrolled 
+                        ? 'text-gray-900' 
+                        : 'text-gray-900'
+                      : isScrolled 
+                        ? 'text-gray-600 hover:text-gray-900' 
+                        : 'text-gray-700 hover:text-gray-900'
+                  }`}
+                  variants={navItemVariants}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -1,
+                    transition: { type: "spring", stiffness: 400, damping: 17 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-900 rounded-full"
+                      layoutId="activeIndicator"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    />
+                  )}
+                </motion.button>
+              ))}
+            </motion.nav>
+          </div>
+
+          {/* Desktop Contact Button */}
+          <div className="hidden md:flex">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-6 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
               >
-                {item.label}
-                {activeSection === item.id && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-900 rounded-full"
-                    layoutId="activeIndicator"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  />
-                )}
-              </motion.button>
-            ))}
-          </motion.nav>
+                Contact
+              </button>
+            </motion.div>
+          </div>
 
           {/* Mobile Menu Button */}
           <motion.button
