@@ -25,13 +25,14 @@ const Hero = () => {
     }
   };
 
-  const capabilities = [
-    { name: "AI", icon: "/logo/ai.png" },
-    { name: "SEO", icon: "/logo/seo.png" },
-    { name: "Web Development", icon: "/logo/web.png" },
+  const logoCapabilities = [
+    { name: "SEO", icon: "/logo/seo-search-symbol.png" },
+    { name: "Web Development", icon: "/logo/coding.png" },
+    { name: "Artificial Intelligence", icon: "/logo/machine-learning.png" },
     { name: "Data Analytics", icon: "/logo/data.png" },
-    { name: "Automation", icon: "/logo/automation.png" },
-    { name: "Cloud", icon: "/logo/cloud.png" },
+    { name: "Cloud Solutions", icon: "/logo/connected-cloudscape.png" },
+    { name: "Mobile Apps", icon: "/logo/mobile-development.png" },
+    { name: "E-Commerce", icon: "/logo/shopping-cart.png" },
   ];
 
   return (
@@ -68,6 +69,81 @@ const Hero = () => {
           on impact.
         </motion.p>
 
+        {/* Our Capabilities Section */}
+        <motion.div 
+          className="w-full mb-12 lg:mb-16"
+          variants={itemVariants}
+        >
+          <motion.p
+            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide text-left"
+            variants={itemVariants}
+          >
+            Our Capabilities
+          </motion.p>
+
+          {/* Mobile Marquee */}
+          <motion.div
+            className="block sm:hidden relative overflow-hidden mb-8"
+            variants={itemVariants}
+          >
+            <motion.div
+              className="flex animate-marquee space-x-6"
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              {logoCapabilities.concat(logoCapabilities).map((cap, index) => (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center"
+                  whileHover={{ scale: 1.1 }}
+                  variants={itemVariants}
+                >
+                  <div className="flex items-center justify-center mb-2">
+                    <img
+                      src={cap.icon}
+                      alt={cap.name}
+                      className="w-8 h-8 object-contain brightness-0 dark:invert opacity-50"
+                    />
+                  </div>
+                  <div className="w-1 h-1 rounded-full bg-[var(--fgColor-heading)]"></div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Desktop Grid - Left Aligned */}
+          <motion.div
+            className="hidden sm:flex justify-start items-center gap-6 md:gap-8 lg:gap-12 xl:gap-16 mb-8"
+            variants={containerVariants}
+          >
+            {logoCapabilities.map((cap, index) => (
+              <motion.div
+                key={index}
+                className="w-20 h-20 sm:w-24 sm:h-24 flex flex-col items-center justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                whileHover={{
+                  scale: 1.15,
+                  transition: { type: "spring", stiffness: 400, damping: 17 },
+                }}
+              >
+                <div className="flex items-center justify-center mb-2">
+                  <img
+                    src={cap.icon}
+                    alt={cap.name}
+                    className="w-12 h-12 object-contain brightness-0 dark:invert opacity-50"
+                  />
+                </div>
+                <div className="w-1 h-1 rounded-full bg-[var(--fgColor-heading)]"></div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Full-width divider line */}
+          <div className="w-full grow h-px bg-neutral-100 dark:bg-white dark:opacity-50"></div>
+        </motion.div>
         <motion.div
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pb-10"
           variants={itemVariants}
@@ -86,85 +162,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Capabilities Section */}
-      <motion.div className="w-full mt-12" variants={itemVariants}>
-        {/* Heading */}
-        <motion.p
-          className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-4 font-medium tracking-wide text-left"
-          variants={itemVariants}
-        >
-          Our Capabilities
-        </motion.p>
-
-        {/* Divider visible everywhere */}
-        <motion.div
-          className="w-full h-px bg-neutral-300 mb-8"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        />
-
-        {/* Mobile Marquee */}
-        <motion.div
-          className="block sm:hidden relative overflow-hidden"
-          variants={itemVariants}
-        >
-          <motion.div
-            className="flex animate-marquee space-x-6"
-            initial={{ x: -100 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            {capabilities.concat(capabilities).map((cap, index) => (
-              <motion.div
-                key={index}
-                className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                variants={itemVariants}
-              >
-                <img
-                  src={cap.icon}
-                  alt={cap.name}
-                  className="w-8 h-8 mb-1 filter grayscale opacity-70"
-                />
-                <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
-                  {cap.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Desktop Grid aligned LEFT */}
-        <motion.div
-          className="hidden sm:flex justify-start items-center gap-6 md:gap-8 lg:gap-12 xl:gap-16"
-          variants={containerVariants}
-        >
-          {capabilities.map((cap, index) => (
-            <motion.div
-              key={index}
-              className="w-20 h-20 sm:w-24 sm:h-24 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.6, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
-              whileHover={{
-                scale: 1.15,
-                opacity: 0.9,
-                transition: { type: "spring", stiffness: 400, damping: 17 },
-              }}
-            >
-              <img
-                src={cap.icon}
-                alt={cap.name}
-                className="w-12 h-12 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
-              />
-              <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
-                {cap.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
     </motion.section>
   );
 };
