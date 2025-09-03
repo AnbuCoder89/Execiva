@@ -18,6 +18,7 @@ const CaseStudies: React.FC = () => {
     }
   };
 
+  
   const itemVariants = {
     hidden: { 
       opacity: 0, 
