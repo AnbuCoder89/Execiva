@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Button from "./ui/Button";
 
 const Services: React.FC = () => {
@@ -46,36 +47,103 @@ const Services: React.FC = () => {
     };
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
   return (
-    <section
+    <motion.section
       id="services"
       ref={sectionRef}
       className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
     >
       {/* Header Text */}
-      <div className="w-full text-center mb-16">
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-4 leading-tight font-sf-pro-display">
+      <motion.div 
+        className="w-full text-center mb-16"
+        variants={itemVariants}
+      >
+        <motion.h2 
+          className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-4 leading-tight font-sf-pro-display"
+          variants={itemVariants}
+        >
           Innovation is our language,
           <span className="block mt-2">
             execution is our craft
           </span>
-        </h2>
-        <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        </motion.h2>
+        <motion.p 
+          className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+          variants={itemVariants}
+        >
          From AI and SEO to Web Development and Data Analytics, we transform complexity into clarity crafting solutions that address today’s challenges while unlocking tomorrow’s opportunities.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Services Grid */}
-      <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
+      <motion.div 
+        className="w-full"
+        variants={itemVariants}
+      >
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8"
+          variants={containerVariants}
+        >
           {services.slice(0, 8).map((service, index) => (
-            <div
+            <motion.div
               key={service.title}
-              className={`group relative w-full h-[400px] overflow-hidden rounded-xl 
-                shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-2
-                h-[320px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px]
-                ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="group relative w-full overflow-hidden rounded-xl shadow-xl h-[320px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px]"
+              variants={cardVariants}
+              whileHover={{ 
+                scale: 1.03,
+                y: -8,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+                transition: { type: "spring", stiffness: 400, damping: 17 }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               {/* Background Image */}
               <div
@@ -110,11 +178,32 @@ const Services: React.FC = () => {
                   </div>
 
                   {/* Learn More Button */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <Button
-                      variant="vision"
-                      size="sm"
-                      className="text-gray-900 bg-white/90 hover:bg-white border-white/90 hover:border-white"
+                  <motion.div 
+                    className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <motion.div>
+                      <Button
+                        variant="vision"
+                        size="sm"
+                        className="text-gray-900 bg-white/90 hover:bg-white border-white/90 hover:border-white"
+                      >
+                        Learn More
+                      </Button>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+    </motion.section>
+  );
+};
+
+export default Services;
                     >
                       Learn More
                     </Button>

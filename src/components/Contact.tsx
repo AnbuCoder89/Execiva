@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import Button from './ui/Button';
 
@@ -84,58 +85,138 @@ const handleSubmit = async (e: React.FormEvent) => {
     { icon: Youtube, href: "#", label: "YouTube" }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
   return (
-    <section 
+    <motion.section 
       id="contact" 
       className="relative w-full min-h-screen flex items-center justify-center bg-white" 
       ref={sectionRef}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
     >
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <motion.div 
+        className="w-full mx-auto px-4 sm:px-6 lg:px-12"
+        variants={itemVariants}
+      >
+        <motion.div 
+          className="flex flex-col lg:flex-row items-center justify-between gap-12"
+          variants={containerVariants}
+        >
           
           {/* Content Column - Left on desktop, top on mobile */}
-          <div className={`w-full lg:w-1/2 flex items-center justify-center lg:justify-start transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <div className="w-full text-center lg:text-left">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
+          <motion.div 
+            className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start"
+            variants={itemVariants}
+          >
+            <motion.div 
+              className="w-full text-center lg:text-left"
+              variants={containerVariants}
+            >
+              <motion.h2 
+                className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display"
+                variants={itemVariants}
+              >
                 GET IN
                 <span className="block font-bold mt-2">
                   TOUCH
                 </span>
-              </h2>
+              </motion.h2>
               
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4 font-sf-pro-display">
+              <motion.div 
+                className="mb-8"
+                variants={itemVariants}
+              >
+                <motion.h3 
+                  className="text-2xl font-semibold text-gray-900 mb-4 font-sf-pro-display"
+                  variants={itemVariants}
+                >
                   Hey! We are looking forward to start a project with you!
-                </h3>
+                </motion.h3>
                 
-                <div className="bg-gray-100 p-6 rounded-lg border-l-4 border-gray-400 mb-8">
+                <motion.div 
+                  className="bg-gray-100 p-6 rounded-lg border-l-4 border-gray-400 mb-8"
+                  variants={itemVariants}
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
+                    transition: { type: "spring", stiffness: 400, damping: 17 }
+                  }}
+                >
                   <p className="text-gray-700 leading-relaxed font-sf-pro-text text-justify">
                     We'd love to hear from you! Whether you have a project in mind, a question to ask, or just want to say hello our team is ready to connect and help you bring your ideas to life
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Social Links */}
-              <div className="flex justify-center lg:justify-start space-x-4">
+              <motion.div 
+                className="flex justify-center lg:justify-start space-x-4"
+                variants={itemVariants}
+              >
                 {socialLinks.map((social, index) => (
-                  <a
+                  <motion.a
                     key={index}
                     href={social.href}
                     aria-label={social.label}
                     className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors duration-300 text-gray-600 hover:text-gray-800"
+                    whileHover={{ 
+                      scale: 1.1,
+                      backgroundColor: "#9CA3AF",
+                      transition: { type: "spring", stiffness: 400, damping: 17 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <social.icon size={18} />
-                  </a>
+                  </motion.a>
                 ))}
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
           {/* Form Column - Right on desktop, bottom on mobile */}
-          <div className={`w-full lg:w-1/2 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '200ms' }}>
-            <div className="w-[85%]">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
+          <motion.div 
+            className="w-full lg:w-1/2 flex items-center justify-center"
+            variants={itemVariants}
+          >
+            <motion.div 
+              className="w-[85%]"
+              variants={containerVariants}
+            >
+              <motion.form 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+                variants={containerVariants}
+              >
+                <motion.div variants={itemVariants}>
                   <input
                     type="text"
                     id="name"
@@ -146,9 +227,9 @@ const handleSubmit = async (e: React.FormEvent) => {
                     className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 font-sf-pro-text placeholder-gray-500"
                     placeholder="Enter your Name"
                   />
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div variants={itemVariants}>
                   <input
                     type="email"
                     id="email"
@@ -159,9 +240,9 @@ const handleSubmit = async (e: React.FormEvent) => {
                     className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 font-sf-pro-text placeholder-gray-500"
                     placeholder="Enter a valid email address"
                   />
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div variants={itemVariants}>
                   <textarea
                     id="message"
                     name="message"
@@ -172,10 +253,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                     className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 resize-none font-sf-pro-text placeholder-gray-500"
                     placeholder="Enter your message"
                   />
-                </div>
+                </motion.div>
 
                 {/* Terms of Service Checkbox */}
-                <div className="flex items-start space-x-3">
+                <motion.div 
+                  className="flex items-start space-x-3"
+                  variants={itemVariants}
+                >
                   <input
                     type="checkbox"
                     id="terms"
@@ -189,24 +273,30 @@ const handleSubmit = async (e: React.FormEvent) => {
                       Terms of Service and Privacy Policy
                     </a>
                   </label>
-                </div>
+                </motion.div>
 
-                <Button
-                  type="submit"
-                  variant="vision"
-                  size="lg"
-                  icon={Send}
-                  iconPosition="right"
-                  className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+                <motion.div
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  Submit
-                </Button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                  <Button
+                    type="submit"
+                    variant="vision"
+                    size="lg"
+                    icon={Send}
+                    iconPosition="right"
+                    className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    Submit
+                  </Button>
+                </motion.div>
+              </motion.form>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 
