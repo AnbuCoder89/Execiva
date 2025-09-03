@@ -91,7 +91,7 @@ const Hero = () => {
 
       {/* Capabilities Section */}
       <motion.div
-        className="w-full px-6 sm:px-8 lg:px-12 mt-12"
+        className="w-full px-0 sm:px-0 lg:px-0 mt-12"
         variants={itemVariants}
       >
         <motion.p
