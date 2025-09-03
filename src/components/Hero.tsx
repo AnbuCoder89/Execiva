@@ -110,11 +110,11 @@ const Hero = () => {
 
         {/* Our Capabilities */}
         <motion.div
-          className="w-full pt-10"
+          className="w-full pt-10 text-left"
           variants={itemVariants}
         >
           <motion.p
-            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide"
+            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide text-left"
             variants={itemVariants}
           >
             Our Capabilities
@@ -153,7 +153,7 @@ const Hero = () => {
 
           {/* Desktop Grid */}
           <motion.div
-            className="hidden sm:flex justify-center items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
+            className="hidden sm:flex justify-start items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
             variants={containerVariants}
           >
             {capabilities.slice(0, 6).map((cap, index) => (
@@ -179,6 +179,14 @@ const Hero = () => {
                 </span>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Full Width Line */}
+          <motion.div 
+            className="w-full mt-8"
+            variants={itemVariants}
+          >
+            <div className="w-full h-px bg-neutral-100 dark:bg-white dark:opacity-50"></div>
           </motion.div>
         </motion.div>
       </motion.div>
