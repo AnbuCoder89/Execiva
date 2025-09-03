@@ -101,7 +101,7 @@ const Hero = () => {
           Our Capabilities
         </motion.p>
 
-        <!-- very light gray line -->
+       
 <div class="w-full h-px bg-neutral-50 dark:opacity-50"></div>
 
         
