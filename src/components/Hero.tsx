@@ -109,78 +109,79 @@ const Hero = () => {
         </motion.div>
 
         {/* Our Capabilities */}
-          <motion.div
-            className="w-full mx-auto px-6 sm:px-8 lg:px-12"
-            variants={itemVariants}
-          >
-          <motion.p
-            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide "
-            variants={itemVariants}
-          >
-            Our Capabilities
-          </motion.p>
+<motion.div 
+  className="w-full mx-auto px-6 sm:px-8 lg:px-12" 
+  variants={itemVariants}
+>
+  <motion.p
+    className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide"
+    variants={itemVariants}
+  >
+    Our Capabilities
+  </motion.p>
 
-          {/* Mobile Marquee */}
-          <motion.div
-            className="block sm:hidden relative overflow-hidden"
-            variants={itemVariants}
-          >
-            <motion.div
-              className="flex animate-marquee space-x-6"
-              initial={{ x: -100 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              {capabilities.concat(capabilities).map((cap, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  variants={itemVariants}
-                >
-                  <img
-                    src={cap.icon}
-                    alt={cap.name}
-                    className="w-8 h-8 mb-1 filter grayscale opacity-70"
-                  />
-                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
-                    {cap.name}
-                  </span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Desktop Grid */}
-          <motion.div
-            className="hidden sm:flex justify-center items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
-            variants={containerVariants}
-          >
-            {capabilities.slice(0, 6).map((cap, index) => (
-              <motion.div
-                key={index}
-                className="w-20 h-20 sm:w-24 sm:h-24 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.6, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
-                whileHover={{
-                  scale: 1.15,
-                  opacity: 0.9,
-                  transition: { type: "spring", stiffness: 400, damping: 17 },
-                }}
-              >
-                <img
-                  src={cap.icon}
-                  alt={cap.name}
-                  className="w-12 h-12 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
-                />
-                <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
-                  {cap.name}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
+  {/* Mobile Marquee */}
+  <motion.div
+    className="block sm:hidden relative overflow-hidden"
+    variants={itemVariants}
+  >
+    <motion.div
+      className="flex animate-marquee space-x-6"
+      initial={{ x: -100 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+    >
+      {capabilities.concat(capabilities).map((cap, index) => (
+        <motion.div
+          key={index}
+          className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-all duration-300"
+          whileHover={{ scale: 1.1 }}
+          variants={itemVariants}
+        >
+          <img
+            src={cap.icon}
+            alt={cap.name}
+            className="w-8 h-8 mb-1 filter grayscale opacity-70"
+          />
+          <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
+            {cap.name}
+          </span>
         </motion.div>
+      ))}
+    </motion.div>
+  </motion.div>
+
+  {/* Desktop Grid (aligned left) */}
+  <motion.div
+    className="hidden sm:flex justify-start items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
+    variants={containerVariants}
+  >
+    {capabilities.slice(0, 6).map((cap, index) => (
+      <motion.div
+        key={index}
+        className="w-20 h-20 sm:w-24 sm:h-24 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 0.6, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+        whileHover={{
+          scale: 1.15,
+          opacity: 0.9,
+          transition: { type: "spring", stiffness: 400, damping: 17 },
+        }}
+      >
+        <img
+          src={cap.icon}
+          alt={cap.name}
+          className="w-12 h-12 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
+        />
+        <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
+          {cap.name}
+        </span>
+      </motion.div>
+    ))}
+  </motion.div>
+</motion.div>
+
       </motion.div>
     </motion.section>
   );
