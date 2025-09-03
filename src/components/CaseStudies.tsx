@@ -90,12 +90,6 @@ const CaseStudies: React.FC = () => {
 
           {/* Right Column - Content */}
           <div className="space-y-8 order-first lg:order-last">
-            <motion.div variants={itemVariants}>
-              <p className="text-sm font-medium text-slate-500 uppercase tracking-wider font-sf-pro-text mb-4">
-                Success Stories
-              </p>
-            </motion.div>
-
             <motion.h2 
               className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
               variants={itemVariants}
