@@ -112,6 +112,15 @@ const Hero = () => {
           className="block sm:hidden relative overflow-hidden"
           variants={itemVariants}
         >
+          {/* Divider Line between text and icons */}
+          <motion.div 
+            className="w-full h-px bg-gray-200 mb-8"
+            variants={itemVariants}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          />
+
           <motion.div
             className="flex animate-marquee space-x-6"
             initial={{ x: -100 }}
