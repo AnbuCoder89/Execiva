@@ -10,21 +10,38 @@ const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      setIsScrolled(currentScrollY > 50);
-      
-      // Show header when at top or scrolling up, hide when scrolling down
-      if (currentScrollY < 10) {
-        setIsVisible(true);
-      } else if (currentScrollY < lastScrollY) {
-        setIsVisible(true); // Scrolling up
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false); // Scrolling down
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const scrollThreshold = 50;
+          const hideThreshold = 100;
+          
+          // Update background blur state
+          setIsScrolled(currentScrollY > scrollThreshold);
+          
+          // Scroll direction logic with improved thresholds
+          if (currentScrollY <= 10) {
+            // Always show at top
+            setIsVisible(true);
+          } else if (Math.abs(currentScrollY - lastScrollY) < 5) {
+            // Ignore small scroll movements to prevent jitter
+            return;
+          } else if (currentScrollY < lastScrollY - 10) {
+            // Scrolling up with minimum threshold
+            setIsVisible(true);
+          } else if (currentScrollY > lastScrollY + 10 && currentScrollY > hideThreshold) {
+            // Scrolling down with minimum threshold
+            setIsVisible(false);
+          }
+          
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
       }
-      
-      setLastScrollY(currentScrollY);
     };
 
     const handleSectionChange = (event: CustomEvent) => {
@@ -32,6 +49,7 @@ const Header: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('setActiveSection', handleSectionChange as EventListener);
 
     // Set up intersection observer for active section detection
@@ -60,7 +78,7 @@ const Header: React.FC = () => {
       window.removeEventListener('setActiveSection', handleSectionChange as EventListener);
       observers.forEach(observer => observer?.disconnect());
     };
-  }, []);
+  }, [lastScrollY]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -147,11 +165,17 @@ const Header: React.FC = () => {
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
           : 'bg-transparent'
-      } ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
+      animate={{
+        y: isVisible ? 0 : -100,
+        opacity: isVisible ? 1 : 0
+      }}
+      transition={{
+        duration: 0.3,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
       variants={headerVariants}
     >
       <motion.div 
