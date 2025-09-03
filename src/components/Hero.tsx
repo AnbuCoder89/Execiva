@@ -101,7 +101,10 @@ const Hero = () => {
           Our Capabilities
         </motion.p>
 
-        <div class="w-full grow h-px bg-neutral-100 dark:bg-white dark:opacity-50"></div>
+        <!-- very light gray line -->
+<div class="w-full h-px bg-neutral-50 dark:opacity-50"></div>
+
+        
 
         {/* Mobile Marquee */}
         <motion.div
