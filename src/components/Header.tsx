@@ -58,11 +58,9 @@ const Header: React.FC = () => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'vision', label: 'Vision' },
-    { id: 'mission', label: 'Mission' },
     { id: 'services', label: 'Services' },
     { id: 'testimonials', label: 'Testimonials' },
     { id: 'case-studies', label: 'Case Studies' },
-    { id: 'contact', label: 'Contact' }
   ];
 
   const headerVariants = {
@@ -215,7 +213,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Contact Button */}
-          <div className="hidden md:flex">
+          <div className="hidden sm:flex">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -232,7 +230,7 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 rounded-lg transition-colors duration-300 hover:bg-gray-100 focus:outline-none"
+            className="sm:hidden p-2 rounded-lg transition-colors duration-300 hover:bg-gray-100 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             variants={navItemVariants}
             whileHover={{ scale: 1.1 }}
@@ -269,7 +267,7 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
+              className="sm:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
               variants={mobileMenuVariants}
               initial="hidden"
               animate="visible"
