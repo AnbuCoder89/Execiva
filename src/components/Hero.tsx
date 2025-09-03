@@ -101,6 +101,8 @@ const Hero = () => {
           Our Capabilities
         </motion.p>
 
+        <div class="w-full grow h-px bg-neutral-100 dark:bg-white dark:opacity-50"></div>
+
         {/* Mobile Marquee */}
         <motion.div
           className="block sm:hidden relative overflow-hidden"
