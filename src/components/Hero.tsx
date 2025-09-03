@@ -30,8 +30,8 @@ const Hero = () => {
     { name: "SEO", icon: "/logo/seo-search-symbol.png" },
     { name: "Web Development", icon: "/logo/coding.png" },
     { name: "Data Analytics", icon: "/logo/data.png" },
-    { name: "Automation", icon: "/logo/automation.png" },
-    { name: "Cloud", icon: "/logo/cloud.png" },
+    { name: "E-Commerce", icon: "/logo/shopping-cart.png" },
+    { name: "Cloud", icon: "/logo/connected-cloudscape.png" },
   ];
 
   return (
