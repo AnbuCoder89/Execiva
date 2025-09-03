@@ -240,9 +240,8 @@ const Header: React.FC = () => {
                     <motion.div
                       className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-900 rounded-full"
                       layoutId="activeIndicator"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                     initial={false}
+                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     />
                   )}
                 </motion.button>
