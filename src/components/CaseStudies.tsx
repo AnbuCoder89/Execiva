@@ -91,7 +91,7 @@ const CaseStudies: React.FC = () => {
           {/* Right Column - Content */}
           <div className="space-y-8 order-first lg:order-last">
             <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
+              className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-tight font-sf-pro-display"
               variants={itemVariants}
             >
               Real results from real partnerships
