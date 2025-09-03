@@ -91,13 +91,41 @@ const Mission: React.FC = () => {
     setActiveAccordion(activeAccordion === id ? null : id);
   };
 
+  const imageVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.95,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.3
+      }
+    }
+  };
+
   return (
-    <section
+    <motion.section
       ref={sectionRef}
       className="relative bg-gray-50 py-12 md:py-32"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
     >
-      <div className="max-w-[1490px] px-4 lg:px-10 mx-auto">
-        <div className="space-y-10 md:space-y-20">
+      <motion.div 
+        className="max-w-[1490px] px-4 lg:px-10 mx-auto"
+        variants={itemVariants}
+      >
+        <motion.div 
+          className="space-y-10 md:space-y-20"
+          variants={containerVariants}
+        >
           {/* Header */}
           <motion.div 
             className="mx-auto text-center max-w-5xl"
@@ -129,18 +157,33 @@ const Mission: React.FC = () => {
           </motion.div>
 
           {/* Accordion Content */}
-          <div className="grid gap-10 md:grid-cols-12">
+          <motion.div 
+            className="grid gap-10 md:grid-cols-12"
+            variants={itemVariants}
+          >
             {/* Left Column - Images */}
-            <div className="relative md:col-span-6">
-              <div className="sticky top-[100px] aspect-[724/866]">
+            <motion.div 
+              className="relative md:col-span-6"
+              variants={imageVariants}
+            >
+              <motion.div 
+                className="sticky top-[100px] aspect-[724/866]"
+                variants={imageVariants}
+              >
                 {accordionItems.map((item) => (
-                  <div
+                  <motion.div
                     key={item.id}
                     className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                       activeAccordion === item.id
                         ? 'opacity-100 translate-y-0'
                         : 'opacity-0 translate-y-5'
                     }`}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ 
+                      opacity: activeAccordion === item.id ? 1 : 0,
+                      scale: activeAccordion === item.id ? 1 : 0.95
+                    }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                   >
                     <div className="flex justify-center items-center h-full">
                       <figure className="w-full h-full">
@@ -152,58 +195,81 @@ const Mission: React.FC = () => {
                         />
                       </figure>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Right Column - Accordion */}
-            <div className="md:col-span-6 lg:col-span-4 lg:col-start-8">
-              <div className="divide-y xl:py-6 divide-gray-200">
+            <motion.div 
+              className="md:col-span-6 lg:col-span-4 lg:col-start-8"
+              variants={itemVariants}
+            >
+              <motion.div 
+                className="divide-y xl:py-6 divide-gray-200"
+                variants={containerVariants}
+              >
                 {accordionItems.map((item, index) => (
-                  <div
+                  <motion.div
                     key={item.id}
                     className="py-3.5 first:pt-0 last:pb-0"
+                    variants={itemVariants}
                   >
-                    <button
+                    <motion.button
                       type="button"
                       onClick={() => toggleAccordion(item.id)}
                       aria-expanded={activeAccordion === item.id}
                       className="flex justify-between items-center py-2.5 w-full text-left text-lg md:text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors font-sf-pro-display"
+                      whileHover={{ x: 4 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                       <span className="flex gap-x-2 items-center">
                         {item.title}
                       </span>
-                      <ChevronDown
-                        className={`w-4 h-4 shrink-0 transition-transform duration-300 text-blue-600 ${
-                          activeAccordion === item.id ? 'rotate-180' : 'rotate-0'
-                        }`}
-                      />
-                    </button>
+                      <motion.div
+                        animate={{ rotate: activeAccordion === item.id ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <ChevronDown
+                          className="w-4 h-4 shrink-0 text-blue-600"
+                        />
+                      </motion.div>
+                    </motion.button>
 
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        activeAccordion === item.id
-                          ? 'max-h-96 opacity-100'
-                          : 'max-h-0 opacity-0'
-                      }`}
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: activeAccordion === item.id ? "auto" : 0,
+                        opacity: activeAccordion === item.id ? 1 : 0
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
                     >
-                      <div className="space-y-4 pb-4 pt-2">
+                      <motion.div
+                        className="space-y-4 pb-4 pt-2"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ 
+                          opacity: activeAccordion === item.id ? 1 : 0,
+                          y: activeAccordion === item.id ? 0 : -10
+                        }}
+                        transition={{ duration: 0.2, delay: activeAccordion === item.id ? 0.1 : 0 }}
+                      >
                         <div className="prose prose-sm text-gray-600">
                           <p className="leading-relaxed font-sf-pro-text">
                             {item.content}
                           </p>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 
