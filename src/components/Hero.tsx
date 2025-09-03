@@ -110,11 +110,11 @@ const Hero = () => {
 
         {/* Our Capabilities */}
         <motion.div
-          className="w-full"
+          className="w-full text-left"
           variants={itemVariants}
         >
           <motion.p
-            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide text-left"
+            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide "
             variants={itemVariants}
           >
             Our Capabilities
