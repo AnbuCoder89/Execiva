@@ -114,7 +114,7 @@ const Hero = () => {
           variants={itemVariants}
         >
           <motion.p
-            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide"
+            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide text-left"
             variants={itemVariants}
           >
             Our Capabilities
