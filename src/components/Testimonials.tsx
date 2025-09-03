@@ -278,10 +278,10 @@ const Testimonials: React.FC = () => {
           className="text-4xl md:text-5xl font-light text-gray-900 mb-4 font-sf-pro-display text-center"
           variants={itemVariants}
         >
-  We Care About Our Customers
-  <span className="block font-normal text-gray-600 mt-2">
-    Experience Too
-  </span>
+          We Care About Our Customers
+          <span className="block font-normal text-gray-600 mt-2">
+            Experience Too
+          </span>
         </motion.h2>
 
       </motion.div>
@@ -368,7 +368,6 @@ const Testimonials: React.FC = () => {
                           ease: "easeInOut"
                         }}
                         whileHover={{ scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                       >
                         <motion.img
                           src={card.image}
@@ -399,7 +398,6 @@ const Testimonials: React.FC = () => {
                           ease: "easeInOut"
                         }}
                         whileHover={{ scale: 1.02 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                       >
                         {card.name}
                       </motion.h3>
@@ -416,7 +414,6 @@ const Testimonials: React.FC = () => {
                         }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
                       >
                         {card.position}
                       </motion.p>
@@ -433,7 +430,6 @@ const Testimonials: React.FC = () => {
                         }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
                       >
                         {contentStyles.showFullContent 
                           ? card.content 
@@ -466,8 +462,9 @@ const Testimonials: React.FC = () => {
                           <Star 
                             size={textStyles.starSize}
                             className="text-blue-500 fill-current"
-                }`}
+                          />
                         </motion.div>
+                      ))}
                     </motion.div>
                   </motion.div>
                 </motion.div>
