@@ -228,22 +228,6 @@ const Header: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Desktop Contact Button */}
-          <div className="hidden sm:flex">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-6 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
-              >
-                Contact
-              </button>
-            </motion.div>
-          </div>
-
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-3">
             {/* Mobile Contact Button */}
