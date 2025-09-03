@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Button from "./ui/Button";
 
 const Mission: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeAccordion, setActiveAccordion] = useState<number | null>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -13,10 +13,6 @@ const Mission: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // Auto-open first accordion when section becomes visible
-            if (activeAccordion === null) {
-              setActiveAccordion(1);
-            }
           }
         });
       },
@@ -30,7 +26,7 @@ const Mission: React.FC = () => {
     return () => {
       observer.disconnect();
     };
-  }, [activeAccordion]);
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,37 +56,6 @@ const Mission: React.FC = () => {
     }
   };
 
-  const accordionItems = [
-    {
-      id: 1,
-      title: "Own your reach",
-      content: "Reach your target audiences everywhere, with access to every digital channel and device — including display, video, audio, digital out-of-home, and hundreds of millions of Connected TV households.",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
-    },
-    {
-      id: 2,
-      title: "Own your decisioning",
-      content: "Run your campaigns on your terms. Tap into a marketplace of hundreds of data, inventory, and industry partners to make sure your ads are running exactly where they should.",
-      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
-    },
-    {
-      id: 3,
-      title: "Own your ROI",
-      content: "Get more value from your media investment. Prove the effectiveness of your advertising with an objective partner and a more transparent media buying platform.",
-      image: "https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg"
-    },
-    {
-      id: 4,
-      title: "Own your growth",
-      content: "Put your data to work, using insights about your current customers to help uncover new ones. Plus, get access to more than 100,000 pre-vetted premium third-party data segments.",
-      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"
-    }
-  ];
-
-  const toggleAccordion = (id: number) => {
-    setActiveAccordion(activeAccordion === id ? null : id);
-  };
-
   const imageVariants = {
     hidden: { 
       opacity: 0, 
@@ -110,181 +75,92 @@ const Mission: React.FC = () => {
   };
 
   return (
-    <motion.section
+    <section
+      id="mission"
       ref={sectionRef}
-      className="relative bg-gray-50 py-12 md:py-32"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
+      className="relative bg-white py-24 md:py-32 lg:py-40"
     >
-      <motion.div 
-        className="max-w-[1490px] px-4 lg:px-10 mx-auto"
-        variants={itemVariants}
-      >
+      <div className="mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div 
-          className="space-y-10 md:space-y-20"
+          className="grid lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 items-center"
           variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Header */}
-          <motion.div 
-            className="mx-auto text-center max-w-5xl"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            
-            <div className="space-y-4 md:space-y-10">
-              <div className="space-y-2 md:space-y-4">
-                <motion.h2 
-                  className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
-                  variants={itemVariants}
-                >
-                  We're here to help brands drive growth             
-                </motion.h2>
-              </div>
-              
-              <motion.div 
-                className="mx-auto max-w-4xl"
-                variants={itemVariants}
-              >
-                <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text">
-                  And we do that by unleashing the full potential of your data-driven advertising.
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Accordion Content */}
-          <motion.div 
-            className="grid gap-10 md:grid-cols-12"
-            variants={itemVariants}
-          >
-            {/* Left Column - Images */}
-            <motion.div 
-              className="relative md:col-span-6"
-              variants={imageVariants}
-            >
-              <motion.div 
-                className="sticky top-[100px] aspect-[724/866]"
-                variants={imageVariants}
-              >
-                {accordionItems.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                      activeAccordion === item.id
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-5'
-                    }`}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ 
-                      opacity: activeAccordion === item.id ? 1 : 0,
-                      scale: activeAccordion === item.id ? 1 : 0.95
-                    }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                  >
-                    <div className="flex justify-center items-center h-full">
-                      <figure className="w-full h-full">
-                        <img
-                          className="w-full h-full object-cover rounded-lg md:rounded-2xl"
-                          src={item.image}
-                          alt={item.title}
-                          loading="lazy"
-                        />
-                      </figure>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+          {/* Left Column - Content */}
+          <div className="space-y-8">
+            <motion.div variants={itemVariants}>
+              <p className="text-sm font-medium text-slate-500 uppercase tracking-wider font-sf-pro-text mb-4">
+                Our Mission
+              </p>
             </motion.div>
 
-            {/* Right Column - Accordion */}
-            <motion.div 
-              className="md:col-span-6 lg:col-span-4 lg:col-start-8"
+            <motion.h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
               variants={itemVariants}
             >
-              <motion.div 
-                className="divide-y xl:py-6 divide-gray-200"
-                variants={containerVariants}
-              >
-                {accordionItems.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    className="py-3.5 first:pt-0 last:pb-0"
-                    variants={itemVariants}
-                  >
-                    <motion.button
-                      type="button"
-                      onClick={() => toggleAccordion(item.id)}
-                      aria-expanded={activeAccordion === item.id}
-                      className="flex justify-between items-center py-2.5 w-full text-left text-lg md:text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors font-sf-pro-display"
-                      whileHover={{ x: 6, scale: 1.01 }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
-                      <motion.span 
-                        className="flex gap-x-2 items-center"
-                        whileHover={{ x: 2 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                      >
-                        {item.title}
-                      </motion.span>
-                      <motion.div
-                        animate={{ rotate: activeAccordion === item.id ? 180 : 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        <ChevronDown
-                          className="w-4 h-4 shrink-0 text-blue-600"
-                        />
-                      </motion.div>
-                    </motion.button>
+              Empowering businesses
+              <span className="block font-medium mt-2">
+                through technology
+              </span>
+            </motion.h2>
 
-                    <AnimatePresence>
-                      {activeAccordion === item.id && (
-                        <motion.div
-                      initial={false}
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <motion.div
-                        className="space-y-4 pb-4 pt-2"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3, delay: 0.1 }}
-                      >
-                            <motion.div 
-                              className="prose prose-sm text-gray-600"
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ duration: 0.4, delay: 0.2 }}
-                            >
-                              <motion.p 
-                                className="leading-relaxed font-sf-pro-text"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 0.3 }}
-                              >
-                            {item.content}
-                              </motion.p>
-                            </motion.div>
-                      </motion.div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                ))}
-              </motion.div>
+            <motion.div 
+              className="space-y-6"
+              variants={itemVariants}
+            >
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text">
+                Our mission is to bridge the gap between complex technology and business success, 
+                delivering solutions that are both powerful and accessible to organizations of all sizes.
+              </p>
+              
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed font-sf-pro-text">
+                We believe in democratizing advanced technology, making AI, automation, and data analytics 
+                accessible tools that drive real business value and sustainable growth.
+              </p>
             </motion.div>
+
+            <motion.div 
+              className="pt-4"
+              variants={itemVariants}
+            >
+              <Button
+                variant="vision"
+                size="lg"
+                icon={ArrowRight}
+                iconPosition="right"
+                className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Learn More
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Image */}
+          <motion.div 
+            className="relative order-first lg:order-last"
+            variants={imageVariants}
+          >
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src="/image/vision/vision3.jpeg"
+                alt="Our mission to empower businesses through technology"
+                className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                loading="lazy"
+              />
+              
+              {/* Subtle overlay for premium feel */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full blur-xl opacity-60" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-tr from-purple-100 to-pink-100 rounded-full blur-xl opacity-40" />
           </motion.div>
         </motion.div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 
