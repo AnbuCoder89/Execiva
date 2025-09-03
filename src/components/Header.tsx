@@ -59,8 +59,8 @@ const Header: React.FC = () => {
     { id: 'home', label: 'Home' },
     { id: 'vision', label: 'Vision' },
     { id: 'services', label: 'Services' },
-    { id: 'testimonials', label: 'Testimonials' },
     { id: 'case-studies', label: 'Case Studies' },
+    { id: 'testimonials', label: 'Testimonials' },  
   ];
 
   const headerVariants = {
