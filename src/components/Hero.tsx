@@ -44,10 +44,9 @@ const Hero = () => {
     >
       {/* Hero Content */}
       <motion.div
-        className="text-center w-full max-w-6xl mx-auto"
+        className="w-full max-w-6xl mx-auto text-center"
         variants={itemVariants}
       >
-        {/* Headline */}
         <motion.h1
           className="mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight text-gray-900"
           variants={itemVariants}
@@ -60,7 +59,6 @@ const Hero = () => {
           </span>
         </motion.h1>
 
-        {/* Subheadline */}
         <motion.p
           className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-3xl mx-auto font-light"
           variants={itemVariants}
@@ -70,7 +68,6 @@ const Hero = () => {
           on impact.
         </motion.p>
 
-        {/* Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pb-10"
           variants={itemVariants}
@@ -90,31 +87,28 @@ const Hero = () => {
       </motion.div>
 
       {/* Capabilities Section */}
-      <motion.div
-        className="w-full px-0 sm:px-0 lg:px-0 mt-12"
-        variants={itemVariants}
-      >
+      <motion.div className="w-full mt-12" variants={itemVariants}>
+        {/* Heading */}
         <motion.p
-          className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide text-left"
+          className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-4 font-medium tracking-wide text-left"
           variants={itemVariants}
         >
           Our Capabilities
         </motion.p>
+
+        {/* Divider visible everywhere */}
+        <motion.div
+          className="w-full h-px bg-neutral-300 mb-8"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        />
 
         {/* Mobile Marquee */}
         <motion.div
           className="block sm:hidden relative overflow-hidden"
           variants={itemVariants}
         >
-          {/* Divider Line between text and icons */}
-          <motion.div 
-            className="w-full h-px bg-gray-200 mb-8"
-            variants={itemVariants}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
-
           <motion.div
             className="flex animate-marquee space-x-6"
             initial={{ x: -100 }}
@@ -143,10 +137,10 @@ const Hero = () => {
 
         {/* Desktop Grid aligned LEFT */}
         <motion.div
-          className="hidden sm:flex justify-start items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
+          className="hidden sm:flex justify-start items-center gap-6 md:gap-8 lg:gap-12 xl:gap-16"
           variants={containerVariants}
         >
-          {capabilities.slice(0, 6).map((cap, index) => (
+          {capabilities.map((cap, index) => (
             <motion.div
               key={index}
               className="w-20 h-20 sm:w-24 sm:h-24 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300"
