@@ -118,7 +118,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             Our Capabilities
-          </motion.p>
+          </motion.p>Keep 
 
           {/* Mobile Marquee */}
           <motion.div
