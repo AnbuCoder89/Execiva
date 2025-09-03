@@ -125,7 +125,7 @@ const Hero = () => {
                 <img
                   src={cap.icon}
                   alt={cap.name}
-                  className="w-6 h-6 mb-1 filter grayscale opacity-70"
+                  className="w-4 h-4 mb-1 filter grayscale opacity-70"
                 />
                 <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
                   {cap.name}
