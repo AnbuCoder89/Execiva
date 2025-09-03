@@ -41,13 +41,13 @@ const Hero = () => {
   return (
     <motion.section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-beige overflow-hidden pt-24"
+      className="relative min-h-screen flex items-center justify-center bg-beige overflow-hidden px-6 sm:px-8 lg:px-12 pt-24"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <motion.div 
-        className="w-full mx-auto px-6 sm:px-8 lg:px-12"
+      <motion.div
+        className="text-center w-full max-w-6xl mx-auto"
         variants={itemVariants}
       >
         {/* Headline */}
@@ -109,9 +109,8 @@ const Hero = () => {
         </motion.div>
 
         {/* Our Capabilities */}
-        {/* Our Capabilities - Left Aligned */}
-        <motion.div 
-          className="w-full text-left mb-8"
+        <motion.div
+          className="w-full pt-10"
           variants={itemVariants}
         >
           <motion.p
@@ -119,7 +118,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             Our Capabilities
-          </motion.p> 
+          </motion.p>
 
           {/* Mobile Marquee */}
           <motion.div
@@ -152,9 +151,9 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Desktop Grid - Left Aligned */}
+          {/* Desktop Grid */}
           <motion.div
-            className="hidden sm:flex justify-start items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
+            className="hidden sm:flex justify-center items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
             variants={containerVariants}
           >
             {capabilities.slice(0, 6).map((cap, index) => (
@@ -180,78 +179,6 @@ const Hero = () => {
                 </span>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Full Width Line */}
-          <motion.div 
-            className="w-full mt-8"
-            variants={itemVariants}
-          >
-            <div className="w-full grow h-px bg-neutral-100 dark:bg-white dark:opacity-50"></div>
-          </motion.div>
-        </motion.div>
-
-        {/* Hero Content - Centered */}
-        <motion.div
-          className="text-center w-full max-w-6xl mx-auto"
-          variants={itemVariants}
-        >
-          {/* Headline */}
-          <motion.h1
-            className="mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight text-gray-900"
-            variants={itemVariants}
-          >
-            <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)]">
-              Your technology, simplified.
-            </span>
-            <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)] text-gray-900">
-              Your business, amplified.
-            </span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-3xl mx-auto font-light"
-            variants={itemVariants}
-          >
-            Execiva partners with you across AI, SEO, Web Development, and Data
-            Analytics ensuring your systems work seamlessly so your team can focus
-            on impact.
-          </motion.p>
-
-          {/* Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pb-10"
-            variants={itemVariants}
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <Button
-                variant="vision"
-                size="lg"
-                className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium"
-              >
-                Get Started
-              </Button>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <Button
-                variant="vision"
-                size="lg"
-                onClick={() => scrollToSection("services")}
-                className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium shadow-md hover:shadow-lg"
-              >
-                Explore Services
-              </Button>
-            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
