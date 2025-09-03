@@ -109,10 +109,10 @@ const Hero = () => {
         </motion.div>
 
         {/* Our Capabilities */}
-        <motion.div
-          className="w-full text-left"
-          variants={itemVariants}
-        >
+          <motion.div
+            className="w-full mx-auto px-6 sm:px-8 lg:px-12"
+            variants={itemVariants}
+          >
           <motion.p
             className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 font-medium tracking-wide "
             variants={itemVariants}
