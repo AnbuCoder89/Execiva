@@ -40,15 +40,6 @@ const Hero = () => {
     },
   ];
 
-  const trustedLogos = [
-    { name: 'Samsung', icon: '/logo/seo-search-symbol.png' },
-    { name: 'Microsoft', icon: '/logo/coding.png' },
-    { name: 'Google', icon: '/logo/machine-learning.png' },
-    { name: 'Amazon', icon: '/logo/data.png' },
-    { name: 'Apple', icon: '/logo/connected-cloudscape.png' },
-    { name: 'Netflix', icon: '/logo/mobile-development.png' },
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -80,7 +71,7 @@ const Hero = () => {
   const logoVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { 
-      opacity: 0.5, 
+      opacity: 0.6, 
       scale: 1,
       transition: {
         duration: 0.6,
@@ -91,179 +82,174 @@ const Hero = () => {
 
   
   return (
+    <>
     <motion.section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center bg-beige overflow-hidden px-6 sm:px-8 lg:px-12 pt-24"
+      className="relative min-h-screen flex items-center justify-center bg-beige overflow-hidden px-6 sm:px-8 lg:px-12 pt-24" 
+      // pt-24 prevents overlap with navbar
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 items-center min-h-[calc(100vh-6rem)]">
-          
-          {/* Left Column - Capabilities */}
-          <motion.div 
-            className="space-y-8 lg:space-y-12 order-2 lg:order-1"
+      <motion.div 
+        className="text-center w-full max-w-6xl mx-auto"
+        variants={itemVariants}
+      >
+        {/* Headline */}
+        <motion.h1 
+          className="mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight text-gray-900"
+          variants={itemVariants}
+        >
+          {/* Line 1 */}
+          <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)]">
+            Your technology, simplified.
+          </span>
+        
+          {/* Line 2 */}
+          <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)] text-gray-900">
+            Your business, amplified.
+          </span>
+        </motion.h1> 
+        {/* Subheadline */}
+        <motion.p 
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-3xl mx-auto font-light"
+          variants={itemVariants}
+        >
+          Execiva partners with you across AI, SEO, Web Development, and Data Analytics ensuring your systems work seamlessly so your team can focus on impact.
+        </motion.p>
+
+        {/* Call-to-Action Buttons */}
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pb-10"
+          variants={itemVariants}
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Button
+              variant="vision"
+              size="lg"
+              className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium"
+            >
+              Get Started
+            </Button>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Button
+              variant="vision"
+              size="lg"
+              onClick={() => scrollToSection("services")}
+              className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium shadow-md hover:shadow-lg"
+            >
+              Explore Services
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        {/* Trusted By Section */}
+        <motion.div 
+          className="w-full pt-10 sm:pt-10 md:pt-10"
+          variants={itemVariants}
+        >
+          {/* Headline */}
+          <motion.p 
+            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 sm:mb-10 md:mb-12 font-medium tracking-wide"
             variants={itemVariants}
           >
-            {/* Our Capabilities Section */}
-            <motion.div 
-              className="space-y-6"
-              variants={itemVariants}
-            >
-              <motion.h3 
-                className="text-lg md:text-xl text-gray-600 font-sf-pro-text"
-                variants={itemVariants}
-              >
-                Our Capabilities
-              </motion.h3>
-              
-              <motion.div 
-                className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4"
-                variants={containerVariants}
-              >
-                {capabilities.map((capability, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex flex-col items-center text-center space-y-2 p-4 rounded-lg hover:bg-white/50 transition-colors duration-300"
-                    variants={itemVariants}
-                    whileHover={{
-                      scale: 1.05,
-                      y: -2,
-                      transition: { type: "spring", stiffness: 400, damping: 17 }
-                    }}
-                  >
-                    <motion.img 
-                      src={capability.icon} 
-                      alt={capability.name}
-                      className="w-8 h-8 md:w-10 md:h-10 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    />
-                    <motion.span 
-                      className="text-sm md:text-base text-gray-700 font-sf-pro-text"
-                      variants={itemVariants}
-                    >
-                      {capability.name}
-                    </motion.span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
+            Our Capabilities
+          </motion.p>
 
-            {/* Divider Line */}
+          {/* Mobile: Scrolling Marquee */}
+          <motion.div 
+            className="block sm:hidden relative overflow-hidden"
+            variants={itemVariants}
+          >
             <motion.div 
-              className="w-full h-px bg-gray-200"
-              variants={itemVariants}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            />
-
-            {/* Trusted Logos Section */}
-            <motion.div 
-              className="space-y-4"
-              variants={itemVariants}
+              className="flex animate-marquee space-x-6"
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
             >
-              <motion.p 
-                className="text-sm md:text-base text-gray-500 font-sf-pro-text"
-                variants={itemVariants}
-              >
-                Trusted by industry leaders
-              </motion.p>
-              
-              <motion.div 
-                className="flex flex-wrap items-center gap-4 md:gap-6"
-                variants={containerVariants}
-              >
-                {trustedLogos.map((logo, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center justify-center"
-                    variants={logoVariants}
-                    whileHover={{ 
-                      scale: 1.1, 
-                      opacity: 0.8,
-                      transition: { type: "spring", stiffness: 400, damping: 17 }
-                    }}
-                  >
-                    <motion.img 
-                      src={logo.icon} 
-                      alt={logo.name}
-                      className="h-6 w-auto md:h-8 filter grayscale opacity-40 hover:opacity-60 transition-opacity duration-300"
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
+              {/* First set of logos */}
+              {capabilities.map((capability, index) => (
+                <motion.div
+                  key={`first-${index}`}
+                  className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 0.6, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 + (index * 0.05) }}
+                >
+                  <img 
+                    src={capability.icon} 
+                    alt={capability.name}
+                    className="w-8 h-8 mb-1 filter grayscale opacity-70"
+                  />
+                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
+                </motion.div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {capabilities.map((capability, index) => (
+                <motion.div
+                  key={`second-${index}`}
+                  className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 0.6, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + (index * 0.05) }}
+                >
+                  <img 
+                    src={capability.icon} 
+                    alt={capability.name}
+                    className="w-8 h-8 mb-1 filter grayscale opacity-70"
+                  />
+                  <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Hero Content */}
+          {/* Tablet and Desktop: Static Grid */}
           <motion.div 
-            className="text-center lg:text-left space-y-8 lg:space-y-12 order-1 lg:order-2 lg:pl-12 xl:pl-16"
-            variants={itemVariants}
+            className="hidden sm:flex justify-center items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            {/* Headline */}
-            <motion.h1 
-              className="leading-tight font-sf-pro-display tracking-tight text-gray-900"
-              variants={itemVariants}
-            >
-              {/* Line 1 */}
-              <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)]">
-                Your technology, simplified.
-              </span>
-            
-              {/* Line 2 */}
-              <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)] text-gray-900">
-                Your business, amplified.
-              </span>
-            </motion.h1> 
-
-            {/* Subheadline */}
-            <motion.p 
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text font-light max-w-3xl lg:max-w-none"
-              variants={itemVariants}
-            >
-              Execiva partners with you across AI, SEO, Web Development, and Data Analytics ensuring your systems work seamlessly so your team can focus on impact.
-            </motion.p>
-
-            {/* Call-to-Action Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center"
-              variants={itemVariants}
-            >
+            {capabilities.slice(0, 6).map((capability, index) => (
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                key={index}
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300 hover:scale-105"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 0.6, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 + (index * 0.1), ease: "easeOut" }}
+                whileHover={{
+                  scale: 1.15, 
+                  opacity: 0.9,
+                  transition: { type: "spring", stiffness: 400, damping: 17 }
+                }}
               >
-                <Button
-                  variant="vision"
-                  size="lg"
-                  className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium"
-                >
-                  Get Started
-                </Button>
+                <img 
+                  src={capability.icon} 
+                  alt={capability.name}
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
+                />
+                <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
               </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <Button
-                  variant="vision"
-                  size="lg"
-                  onClick={() => scrollToSection("services")}
-                  className="w-full sm:w-auto text-base sm:text-lg px-10 py-4 font-medium shadow-md hover:shadow-lg"
-                >
-                  Explore Services
-                </Button>
-              </motion.div>
-            </motion.div>
+            ))}
           </motion.div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </motion.section>
+    </>
   );
 };
 
