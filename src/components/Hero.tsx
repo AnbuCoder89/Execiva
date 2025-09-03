@@ -26,8 +26,8 @@ const Hero = () => {
   };
 
   const capabilities = [
-    { name: "AI", icon: "/logo/ai.png" },
-    { name: "SEO", icon: "/logo/seo.png" },
+    { name: "AI", icon: "/logo/machine-learning.png" },
+    { name: "SEO", icon: "/logo/seo-search-symbol.png" },
     { name: "Web Development", icon: "/logo/web.png" },
     { name: "Data Analytics", icon: "/logo/data.png" },
     { name: "Automation", icon: "/logo/automation.png" },
