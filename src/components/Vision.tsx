@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import Button from "./ui/Button";
 
-const Mission: React.FC = () => {
+const Vision: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -109,7 +109,7 @@ const Mission: React.FC = () => {
 
   return (
     <motion.section
-      id="mission"
+      id="vision"
       ref={sectionRef}
       className="relative bg-gray-50 py-12 md:py-32"
       initial="hidden"
@@ -285,4 +285,4 @@ const Mission: React.FC = () => {
   );
 };
 
-export default Mission;
+export default Vision;
