@@ -213,6 +213,22 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Contact Button */}
+          <div className="hidden md:flex">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-6 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
+              >
+                Contact
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Desktop Contact Button */}
           <div className="hidden sm:flex">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -229,8 +245,55 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <motion.button
-            className="sm:hidden p-2 rounded-lg transition-colors duration-300 hover:bg-gray-100 focus:outline-none"
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Mobile Contact Button */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-4 py-2 text-xs font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
+              >
+                Contact
+              </button>
+            </motion.div>
+            
+            {/* Mobile Menu Button */}
+            <motion.button
+              className="p-2 rounded-lg transition-colors duration-300 hover:bg-gray-100 focus:outline-none"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              variants={navItemVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <AnimatePresence mode="wait">
+                {isMobileMenuOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X size={24} className={isScrolled ? 'text-gray-900' : 'text-gray-900'} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu size={24} className={isScrolled ? 'text-gray-900' : 'text-gray-900'} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             variants={navItemVariants}
             whileHover={{ scale: 1.1 }}
