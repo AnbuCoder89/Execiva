@@ -109,20 +109,11 @@ const Mission: React.FC = () => {
             
             <div className="space-y-4 md:space-y-10">
               <div className="space-y-2 md:space-y-4">
-                <motion.p 
-                  className="text-sm font-medium text-slate-500 uppercase tracking-wider font-sf-pro-text"
-                  variants={itemVariants}
-                >
-                  OUR MISSION
-                </motion.p>
                 <motion.h2 
                   className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
                   variants={itemVariants}
                 >
-                  We're here to help brands
-                  <span className="block font-medium mt-2">
-                    <em>drive growth</em>
-                  </span>
+                  We're here to help brands drive growth             
                 </motion.h2>
               </div>
               
