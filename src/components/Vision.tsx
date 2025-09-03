@@ -111,7 +111,7 @@ const Vision: React.FC = () => {
     <motion.section
       id="vision"
       ref={sectionRef}
-      className="relative bg-gray-50 py-12 md:py-32"
+      className="relative bg-white py-12 md:py-32"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
