@@ -100,7 +100,6 @@ const Stats: React.FC = () => {
           </div>
         </div>
       </section>
-    </section>
     </>
   );
 };
