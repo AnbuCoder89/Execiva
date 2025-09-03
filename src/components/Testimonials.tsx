@@ -330,7 +330,7 @@ const Testimonials: React.FC = () => {
                     zIndex: cardStyles.zIndex,
                     left: '50%',
                     transformOrigin: 'center',
-                    x: '-50%'
+                    marginLeft: '-150px' // Half of the card width to center properly
                   }}
                   onClick={() => handleCardClick(position)}
                   whileHover={absPosition !== 0 ? { 
