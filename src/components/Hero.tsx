@@ -109,7 +109,8 @@ const Hero = () => {
         </motion.div>
 
         {/* Our Capabilities */}
-        <motion.div
+        {/* Our Capabilities - Left Aligned */}
+        <motion.div 
           className="w-full text-left mb-8"
           variants={itemVariants}
         >
@@ -151,7 +152,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Desktop Grid */}
+          {/* Desktop Grid - Left Aligned */}
           <motion.div
             className="hidden sm:flex justify-start items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
             variants={containerVariants}
@@ -186,11 +187,11 @@ const Hero = () => {
             className="w-full mt-8"
             variants={itemVariants}
           >
-            <div className="w-full h-px bg-neutral-100 dark:bg-white dark:opacity-50"></div>
+            <div className="w-full grow h-px bg-neutral-100 dark:bg-white dark:opacity-50"></div>
           </motion.div>
         </motion.div>
-      </motion.div>
-        {/* Hero Content */}
+
+        {/* Hero Content - Centered */}
         <motion.div
           className="text-center w-full max-w-6xl mx-auto"
           variants={itemVariants}
@@ -253,6 +254,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
         </motion.div>
+      </motion.div>
     </motion.section>
   );
 };
