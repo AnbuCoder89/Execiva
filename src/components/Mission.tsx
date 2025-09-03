@@ -139,7 +139,7 @@ const Mission: React.FC = () => {
                   className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
                   variants={itemVariants}
                 >
-                  We're here to help brands drive growth             
+                  Shaping the future of digital innovation          
                 </motion.h2>
               </div>
               
