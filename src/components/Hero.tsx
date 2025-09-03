@@ -125,7 +125,7 @@ const Hero = () => {
                 <img
                   src={cap.icon}
                   alt={cap.name}
-                  className="w-4 h-4 mb-1 filter grayscale opacity-70"
+                  className="w-3 h-3 mb-1 filter grayscale opacity-70"
                 />
                 <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
                   {cap.name}
@@ -143,7 +143,7 @@ const Hero = () => {
           {capabilities.map((cap, index) => (
             <motion.div
               key={index}
-              className="w-20 h-20 sm:w-24 sm:h-24 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300"
+              className="w-16 h-16 sm:w-20 sm:h-20 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 0.6, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
@@ -156,7 +156,7 @@ const Hero = () => {
               <img
                 src={cap.icon}
                 alt={cap.name}
-                className="w-12 h-12 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
+                className="w-8 h-8 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
               />
               <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
                 {cap.name}
