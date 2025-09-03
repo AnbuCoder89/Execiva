@@ -191,7 +191,7 @@ const Stats: React.FC = () => {
           variants={itemVariants}
         >
           <motion.div 
-            className="grid w-full grid-cols-2 gap-px bg-gray-500 lg:grid-cols-4"
+            className="grid w-full grid-cols-2 gap-px bg-black-500 lg:grid-cols-4"
             variants={containerVariants}
           >
             {stats.map((stat, index) => (
