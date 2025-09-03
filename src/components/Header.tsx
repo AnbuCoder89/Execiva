@@ -4,12 +4,27 @@ import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setIsScrolled(currentScrollY > 50);
+      
+      // Show header when at top or scrolling up, hide when scrolling down
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true); // Scrolling up
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false); // Scrolling down
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
     const handleSectionChange = (event: CustomEvent) => {
@@ -132,6 +147,8 @@ const Header: React.FC = () => {
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
           : 'bg-transparent'
+      } ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
       initial="hidden"
       animate="visible"
