@@ -94,10 +94,7 @@ const CaseStudies: React.FC = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
               variants={itemVariants}
             >
-              Real results from
-              <span className="block font-medium mt-2">
-                real partnerships
-              </span>
+              Real results from real partnerships
             </motion.h2>
 
             <motion.div 
