@@ -128,9 +128,6 @@ const Hero = () => {
                   className="w-3 h-3 mb-1 filter grayscale opacity-70"
                 />
                 {/* <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
-                  {cap.name}
-                </span> */}
-                
               </motion.div>
             ))}
           </motion.div>
