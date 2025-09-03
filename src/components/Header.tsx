@@ -1,217 +1,427 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import Button from "./ui/Button";
+import React, { useEffect, useRef, useState } from 'react';
+import { Star } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
 
-
-const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+const Testimonials: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(2); // Start with center card active
+  const [isAnimating, setIsAnimating] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Update background based on scroll position
-      setIsScrolled(currentScrollY > 20);
-      
-      // Show/hide header based on scroll direction
-      if (currentScrollY < lastScrollY || currentScrollY < 100) {
-        // Scrolling up or near top - show header
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past threshold - hide header
-        setIsVisible(false);
-        // Close mobile menu when hiding header
-        setIsMobileMenuOpen(false);
-      }
-      
-      setLastScrollY(currentScrollY);
-
-      // Only update active section on home page
-      if (location.pathname !== '/') return;
-
-      // Update active section based on scroll position
-      const sections = [
-        "home",
-        "vision",
-        "services",
-        "case-studies",
-        "testimonials",
-        "contact",
-      ];
-      const scrollPosition = currentScrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { top, bottom } = element.getBoundingClientRect();
-          const offsetTop = top + currentScrollY;
-          const offsetBottom = bottom + currentScrollY;
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section);
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
           }
-        }
-      }
-    };
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-    const handleSetActiveSection = (event: CustomEvent) => {
-      setActiveSection(event.detail);
-    };
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("setActiveSection", handleSetActiveSection as EventListener);
-    handleScroll(); // Initialize active section
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("setActiveSection", handleSetActiveSection as EventListener);
+      observer.disconnect();
     };
-  }, [lastScrollY]);
+  }, []);
 
-  const navItems = [
-    { name: "Home", id: "home" },
-    { name: "Vision", id: "vision" },
-    { name: "Services", id: "services" },
-    { name: "Case Studies", id: "case-studies" },
-    { name: "Testimonials", id: "testimonials" },
+  const testimonials = [
+    {
+      name: "Sarah Chen",
+      position: "CEO, TechCorp",
+      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Working with this team has been transformative for our business. Their attention to detail and innovative approach exceeded all expectations.",
+      rating: 5
+    },
+    {
+      name: "Michael Rodriguez",
+      position: "CTO, FinanceFirst",
+      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "The level of professionalism and technical expertise is unmatched. They delivered a solution that perfectly aligned with our vision.",
+      rating: 5
+    },
+    {
+      name: "Emily Johnson",
+      position: "Founder, MedConnect",
+      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "From concept to launch, they guided us every step of the way. The result exceeded our wildest dreams and transformed our industry presence.",
+      rating: 5
+    },
+    {
+      name: "David Park",
+      position: "VP, Innovation Labs",
+      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Their strategic approach and cutting-edge solutions have revolutionized how we operate. Truly exceptional partnership and results.",
+      rating: 5
+    },
+    {
+      name: "Lisa Thompson",
+      position: "Marketing Director, GrowthTech",
+      image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "The team's creativity and technical expertise delivered beyond our expectations. Our digital transformation was seamless and impactful.",
+      rating: 5
+    },
+    {
+      name: "James Wilson",
+      position: "Founder, StartupHub",
+      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Outstanding results that transformed our entire business model. The team's expertise and dedication are truly remarkable.",
+      rating: 5
+    },
+    {
+      name: "Maria Garcia",
+      position: "Head of Digital, RetailCorp",
+      image: "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Incredible attention to detail and innovative solutions. They exceeded every expectation and delivered exceptional results.",
+      rating: 5
+    },
+    {
+      name: "Robert Kim",
+      position: "CTO, DataFlow",
+      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Professional, innovative, and results-driven. The perfect partner for digital transformation and growth.",
+      rating: 5
+    },
+    {
+      name: "Amanda Foster",
+      position: "CEO, InnovateLab",
+      image: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=150",
+      content: "Exceptional service and outstanding results. They brought our vision to life with precision and creativity.",
+      rating: 5
+    }
   ];
 
-  const scrollToSection = (id: string) => {
-    // If not on home page, navigate to home first
-    if (location.pathname !== '/') {
-      navigate('/');
-      // Wait for navigation to complete, then scroll
-      setTimeout(() => {
-        setActiveSection(id);
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-      setIsMobileMenuOpen(false);
-      return;
-    }
+  const handleCardClick = (position: number) => {
+    if (isAnimating || position === 0) return; // Don't animate if already center or animating
+    
+    setIsAnimating(true);
+    
+    // Create smooth transition by moving one step at a time
+    const steps = Math.abs(position);
+    const direction = position > 0 ? 1 : -1;
+    let currentStep = 0;
+    
+    const slideStep = () => {
+      if (currentStep < steps) {
+        setActiveIndex(prev => (prev + direction + testimonials.length) % testimonials.length);
+        currentStep++;
+        setTimeout(slideStep, 200); // 200ms between each step for smoother feel
+      } else {
+        setIsAnimating(false);
+      }
+    };
+    
+    slideStep();
+  };
 
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleIndicatorClick = (index: number) => {
+    if (isAnimating || activeIndex === index) return;
+    
+    setIsAnimating(true);
+    
+    // Calculate shortest path to target
+    const totalCards = testimonials.length;
+    const directDistance = index - activeIndex;
+    const wrapDistance = directDistance > 0 
+      ? directDistance - totalCards 
+      : directDistance + totalCards;
+    
+    const shortestDistance = Math.abs(directDistance) <= Math.abs(wrapDistance) 
+      ? directDistance 
+      : wrapDistance;
+    
+    const steps = Math.abs(shortestDistance);
+    const direction = shortestDistance > 0 ? 1 : -1;
+    let currentStep = 0;
+    
+    const slideStep = () => {
+      if (currentStep < steps) {
+        setActiveIndex(prev => (prev + direction + totalCards) % totalCards);
+        currentStep++;
+        setTimeout(slideStep, 180); // Balanced speed for indicator clicks
+      } else {
+        setIsAnimating(false);
+      }
+    };
+    
+    slideStep();
+  };
+
+  // Calculate position of each card relative to active index
+  const getCardPosition = (cardIndex: number) => {
+    const diff = cardIndex - activeIndex;
+    if (diff > testimonials.length / 2) {
+      return diff - testimonials.length;
+    } else if (diff < -testimonials.length / 2) {
+      return diff + testimonials.length;
     }
-    setIsMobileMenuOpen(false);
+    return diff;
+  };
+
+  const getCardStyles = (cardIndex: number) => {
+    const position = getCardPosition(cardIndex);
+    const absPosition = Math.abs(position);
+    const cardSpacing = 300; // Reduced spacing to match reference
+    
+    // Smooth interpolation based on distance from center
+    let scale, width, height, opacity, blur;
+    
+    if (absPosition === 0) {
+      scale = 1;
+      width = 300;
+      height = 380;
+      opacity = 1;
+      blur = 0;
+    } else if (absPosition === 1) {
+      scale = 0.85;
+      width = 260;
+      height = 320;
+      opacity = 0.8;
+      blur = 2;
+    } else if (absPosition === 2) {
+      scale = 0.7;
+      width = 220;
+      height = 280;
+      opacity = 0.6;
+      blur = 3;
+    } else {
+      scale = 0.6;
+      width = 200;
+      height = 260;
+      opacity = 0.4;
+      blur = 4;
+    }
+    
+    return {
+      width: width + 'px',
+      height: height + 'px',
+      scale: scale,
+      translateX: position * cardSpacing + 'px',
+      zIndex: 10 - absPosition,
+      filter: `blur(${blur}px)`,
+      opacity: opacity,
+    };
+  };
+
+  const getTextStyles = (cardIndex: number) => {
+    const position = getCardPosition(cardIndex);
+    const absPosition = Math.abs(position);
+    
+    // Dynamic text sizing based on position
+    let nameSize, positionSize, contentSize, imageSize, starSize, padding;
+    
+    if (absPosition === 0) {
+      nameSize = 18;
+      positionSize = 14;
+      contentSize = 14;
+      imageSize = 64;
+      starSize = 18;
+      padding = 24;
+    } else if (absPosition === 1) {
+      nameSize = 16;
+      positionSize = 13;
+      contentSize = 12;
+      imageSize = 48;
+      starSize = 16;
+      padding = 16;
+    } else if (absPosition === 2) {
+      nameSize = 14;
+      positionSize = 12;
+      contentSize = 11;
+      imageSize = 40;
+      starSize = 14;
+      padding = 12;
+    } else {
+      nameSize = 12;
+      positionSize = 11;
+      contentSize = 10;
+      imageSize = 32;
+      starSize = 12;
+      padding = 8;
+    }
+    
+    return {
+      nameSize,
+      positionSize,
+      contentSize,
+      imageSize,
+      starSize,
+      padding
+    };
+  };
+
+  const getContentLength = (cardIndex: number) => {
+    const position = getCardPosition(cardIndex);
+    const absPosition = Math.abs(position);
+    
+    if (absPosition === 0) {
+      return {
+        showFullContent: true,
+        maxLength: 200
+      };
+    } else if (absPosition === 1) {
+      return {
+        showFullContent: false,
+        maxLength: 80
+      };
+    } else {
+      return {
+        showFullContent: false,
+        maxLength: 60
+      };
+    }
   };
 
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-sm"
-          : "bg-transparent"
-      }`}
+    <section 
+      id="testimonials" 
+      className="relative w-full min-h-screen py-20 bg-white" 
+      ref={sectionRef}
     >
-      <nav className="w-full px-8 py-4">
-        <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
-          {/* Logo - Left */}
-          <div
-            className="flex items-center cursor-pointer hover:opacity-80 transition-opacity"
-            onClick={() => scrollToSection("home")}
-          >
-            <img 
-              src="/logo/1.png" 
-              alt="Execiva" 
-              className="h-6 w-auto"
-            />
+      <div className="w-full">
+        {/* Header */}
+<h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display text-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+  We Care About Our Customers
+  <span className="block font-normal text-gray-600 mt-2">
+    Experience Too
+  </span>
+</h2>
+
+        </div>
+
+        {/* Sliding Carousel */}
+        <div className="flex justify-center items-center mb-12 overflow-hidden">
+          <div className="relative flex items-center justify-center" style={{ width: '1200px', height: '400px' }}>
+            {testimonials.map((card, cardIndex) => {
+              const cardStyles = getCardStyles(cardIndex);
+              const textStyles = getTextStyles(cardIndex);
+              const contentStyles = getContentLength(cardIndex);
+              const position = getCardPosition(cardIndex);
+              const absPosition = Math.abs(position);
+              const isVisible = absPosition <= 3; // Show more cards for smoother transitions
+              
+              return (
+                <div
+                  key={cardIndex}
+                  className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out will-change-transform ${
+                    absPosition !== 0 ? 'hover:opacity-90' : ''
+                  } ${!isVisible ? 'pointer-events-none' : ''}`}
+                  style={{
+                    width: cardStyles.width,
+                    height: cardStyles.height,
+                    transform: `translateX(${cardStyles.translateX}) scale(${cardStyles.scale})`,
+                    filter: cardStyles.filter,
+                    opacity: isVisible ? cardStyles.opacity : 0,
+                    zIndex: cardStyles.zIndex,
+                    left: '50%',
+                    transform: `translateX(calc(${cardStyles.translateX} - 50%)) scale(${cardStyles.scale})`,
+                  }}
+                  onClick={() => handleCardClick(position)}
+                >
+                  <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
+                    absPosition === 0 ? 'shadow-2xl border-gray-200' : 'hover:shadow-xl'
+                  }`}
+                  style={{ 
+                    padding: `${textStyles.padding}px`,
+                    transition: 'padding 0.7s ease-in-out'
+                  }}>
+                    {/* Profile Image */}
+                    <div className="flex justify-center mb-3">
+                      <div 
+                        className="rounded-full overflow-hidden bg-gray-100"
+                        style={{ 
+                          width: `${textStyles.imageSize}px`, 
+                          height: `${textStyles.imageSize}px`,
+                          transition: 'all 0.7s ease-in-out'
+                        }}
+                      >
+                        <img
+                          src={card.image}
+                          alt={card.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 flex flex-col justify-center">
+                      {/* Name */}
+                      <h3 
+                        className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
+                        style={{ 
+                          fontSize: `${textStyles.nameSize}px`,
+                          transition: 'all 0.7s ease-in-out'
+                        }}
+                      >
+                        {card.name}
+                      </h3>
+
+                      {/* Position */}
+                      <p 
+                        className="text-center text-gray-600 mb-3 font-sf-pro-text"
+                        style={{ 
+                          fontSize: `${textStyles.positionSize}px`,
+                          transition: 'all 0.7s ease-in-out'
+                        }}
+                      >
+                        {card.position}
+                      </p>
+
+                      {/* Content */}
+                      <p 
+                        className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
+                        style={{ 
+                          fontSize: `${textStyles.contentSize}px`,
+                          transition: 'all 0.7s ease-in-out'
+                        }}
+                      >
+                        {contentStyles.showFullContent 
+                          ? card.content 
+                          : card.content.substring(0, contentStyles.maxLength) + '...'
+                        }
+                      </p>
+                    </div>
+
+                    {/* Rating */}
+                    <div className="flex justify-center space-x-1">
+                      {[...Array(card.rating)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          size={textStyles.starSize}
+                          className="text-blue-500 fill-current"
+                          style={{ transition: 'all 0.7s ease-in-out' }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+        </div>
 
-          {/* Desktop Navigation - Center */}
-          <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-6 2xl:space-x-8 whitespace-nowrap">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`px-2 xl:px-3 2xl:px-4 py-2 text-sm xl:text-base font-medium font-sf-pro-text transition-all duration-300 hover:text-gray-600 whitespace-nowrap ${
-                  activeSection === item.id && location.pathname === '/'
-                    ? "text-gray-900 border-b-2 border-gray-900"
-                    : "text-gray-700"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-
-          {/* CTA Button & Mobile Menu - Right */}
-          <div className="flex items-center justify-end space-x-4">
-            {/* CTA Button - Desktop and Tablet */}
-            <div className="hidden md:block">
-              <Button
-                variant="vision"
-                size="md"
-                onClick={() => scrollToSection("contact")}
-                className="shadow-md hover:shadow-lg"
-              >
-                Contact Now
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
+        {/* Carousel Indicators */}
+        <div className="flex justify-center space-x-3">
+          {testimonials.map((_, index) => (
             <button
-              className="lg:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+              key={index}
+              onClick={() => handleIndicatorClick(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                activeIndex === index 
+                  ? 'bg-gray-800 scale-125 shadow-lg' 
+                  : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+              } ${isAnimating ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
+              aria-label={`Go to testimonial ${index + 1}`}
+              disabled={isAnimating}
+            />
+          ))}
         </div>
-
-        {/* Mobile Navigation */}
-        <div
-          className={`lg:hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? "max-h-96 py-2" : "max-h-0 py-0"
-          }`}
-        >
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-6 py-3 text-sm font-medium transition-colors ${
-                  activeSection === item.id && location.pathname === '/'
-                    ? "bg-gray-50 text-gray-900 border-l-4 border-gray-900"
-                    : "text-gray-700 hover:bg-gray-50"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-            
-            {/* Mobile CTA Button - Only on mobile, not tablet */}
-            <div className="md:hidden p-4 border-t border-gray-100">
-              <Button
-                variant="vision"
-                size="md"
-                onClick={() => {
-                  scrollToSection("contact");
-                  setIsMobileMenuOpen(false);
-                }}
-                className="w-full shadow-md"
-              >
-                Contact Us
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+    </section>
   );
 };
 
-export default Header;
+export default Testimonials;

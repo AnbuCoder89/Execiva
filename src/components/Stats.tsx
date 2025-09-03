@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface StatItem {
   value: string;
@@ -83,6 +83,22 @@ const Stats: React.FC = () => {
     }
   };
 
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
   const StatCounter: React.FC<{ value: string; delay?: number }> = ({ value, delay = 0 }) => {
     const [displayValue, setDisplayValue] = useState('0');
     const [hasAnimated, setHasAnimated] = useState(false);
@@ -182,18 +198,26 @@ const Stats: React.FC = () => {
               <motion.div 
                 key={index}
                 className="flex w-full flex-col items-center justify-center p-6 bg-white min-h-[200px] sm:min-h-[220px] md:min-h-[240px] lg:min-h-[260px] xl:min-h-[280px]"
-                variants={itemVariants}
+                variants={cardVariants}
                 whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                  scale: 1.03,
+                  y: -8,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
                   transition: { type: "spring", stiffness: 400, damping: 17 }
                 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <motion.div 
                   className="flex mb-4"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-                  transition={{ duration: 0.6, delay: 0.8 + (index * 0.1), ease: "easeOut" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.8 + (index * 0.1), 
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    type: "spring",
+                    stiffness: 100
+                  }}
                 >
                   <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900 font-sf-pro-display leading-none">
                     <StatCounter value={stat.value} delay={stat.animationDelay} />
@@ -203,7 +227,12 @@ const Stats: React.FC = () => {
                   className="text-sm md:text-base lg:text-lg text-center text-gray-600 font-sf-pro-text leading-relaxed px-2"
                   initial={{ opacity: 0, y: 10 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                  transition={{ duration: 0.6, delay: 1.0 + (index * 0.1), ease: "easeOut" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 1.0 + (index * 0.1), 
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    type: "spring"
+                  }}
                 >
                   <p>{stat.label}</p>
                 </motion.div>

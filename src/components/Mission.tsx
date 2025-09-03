@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 const Mission: React.FC = () => {
@@ -220,16 +220,21 @@ const Mission: React.FC = () => {
                       onClick={() => toggleAccordion(item.id)}
                       aria-expanded={activeAccordion === item.id}
                       className="flex justify-between items-center py-2.5 w-full text-left text-lg md:text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors font-sf-pro-display"
-                      whileHover={{ x: 4 }}
+                      whileHover={{ x: 6, scale: 1.01 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <span className="flex gap-x-2 items-center">
+                      <motion.span 
+                        className="flex gap-x-2 items-center"
+                        whileHover={{ x: 2 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                      >
                         {item.title}
-                      </span>
+                      </motion.span>
                       <motion.div
                         animate={{ rotate: activeAccordion === item.id ? 180 : 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
+                        whileHover={{ scale: 1.1 }}
                       >
                         <ChevronDown
                           className="w-4 h-4 shrink-0 text-blue-600"
@@ -237,31 +242,41 @@ const Mission: React.FC = () => {
                       </motion.div>
                     </motion.button>
 
-                    <motion.div
+                    <AnimatePresence>
+                      {activeAccordion === item.id && (
+                        <motion.div
                       initial={false}
-                      animate={{
-                        height: activeAccordion === item.id ? "auto" : 0,
-                        opacity: activeAccordion === item.id ? 1 : 0
-                      }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
                       <motion.div
                         className="space-y-4 pb-4 pt-2"
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ 
-                          opacity: activeAccordion === item.id ? 1 : 0,
-                          y: activeAccordion === item.id ? 0 : -10
-                        }}
-                        transition={{ duration: 0.2, delay: activeAccordion === item.id ? 0.1 : 0 }}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
                       >
-                        <div className="prose prose-sm text-gray-600">
-                          <p className="leading-relaxed font-sf-pro-text">
+                            <motion.div 
+                              className="prose prose-sm text-gray-600"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 0.4, delay: 0.2 }}
+                            >
+                              <motion.p 
+                                className="leading-relaxed font-sf-pro-text"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.3 }}
+                              >
                             {item.content}
-                          </p>
-                        </div>
+                              </motion.p>
+                            </motion.div>
                       </motion.div>
-                    </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 ))}
               </motion.div>

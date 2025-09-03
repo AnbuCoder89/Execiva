@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import Button from './ui/Button';
 
@@ -189,13 +189,22 @@ const handleSubmit = async (e: React.FormEvent) => {
                     aria-label={social.label}
                     className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors duration-300 text-gray-600 hover:text-gray-800"
                     whileHover={{ 
-                      scale: 1.1,
+                      scale: 1.15,
+                      y: -2,
                       backgroundColor: "#9CA3AF",
                       transition: { type: "spring", stiffness: 400, damping: 17 }
                     }}
                     whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
                   >
-                    <social.icon size={18} />
+                    <motion.div
+                      whileHover={{ rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                      <social.icon size={18} />
+                    </motion.div>
                   </motion.a>
                 ))}
               </motion.div>
@@ -217,7 +226,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 variants={containerVariants}
               >
                 <motion.div variants={itemVariants}>
-                  <input
+                  <motion.input
                     type="text"
                     id="name"
                     name="name"
@@ -226,11 +235,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                     required
                     className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 font-sf-pro-text placeholder-gray-500"
                     placeholder="Enter your Name"
+                    whileFocus={{ scale: 1.02, boxShadow: "0 0 0 3px rgba(156, 163, 175, 0.1)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   />
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <input
+                  <motion.input
                     type="email"
                     id="email"
                     name="email"
@@ -239,11 +250,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                     required
                     className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 font-sf-pro-text placeholder-gray-500"
                     placeholder="Enter a valid email address"
+                    whileFocus={{ scale: 1.02, boxShadow: "0 0 0 3px rgba(156, 163, 175, 0.1)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   />
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                  <textarea
+                  <motion.textarea
                     id="message"
                     name="message"
                     value={formData.message}
@@ -252,6 +265,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                     rows={6}
                     className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition-colors duration-300 text-gray-900 resize-none font-sf-pro-text placeholder-gray-500"
                     placeholder="Enter your message"
+                    whileFocus={{ scale: 1.02, boxShadow: "0 0 0 3px rgba(156, 163, 175, 0.1)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   />
                 </motion.div>
 
@@ -260,25 +275,39 @@ const handleSubmit = async (e: React.FormEvent) => {
                   className="flex items-start space-x-3"
                   variants={itemVariants}
                 >
-                  <input
+                  <motion.input
                     type="checkbox"
                     id="terms"
                     checked={acceptTerms}
                     onChange={(e) => setAcceptTerms(e.target.checked)}
                     className="mt-1 w-4 h-4 text-gray-600 bg-white border-gray-300 rounded focus:ring-gray-400 focus:ring-2"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   />
-                  <label htmlFor="terms" className="text-sm text-gray-600 font-sf-pro-text">
+                  <motion.label 
+                    htmlFor="terms" 
+                    className="text-sm text-gray-600 font-sf-pro-text"
+                    whileHover={{ x: 2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
                     I agree to the{' '}
-                    <a href="#" className="text-blue-500 hover:text-blue-600 underline">
+                    <motion.a 
+                      href="#" 
+                      className="text-blue-500 hover:text-blue-600 underline"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
                       Terms of Service and Privacy Policy
-                    </a>
-                  </label>
+                    </motion.a>
+                  </motion.label>
                 </motion.div>
 
                 <motion.div
                   variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <Button
                     type="submit"

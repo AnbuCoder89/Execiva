@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
@@ -27,6 +28,34 @@ const Testimonials: React.FC = () => {
       observer.disconnect();
     };
   }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
 
   const testimonials = [
     {
@@ -276,25 +305,44 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section 
+    <motion.section 
       id="testimonials" 
       className="relative w-full min-h-screen py-20 bg-white" 
       ref={sectionRef}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
     >
-      <div className="w-full">
+      <motion.div 
+        className="w-full"
+        variants={itemVariants}
+      >
         {/* Header */}
-<h2 className={`text-4xl md:text-5xl font-light text-gray-900 mb-4 transition-all duration-1000 font-sf-pro-display text-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <motion.h2 
+          className="text-4xl md:text-5xl font-light text-gray-900 mb-4 font-sf-pro-display text-center"
+          variants={itemVariants}
+        >
   We Care About Our Customers
   <span className="block font-normal text-gray-600 mt-2">
     Experience Too
   </span>
-</h2>
+        </motion.h2>
 
-        </div>
+      </motion.div>
 
         {/* Sliding Carousel */}
-        <div className="flex justify-center items-center mb-12 overflow-hidden">
-          <div className="relative flex items-center justify-center" style={{ width: '1200px', height: '400px' }}>
+        <motion.div 
+          className="flex justify-center items-center mb-12 overflow-hidden"
+          variants={itemVariants}
+        >
+          <motion.div 
+            className="relative flex items-center justify-center" 
+            style={{ width: '1200px', height: '400px' }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          >
             {testimonials.map((card, cardIndex) => {
               const cardStyles = getCardStyles(cardIndex);
               const textStyles = getTextStyles(cardIndex);
@@ -304,7 +352,7 @@ const Testimonials: React.FC = () => {
               const isVisible = absPosition <= 3; // Show more cards for smoother transitions
               
               return (
-                <div
+                <motion.div
                   key={cardIndex}
                   className={`absolute cursor-pointer flex-shrink-0 transition-all duration-700 ease-in-out will-change-transform ${
                     absPosition !== 0 ? 'hover:opacity-90' : ''
@@ -320,8 +368,14 @@ const Testimonials: React.FC = () => {
                     transform: `translateX(calc(${cardStyles.translateX} - 50%)) scale(${cardStyles.scale})`,
                   }}
                   onClick={() => handleCardClick(position)}
+                  whileHover={absPosition !== 0 ? { 
+                    scale: cardStyles.scale * 1.05,
+                    transition: { type: "spring", stiffness: 400, damping: 17 }
+                  } : {}}
+                  whileTap={{ scale: cardStyles.scale * 0.95 }}
                 >
-                  <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
+                  <motion.div 
+                    className={`bg-white rounded-2xl shadow-xl border border-gray-100 w-full h-full flex flex-col justify-between ${
                     absPosition === 0 ? 'shadow-2xl border-gray-200' : 'hover:shadow-xl'
                   }`}
                   style={{ 
@@ -329,84 +383,128 @@ const Testimonials: React.FC = () => {
                     transition: 'padding 0.7s ease-in-out'
                   }}>
                     {/* Profile Image */}
-                    <div className="flex justify-center mb-3">
-                      <div 
+                    <motion.div 
+                      className="flex justify-center mb-3"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                      <motion.div 
                         className="rounded-full overflow-hidden bg-gray-100"
                         style={{ 
                           width: `${textStyles.imageSize}px`, 
                           height: `${textStyles.imageSize}px`,
                           transition: 'all 0.7s ease-in-out'
                         }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                       >
-                        <img
+                        <motion.img
                           src={card.image}
                           alt={card.name}
                           className="w-full h-full object-cover"
+                          initial={{ scale: 1.2 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
                         />
-                      </div>
-                    </div>
+                      </motion.div>
+                    </motion.div>
 
                     {/* Content */}
-                    <div className="flex-1 flex flex-col justify-center">
+                    <motion.div 
+                      className="flex-1 flex flex-col justify-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                    >
                       {/* Name */}
-                      <h3 
+                      <motion.h3 
                         className="text-center font-semibold text-gray-900 mb-2 font-sf-pro-display"
                         style={{ 
                           fontSize: `${textStyles.nameSize}px`,
                           transition: 'all 0.7s ease-in-out'
                         }}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                       >
                         {card.name}
-                      </h3>
+                      </motion.h3>
 
                       {/* Position */}
-                      <p 
+                      <motion.p 
                         className="text-center text-gray-600 mb-3 font-sf-pro-text"
                         style={{ 
                           fontSize: `${textStyles.positionSize}px`,
                           transition: 'all 0.7s ease-in-out'
                         }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
                       >
                         {card.position}
-                      </p>
+                      </motion.p>
 
                       {/* Content */}
-                      <p 
+                      <motion.p 
                         className="text-gray-700 leading-relaxed mb-3 font-sf-pro-text text-center"
                         style={{ 
                           fontSize: `${textStyles.contentSize}px`,
                           transition: 'all 0.7s ease-in-out'
                         }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
                       >
                         {contentStyles.showFullContent 
                           ? card.content 
                           : card.content.substring(0, contentStyles.maxLength) + '...'
                         }
-                      </p>
-                    </div>
+                      </motion.p>
+                    </motion.div>
 
                     {/* Rating */}
-                    <div className="flex justify-center space-x-1">
+                    <motion.div 
+                      className="flex justify-center space-x-1"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                    >
                       {[...Array(card.rating)].map((_, i) => (
-                        <Star 
+                        <motion.div
                           key={i} 
-                          size={textStyles.starSize}
-                          className="text-blue-500 fill-current"
-                          style={{ transition: 'all 0.7s ease-in-out' }}
-                        />
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ 
+                            duration: 0.3, 
+                            delay: 0.7 + (i * 0.05),
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 17
+                          }}
+                          whileHover={{ scale: 1.2 }}
+                        >
+                          <Star 
+                            size={textStyles.starSize}
+                            className="text-blue-500 fill-current"
+                            style={{ transition: 'all 0.7s ease-in-out' }}
+                          />
+                        </motion.div>
                       ))}
-                    </div>
-                  </div>
-                </div>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
               );
             })}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Carousel Indicators */}
-        <div className="flex justify-center space-x-3">
+        <motion.div 
+          className="flex justify-center space-x-3"
+          variants={itemVariants}
+        >
           {testimonials.map((_, index) => (
-            <button
+            <motion.button
               key={index}
               onClick={() => handleIndicatorClick(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
@@ -416,10 +514,13 @@ const Testimonials: React.FC = () => {
               } ${isAnimating ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
               aria-label={`Go to testimonial ${index + 1}`}
               disabled={isAnimating}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             />
           ))}
-        </div>
-    </section>
+        </motion.div>
+    </motion.section>
   );
 };
 

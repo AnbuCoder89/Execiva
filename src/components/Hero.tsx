@@ -1,5 +1,5 @@
 import Button from './ui/Button';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -40,6 +40,46 @@ const Hero = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      filter: "blur(8px)"
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 0.6, 
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   
   return (
     <>
@@ -47,22 +87,18 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center bg-beige overflow-hidden px-6 sm:px-8 lg:px-12 pt-24" 
       // pt-24 prevents overlap with navbar
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
     >
       <motion.div 
         className="text-center w-full max-w-6xl mx-auto"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+        variants={itemVariants}
       >
         {/* Headline */}
         <motion.h1 
           className="mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight text-gray-900"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          variants={itemVariants}
         >
           {/* Line 1 */}
           <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] md:text-[clamp(3rem,4.5vw,6rem)] lg:text-[clamp(3.5rem,4vw,6.5rem)]">
@@ -77,9 +113,7 @@ const Hero = () => {
         {/* Subheadline */}
         <motion.p 
           className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-3xl mx-auto font-light"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          variants={itemVariants}
         >
           Execiva partners with you across AI, SEO, Web Development, and Data Analytics ensuring your systems work seamlessly so your team can focus on impact.
         </motion.p>
@@ -87,9 +121,7 @@ const Hero = () => {
         {/* Call-to-Action Buttons */}
         <motion.div 
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pb-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+          variants={itemVariants}
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -123,18 +155,27 @@ const Hero = () => {
         {/* Trusted By Section */}
         <motion.div 
           className="w-full pt-10 sm:pt-10 md:pt-10"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+          variants={itemVariants}
         >
           {/* Headline */}
-          <p className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 sm:mb-10 md:mb-12 font-medium tracking-wide">
+          <motion.p 
+            className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-8 sm:mb-10 md:mb-12 font-medium tracking-wide"
+            variants={itemVariants}
+          >
             Our Capabilities
-          </p>
+          </motion.p>
 
           {/* Mobile: Scrolling Marquee */}
-          <div className="block sm:hidden relative overflow-hidden">
-            <div className="flex animate-marquee space-x-6">
+          <motion.div 
+            className="block sm:hidden relative overflow-hidden"
+            variants={itemVariants}
+          >
+            <motion.div 
+              className="flex animate-marquee space-x-6"
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               {/* First set of logos */}
               {capabilities.map((capability, index) => (
                 <motion.div
@@ -142,6 +183,9 @@ const Hero = () => {
                   className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 0.6, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 + (index * 0.05) }}
                 >
                   <img 
                     src={capability.icon} 
@@ -158,6 +202,9 @@ const Hero = () => {
                   className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-opacity duration-300"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 0.6, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + (index * 0.05) }}
                 >
                   <img 
                     src={capability.icon} 
@@ -167,11 +214,16 @@ const Hero = () => {
                   <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
                 </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Tablet and Desktop: Static Grid */}
-          <div className="hidden sm:flex justify-center items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16">
+          <motion.div 
+            className="hidden sm:flex justify-center items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {capabilities.slice(0, 6).map((capability, index) => (
               <motion.div
                 key={index}
@@ -179,7 +231,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 0.6, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 + (index * 0.1), ease: "easeOut" }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.15, 
                   opacity: 0.9,
                   transition: { type: "spring", stiffness: 400, damping: 17 }
@@ -193,7 +245,7 @@ const Hero = () => {
                 <span className="text-xs sm:text-sm md:text-base text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">{capability.name}</span>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </motion.section>
