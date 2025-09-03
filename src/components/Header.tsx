@@ -294,6 +294,7 @@ const Header: React.FC = () => {
               </AnimatePresence>
             </motion.button>
           </div>
+        </motion.div>
 
         {/* Mobile Navigation Menu */}
         <AnimatePresence>
