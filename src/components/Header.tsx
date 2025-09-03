@@ -16,24 +16,21 @@ const Header: React.FC = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
-          const scrollThreshold = 50;
-          const hideThreshold = 100;
+          const scrollThreshold = 50; // For background blur
+          const hideThreshold = 80; // Minimum scroll before hiding
           
           // Update background blur state
           setIsScrolled(currentScrollY > scrollThreshold);
           
-          // Scroll direction logic with improved thresholds
+          // Simplified scroll direction logic
           if (currentScrollY <= 10) {
             // Always show at top
             setIsVisible(true);
-          } else if (Math.abs(currentScrollY - lastScrollY) < 5) {
-            // Ignore small scroll movements to prevent jitter
-            return;
-          } else if (currentScrollY < lastScrollY - 10) {
-            // Scrolling up with minimum threshold
+          } else if (currentScrollY < lastScrollY && currentScrollY > hideThreshold) {
+            // Scrolling up - show header
             setIsVisible(true);
-          } else if (currentScrollY > lastScrollY + 10 && currentScrollY > hideThreshold) {
-            // Scrolling down with minimum threshold
+          } else if (currentScrollY > lastScrollY && currentScrollY > hideThreshold) {
+            // Scrolling down - hide header
             setIsVisible(false);
           }
           
@@ -167,12 +164,12 @@ const Header: React.FC = () => {
           : 'bg-transparent'
       }`}
       animate={{
-        y: isVisible ? 0 : -100,
-        opacity: isVisible ? 1 : 0
+        y: isVisible ? 0 : '-100%'
       }}
       transition={{
-        duration: 0.3,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        type: "tween"
       }}
       initial="hidden"
       whileInView="visible"
