@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -77,13 +80,39 @@ const Header: React.FC = () => {
     };
   }, [lastScrollY]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigation = (sectionId: string) => {
+    // If we're on the case studies page and trying to go to a home section
+    if (location.pathname === '/case-studies' && sectionId !== 'case-studies') {
+      // Navigate to home first, then scroll to section
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else if (sectionId === 'case-studies') {
+      // Navigate to case studies page
+      navigate('/case-studies');
+    } else {
+      // We're on home page, just scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileMenuOpen(false);
   };
+
+  // Update active section based on current route
+  useEffect(() => {
+    if (location.pathname === '/case-studies') {
+      setActiveSection('case-studies');
+    } else if (location.pathname === '/') {
+      // On home page, keep the intersection observer logic
+      setActiveSection('home');
+    }
+  }, [location.pathname]);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -191,7 +220,7 @@ const Header: React.FC = () => {
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             <motion.button
-              onClick={() => scrollToSection('home')}
+              onClick={() => handleNavigation('home')}
               className="flex items-center space-x-2 focus:outline-none"
               whileHover={{ x: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -217,7 +246,7 @@ const Header: React.FC = () => {
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavigation(item.id)}
                   className={`text-sm font-medium transition-all duration-300 font-sf-pro-text relative ${
                     activeSection === item.id
                       ? isScrolled 
@@ -257,7 +286,7 @@ const Header: React.FC = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavigation('contact')}
                 className="text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-6 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
               >
                 Contact
@@ -274,7 +303,7 @@ const Header: React.FC = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavigation('contact')}
                 className="text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-4 py-2 text-xs font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
               >
                 Contact
@@ -334,7 +363,7 @@ const Header: React.FC = () => {
                 {navItems.map((item) => (
                   <motion.button
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() => handleNavigation(item.id)}
                     className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 font-sf-pro-text ${
                       activeSection === item.id
                         ? 'text-gray-900 bg-gray-100'
