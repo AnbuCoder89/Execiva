@@ -153,11 +153,13 @@ const Hero = () => {
                 transition: { type: "spring", stiffness: 400, damping: 17 },
               }}
             >
-              <img
-                src={cap.icon}
-                alt={cap.name}
-                className="w-8 h-8 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
-              />
+              <div className="flex items-center justify-center">
+                <img
+                  src={cap.icon}
+                  alt={cap.name}
+                  className="w-8 h-8 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
+                />
+              </div>
               <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
                     {cap.name}
               </span>
