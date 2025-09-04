@@ -137,7 +137,7 @@ const Hero = () => {
 
         {/* Desktop Grid aligned LEFT */}
         <motion.div
-          className="hidden sm:flex justify-start items-center gap-6 md:gap-8 lg:gap-12 xl:gap-16"
+          className="hidden sm:flex justify-center items-center gap-6 md:gap-8 lg:gap-12 xl:gap-16"
           variants={containerVariants}
         >
           {capabilities.map((cap, index) => (
