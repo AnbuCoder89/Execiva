@@ -81,9 +81,25 @@ const Header: React.FC = () => {
   }, [lastScrollY]);
 
   const handleNavigation = (sectionId: string) => {
-    // If we're on the case studies page and trying to go to a home section
-    if (location.pathname === '/case-studies' && sectionId !== 'case-studies') {
-      // Navigate to home first, then scroll to section
+    if (sectionId === 'case-studies') {
+      // If we're already on home page, scroll to case studies section
+      if (location.pathname === '/') {
+        const element = document.getElementById('case-studies');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // If we're on another page, navigate to home first then scroll
+        navigate('/');
+        setTimeout(() => {
+          const element = document.getElementById('case-studies');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    } else if (location.pathname === '/case-studies' && sectionId !== 'case-studies') {
+      // If we're on case studies page and trying to go to a home section
       navigate('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -91,9 +107,6 @@ const Header: React.FC = () => {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
-    } else if (sectionId === 'case-studies') {
-      // Navigate to case studies page
-      navigate('/case-studies');
     } else {
       // We're on home page, just scroll to section
       const element = document.getElementById(sectionId);
