@@ -127,7 +127,7 @@ const Vision: React.FC = () => {
         >
           {/* Header */}
           <motion.div 
-            className="mx-auto text-center max-w-5xl"
+            className="mx-auto text-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
