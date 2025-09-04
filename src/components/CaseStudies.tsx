@@ -146,7 +146,10 @@ const CaseStudies: React.FC = () => {
                 size="lg"
                 icon={ArrowRight}
                 iconPosition="right"
-                onClick={() => navigate('/case-studies')}
+                onClick={() => {
+                  navigate('/case-studies');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Explore Case Studies
