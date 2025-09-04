@@ -286,6 +286,14 @@ const Header: React.FC = () => {
                      transition={{ duration: 0.3, ease: "easeInOut" }}
                     />
                   )}
+                  {activeSection === item.id && location.pathname === '/' && (
+                    <motion.div
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-900 rounded-full"
+                      layoutId="activeIndicator"
+                      initial={false}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    />
+                  )}
                 </motion.button>
               ))}
             </motion.nav>
