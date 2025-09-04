@@ -118,7 +118,7 @@ const Vision: React.FC = () => {
       variants={containerVariants}
     >
       <motion.div 
-        className="max-w-[1490px] px-4 lg:px-10 mx-auto"
+        className="w-full px-4 lg:px-10 mx-auto"
         variants={itemVariants}
       >
         <motion.div 
