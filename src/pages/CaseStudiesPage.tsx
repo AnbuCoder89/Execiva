@@ -108,19 +108,19 @@ const CaseStudiesPage: React.FC = () => {
   const [isLeftPanelFixed, setIsLeftPanelFixed] = useState(true);
   const [isStatsVisible, setIsStatsVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState({
-    topics: [] as string[],
+    topic: [] as string[],
     industry: [] as string[],
     region: [] as string[],
-    channels: [] as string[],
-    products: [] as string[]
+    channel: [] as string[],
+    product: [] as string[]
   });
 
   const [expandedFilters, setExpandedFilters] = useState({
-    topics: false,
+    topic: false,
     industry: false,
     region: false,
-    channels: false,
-    products: false
+    channel: false,
+    product: false
   });
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
@@ -139,11 +139,11 @@ const CaseStudiesPage: React.FC = () => {
 
 
   const filterOptions = {
-    topics: ['AI/ML', 'Automation', 'Data Analytics', 'Platform'],
+    topic: ['AI/ML', 'Automation', 'Data Analytics', 'Platform'],
     industry: ['Music & Entertainment', 'Music Technology', 'Digital Rights Management', 'Artist Relations', 'Cloud Infrastructure', 'Content Management'],
     region: ['Global', 'North America', 'Europe', 'Asia Pacific'],
-    channels: ['Digital'],
-    products: ['AI Platform', 'Automation Platform', 'Analytics Suite', 'Rights Management Platform', 'Cloud Platform', 'Data Platform']
+    channel: ['Digital'],
+    product: ['AI Platform', 'Automation Platform', 'Analytics Suite', 'Rights Management Platform', 'Cloud Platform', 'Data Platform']
   };
 
   // Pagination logic
@@ -153,13 +153,13 @@ const CaseStudiesPage: React.FC = () => {
 
   // Filter case studies first, then paginate
   const filteredCaseStudies = allCaseStudies.filter(study => {
-    const matchesTopics = selectedFilters.topics.length === 0 || selectedFilters.topics.includes(study.topic);
+    const matchesTopic = selectedFilters.topic.length === 0 || selectedFilters.topic.includes(study.topic);
     const matchesIndustry = selectedFilters.industry.length === 0 || selectedFilters.industry.includes(study.industry);
     const matchesRegion = selectedFilters.region.length === 0 || selectedFilters.region.includes(study.region);
-    const matchesChannels = selectedFilters.channels.length === 0 || selectedFilters.channels.includes(study.channel);
-    const matchesProducts = selectedFilters.products.length === 0 || selectedFilters.products.includes(study.product);
+    const matchesChannel = selectedFilters.channel.length === 0 || selectedFilters.channel.includes(study.channel);
+    const matchesProduct = selectedFilters.product.length === 0 || selectedFilters.product.includes(study.product);
 
-    return matchesTopics && matchesIndustry && matchesRegion && matchesChannels && matchesProducts;
+    return matchesTopic && matchesIndustry && matchesRegion && matchesChannel && matchesProduct;
   });
 
   // Apply pagination to filtered results
@@ -354,9 +354,9 @@ const CaseStudiesPage: React.FC = () => {
             <div className="overflow-y-auto max-h-screen">
               <ul className="divide-y border-b">
                 <FilterSection
-                  title="Topics"
-                  filterKey="topics"
-                  options={filterOptions.topics}
+                  title="Topic"
+                  filterKey="topic"
+                  options={filterOptions.topic}
                 />
                 <FilterSection
                   title="Industry"
@@ -369,14 +369,14 @@ const CaseStudiesPage: React.FC = () => {
                   options={filterOptions.region}
                 />
                 <FilterSection
-                  title="Channels"
-                  filterKey="channels"
-                  options={filterOptions.channels}
+                  title="Channel"
+                  filterKey="channel"
+                  options={filterOptions.channel}
                 />
                 <FilterSection
-                  title="Products"
-                  filterKey="products"
-                  options={filterOptions.products}
+                  title="Product"
+                  filterKey="product"
+                  options={filterOptions.product}
                 />
               </ul>
 
@@ -387,11 +387,11 @@ const CaseStudiesPage: React.FC = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => setSelectedFilters({
-                      topics: [],
+                      topic: [],
                       industry: [],
                       region: [],
-                      channels: [],
-                      products: []
+                      channel: [],
+                      product: []
                     })}
                     className="w-full"
                   >
@@ -441,9 +441,9 @@ const CaseStudiesPage: React.FC = () => {
                 <div className="overflow-y-auto max-h-screen md:overflow-visible md:max-h-none">
                   <ul className="divide-y md:border-b">
                     <FilterSection
-                      title="Topics"
-                      filterKey="topics"
-                      options={filterOptions.topics}
+                      title="Topic"
+                      filterKey="topic"
+                      options={filterOptions.topic}
                     />
                     <FilterSection
                       title="Industry"
@@ -456,14 +456,14 @@ const CaseStudiesPage: React.FC = () => {
                       options={filterOptions.region}
                     />
                     <FilterSection
-                      title="Channels"
-                      filterKey="channels"
-                      options={filterOptions.channels}
+                      title="Channel"
+                      filterKey="channel"
+                      options={filterOptions.channel}
                     />
                     <FilterSection
-                      title="Products"
-                      filterKey="products"
-                      options={filterOptions.products}
+                      title="Product"
+                      filterKey="product"
+                      options={filterOptions.product}
                     />
                   </ul>
 
@@ -474,11 +474,11 @@ const CaseStudiesPage: React.FC = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => setSelectedFilters({
-                          topics: [],
+                          topic: [],
                           industry: [],
                           region: [],
-                          channels: [],
-                          products: []
+                          channel: [],
+                          product: []
                         })}
                         className="w-full"
                       >
