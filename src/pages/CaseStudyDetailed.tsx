@@ -120,7 +120,7 @@ const CaseStudyDetailed: React.FC = () => {
       <motion.section 
         className="text-black pt-20"
         style={{
-          background: 'linear-gradient(135deg, #f2f2f2 0%, #ada996 100%)'
+          background: '#ada996'
         }}
         variants={itemVariants}
       >
