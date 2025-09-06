@@ -10,13 +10,34 @@
     "channel": "Digital",
     "product": "AI Platform",
     "image": "/images/royalty/airia.jpeg",
-    "description": "Evaluated AI platforms and integrated Concord API for Royalty Network.",
+    "description": "Comprehensive evaluation of AI platforms for Royalty Network, including successful Concord API integration and detailed comparative analysis between Airia AI and n8n platforms.",
     "serviceType": ["AI Development", "API Integration"],
     "clientIndustry": "Music & Entertainment",
     "technology": ["Concord API", "Airia AI"],
     "projectTimeline": "2025",
     "projectType": "Platform Evaluation",
-    "impactArea": ["Workflow Optimization", "Rights Management"]
+    "impactArea": ["Workflow Optimization", "Rights Management"],
+    "background": "Royalty Network initiated an exploration into Airia | Enterprise AI Platform for Secure & Scalable Solutions as a potential AI platform to connect with their BigQuery (Archive and Song Manager Tables) and integrate with Slack. A strict mandate was to avoid any unauthorized spending. As the project progressed, the need arose to compare Airia AI with alternative tools, such as n8n, based on a comprehensive set of criteria crucial for strategic platform adoption.",
+    "objectives": "The initial objective was to evaluate Airia AI's capabilities for BigQuery and Slack integration under stringent cost controls. Subsequently, the objective expanded to conduct a thorough comparative analysis of Airia AI against alternative platforms, focusing on price, security, model options, budget controls, user-friendliness, critical integrations (HubSpot, Slack, Concord), and support.",
+    "approach": "Initial research into Airia AI revealed limitations in direct BigQuery/GCP integration, with support primarily for Azure, AWS, and Google Drive. Python code execution was identified as a potential workaround. Concurrently, successful integration with the Concord API was achieved. A detailed comparative analysis was then undertaken, pitting n8n against Airia AI across all defined criteria. This analysis was formalized into a Confluence page, later converted to a Word document, and presented to Danny to aid in the strategic decision-making process for AI platform selection.",
+    "keyDeliverables": [
+      "A preliminary assessment of Airia AI's integration landscape",
+      "Successful Concord API integration",
+      "A comprehensive comparative analysis report (document) detailing the strengths and weaknesses of Airia AI versus n8n based on Royalty Network's strategic requirements"
+    ],
+    "resultsAchieved": "Successfully integrated with the Concord API, demonstrating the ability to pull data from contracts. A pivotal outcome was the creation of a detailed, multi-faceted comparison matrix between n8n and Airia AI, covering all specified criteria. This document served as a critical decision-making tool, providing Royalty Network with data-backed insights to choose the most suitable AI platform.",
+    "clientFeedback": [
+      "I have meeting with the Airis team this Friday. collect all questions, concerns and let me know. I will try to clarify them all!",
+      "Coll, I will clarify these questions on my call on Friday!",
+      "Looks good! Lets wait for the response!",
+      "Have scheduled call with n8n support team."
+    ],
+    "keyTechnologies": ["Airia AI", "Google BigQuery", "Slack", "Concord API", "n8n"],
+    "notableInsights": "The project highlighted that direct BigQuery integration was a significant limitation for Airia AI, necessitating alternative approaches. The structured comparative analysis proved invaluable in evaluating complex technical solutions, showcasing the efficacy of a data-driven approach to platform selection, particularly when budget and specific integrations are critical.",
+    "lessonsLearned": "The importance of conducting a thorough and multi-criteria evaluation for new technology platforms. Proactive research into alternative solutions (like n8n) can provide crucial insights and leverage in strategic decision-making.",
+    "challengesOvercome": "Initial limitations with Airia AI's direct BigQuery integration, and the subsequent need to present a compelling, evidence-based argument for an alternative solution.",
+    "nextSteps": "Awaiting the final decision from the client regarding the preferred AI platform, with potential steps towards implementing n8n if selected.",
+    "extensionPossibilities": "Implementing the chosen AI platform (n8n or Airia AI) for broader automation initiatives and advanced data analysis tasks across various Royalty Network operations."
   },
   {
     "id": "2",

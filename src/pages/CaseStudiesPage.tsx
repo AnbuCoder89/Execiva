@@ -504,7 +504,7 @@ const CaseStudiesPage: React.FC = () => {
               {/* Case Studies Grid */}
               <div id="list" className="grid gap-6 sm:grid-cols-2 lg:gap-10 lg:grid-cols-3">
                 {paginatedCaseStudies.map((study) => (
-                  <article key={study.id} className="group">
+                  <article key={study.id} className="group cursor-pointer" onClick={() => navigate(`/case-studies/${study.id}`)}>
                     <div className="flex flex-col h-full cursor-pointer">
                       <figure>
                         <img
@@ -673,7 +673,7 @@ const CaseStudiesPage: React.FC = () => {
       <div className="md:hidden w-full px-8 pb-8">
         <div className="grid grid-cols-1 gap-4">
           {paginatedCaseStudies.map((study) => (
-            <article key={study.id} className="group">
+            <article key={study.id} className="group cursor-pointer" onClick={() => navigate(`/case-studies/${study.id}`)}>
               <div className="flex flex-col h-full cursor-pointer">
                 <figure>
                   <img
