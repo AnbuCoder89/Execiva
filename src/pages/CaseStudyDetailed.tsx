@@ -111,69 +111,143 @@ const CaseStudyDetailed: React.FC = () => {
 
   return (
     <motion.div 
-      className="min-h-screen bg-white pt-20"
+      className="min-h-screen bg-white"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Breadcrumb */}
-      <motion.div 
-        className="bg-gray-50 py-4"
-        variants={itemVariants}
-      >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center space-x-2 text-sm font-sf-pro-text">
-            <button
-              onClick={() => navigate('/case-studies')}
-              className="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Case Studies
-            </button>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-900 font-medium">{caseStudy.title}</span>
-          </div>
-        </div>
-      </motion.div>
-
       {/* Hero Section */}
       <motion.section 
-        className="relative bg-white py-16 md:py-24"
+        className="bg-beige text-black pt-20"
         variants={itemVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="pb-12 pt-[72px] md:pb-[60px] lg:pt-[148px]">
+          <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
             <motion.div 
-              className="mb-6"
-              variants={itemVariants}
+              className="grid gap-10 mt-16 md:grid-cols-12 md:grid-flow-col-dense md:mt-10"
+              variants={containerVariants}
             >
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={ArrowLeft}
-                iconPosition="left"
-                onClick={() => navigate('/case-studies')}
-                className="mb-8"
+              {/* Left Column - Content */}
+              <motion.div 
+                className="flex items-center md:col-span-6 xl:col-span-5"
+                variants={itemVariants}
               >
-                Back to Case Studies
-              </Button>
+                <div className="space-y-10 max-w-5xl">
+                  <div className="space-y-6 md:space-y-4">
+                    <div className="space-y-2 md:space-y-6">
+                      <motion.p 
+                        className="text-sm font-medium text-gray-600 uppercase tracking-wide font-sf-pro-text"
+                        variants={itemVariants}
+                      >
+                        {caseStudy.subtitle}
+                      </motion.p>
+                      <motion.h1 
+                        className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
+                        variants={itemVariants}
+                      >
+                        {caseStudy.title}
+                      </motion.h1>
+                    </div>
+
+                    {/* Client Industry Logo/Badge */}
+                    <motion.ul 
+                      className="flex flex-wrap gap-4 lg:gap-8"
+                      variants={itemVariants}
+                    >
+                      <li className="relative aspect-square min-h-[62px] lg:min-h-[124px]">
+                        <div className="absolute size-full flex items-center justify-center inset-0 bg-white rounded-lg border border-gray-200 grayscale opacity-70">
+                          <span className="text-xs md:text-sm font-medium text-gray-600 font-sf-pro-text text-center px-2">
+                            {caseStudy.clientIndustry}
+                          </span>
+                        </div>
+                      </li>
+                    </motion.ul>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right Column - Image */}
+              <motion.div 
+                className="flex items-center md:col-span-6 md:-ml-5 xl:col-start-7"
+                variants={itemVariants}
+              >
+                <figure className="w-full">
+                  <img
+                    className="w-full rounded-lg md:rounded-2xl shadow-2xl"
+                    src={caseStudy.image}
+                    alt={caseStudy.title}
+                    loading="lazy"
+                  />
+                </figure>
+              </motion.div>
             </motion.div>
+          </div>
+        </div>
 
+        {/* Project Details Bar */}
+        <motion.div 
+          className="py-8 border-t md:py-9"
+          variants={itemVariants}
+        >
+          <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
+            <div className="flex flex-col gap-6 md:flex-row md:justify-between md:items-center">
+              <ul className="flex flex-col gap-6 lg:flex-row lg:flex-wrap lg:gap-y-4 lg:gap-x-8">
+                <li className="lg:gap-1">
+                  <p className="text-xs font-medium text-gray-600 uppercase tracking-wide font-sf-pro-text">REGION</p>
+                  <p className="text-sm text-gray-800 opacity-80 font-sf-pro-text">{caseStudy.region}</p>
+                </li>
+                
+                <li className="lg:gap-1">
+                  <p className="text-xs font-medium text-gray-600 uppercase tracking-wide font-sf-pro-text">PRODUCT</p>
+                  <ul className="flex flex-wrap gap-4">
+                    <li className="text-sm font-sf-pro-text">
+                      <span className="text-gray-800 opacity-80">{caseStudy.product}</span>
+                    </li>
+                  </ul>
+                </li>
+                
+                <li className="lg:gap-1">
+                  <p className="text-xs font-medium text-gray-600 uppercase tracking-wide font-sf-pro-text">CHANNEL</p>
+                  <ul className="flex flex-wrap gap-4">
+                    <li className="text-sm font-sf-pro-text">
+                      <span className="text-gray-800 opacity-80">{caseStudy.channel}</span>
+                    </li>
+                  </ul>
+                </li>
+
+                <li className="lg:gap-1">
+                  <p className="text-xs font-medium text-gray-600 uppercase tracking-wide font-sf-pro-text">TIMELINE</p>
+                  <p className="text-sm text-gray-800 opacity-80 font-sf-pro-text">{caseStudy.projectTimeline}</p>
+                </li>
+              </ul>
+              
+              {/* Back Button */}
+              <div className="md:ml-auto">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  icon={ArrowLeft}
+                  iconPosition="left"
+                  onClick={() => navigate('/case-studies')}
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Back to Case Studies
+                </Button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      {/* Description Section */}
+      <motion.section 
+        className="py-16 md:py-20 bg-white"
+        variants={itemVariants}
+      >
+        <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
+          <div className="max-w-4xl">
             <motion.p 
-              className="text-sm font-medium text-gray-600 uppercase tracking-wide mb-4 font-sf-pro-text"
-              variants={itemVariants}
-            >
-              {caseStudy.subtitle}
-            </motion.p>
-
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display"
-              variants={itemVariants}
-            >
-              {caseStudy.title}
-            </motion.h1>
-
-            <motion.p 
-              className="text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-gray-700 leading-relaxed font-sf-pro-text"
               variants={itemVariants}
             >
               {caseStudy.description}
@@ -182,85 +256,12 @@ const CaseStudyDetailed: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Hero Image */}
+      {/* Services & Technologies */}
       <motion.section 
-        className="relative"
+        className="py-16 md:py-20 bg-gray-50"
         variants={itemVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <img
-              src={caseStudy.image}
-              alt={caseStudy.title}
-              className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Project Overview */}
-      <motion.section 
-        className="py-16 md:py-20"
-        variants={itemVariants}
-      >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <motion.div 
-              className="text-center"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building className="w-6 h-6 text-gray-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2 font-sf-pro-display">Industry</h3>
-              <p className="text-gray-600 font-sf-pro-text">{caseStudy.clientIndustry}</p>
-            </motion.div>
-
-            <motion.div 
-              className="text-center"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="w-6 h-6 text-gray-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2 font-sf-pro-display">Timeline</h3>
-              <p className="text-gray-600 font-sf-pro-text">{caseStudy.projectTimeline}</p>
-            </motion.div>
-
-            <motion.div 
-              className="text-center"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-6 h-6 text-gray-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2 font-sf-pro-display">Region</h3>
-              <p className="text-gray-600 font-sf-pro-text">{caseStudy.region}</p>
-            </motion.div>
-
-            <motion.div 
-              className="text-center"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wrench className="w-6 h-6 text-gray-600" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2 font-sf-pro-display">Project Type</h3>
-              <p className="text-gray-600 font-sf-pro-text">{caseStudy.projectType}</p>
-            </motion.div>
-          </div>
-
-          {/* Services & Technologies */}
+        <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Services Provided</h3>
@@ -268,8 +269,8 @@ const CaseStudyDetailed: React.FC = () => {
                 {caseStudy.serviceType.map((service, index) => (
                   <motion.span
                     key={index}
-                    className="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium font-sf-pro-text"
-                    whileHover={{ scale: 1.05, backgroundColor: "#E5E7EB" }}
+                    className="px-4 py-2 bg-white text-gray-800 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200"
+                    whileHover={{ scale: 1.05, backgroundColor: "#F9FAFB" }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     {service}
@@ -284,7 +285,7 @@ const CaseStudyDetailed: React.FC = () => {
                 {(caseStudy.keyTechnologies || caseStudy.technology).map((tech, index) => (
                   <motion.span
                     key={index}
-                    className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-medium font-sf-pro-text"
+                    className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-medium font-sf-pro-text border border-blue-200"
                     whileHover={{ scale: 1.05, backgroundColor: "#DBEAFE" }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
@@ -299,10 +300,10 @@ const CaseStudyDetailed: React.FC = () => {
 
       {/* Main Content */}
       <motion.section 
-        className="py-16 md:py-20 bg-gray-50"
+        className="py-16 md:py-20 bg-white"
         variants={itemVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
           <div className="max-w-4xl mx-auto">
             
             {/* Background & Challenge */}
@@ -391,7 +392,7 @@ const CaseStudyDetailed: React.FC = () => {
                   {caseStudy.clientFeedback.map((feedback, index) => (
                     <motion.blockquote
                       key={index}
-                      className="border-l-4 border-blue-500 pl-6 py-2 bg-white rounded-r-lg shadow-sm"
+                      className="border-l-4 border-blue-500 pl-6 py-2 bg-blue-50 rounded-r-lg"
                       whileHover={{ scale: 1.02, x: 4 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
@@ -454,10 +455,10 @@ const CaseStudyDetailed: React.FC = () => {
 
       {/* Impact Areas */}
       <motion.section 
-        className="py-16 md:py-20"
+        className="py-16 md:py-20 bg-gray-50"
         variants={itemVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2 
               className="text-3xl font-semibold text-gray-900 mb-8 font-sf-pro-display"
@@ -469,7 +470,7 @@ const CaseStudyDetailed: React.FC = () => {
               {caseStudy.impactArea.map((area, index) => (
                 <motion.span
                   key={index}
-                  className="px-6 py-3 bg-green-50 text-green-800 rounded-full text-lg font-medium font-sf-pro-text"
+                  className="px-6 py-3 bg-green-50 text-green-800 rounded-full text-lg font-medium font-sf-pro-text border border-green-200"
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, backgroundColor: "#DCFCE7" }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -488,7 +489,7 @@ const CaseStudyDetailed: React.FC = () => {
         className="py-16 md:py-20 bg-gray-900 text-white"
         variants={itemVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h2 
               className="text-3xl md:text-4xl font-semibold mb-6 font-sf-pro-display"
