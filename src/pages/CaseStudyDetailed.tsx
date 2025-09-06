@@ -118,7 +118,10 @@ const CaseStudyDetailed: React.FC = () => {
     >
       {/* Hero Section */}
       <motion.section 
-        className="bg-beige text-black pt-20"
+        className="text-black pt-20"
+        style={{
+          background: 'linear-gradient(135deg, #f2f2f2 0%, #ada996 100%)'
+        }}
         variants={itemVariants}
       >
         <div className="pb-12 pt-[72px] md:pb-[60px] lg:pt-[148px]">
