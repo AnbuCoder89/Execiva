@@ -153,7 +153,7 @@ const CaseStudyDetailed: React.FC = () => {
                     </div>
 
                     {/* Client Industry Logo/Badge */}
-                    <motion.ul 
+                    {/* <motion.ul 
                       className="flex flex-wrap gap-4 lg:gap-8"
                       variants={itemVariants}
                     >
@@ -164,7 +164,8 @@ const CaseStudyDetailed: React.FC = () => {
                           </span>
                         </div>
                       </li>
-                    </motion.ul>
+                    </motion.ul> */}
+                    
                   </div>
                 </div>
               </motion.div>
