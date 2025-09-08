@@ -166,7 +166,7 @@ const Vision: React.FC = () => {
             >
               <div className="sticky top-[100px] w-full">
                 <motion.div 
-                  className="relative w-full max-w-none mx-auto vision-image-container"
+                  className="relative w-full max-w-none mx-auto"
                   style={{
                     width: '80vw',
                     maxWidth: '100%',
