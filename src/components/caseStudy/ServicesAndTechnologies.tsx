@@ -31,19 +31,19 @@ const ServicesAndTechnologies: React.FC<ServicesAndTechnologiesProps> = ({
 
   return (
     <motion.section 
-      className="py-16 md:py-20 bg-gray-50"
+      className="py-16 md:py-20 bg-white"
       variants={itemVariants}
     >
       <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Services Provided</h3>
+            <h3 className="text-3xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Services Provided</h3>
             <div className="flex flex-wrap gap-3">
               {serviceType.map((service, index) => (
                 <motion.span
                   key={index}
-                  className="px-4 py-2 bg-white text-gray-800 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200"
-                  whileHover={{ scale: 1.05, backgroundColor: "#F9FAFB" }}
+                  className="px-4 py-2 bg-beige text-gray-900 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200 shadow-md hover:shadow-lg"
+                  whileHover={{ scale: 1.05, backgroundColor: "#ebe8dd" }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {service}
@@ -53,13 +53,13 @@ const ServicesAndTechnologies: React.FC<ServicesAndTechnologiesProps> = ({
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Technologies Used</h3>
+            <h3 className="text-3xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Technologies Used</h3>
             <div className="flex flex-wrap gap-3">
               {technologies.map((tech, index) => (
                 <motion.span
                   key={index}
-                  className="px-4 py-2 bg-blue-50 text-blue-800 rounded-full text-sm font-medium font-sf-pro-text border border-blue-200"
-                  whileHover={{ scale: 1.05, backgroundColor: "#DBEAFE" }}
+                  className="px-4 py-2 bg-beige text-gray-900 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200 shadow-md hover:shadow-lg"
+                  whileHover={{ scale: 1.05, backgroundColor: "#ebe8dd" }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {tech}
