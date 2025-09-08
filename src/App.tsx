@@ -16,6 +16,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CaseStudiesPage from './pages/CaseStudiesPage';
 import CaseStudyDetailed from './pages/CaseStudyDetailed';
+import ServiceDetailedPage from './pages/ServiceDetailedPage';
 
 function App() {
   useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/case-studies/:id" element={<CaseStudyDetailed />} />
+          <Route path="/services/:serviceId" element={<ServiceDetailedPage />} />
         </Routes>
         <Footer />
       </div>

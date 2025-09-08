@@ -1,37 +1,48 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 import Button from "./ui/Button";
 
 const Services: React.FC = () => {
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   const services = [
     {
+      id: "artificial-intelligence",
       title: "Artificial Intelligence",
       description: "AI-powered solutions that automate processes and provide intelligent insights.",
       category: "AI",
       image: "/image/services/Artificial_Intelligence.jpg",
     },
     {
+      id: "seo",
       title: "SEO",
       description: "Comprehensive digital transformation strategies tailored to your business goals",
       category: "SEO",
       image: "/image/services/Digital_Statergy.jpeg",
     },
     {
+      id: "web-development",
       title: "Web Development",
       description: "Custom websites and web applications built for performance and scalability",
       category: "Development",
       image: "/image/services/web_development-6.jpeg",
     },
     {
+      id: "data-analytics",
       title: "Data Analytics",
       description: "Data-driven insights to help you make informed decisions and optimize your operations",
       category: "Analytics",
       image: "/image/services/Data_Analytics.jpg",
     },
   ];
+
+  const handleLearnMore = (serviceId: string) => {
+    navigate(`/services/${serviceId}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -175,7 +186,10 @@ const Services: React.FC = () => {
                     </p>
                   </div>
                   <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <Button variant="vision">
+                    <Button 
+                      variant="vision"
+                      onClick={() => handleLearnMore(service.id)}
+                    >
                       Learn More
                     </Button>
                   </div>
