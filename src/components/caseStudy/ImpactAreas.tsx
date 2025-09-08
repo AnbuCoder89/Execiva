@@ -39,7 +39,7 @@ const ImpactAreas: React.FC<ImpactAreasProps> = ({ impactArea }) => {
             {impactArea.map((area, index) => (
               <motion.span
                 key={index}
-                className="px-6 py-3 bg-green-50 text-green-800 rounded-full text-lg font-medium font-sf-pro-text border border-green-200"
+                className="px-6 py-3 text-green-800 rounded-full text-lg font-medium font-sf-pro-text border border-green-200"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, backgroundColor: "#DCFCE7" }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
