@@ -42,7 +42,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
 
   return (
     <motion.section
-      className="relative w-full min-h-screen flex items-center justify-start overflow-hidden rounded-3xl"
+      className="relative w-full min-h-screen flex items-center justify-start overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -59,7 +59,8 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
       <div className="absolute inset-0 bg-black/50"></div>      
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl text-white px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 w-full text-white px-6 sm:px-8 lg:px-12 pt-32 md:pt-40">
+        <div className="max-w-4xl">
         <motion.p
           className="text-xs sm:text-sm font-medium uppercase tracking-wide mb-3 text-gray-200"
           variants={itemVariants}
@@ -68,14 +69,14 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
         </motion.p>
 
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-6 font-sf-pro-display"
           variants={itemVariants}
         >
           {title}
         </motion.h1>
 
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-lg mb-8"
+          className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed max-w-2xl mb-8 font-sf-pro-text"
           variants={itemVariants}
         >
           {detailedDescription}
@@ -87,7 +88,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
         >
           <Button
             variant="vision"
-            size="md"
+            size="lg"
             onClick={onRequestDemo}
             className="px-6 py-3 sm:px-8 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto"
           >
@@ -96,7 +97,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
 
           <Button
             variant="ghost"
-            size="md"
+            size="lg"
             icon={ArrowLeft}
             iconPosition="left"
             onClick={onBackToServices}
@@ -105,6 +106,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
             Back to Services
           </Button>
         </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
