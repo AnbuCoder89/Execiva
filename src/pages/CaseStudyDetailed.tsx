@@ -141,7 +141,7 @@ const CaseStudyDetailed: React.FC = () => {
         technology={caseStudy.technology}
       />
       <MainContentSections caseStudy={caseStudy} />
-      <ImpactAreas impactArea={caseStudy.impactArea} />
+      {/* <ImpactAreas impactArea={caseStudy.impactArea} /> */}
       <CTASection 
         onGetStartedClick={handleGetStartedClick}
         onViewMoreClick={handleViewMoreClick}
