@@ -51,15 +51,15 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full bg-black/50 object-cover px-6 sm:px-8 lg:px-12"
+        className="absolute inset-0 w-full h-full bg-black/50 object-cover"
         loading="lazy"
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50 px-6 sm:px-8 lg:px-12"></div>      
+      <div className="absolute inset-0 bg-black/50"></div>      
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl px-6 sm:px-8 lg:px-12 text-white">
+      <div className="relative z-10 max-w-3xl text-white px-6 sm:px-8 lg:px-12">
         <motion.p
           className="text-xs sm:text-sm font-medium uppercase tracking-wide mb-3 text-gray-200"
           variants={itemVariants}
