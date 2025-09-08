@@ -20,6 +20,17 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
   onRequestDemo,
   onBackToServices
 }) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
   const itemVariants = {
     hidden: { 
       opacity: 0, 
@@ -37,96 +48,90 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
 
   return (
     <motion.section 
-      className="relative w-full px-4 lg:px-10 pt-28 md:pt-40 pb-28 md:pb-40 text-black bg-white"
+      className="text-black bg-beige pt-20 min-h-screen lg:min-h-screen xl:min-h-screen flex items-center"
       initial="hidden"
       animate="visible"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.1
-          }
-        }
-      }}
+      variants={containerVariants}
     >
-      <div className="relative z-10 max-w-7xl mx-auto w-full h-full">
-        <div className="flex h-full justify-center md:gap-x-10 lg:gap-x-32 flex-col md:flex-row items-center">
-          
-          {/* Left Column - Content */}
+      <div className="w-full">
+        <div className="px-4 lg:px-10 box-content mx-auto">
           <motion.div 
-            className="w-full mb-10 md:mb-14 md:w-1/2 flex justify-center"
-            variants={itemVariants}
+            className="grid gap-8 py-12 sm:gap-10 sm:py-16 md:grid-cols-12 md:grid-flow-col-dense md:py-20 lg:gap-12 lg:py-24"
+            variants={containerVariants}
           >
-            <div className="text-left max-w-[350px] sm:max-w-full lg:max-w-[550px]">
-              <motion.div variants={itemVariants}>
-                <p className="text-sm font-medium text-gray-600 uppercase tracking-wide mb-3 font-sf-pro-text">
-                  {category}
-                </p>
-                <div className="mb-4 break-words">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display">
-                    {title}
-                  </h1>
-                </div>
-              </motion.div>
-              
-              <motion.div variants={itemVariants}>
-                <div className="mx-auto flex justify-start">
-                  <div className="break-words mb-6 lg:mb-10 lg:w-[555px]">
-                    <p className="text-base lg:text-xl text-gray-600 leading-relaxed font-sf-pro-text">
+            {/* Left Column - Content */}
+            <motion.div 
+              className="flex items-center justify-center md:justify-start md:col-span-6 xl:col-span-5"
+              variants={itemVariants}
+            >
+              <div className="space-y-6 sm:space-y-8 md:space-y-10 max-w-5xl text-center md:text-left">
+                <div className="space-y-4 sm:space-y-6 md:space-y-4">
+                  <div className="space-y-2 sm:space-y-4 md:space-y-6">
+                    <motion.p 
+                      className="text-xs sm:text-sm font-medium text-gray-600 uppercase tracking-wide font-sf-pro-text motion-safe:opacity-0 motion-safe:animate-[fadeInUp_0.5s_forwards_ease-in-out]"
+                      variants={itemVariants}
+                    >
+                      {category}
+                    </motion.p>
+                    <motion.h1 
+                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display motion-safe:opacity-0 motion-safe:animate-[fadeInUp_0.5s_forwards_ease-in-out]"
+                      variants={itemVariants}
+                    >
+                      {title}
+                    </motion.h1>
+                  </div>
+
+                  <motion.div 
+                    className="break-words mb-4 sm:mb-6 lg:mb-10 motion-safe:opacity-0 motion-safe:animate-[fadeInUp_0.5s_forwards_0.1s_ease-in-out]"
+                    variants={itemVariants}
+                  >
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-lg mx-auto md:mx-0">
                       {detailedDescription}
                     </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center justify-start">
-                  <Button
-                    variant="vision"
-                    size="lg"
-                    onClick={onRequestDemo}
-                    className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    Request a demo
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="lg"
-                    icon={ArrowLeft}
-                    iconPosition="left"
-                    onClick={onBackToServices}
-                    className="text-gray-600 hover:text-gray-900"
-                  >
-                    Back to Services
-                  </Button>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+                  </motion.div>
 
-          {/* Right Column - Image */}
-          <motion.div 
-            className="w-full md:w-1/2"
-            variants={itemVariants}
-          >
-            <div className="hidden md:block">
-              <img
-                alt={title}
-                className="m-auto w-full md:rounded-xl shadow-2xl"
-                src={image}
-                width="680"
-                height="680"
-              />
-            </div>
-            <div className="block md:hidden">
-              <img
-                alt={title}
-                className="m-auto w-full rounded-lg shadow-2xl"
-                src={image}
-                width="680"
-                height="680"
-              />
-            </div>
+                  <motion.div 
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center md:items-start sm:items-center motion-safe:opacity-0 motion-safe:animate-[fadeInUp_0.5s_forwards_0.2s_ease-in-out]"
+                    variants={itemVariants}
+                  >
+                    <Button
+                      variant="vision"
+                      size="md"
+                      onClick={onRequestDemo}
+                      className="px-6 py-3 sm:px-8 sm:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto"
+                    >
+                      Request a demo
+                    </Button>
+
+                    <Button
+                      variant="ghost"
+                      size="md"
+                      icon={ArrowLeft}
+                      iconPosition="left"
+                      onClick={onBackToServices}
+                      className="text-gray-600 hover:text-gray-900 w-full sm:w-auto"
+                    >
+                      Back to Services
+                    </Button>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Image */}
+            <motion.div 
+              className="flex items-center justify-center md:col-span-6 md:-ml-5 xl:col-start-7 order-first md:order-last"
+              variants={itemVariants}
+            >
+              <figure className="w-full max-w-sm sm:max-w-md md:max-w-full">
+                <img
+                  className="w-full h-auto rounded-lg md:rounded-2xl shadow-xl md:shadow-2xl"
+                  src={image}
+                  alt={title}
+                  loading="lazy"
+                />
+              </figure>
+            </motion.div>
           </motion.div>
         </div>
       </div>

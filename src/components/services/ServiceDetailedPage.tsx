@@ -8,6 +8,7 @@ import ServiceFeatures from './ServiceFeatures';
 import ServiceBenefitsAndTech from './ServiceBenefitsAndTech';
 import ServiceUseCases from './ServiceUseCases';
 import ServiceCTA from './ServiceCTA';
+import TrustedBy from './TrustedBy';
 
 interface Service {
   id: string;
@@ -125,7 +126,11 @@ const ServiceDetailedPage: React.FC = () => {
         'E-commerce Platform Development',
         'API Development & Integration',
         'Database Design & Optimization',
-        'Performance Optimization'
+        'Performance Optimization',
+        'Progressive Web App (PWA) Development',
+        'Cloud Deployment & Scalability',
+        'Third-Party Service Integration',
+        'Ongoing Maintenance & Support'
       ],
       benefits: [
         'Enhanced user experience',
@@ -302,6 +307,8 @@ const ServiceDetailedPage: React.FC = () => {
       />
       
       <ServiceUseCases useCases={service.useCases} />
+      
+      <TrustedBy />
       
       <ServiceCTA
         serviceName={service.title}
