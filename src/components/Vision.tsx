@@ -94,14 +94,19 @@ const Vision: React.FC = () => {
     <motion.section
       id="vision"
       ref={sectionRef}
-      className="relative bg-white py-12 md:py-32"
+      className="
+        relative bg-white 
+        py-12 md:py-32 
+        min-h-screen           /* full height on all screens */
+        lg:min-h-screen
+      "
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
       <motion.div
-        className="w-full px-4 lg:px-10 mx-auto space-y-10 md:space-y-20"
+        className="w-full px-4 lg:px-10 mx-auto space-y-10 md:space-y-20 h-full"
         variants={containerVariants}
       >
         {/* Header */}
@@ -125,11 +130,17 @@ const Vision: React.FC = () => {
         </motion.div>
 
         {/* Content */}
-        <motion.div className="grid gap-10 md:grid-cols-12" variants={itemVariants}>
+        <motion.div
+          className="grid gap-10 md:grid-cols-12 h-full"
+          variants={itemVariants}
+        >
           {/* Image */}
-          <motion.div className="relative md:col-span-6" variants={imageVariants}>
+          <motion.div
+            className="relative md:col-span-6 h-full"
+            variants={imageVariants}
+          >
             <motion.div
-              className="sticky top-[100px] aspect-[724/866]"
+              className="sticky top-[100px] h-full"
               variants={imageVariants}
             >
               {accordionItems.map(item => (
@@ -149,18 +160,17 @@ const Vision: React.FC = () => {
                 >
                   <div className="flex justify-center items-center h-full">
                     <figure className="w-full h-full">
-                 <img
-                    className="
-                      w-full 
-                      h-auto            
-                      md:h-[50%]       
-                      object-cover 
-                      rounded-lg 
-                      md:rounded-2xl
-                    "
-                    src={item.image}
-                    alt={item.title}
-                  />
+                      <img
+                        className="
+                          w-full 
+                          h-full            /* fill parent height */
+                          object-cover 
+                          rounded-lg 
+                          md:rounded-2xl
+                        "
+                        src={item.image}
+                        alt={item.title}
+                      />
                     </figure>
                   </div>
                 </motion.div>
@@ -168,7 +178,6 @@ const Vision: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          
           {/* Accordion */}
           <motion.div
             className="md:col-span-6 lg:col-span-4 lg:col-start-8 divide-y xl:py-6 divide-gray-200"
