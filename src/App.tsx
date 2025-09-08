@@ -16,7 +16,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CaseStudiesPage from './pages/CaseStudiesPage';
 import CaseStudyDetailed from './pages/CaseStudyDetailed';
-import ServiceDetailedPage from './pages/ServiceDetailedPage';
+import ServiceDetailedPage from './components/services/ServiceDetailedPage';
 
 function App() {
   useEffect(() => {
