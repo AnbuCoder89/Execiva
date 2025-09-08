@@ -44,7 +44,7 @@ const TrustedBy: React.FC = () => {
   }, [logoRows.length]);
 
   return (
-    <section className="relative w-full px-4 lg:px-10 pb-12 md:pb-20 text-black overflow-hidden">
+    <section className="relative w-full px-6 sm:px-8 lg:px-12 pb-12 md:pb-20 text-black overflow-hidden">
       <div className="relative z-content">
         <div className="flex w-full flex-col items-center">
           <p className="text-base lg:text-lg font-sf-pro-text mb-5 text-center sm:mb-6 text-black">

@@ -70,7 +70,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="mx-auto px-4 lg:px-10">
+      <div className="mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div variants={itemVariants}>
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
             Technologies We Use

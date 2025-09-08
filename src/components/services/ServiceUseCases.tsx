@@ -43,7 +43,7 @@ const ServiceUseCases: React.FC = () => {
   const activeContent = tabs.find((tab) => tab.id === activeTab)!;
 
   return (
-    <section className="relative w-full px-4 lg:px-10 pt-12 md:pt-20 pb-12 md:pb-20 text-pureWhite">
+    <section className="relative w-full px-6 sm:px-8 lg:px-12 pt-12 md:pt-20 pb-12 md:pb-20 text-pureWhite">
       {/* Tabs */}
       <div className="flex flex-col items-center justify-center pb-10 md:pb-16">
         <div className="relative hidden md:flex flex-row items-center gap-2 px-2 py-2 bg-neutral-900/40 rounded-full">

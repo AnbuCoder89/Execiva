@@ -51,7 +51,7 @@ const ServiceFeatures: React.FC<ServiceFeaturesProps> = ({ features }) => {
 
   return (
     <motion.section 
-     className="relative w-full px-4 lg:px-10 pt-12 md:pt-20 pb-12 md:pb-20 text-black overflow-hidden"
+     className="relative w-full px-6 sm:px-8 lg:px-12 pt-12 md:pt-20 pb-12 md:pb-20 text-black overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}

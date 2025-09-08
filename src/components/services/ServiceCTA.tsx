@@ -47,7 +47,7 @@ const ServiceCTA: React.FC<ServiceCTAProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <motion.h2 
           className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display"
           variants={itemVariants}
