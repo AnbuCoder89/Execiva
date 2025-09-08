@@ -27,7 +27,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ description }) 
       variants={itemVariants}
     >
       <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           <motion.p 
             className="text-xl md:text-2xl text-gray-700 leading-relaxed font-sf-pro-text"
             variants={itemVariants}
