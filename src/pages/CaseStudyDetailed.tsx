@@ -119,9 +119,7 @@ const CaseStudyDetailed: React.FC = () => {
       {/* Hero Section */}
       <motion.section 
         className="text-black pt-20"
-        style={{
-          background: '#ada996'
-        }}
+        className="bg-beige"
         variants={itemVariants}
       >
         <div className="pb-12 pt-[72px] md:pb-[60px] lg:pt-[148px]">
