@@ -94,29 +94,29 @@ const Vision: React.FC = () => {
     <motion.section
       id="vision"
       ref={sectionRef}
-      className="relative bg-white py-12 md:py-16 lg:py-20 xl:py-24 min-h-screen flex items-center"
+      className="relative bg-white py-12 md:py-32"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
       <motion.div
-        className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mx-auto space-y-8 sm:space-y-12 md:space-y-16 lg:space-y-20"
+        className="w-full px-4 lg:px-10 mx-auto space-y-10 md:space-y-20"
         variants={containerVariants}
       >
         {/* Header */}
         <motion.div
-          className="mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10"
+          className="mx-auto text-center space-y-4 md:space-y-10"
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-900 leading-tight font-sf-pro-display px-2 sm:px-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
             variants={itemVariants}
           >
             Shaping the future of digital innovation
           </motion.h2>
           <motion.p
-            className="mx-auto max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text px-4 sm:px-6"
+            className="mx-auto max-w-4xl text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text"
             variants={itemVariants}
           >
             And we do that by unleashing the full potential of your
@@ -125,11 +125,11 @@ const Vision: React.FC = () => {
         </motion.div>
 
         {/* Content */}
-        <motion.div className="grid gap-8 sm:gap-10 md:gap-12 lg:gap-16 md:grid-cols-12 items-center" variants={itemVariants}>
+        <motion.div className="grid gap-10 md:grid-cols-12" variants={itemVariants}>
           {/* Image */}
-          <motion.div className="relative order-2 md:order-1 md:col-span-6 lg:col-span-7" variants={imageVariants}>
+          <motion.div className="relative md:col-span-6" variants={imageVariants}>
             <motion.div
-              className="sticky top-[100px] md:top-[120px] lg:top-[140px] aspect-[724/866] max-w-md sm:max-w-lg md:max-w-none mx-auto"
+              className="sticky top-[100px] aspect-[724/866]"
               variants={imageVariants}
             >
               {accordionItems.map(item => (
@@ -151,19 +151,12 @@ const Vision: React.FC = () => {
                     <figure className="w-full h-full">
                  <img
                     className="
-                      w-full
-                      h-auto
-                      sm:h-[60%]
-                      md:h-[70%]
-                      lg:h-[80%]
-                      xl:h-[85%]
+                      w-full 
+                      h-auto            
+                      md:h-[50%]       
                       object-cover 
-                      rounded-lg
-                      sm:rounded-xl
+                      rounded-lg 
                       md:rounded-2xl
-                      shadow-lg
-                      md:shadow-xl
-                      lg:shadow-2xl
                     "
                     src={item.image}
                     alt={item.title}
@@ -178,20 +171,20 @@ const Vision: React.FC = () => {
           
           {/* Accordion */}
           <motion.div
-            className="order-1 md:order-2 md:col-span-6 lg:col-span-5 xl:col-span-4 xl:col-start-9 divide-y py-4 sm:py-6 xl:py-8 divide-gray-200"
+            className="md:col-span-6 lg:col-span-4 lg:col-start-8 divide-y xl:py-6 divide-gray-200"
             variants={itemVariants}
           >
             {accordionItems.map(item => (
               <motion.div
                 key={item.id}
-                className="py-3 sm:py-3.5 md:py-4 first:pt-0 last:pb-0"
+                className="py-3.5 first:pt-0 last:pb-0"
                 variants={itemVariants}
               >
                 <motion.button
                   type="button"
                   onClick={() => toggleAccordion(item.id)}
                   aria-expanded={activeAccordion === item.id}
-                  className="flex justify-between items-center py-2 sm:py-2.5 md:py-3 w-full text-left text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-gray-900 hover:text-gray-700 transition-colors font-sf-pro-display"
+                  className="flex justify-between items-center py-2.5 w-full text-left text-lg md:text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors font-sf-pro-display"
                   whileHover={{ x: 6, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -208,7 +201,7 @@ const Vision: React.FC = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 shrink-0 text-blue-600" />
+                    <ChevronDown className="w-4 h-4 shrink-0 text-blue-600" />
                   </motion.div>
                 </motion.button>
 
@@ -222,13 +215,13 @@ const Vision: React.FC = () => {
                       className="overflow-hidden"
                     >
                       <motion.div
-                        className="space-y-3 sm:space-y-4 pb-3 sm:pb-4 pt-2 prose prose-sm sm:prose-base text-gray-600"
+                        className="space-y-4 pb-4 pt-2 prose prose-sm text-gray-600"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: 0.1 }}
                       >
                         <motion.p
-                          className="leading-relaxed font-sf-pro-text text-sm sm:text-base md:text-lg"
+                          className="leading-relaxed font-sf-pro-text"
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.4, delay: 0.3 }}
