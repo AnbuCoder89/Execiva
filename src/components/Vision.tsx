@@ -153,7 +153,7 @@ const Vision: React.FC = () => {
   className="
     w-full 
     h-auto            /* mobile & tablet: auto height */
-    md:h-[60%]        /* ≥768px (desktop): 80% height */
+    md:h-[50%]        /* ≥768px (desktop): 80% height */
     object-cover 
     rounded-lg 
     md:rounded-2xl
