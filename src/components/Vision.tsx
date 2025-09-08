@@ -62,28 +62,28 @@ const Vision: React.FC = () => {
       title: "Own your reach",
       content:
         "Reach your target audiences everywhere, with access to every digital channel and device — including display, video, audio, digital out-of-home, and hundreds of millions of Connected TV households.",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
+      image: "/image/vision/vision-3"
     },
     {
       id: 2,
       title: "Own your decisioning",
       content:
         "Run your campaigns on your terms. Tap into a marketplace of hundreds of data, inventory, and industry partners to make sure your ads are running exactly where they should.",
-      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
+      image: "/image/vision/vision-2"
     },
     {
       id: 3,
       title: "Own your ROI",
       content:
         "Get more value from your media investment. Prove the effectiveness of your advertising with an objective partner and a more transparent media buying platform.",
-      image: "https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg"
+      image: "/image/vision/vision-4"
     },
     {
       id: 4,
       title: "Own your growth",
       content:
         "Put your data to work, using insights about your current customers to help uncover new ones. Plus, get access to more than 100,000 pre-vetted premium third-party data segments.",
-      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg"
+      image: "/image/vision/vision-1"
     }
   ];
 
