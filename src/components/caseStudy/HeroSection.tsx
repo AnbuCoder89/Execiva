@@ -47,10 +47,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
 
   return (
     <motion.section 
-      className="text-black pt-20 bg-beige"
+      className="text-black bg-beige"
       variants={itemVariants}
     >
-      <div className="pb-12 pt-[72px] md:pb-[60px] lg:pt-[148px]">
+      <div>
         <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
           <motion.div 
             className="grid gap-10 mt-16 md:grid-cols-12 md:grid-flow-col-dense md:mt-10"
