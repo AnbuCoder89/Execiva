@@ -6,24 +6,21 @@ const Vision: React.FC = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Intersection animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // you could trigger custom logic here if needed
+            // custom logic if needed
           }
         });
       },
       { threshold: 0.2 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -97,8 +94,7 @@ const Vision: React.FC = () => {
       className="
         relative bg-white 
         py-12 md:py-32 
-        min-h-screen           /* full height on all screens */
-        lg:min-h-screen
+        lg:min-h-screen        /* full height only on large screens */
       "
       initial="hidden"
       whileInView="visible"
@@ -106,7 +102,7 @@ const Vision: React.FC = () => {
       variants={containerVariants}
     >
       <motion.div
-        className="w-full px-4 lg:px-10 mx-auto space-y-10 md:space-y-20 h-full"
+        className="w-full px-4 lg:px-10 mx-auto space-y-10 md:space-y-20"
         variants={containerVariants}
       >
         {/* Header */}
@@ -131,16 +127,16 @@ const Vision: React.FC = () => {
 
         {/* Content */}
         <motion.div
-          className="grid gap-10 md:grid-cols-12 h-full"
+          className="grid gap-10 md:grid-cols-12"
           variants={itemVariants}
         >
           {/* Image */}
           <motion.div
-            className="relative md:col-span-7 lg:col-span-8 order-2 md:order-1"
+            className="relative md:col-span-6"
             variants={imageVariants}
           >
             <motion.div
-              className="sticky top-[100px] h-[40vh] sm:h-[50vh] md:h-[75vh] lg:h-[80vh] xl:h-[85vh]"
+              className="sticky top-[100px] lg:h-screen" // only stick + full height on lg
               variants={imageVariants}
             >
               {accordionItems.map(item => (
@@ -163,7 +159,7 @@ const Vision: React.FC = () => {
                       <img
                         className="
                           w-full 
-                          h-full            /* fill parent height */
+                          h-auto lg:h-full   /* auto height on small, fill on large */
                           object-cover 
                           rounded-lg 
                           md:rounded-2xl
