@@ -156,68 +156,71 @@ const Vision: React.FC = () => {
 
           {/* Accordion Content */}
           <motion.div 
-            className="grid gap-10 md:grid-cols-12"
+            className="grid gap-6 md:gap-8 lg:gap-12 xl:gap-16 md:grid-cols-12 md:items-start"
             variants={itemVariants}
           >
             {/* Left Column - Images */}
             <motion.div 
-              className="relative md:col-span-6"
+              className="relative w-full md:col-span-7 lg:col-span-8 xl:col-span-8"
               variants={imageVariants}
             >
-              <motion.div 
-                className="sticky top-[100px] aspect-[724/866]"
-                variants={imageVariants}
-              >
-                {accordionItems.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                      activeAccordion === item.id
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-5'
-                    }`}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ 
-                      opacity: activeAccordion === item.id ? 1 : 0,
-                      scale: activeAccordion === item.id ? 1 : 0.95
-                    }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                  >
-                    <div className="flex justify-center items-center h-full">
-                      <figure className="w-full h-full">
-                        <img
-                          className="w-full h-full object-cover rounded-lg md:rounded-2xl"
-                          src={item.image}
-                          alt={item.title}
-                          loading="lazy"
-                        />
-                      </figure>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+              <div className="sticky top-[100px] w-full">
+                <motion.div 
+                  className="relative w-full max-w-none mx-auto vision-image-container"
+                  style={{
+                    width: '80vw',
+                    maxWidth: '100%',
+                    aspectRatio: '724/866'
+                  }}
+                  variants={imageVariants}
+                >
+                  {accordionItems.map((item) => (
+                    <motion.div
+                      key={item.id}
+                      className="absolute inset-0 w-full h-full"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ 
+                        opacity: activeAccordion === item.id ? 1 : 0,
+                        scale: activeAccordion === item.id ? 1 : 0.95
+                      }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                      <div className="w-full h-full flex justify-center items-center">
+                        <figure className="w-full h-full">
+                          <img
+                            className="w-full h-full object-cover rounded-lg md:rounded-xl lg:rounded-2xl shadow-lg"
+                            src={item.image}
+                            alt={item.title}
+                            loading="lazy"
+                          />
+                        </figure>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Right Column - Accordion */}
             <motion.div 
-              className="md:col-span-6 lg:col-span-4 lg:col-start-8"
+              className="w-full md:col-span-5 lg:col-span-4 xl:col-span-4 md:mt-8 lg:mt-12"
               variants={itemVariants}
             >
               <motion.div 
-                className="divide-y xl:py-6 divide-gray-200"
+                className="divide-y divide-gray-200 md:pl-4 lg:pl-6 xl:pl-8"
                 variants={containerVariants}
               >
                 {accordionItems.map((item, index) => (
                   <motion.div
                     key={item.id}
-                    className="py-3.5 first:pt-0 last:pb-0"
+                    className="py-4 md:py-5 lg:py-6 first:pt-0 last:pb-0"
                     variants={itemVariants}
                   >
                     <motion.button
                       type="button"
                       onClick={() => toggleAccordion(item.id)}
                       aria-expanded={activeAccordion === item.id}
-                      className="flex justify-between items-center py-2.5 w-full text-left text-lg md:text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors font-sf-pro-display"
+                      className="flex justify-between items-center py-2 md:py-3 w-full text-left text-lg md:text-xl lg:text-2xl font-medium text-gray-900 hover:text-gray-700 transition-colors font-sf-pro-display"
                       whileHover={{ x: 6, scale: 1.01 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -235,7 +238,7 @@ const Vision: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                       >
                         <ChevronDown
-                          className="w-4 h-4 shrink-0 text-blue-600"
+                          className="w-4 h-4 md:w-5 md:h-5 shrink-0 text-blue-600"
                         />
                       </motion.div>
                     </motion.button>
@@ -250,19 +253,19 @@ const Vision: React.FC = () => {
                           className="overflow-hidden"
                         >
                           <motion.div
-                            className="space-y-4 pb-4 pt-2"
+                            className="space-y-4 pb-4 pt-2 md:pt-3"
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: 0.1 }}
                           >
                             <motion.div 
-                              className="prose prose-sm text-gray-600"
+                              className="prose prose-sm md:prose-base text-gray-600"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               transition={{ duration: 0.4, delay: 0.2 }}
                             >
                               <motion.p 
-                                className="leading-relaxed font-sf-pro-text"
+                                className="leading-relaxed font-sf-pro-text text-sm md:text-base lg:text-lg"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.4, delay: 0.3 }}
@@ -281,7 +284,90 @@ const Vision: React.FC = () => {
           </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* Mobile-specific responsive styles */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .vision-image-container {
+            width: 95vw !important;
+            max-width: 100% !important;
+          }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .vision-image-container {
+            width: 85vw !important;
+          }
+        }
+        
+        @media (min-width: 1025px) {
+          .vision-image-container {
+            width: 80vw !important;
+            max-width: 1200px !important;
+          }
+        }
+        
+        @media (min-width: 1440px) {
+          .vision-image-container {
+            width: 75vw !important;
+            max-width: 1400px !important;
+          }
+        }
+      `}</style>
     </motion.section>
+  );
+};
+
+export default Vision;
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                      >
+                        {item.title}
+                      </motion.span>
+                      <motion.div
+                        animate={{ rotate: activeAccordion === item.id ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <ChevronDown
+                          className="w-4 h-4 md:w-5 md:h-5 shrink-0 text-blue-600"
+                        />
+                      </motion.div>
+                    </motion.button>
+
+                    <AnimatePresence>
+                      {activeAccordion === item.id && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <motion.div
+                            className="space-y-4 pb-4 pt-2 md:pt-3"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
+                          >
+                            <motion.div 
+                              className="prose prose-sm md:prose-base text-gray-600"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 0.4, delay: 0.2 }}
+                            >
+                              <motion.p 
+                                className="leading-relaxed font-sf-pro-text text-sm md:text-base lg:text-lg"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.3 }}
+                              >
+                                {item.content}
+                              </motion.p>
+                            </motion.div>
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
   );
 };
 
