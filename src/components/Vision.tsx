@@ -149,12 +149,19 @@ const Vision: React.FC = () => {
                 >
                   <div className="flex justify-center items-center h-full">
                     <figure className="w-full h-full">
-                      <img
-                        className="w-full h-full object-cover rounded-lg md:rounded-2xl"
-                        src={item.image}
-                        alt={item.title}
-                        loading="lazy"
-                      />
+                 <img
+  className="
+    w-full 
+    h-auto            /* mobile & tablet: auto height */
+    md:h-[80%]        /* ≥768px (desktop): 80% height */
+    object-cover 
+    rounded-lg 
+    md:rounded-2xl
+  "
+  src={item.image}
+  alt={item.title}
+/>
+
                     </figure>
                   </div>
                 </motion.div>
