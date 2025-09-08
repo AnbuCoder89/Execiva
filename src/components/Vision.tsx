@@ -136,11 +136,11 @@ const Vision: React.FC = () => {
         >
           {/* Image */}
           <motion.div
-            className="relative md:col-span-6 h-full"
+            className="relative md:col-span-7 lg:col-span-8 order-2 md:order-1"
             variants={imageVariants}
           >
             <motion.div
-              className="sticky top-[100px] h-full"
+              className="sticky top-[100px] h-[40vh] sm:h-[50vh] md:h-[75vh] lg:h-[80vh] xl:h-[85vh]"
               variants={imageVariants}
             >
               {accordionItems.map(item => (
