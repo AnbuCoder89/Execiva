@@ -150,14 +150,7 @@ const Vision: React.FC = () => {
                   <div className="flex justify-center items-center h-full">
                     <figure className="w-full h-full">
                       <img
-                        className="
-                          w-full 
-                          h-auto 
-                          md:h-[80%]  /* 80% height on medium screens and up */
-                          object-cover 
-                          rounded-lg 
-                          md:rounded-2xl
-                        "
+                        className="w-full h-full object-cover rounded-lg md:rounded-2xl"
                         src={item.image}
                         alt={item.title}
                         loading="lazy"
@@ -169,6 +162,7 @@ const Vision: React.FC = () => {
             </motion.div>
           </motion.div>
 
+          
           {/* Accordion */}
           <motion.div
             className="md:col-span-6 lg:col-span-4 lg:col-start-8 divide-y xl:py-6 divide-gray-200"
