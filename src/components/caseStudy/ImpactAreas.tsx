@@ -24,13 +24,13 @@ const ImpactAreas: React.FC<ImpactAreasProps> = ({ impactArea }) => {
 
   return (
     <motion.section 
-      className="py-16 md:py-20 bg-gray-50"
+      className="py-16 md:py-20 bg-white"
       variants={itemVariants}
     >
-      <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2 
-            className="text-3xl font-semibold text-gray-900 mb-8 font-sf-pro-display"
+            className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8 leading-tight font-sf-pro-display"
             variants={itemVariants}
           >
             Impact Areas
@@ -39,12 +39,12 @@ const ImpactAreas: React.FC<ImpactAreasProps> = ({ impactArea }) => {
             {impactArea.map((area, index) => (
               <motion.span
                 key={index}
-                className="px-6 py-3 text-green-800 rounded-full text-lg font-medium font-sf-pro-text border border-green-200"
+                className="px-6 py-3 bg-beige text-gray-900 rounded-full text-lg font-medium font-sf-pro-text border border-gray-200 shadow-md hover:shadow-lg"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05, backgroundColor: "#DCFCE7" }}
+                whileHover={{ scale: 1.05, backgroundColor: "#ebe8dd" }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <Target className="w-5 h-5 inline-block mr-2" />
+                <Target className="w-5 h-5 inline-block mr-2 text-gray-700" />
                 {area}
               </motion.span>
             ))}
