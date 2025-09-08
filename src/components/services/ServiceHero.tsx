@@ -51,7 +51,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover px-6 sm:px-8 lg:px-12"
+        className="absolute inset-0 w-full h-full bg-black/50 object-cover px-6 sm:px-8 lg:px-12"
         loading="lazy"
       />
 
