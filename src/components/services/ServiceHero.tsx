@@ -56,7 +56,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/50 px-6 sm:px-8 lg:px-12"></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl px-6 sm:px-8 lg:px-12 text-white">
