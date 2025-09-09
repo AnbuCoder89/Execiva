@@ -70,7 +70,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
               {caseStudy.subtitle}
             </motion.p>
             <motion.h1 
-              className="hero-header font-bold mb-4 font-sf-pro-display text-white"
+              className="text-6xl font-bold mb-4 font-sf-pro-display text-white"
               variants={itemVariants}
             >
               {caseStudy.title}
