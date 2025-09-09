@@ -23,9 +23,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   return (
     <section className="pt-12 min-h-screen">
       <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
-        <div
-          className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden"
-        >
+        <div className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden">
           {/* background image */}
           <img
              src="/image/vision/vision-1.jpeg" 
@@ -37,20 +35,22 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
           <div className="absolute inset-0 bg-black/40"></div>
 
           {/* content overlay */}
-          <div className="relative z-10 flex flex-col items-start justify-center min-h-[60vh] sm:min-h-[70vh] p-8 sm:p-12 text-white">
-            <h1 className="text-3xl sm:text-5xl font-bold mb-4">{title}</h1>
-            <p className="text-lg sm:text-xl mb-6 max-w-2xl">{detailedDescription}</p>
-            <div className="flex gap-4">
-              <Button onClick={onRequestDemo} variant="primary">
+          <div className="absolute inset-0 z-10 flex flex-col items-start justify-center p-8 sm:p-12 text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-sf-pro-display">Web Development</h1>
+            <p className="text-lg sm:text-xl mb-6 max-w-2xl font-sf-pro-text">Custom websites and web applications built for performance and scalability</p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button variant="vision" size="lg" className="px-8 py-4">
                 Get Started
               </Button>
-              <button
-                onClick={onBackToServices}
-                className="inline-flex items-center text-white underline"
+              <Button
+                variant="ghost"
+                size="lg"
+                icon={ArrowLeft}
+                iconPosition="left"
+                className="text-white hover:text-gray-200"
               >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Service
-              </button>
+                Back to Services
+              </Button>
             </div>
           </div>
         </div>
