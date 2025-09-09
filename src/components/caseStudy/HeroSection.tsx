@@ -98,6 +98,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 Back to Case Studies
               </Button>
             </div>
+          </div>
             
         </div>
         
