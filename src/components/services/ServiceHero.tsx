@@ -41,13 +41,6 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
   };
 
   return (
-        <section className="bg-gray-50"> {/* Optional background for contrast */}
-      <div className="flex items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12">
-        <div className="bg-white rounded-2xl shadow-xl w-full max-w-6xl min-h-screen">
-          {/* blank card - content goes here later */}
-        </div>
-      </div>
-    </section>
     <motion.section
       className="relative w-full min-h-screen flex items-center justify-start overflow-hidden"
       initial="hidden"
