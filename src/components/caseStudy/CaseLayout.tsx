@@ -7,7 +7,7 @@ interface CaseLayoutProps {
 
 const CaseLayout: React.FC<CaseLayoutProps> = ({ toc, content }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile: Stacked layout */}
         <div className="lg:hidden space-y-6">
