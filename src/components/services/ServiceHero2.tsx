@@ -45,7 +45,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   return (
     <section className="bg-gray-50"> {/* Optional background for contrast */}
       <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
-        <div className="bg-white rounded-2xl shadow-xl w-full min-h-screen">
+        <div className="bg-white rounded-2xl shadow-xl w-full">
           {/* blank card - content goes here later */}
         </div>
       </div>
