@@ -38,7 +38,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   };
 
   return (
-    <section className="bg-gray-50 pt-12">
+    <section className="bg-gray-50 pt-12 min-h-screen">
       <div className="flex items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl shadow-xl w-full my-8">
           <img 
