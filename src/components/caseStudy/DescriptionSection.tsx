@@ -33,7 +33,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({
 
   return (
     <motion.section 
-      className="py-16 md:py-20 bg-white"
+      className="bg-white"
       variants={itemVariants}
     >
       <div className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 box-content mx-auto">
