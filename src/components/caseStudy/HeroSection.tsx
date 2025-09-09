@@ -93,10 +93,44 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 variant="ghost"
                 size="lg"
                 onClick={onBackClick}
-                className="text-white bg-white/20 border border-white/30 hover:text-white hover:bg-white/30 transition-all duration-200"
-              >
-                Back to Case Studies
-              </Button>
+            {/* REGION */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
+              <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
+                REGION
+              </div>
+              <div className="text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.region}
+              </div>
+            </div>
+
+            {/* PRODUCT */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
+              <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
+                PRODUCT
+              </div>
+              <div className="text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.product}
+              </div>
+            </div>
+
+            {/* CHANNEL */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
+              <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
+                CHANNEL
+              </div>
+              <div className="text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.channel}
+              </div>
+            </div>
+
+            {/* TIMELINE */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
+              <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
+                TIMELINE
+              </div>
+              <div className="text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.projectTimeline}
+              </div>
             </div>
           </div>
         </div>
