@@ -20,6 +20,11 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   onRequestDemo,
   onBackToServices,
 }) => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <section className="pt-12 min-h-screen">
       <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
