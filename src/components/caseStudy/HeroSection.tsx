@@ -104,7 +104,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
         
         {/* Project Details - Positioned at bottom */}
         <motion.div 
-          className="absolute bottom-20 left-8 sm:left-8 lg:left-16 flex flex-wrap gap-4 lg:gap-8"
+          className="absolute bottom-20 left-8 sm:left-8 lg:left-32 flex flex-wrap gap-4 lg:gap-8"
           variants={itemVariants}
         >
           {/* REGION */}
