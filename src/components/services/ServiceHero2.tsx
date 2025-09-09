@@ -28,7 +28,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
         >
           {/* background image */}
           <img
-            src={image}
+             src="/image/vision/vision-1.jpeg" 
             alt="Service Hero"
             className="absolute inset-0 w-full h-full object-cover"
           />
