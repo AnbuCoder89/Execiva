@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import Button from '../ui/Button';
 import ServiceHero from './ServiceHero';
+import ServiceHero2 from './ServiceHero2';
 import ServiceFeatures from './ServiceFeatures';
 import ServiceBenefitsAndTech from './ServiceBenefitsAndTech';
 import ServiceUseCases from './ServiceUseCases';
