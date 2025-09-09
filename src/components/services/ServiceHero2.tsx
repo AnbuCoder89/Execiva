@@ -21,7 +21,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   onBackToServices,
 }) => {
   return (
-    <section className="bg-gray-50 pt-12 min-h-screen">
+    <section className="pt-12 min-h-screen">
       <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
         <div
           className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden"
