@@ -290,6 +290,8 @@ const ServiceDetailedPage: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
+  
+      
       <ServiceHero
         title={service.title}
         category={service.category}
