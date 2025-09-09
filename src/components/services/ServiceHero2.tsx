@@ -33,9 +33,10 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
           <img
              src="/image/vision/vision-1.jpeg" 
             alt="Service Hero"
-            className="w-full object-cover rounded-2xl"
+            className="w-full h-service-hero object-cover rounded-2xl"
           />
 
+          
           {/* dark overlay for readability */}
           <div className="absolute inset-0 bg-black/40"></div>
 
