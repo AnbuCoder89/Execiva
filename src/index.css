@@ -41,7 +41,7 @@ html, body {
 /* Custom responsive height class for service hero */
 @media (min-width: 1024px) {
   .h-service-hero {
-    height: 85vh;
+    height: 90vh;
   }
 }
 
