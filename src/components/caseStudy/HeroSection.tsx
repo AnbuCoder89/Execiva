@@ -109,9 +109,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
         >
           {/* REGION */}
           <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
-              REGION
-            </div>
             <div className="text-sm font-medium text-white font-sf-pro-text">
               {caseStudy.region}
             </div>
@@ -119,9 +116,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
 
           {/* PRODUCT */}
           <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
-              PRODUCT
-            </div>
             <div className="text-sm font-medium text-white font-sf-pro-text">
               {caseStudy.product}
             </div>
@@ -129,9 +123,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
 
           {/* CHANNEL */}
           <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
-              CHANNEL
-            </div>
             <div className="text-sm font-medium text-white font-sf-pro-text">
               {caseStudy.channel}
             </div>
@@ -139,9 +130,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
 
           {/* TIMELINE */}
           <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-xs font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-1">
-              TIMELINE
-            </div>
             <div className="text-sm font-medium text-white font-sf-pro-text">
               {caseStudy.projectTimeline}
             </div>
