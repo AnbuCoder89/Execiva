@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import HeroSection from '../components/caseStudy/HeroSection';
-import DescriptionSection from '../components/caseStudy/DescriptionSection';
-import MainContentSections from '../components/caseStudy/MainContentSections';
-import ImpactAreas from '../components/caseStudy/ImpactAreas';
-import CTASection from '../components/caseStudy/CTASection';
-import BackgroundSection from '../components/caseStudy/BackgroundSection';
-import ObjectivesSection from '../components/caseStudy/ObjectivesSection';
-import ApproachSection from '../components/caseStudy/ApproachSection';
+import TOC from '../components/caseStudy/TOC';
+import CaseContent from '../components/caseStudy/CaseContent';
+import CaseLayout from '../components/caseStudy/CaseLayout';
 import Button from '../components/ui/Button';
 import { ArrowLeft } from 'lucide-react';
 import allCaseStudies from '../../data/caseStudies.json';
@@ -50,15 +45,31 @@ const CaseStudyDetailed: React.FC = () => {
   const navigate = useNavigate();
   const [caseStudy, setCaseStudy] = useState<CaseStudy | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
-    // Find the case study by ID
-    const study = allCaseStudies.find(study => study.id === id) as CaseStudy;
-    setCaseStudy(study);
-    setLoading(false);
+    try {
+      if (id) {
+        // Find the case study by ID
+        const study = allCaseStudies.find(study => study.id === id) as CaseStudy;
+        if (study) {
+          setCaseStudy(study);
+        } else {
+          setError('Case study not found');
+        }
+      } else {
+        // If no ID provided, use the first case study
+        const study = allCaseStudies[0] as CaseStudy;
+        setCaseStudy(study);
+      }
+    } catch (err) {
+      setError('Error loading case study');
+    } finally {
+      setLoading(false);
+    }
   }, [id]);
 
   const containerVariants = {
@@ -82,14 +93,6 @@ const CaseStudyDetailed: React.FC = () => {
     }, 100);
   };
 
-  const handleViewMoreClick = () => {
-    navigate('/case-studies');
-  };
-
-  const handleBackClick = () => {
-    navigate('/case-studies');
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
@@ -101,12 +104,16 @@ const CaseStudyDetailed: React.FC = () => {
     );
   }
 
-  if (!caseStudy) {
+  if (error || !caseStudy) {
     return (
       <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4 font-sf-pro-display">Case Study Not Found</h1>
-          <p className="text-gray-600 mb-6 font-sf-pro-text">The case study you're looking for doesn't exist.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4 font-sf-pro-display">
+            {error || 'Case Study Not Found'}
+          </h1>
+          <p className="text-gray-600 mb-6 font-sf-pro-text">
+            {error || "The case study you're looking for doesn't exist."}
+          </p>
           <Button
             variant="vision"
             onClick={() => navigate('/case-studies')}
@@ -127,23 +134,67 @@ const CaseStudyDetailed: React.FC = () => {
       animate="visible"
       variants={containerVariants}
     >
-      <HeroSection caseStudy={caseStudy} onBackClick={handleBackClick} />
-      <DescriptionSection 
-        description={caseStudy.description}
-        serviceType={caseStudy.serviceType}
-        keyTechnologies={caseStudy.keyTechnologies}
-        technology={caseStudy.technology}
-      />
-      <BackgroundSection caseStudy={caseStudy} />
-      <ObjectivesSection caseStudy={caseStudy} />
-      <ApproachSection caseStudy={caseStudy} />
-      <MainContentSections caseStudy={caseStudy} />
-      {/* <ImpactAreas impactArea={caseStudy.impactArea} /> */}
+      {/* Header with back button and title */}
+      <div className="bg-white border-b border-gray-200 pt-20 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-6">
+            <Button
+              variant="ghost"
+              size="sm"
+              icon={ArrowLeft}
+              iconPosition="left"
+              onClick={() => navigate('/case-studies')}
+              className="text-gray-600 hover:text-gray-900"
+            >
+              Back to Case Studies
+            </Button>
+          </div>
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-sf-pro-display">
+              {caseStudy.title}
+            </h1>
+            <p className="text-lg text-gray-600 font-sf-pro-text max-w-3xl mx-auto">
+              {caseStudy.description}
+            </p>
+          </div>
+        </div>
+      </div>
       
-      <CTASection 
-        onGetStartedClick={handleGetStartedClick}
-        onViewMoreClick={handleViewMoreClick}
+      {/* Main content with TOC and case study details */}
+      <CaseLayout
+        toc={<TOC caseStudy={caseStudy} />}
+        content={<CaseContent caseStudy={caseStudy} />}
       />
+      
+      {/* CTA Section */}
+      <div className="bg-white py-16 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
+            Ready to Get Started?
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 max-w-3xl mx-auto">
+            Let's discuss how we can help you achieve similar results with innovative solutions tailored to your needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              variant="vision"
+              size="lg"
+              onClick={handleGetStartedClick}
+              className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Get Started
+            </Button>
+            <Button
+              variant="vision"
+              size="lg"
+              onClick={() => navigate('/case-studies')}
+              className="px-8 py-4 shadow-md hover:shadow-lg"
+            >
+              View More Case Studies
+            </Button>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
