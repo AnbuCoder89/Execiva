@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import Button from '../ui/Button';
-import ServiceHero from './ServiceHero';
 import ServiceHero2 from './ServiceHero2';
 import ServiceFeatures from './ServiceFeatures';
 import ServiceBenefitsAndTech from './ServiceBenefitsAndTech';
@@ -292,15 +291,6 @@ const ServiceDetailedPage: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
     <ServiceHero2 />
-      
-      <ServiceHero
-        title={service.title}
-        category={service.category}
-        detailedDescription={service.detailedDescription}
-        image={service.image}
-        onRequestDemo={handleRequestDemo}
-        onBackToServices={handleBackToServices}
-      />
       
       <ServiceFeatures features={service.features} />
       
