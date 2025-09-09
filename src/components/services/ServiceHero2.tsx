@@ -36,8 +36,8 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
 
           {/* content overlay */}
           <div className="absolute inset-0 z-10 flex flex-col items-start justify-center p-8 sm:p-12 text-white">
-            <h1 className="font-bold mb-4 font-sf-pro-display" style={{ fontSize: '6rem', lineHeight: '1.5' }}>Web Development</h1>
-            <p className="mb-6 max-w-2xl font-sf-pro-text" style={{ fontSize: 'clamp(2.75rem, 4vw, 3rem)' }}>Custom websites and web applications built for performance and scalability</p>
+            <h1 className="hero-header font-bold mb-4 font-sf-pro-display">Web Development</h1>
+            <p className="hero-description mb-6 max-w-2xl font-sf-pro-text">Custom websites and web applications built for performance and scalability</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="vision" size="lg" className="px-8 py-4">
                 Get Started
