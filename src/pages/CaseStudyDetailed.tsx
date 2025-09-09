@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import TOC from '../components/caseStudy/TOC';
+import CaseContent from '../components/caseStudy/CaseContent';
+import CaseLayout from '../components/caseStudy/CaseLayout';
 import HeroSection from '../components/caseStudy/HeroSection';
 import DescriptionSection from '../components/caseStudy/DescriptionSection';
 import MainContentSections from '../components/caseStudy/MainContentSections';
@@ -137,6 +140,13 @@ const CaseStudyDetailed: React.FC = () => {
       <BackgroundSection caseStudy={caseStudy} />
       <ObjectivesSection caseStudy={caseStudy} />
       <ApproachSection caseStudy={caseStudy} />
+      
+      {/* New Case Layout with TOC and Content */}
+      <CaseLayout 
+        toc={<TOC caseStudy={caseStudy} />}
+        content={<CaseContent caseStudy={caseStudy} />}
+      />
+      
       <MainContentSections caseStudy={caseStudy} />
       {/* <ImpactAreas impactArea={caseStudy.impactArea} /> */}
       
