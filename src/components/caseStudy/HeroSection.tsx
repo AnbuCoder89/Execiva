@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
+import Button from '../ui/Button';
 
 interface CaseStudy {
   id: string;
@@ -46,70 +48,68 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
   };
 
   return (
-    <motion.section 
-      className="text-black bg-beige pt-20"
-      variants={itemVariants}
-    >
-      <div>
-        <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
-          <motion.div 
-            className="grid gap-10 py-16 md:grid-cols-12 md:grid-flow-col-dense md:py-10"
-            variants={containerVariants}
-          >
-            {/* Left Column - Content */}
-            <motion.div 
-              className="flex items-center md:col-span-6 xl:col-span-5"
+    <section className="pt-12 min-h-screen">
+      <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
+        <div className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden">
+          {/* background image */}
+          <img
+            src={caseStudy.image}
+            alt="Case Study Hero"
+            className="w-full h-service-hero object-cover rounded-2xl"
+          />
+
+          {/* dark overlay for readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+
+          {/* content overlay */}
+          <div className="absolute inset-0 z-10 flex flex-col items-start justify-center p-8 sm:p-12 text-white">
+            <motion.p 
+              className="text-sm font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-4"
               variants={itemVariants}
             >
-              <div className="space-y-10 max-w-5xl">
-                <div className="space-y-6 md:space-y-4">
-                  <div className="space-y-2 md:space-y-6">
-                    <motion.p 
-                      className="text-sm font-medium text-gray-600 uppercase tracking-wide font-sf-pro-text"
-                      variants={itemVariants}
-                    >
-                      {caseStudy.subtitle}
-                    </motion.p>
-                    <motion.h1 
-                      className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
-                      variants={itemVariants}
-                    >
-                      {caseStudy.title}
-                    </motion.h1>
-                  </div>
-
-                  <motion.ul 
-                    className="flex flex-wrap gap-4 lg:gap-8"
-                    variants={itemVariants}
-                  >
-                    <li className="relative aspect-square min-h-[62px] lg:min-h-[124px]">
-                      <div className="absolute size-full flex items-center justify-center inset-0 bg-white rounded-lg border border-gray-200 grayscale opacity-70">
-                        <span className="text-xs md:text-sm font-medium text-gray-600 font-sf-pro-text text-center px-2">
-                          {caseStudy.clientIndustry}
-                        </span>
-                      </div>
-                    </li>
-                  </motion.ul>
-                </div>
+              {caseStudy.subtitle}
+            </motion.p>
+            <motion.h1 
+              className="hero-header font-bold mb-4 font-sf-pro-display text-white"
+              variants={itemVariants}
+            >
+              {caseStudy.title}
+            </motion.h1>
+            <motion.div 
+              className="flex flex-wrap gap-4 lg:gap-8 mb-6"
+              variants={itemVariants}
+            >
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
+                <span className="text-sm font-medium text-white font-sf-pro-text">
+                  {caseStudy.clientIndustry}
+                </span>
               </div>
             </motion.div>
-
-            {/* Right Column - Image */}
-            <motion.div 
-              className="flex items-center md:col-span-6 md:-ml-5 xl:col-start-7"
-              variants={itemVariants}
-            >
-              <figure className="w-full">
-                <img
-                  className="w-full rounded-lg md:rounded-2xl shadow-2xl"
-                  src={caseStudy.image}
-                  alt={caseStudy.title}
-                  loading="lazy"
-                />
-              </figure>
-            </motion.div>
-          </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button variant="vision" size="lg" className="px-8 py-4">
+                Get Started
+              </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                onClick={onBackClick}
+                className="text-white hover:text-gray-200 border-white/30 hover:bg-white/10"
+              >
+                Back to Case Studies
+              </Button>
+            </div>
+          </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce"
+          variants={itemVariants}
+        >
+          <div className="w-10 h-10 flex items-center justify-center border border-white/60 rounded-full">
+            <ArrowDown className="w-4 h-4 text-white" />
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );
