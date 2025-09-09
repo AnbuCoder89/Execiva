@@ -38,13 +38,13 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   };
 
   return (
-    <section className="bg-gray-50 pt-20">
+    <section className="bg-gray-50 pt-12">
       <div className="flex items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl shadow-xl w-full my-8">
           <img 
             src="/image/vision/vision-1.jpeg" 
             alt="Service Hero" 
-            className="w-full h-screen object-cover rounded-2xl"
+            className="w-full h-[calc(100vh-3rem)] object-cover rounded-2xl"
           />
         </div>
       </div>
