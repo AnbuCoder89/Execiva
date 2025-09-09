@@ -38,7 +38,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   };
 
   return (
-    <section className="bg-gray-50 min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 my-16">
+    <section className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 my-16">
       {/* Hero section fills full screen */}
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-6xl p-8">
         {/* Card sits inside hero section */}
