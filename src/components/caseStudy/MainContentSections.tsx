@@ -43,46 +43,7 @@ const MainContentSections: React.FC<MainContentSectionsProps> = ({ caseStudy }) 
     >
       <div className="max-w-[1490px] px-4 lg:px-10 box-content mx-auto">
         <div className="max-w-4xl mx-auto">
-          
-          {/* Background & Challenge */}
-          {caseStudy.background && (
-            <motion.div 
-              className="mb-16"
-              variants={itemVariants}
-            >
-              <h2 className="text-3xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Background & Challenge</h2>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed font-sf-pro-text">{caseStudy.background}</p>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Objectives */}
-          {caseStudy.objectives && (
-            <motion.div 
-              className="mb-16"
-              variants={itemVariants}
-            >
-              <h2 className="text-3xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Objectives</h2>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed font-sf-pro-text">{caseStudy.objectives}</p>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Approach & Solution */}
-          {caseStudy.approach && (
-            <motion.div 
-              className="mb-16"
-              variants={itemVariants}
-            >
-              <h2 className="text-3xl font-semibold text-gray-900 mb-6 font-sf-pro-display">Approach & Solution</h2>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed font-sf-pro-text">{caseStudy.approach}</p>
-              </div>
-            </motion.div>
-          )}
-
+  
           {/* Key Deliverables */}
           {caseStudy.keyDeliverables && (
             <motion.div 

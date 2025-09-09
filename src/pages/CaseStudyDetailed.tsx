@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HeroSection from '../components/caseStudy/HeroSection';
-import ProjectDetailsBar from '../components/caseStudy/ProjectDetailsBar';
 import DescriptionSection from '../components/caseStudy/DescriptionSection';
-import ServicesAndTechnologies from '../components/caseStudy/ServicesAndTechnologies';
 import MainContentSections from '../components/caseStudy/MainContentSections';
 import ImpactAreas from '../components/caseStudy/ImpactAreas';
 import CTASection from '../components/caseStudy/CTASection';
+import BackgroundSection from '../components/caseStudy/BackgroundSection';
+import ObjectivesSection from '../components/caseStudy/ObjectivesSection';
+import ApproachSection from '../components/caseStudy/ApproachSection';
 import Button from '../components/ui/Button';
 import { ArrowLeft } from 'lucide-react';
 import allCaseStudies from '../../data/caseStudies.json';
@@ -127,21 +128,18 @@ const CaseStudyDetailed: React.FC = () => {
       variants={containerVariants}
     >
       <HeroSection caseStudy={caseStudy} onBackClick={handleBackClick} />
-      <ProjectDetailsBar 
-        region={caseStudy.region}
-        product={caseStudy.product}
-        channel={caseStudy.channel}
-        projectTimeline={caseStudy.projectTimeline}
-        onBackClick={handleBackClick}
-      />
-      <DescriptionSection description={caseStudy.description} />
-      <ServicesAndTechnologies 
+      <DescriptionSection 
+        description={caseStudy.description}
         serviceType={caseStudy.serviceType}
         keyTechnologies={caseStudy.keyTechnologies}
         technology={caseStudy.technology}
       />
+      <BackgroundSection caseStudy={caseStudy} />
+      <ObjectivesSection caseStudy={caseStudy} />
+      <ApproachSection caseStudy={caseStudy} />
       <MainContentSections caseStudy={caseStudy} />
       {/* <ImpactAreas impactArea={caseStudy.impactArea} /> */}
+      
       <CTASection 
         onGetStartedClick={handleGetStartedClick}
         onViewMoreClick={handleViewMoreClick}
