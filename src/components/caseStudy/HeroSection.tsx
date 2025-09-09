@@ -48,7 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
   };
 
   return (
-    <section className="pt-12 min-h-screen">
+    <motion.section className="pt-12 min-h-screen" variants={containerVariants} initial="hidden" animate="visible">
       <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
         <div className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden">
           {/* background image */}
