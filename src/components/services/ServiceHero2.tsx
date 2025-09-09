@@ -24,9 +24,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
@@ -35,20 +33,16 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <section> {/* Optional background for contrast */}
-      <div className="flex items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12 my-16">
-        <div className="bg-white rounded-2xl shadow-xl w-full min-h-screen">
-          {/* blank card - content goes here later */}
-          
-        </div>
+    <section className="bg-gray-50 min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 my-16">
+      {/* Hero section fills full screen */}
+      <div className="bg-white rounded-2xl shadow-xl w-full max-w-6xl p-8">
+        {/* Card sits inside hero section */}
+        {/* content will go here later */}
       </div>
     </section>
   );
