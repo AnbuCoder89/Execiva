@@ -40,7 +40,11 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   return (
     <section className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 bg-gray-50">
       <div className="bg-white rounded-2xl shadow-xl w-full p-8 sm:p-12">
-        {/* Card sits inside hero section */}
+          <img 
+            src="/image/vision/vision-1.jpeg" 
+            alt="Service Hero" 
+            className="w-full h-full object-cover rounded-2xl"
+          />
         {/* add your content here later */}
       </div>
     </section>
