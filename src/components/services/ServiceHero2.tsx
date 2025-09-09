@@ -43,7 +43,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
           <img 
             src="/image/vision/vision-1.jpeg" 
             alt="Service Hero" 
-            className="object-cover rounded-2xl"
+            className="w-full object-cover rounded-2xl"
           />
         {/* add your content here later */}
       </div>
