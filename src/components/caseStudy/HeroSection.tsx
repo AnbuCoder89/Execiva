@@ -104,10 +104,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
         
         {/* Project Details - Positioned at bottom */}
         <motion.div 
-          className="absolute bottom-20 flex flex-col sm:flex-row"
+          className="absolute bottom-20 left-8 sm:left-8 lg:left-30 flex flex-wrap gap-4 lg:gap-8"
           variants={itemVariants}
         >
-          
           {/* REGION */}
           <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
             <div className="text-sm font-medium text-white font-sf-pro-text">
