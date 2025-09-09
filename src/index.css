@@ -37,3 +37,16 @@ html, body {
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
+
+/* Custom responsive height classes */
+@media (min-width: 1024px) {
+  .h-screen {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 1023px) {
+  .h-screen {
+    height: 100vh;
+  }
+}
