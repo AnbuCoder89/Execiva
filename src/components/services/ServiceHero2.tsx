@@ -38,19 +38,19 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 bg-gray-50">
-      <div className="bg-white rounded-2xl shadow-xl w-full p-8 sm:p-12 ">
+    <section className="bg-gray-50">
+      <div className="flex items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl shadow-xl w-full max-w-6xl my-8">
-            src="/image/vision/vision-2.jpeg" 
+          <img 
+            src="/image.png" 
             alt="Service Hero" 
             className="w-full h-screen object-cover rounded-2xl"
           />
-        {/* add your content here later */}
+        </div>
       </div>
+      {/* add your content here later */}
     </section>
   );
 };
 
 export default ServiceHero2;
-  )
-}
