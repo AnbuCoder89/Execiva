@@ -98,8 +98,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 Back to Case Studies
               </Button>
             </div>
-            
-        </div>
+          </div>
         
         {/* Project Details - Positioned at bottom */}
         <motion.div 
@@ -156,11 +155,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
             <ArrowDown className="w-4 h-4 text-white" />
           </div>
         </motion.div>
+        </div>
       </div>
     </motion.section>
   );
 };
 
 export default HeroSection;
-  )
-}
