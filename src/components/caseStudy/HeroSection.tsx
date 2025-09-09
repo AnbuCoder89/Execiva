@@ -96,7 +96,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 className="text-gray-300 bg-white/20
   border border-white/30
   hover:text-white 
-  hover:bg-white/20"
+  "
               >
                 Back to Case Studies
               </Button>
