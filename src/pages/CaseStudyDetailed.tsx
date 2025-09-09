@@ -137,9 +137,9 @@ const CaseStudyDetailed: React.FC = () => {
         keyTechnologies={caseStudy.keyTechnologies}
         technology={caseStudy.technology}
       />
-      <BackgroundSection caseStudy={caseStudy} />
+      {/* <BackgroundSection caseStudy={caseStudy} />
       <ObjectivesSection caseStudy={caseStudy} />
-      <ApproachSection caseStudy={caseStudy} />
+      <ApproachSection caseStudy={caseStudy} /> */}
       
       {/* New Case Layout with TOC and Content */}
       <CaseLayout 
@@ -147,7 +147,7 @@ const CaseStudyDetailed: React.FC = () => {
         content={<CaseContent caseStudy={caseStudy} />}
       />
       
-      <MainContentSections caseStudy={caseStudy} />
+      {/* <MainContentSections caseStudy={caseStudy} /> */}
       {/* <ImpactAreas impactArea={caseStudy.impactArea} /> */}
       
       <CTASection 
@@ -157,5 +157,6 @@ const CaseStudyDetailed: React.FC = () => {
     </motion.div>
   );
 };
+
 
 export default CaseStudyDetailed;
