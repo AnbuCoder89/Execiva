@@ -38,15 +38,15 @@ html, body {
   animation: marquee 20s linear infinite;
 }
 
-/* Custom responsive height classes */
+/* Custom responsive height class for service hero */
 @media (min-width: 1024px) {
-  .h-screen {
+  .h-service-hero {
     height: 90vh;
   }
 }
 
 @media (max-width: 1023px) {
-  .h-screen {
+  .h-service-hero {
     height: 100vh;
   }
 }
