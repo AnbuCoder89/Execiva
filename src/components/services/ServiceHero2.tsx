@@ -52,3 +52,5 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
 };
 
 export default ServiceHero2;
+  )
+}
