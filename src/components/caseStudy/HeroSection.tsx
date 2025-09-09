@@ -146,6 +146,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
         </motion.div>
       </div>
     </motion.section>
+  )
   );
 };
 
