@@ -100,11 +100,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
             </div>
           </div>
         </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-                <span className="text-sm font-medium text-white font-sf-pro-text">
-                  {caseStudy.clientIndustry}
-                </span>
-              </div>
+
         {/* Scroll Indicator */}
         <motion.div
           className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce"
