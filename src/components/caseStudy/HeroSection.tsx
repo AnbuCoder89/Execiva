@@ -162,7 +162,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
 };
 
 export default HeroSection;
-  )
-}
-  )
-}
