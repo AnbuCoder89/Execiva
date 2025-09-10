@@ -7,6 +7,7 @@ import ServiceHero2 from './ServiceHero2';
 import ServiceFeatures from './ServiceFeatures';
 import ServiceBenefitsAndTech from './ServiceBenefitsAndTech';
 import ServiceUseCases from './ServiceUseCases';
+import ServiceUseCases2 from './ServiceUseCases2';
 import ServiceCTA from './ServiceCTA';
 import TrustedBy from './TrustedBy';
 
@@ -300,6 +301,8 @@ const ServiceDetailedPage: React.FC = () => {
       />
       
       <ServiceUseCases useCases={service.useCases} />
+      
+      <ServiceUseCases2 />
       
       <TrustedBy />
       
