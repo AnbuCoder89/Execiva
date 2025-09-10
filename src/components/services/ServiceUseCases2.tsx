@@ -6,7 +6,6 @@ const ServiceUseCases2: React.FC = () => {
       <div className="mx-auto px-6 sm:px-8 lg:px-12">
         {/* Card Container */}
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-       
           {/* Grid Container */}
           <div className="grid grid-cols-2 gap-4 min-h-[400px] md:h-96">
             {/* Left Side */}
@@ -21,9 +20,9 @@ const ServiceUseCases2: React.FC = () => {
             {/* Right Side */}
             <div className="bg-gray-100 rounded-lg flex flex-col items-center justify-center p-6 text-center">
               <p className="text-gray-900 text-lg md:text-xl font-medium leading-snug">
-            <p className="text-gray-900 text-lg md:text-xl font-medium leading-snug">
-              Get a dedicated Website Product Team to drive continuous growth.
-            </p>
+                Get a dedicated Website Product Team to drive continuous growth.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -32,6 +31,3 @@ const ServiceUseCases2: React.FC = () => {
 };
 
 export default ServiceUseCases2;
-
-  )
-}
