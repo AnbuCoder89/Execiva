@@ -32,3 +32,6 @@ const ServiceUseCases2: React.FC = () => {
 };
 
 export default ServiceUseCases2;
+
+  )
+}
