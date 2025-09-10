@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import InfiniteMarquee from "./InfiniteMarquee"; // import the marquee component you shared
+import InfiniteMarquee from "../ui/InfiniteScroll"; // import the marquee component you shared
 
 interface ServiceBenefitsAndTechProps {
   benefits?: string[];
