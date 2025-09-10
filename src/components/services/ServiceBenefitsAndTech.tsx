@@ -42,9 +42,8 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
     },
   ];
 
-  // We duplicate the array 4× so the strip is twice as long as the animation distance
-  const loopedTechnologies = [
-    ...technologies,
+  // Create multiple copies for seamless loop
+  const extendedTechnologies = [
     ...technologies,
     ...technologies,
     ...technologies,
@@ -84,21 +83,26 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
             Technologies We Use
           </h2>
 
-          {/* Scrolling Logos Marquee */}
+          {/* Circular Loop Animation Container */}
           <div className="relative overflow-hidden">
-            <div className="flex whitespace-nowrap animate-marquee-slow">
-              {loopedTechnologies.map((tech, idx) => (
+            {/* Main scrolling strip */}
+            <div className="flex animate-circular-loop">
+              {extendedTechnologies.map((tech, idx) => (
                 <div
-                  key={idx}
-                  className="inline-flex mx-10 flex-col items-center group"
+                  key={`${tech.name}-${idx}`}
+                  className="flex-shrink-0 mx-8 lg:mx-12 flex flex-col items-center group cursor-pointer"
                 >
-                  <img
-                    src={tech.src}
-                    alt={tech.name}
-                    className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
+                  <div className="relative">
+                    <img
+                      src={tech.src}
+                      alt={tech.name}
+                      className="h-12 sm:h-14 lg:h-16 object-contain transition-all duration-300 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                      loading="lazy"
+                    />
+                    {/* Hover effect overlay */}
+                    <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300"></div>
+                  </div>
+                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text transition-colors duration-300 group-hover:text-blue-600">
                     {tech.name}
                   </span>
                 </div>
@@ -109,16 +113,43 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
       </div>
 
       <style jsx>{`
-        @keyframes marquee-slow {
+        @keyframes circular-loop {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(calc(-100% / 3));
           }
         }
-        .animate-marquee-slow {
-          animation: marquee-slow 60s linear infinite;
+        
+        .animate-circular-loop {
+          animation: circular-loop 45s linear infinite;
+          width: calc(300% + 200px); /* Account for margins */
+        }
+        
+        /* Pause animation on hover for better UX */
+        .animate-circular-loop:hover {
+          animation-play-state: paused;
+        }
+        
+        /* Smooth performance optimizations */
+        .animate-circular-loop {
+          will-change: transform;
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+        
+        /* Responsive speed adjustments */
+        @media (max-width: 768px) {
+          .animate-circular-loop {
+            animation-duration: 35s;
+          }
+        }
+        
+        @media (min-width: 1024px) {
+          .animate-circular-loop {
+            animation-duration: 50s;
+          }
         }
       `}</style>
     </motion.section>
