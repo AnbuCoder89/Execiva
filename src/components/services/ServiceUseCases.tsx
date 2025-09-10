@@ -41,16 +41,6 @@ const ServiceUseCases: React.FC = () => {
   return (
     <section className="py-16 md:py-20 bg-white">
       <div className="mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
-            Use Cases & Solutions
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto">
-            Discover how our solutions can be applied to solve real-world challenges and drive meaningful results for your business.
-          </p>
-        </div>
-
         {/* Use Cases Cards */}
         <div className="space-y-8 md:space-y-12">
           {useCases.map((useCase, index) => (
