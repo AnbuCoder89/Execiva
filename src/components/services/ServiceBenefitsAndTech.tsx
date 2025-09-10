@@ -72,7 +72,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
     >
       <div className="mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div variants={itemVariants}>
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center font-sf-pro-display">
             Technologies We Use
           </h2>
 
@@ -91,7 +91,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
                     className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
                     loading="lazy"
                   />
-                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700">
+                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
                     {tech.name}
                   </span>
                 </div>
@@ -109,7 +109,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
                     className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
                     loading="lazy"
                   />
-                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700">
+                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
                     {tech.name}
                   </span>
                 </div>
