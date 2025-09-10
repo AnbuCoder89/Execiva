@@ -3,7 +3,7 @@ import React from "react";
 const ServiceUseCases2: React.FC = () => {
   return (
     <section className="bg-white p-4 sm:p-6 lg:p-8">
-      <div className="w-full flex justify-center">
+      <div className="w-full flex">
         {/* Card Container - Equal height design */}
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden w-full flex flex-col md:flex-row">
           <div className="flex flex-col md:flex-row">
