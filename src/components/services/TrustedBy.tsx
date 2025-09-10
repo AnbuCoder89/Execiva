@@ -47,9 +47,6 @@ const TrustedBy: React.FC = () => {
     <section className="relative w-full px-6 sm:px-8 lg:px-12 pb-12 md:pb-20 text-black overflow-hidden">
       <div className="relative z-content">
         <div className="flex w-full flex-col items-center">
-          <p className="text-base lg:text-lg font-sf-pro-text mb-5 text-center sm:mb-6 text-black">
-            Trusted by industry leaders and developers worldwide
-          </p>
           
           {/* Desktop Logo Grid */}
           <div className="hidden lg:block lg:min-h-[108px] xl:min-h-[138px]">
