@@ -56,7 +56,7 @@ const ServiceUseCases: React.FC = () => {
           {useCases.map((useCase, index) => (
             <div
               key={useCase.id}
-              className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden"
+              className="w-full bg-white rounded-lg overflow-hidden"
             >
               <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0`}>
                 {/* Content Section */}
@@ -75,16 +75,6 @@ const ServiceUseCases: React.FC = () => {
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed font-sf-pro-text">
                       {useCase.description}
                     </p>
-
-                    <div className="pt-4">
-                      <Button
-                        variant="vision"
-                        size="lg"
-                        className="px-8 py-4"
-                      >
-                        {useCase.ctaLabel}
-                      </Button>
-                    </div>
                   </div>
                 </div>
 
