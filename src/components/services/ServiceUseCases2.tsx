@@ -18,7 +18,7 @@ const ServiceUseCases2: React.FC = () => {
 
             {/* Right Side - Content */}
             <div className="md:w-1/2 p-8 md:p-12 lg:p-8 flex flex-col h-[400px] md:h-[500px]">
-              <div className="md:4">
+              <div className="mb:4">
                 <span className="inline-block px-4 py-2 bg-beige text-gray-900 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200">
                   Website Redesign
                 </span>
