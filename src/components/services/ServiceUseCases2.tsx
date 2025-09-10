@@ -24,7 +24,6 @@ const ServiceUseCases2: React.FC = () => {
         </div>
       </div>
     </section>
-  )
   );
 };
 
