@@ -52,35 +52,11 @@ html, body {
 }
 
 /* Hero text styles */
-@media (min-width: 1024px) {
-  .hero-header {
-    font-size: 6rem;
-    line-height: 1.5;
-  }
-  
-  .hero-description {
-    font-size: 2rem;
-  }
+.hero-header {
+  font-size: 6rem;
+  line-height: 1.5;
 }
 
-@media (max-width: 1023px) and (min-width: 768px) {
-  .hero-header {
-    font-size: 4rem;
-    line-height: 1.4;
-  }
-  
-  .hero-description {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .hero-header {
-    font-size: 2.5rem;
-    line-height: 1.3;
-  }
-  
-  .hero-description {
-    font-size: 1.125rem;
-  }
+.hero-description {
+  font-size: 2rem; 
 }
