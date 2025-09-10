@@ -24,7 +24,9 @@ const ServiceUseCases2: React.FC = () => {
             {/* Div2 - right side, spans 1 column */}
             <div className="bg-gray-100 rounded-lg flex items-center justify-center">
               <span className="text-gray-500 text-lg">2</span>
-            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-sf-pro-display text-center px-4">
+              Get a dedicated Website Product Team to drive continuous growth.
+            </h2>
           </div>
         </div>
       </div>
