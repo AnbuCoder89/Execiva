@@ -101,14 +101,16 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
           parallaxStyle={parallaxStyle}
           scrollerStyle={scrollerStyle}
         >
-          {images.map((img, idx) => (
-            <img
-              key={idx}
-              src={img.src}
-              alt={img.alt ?? ""}
-              className={img.className ?? "h-16 mx-8 flex-shrink-0"}
-            />
-          ))}
+          <div className="flex items-center">
+            {images.map((img, idx) => (
+              <img
+                key={idx}
+                src={img.src}
+                alt={img.alt ?? ""}
+                className={img.className ?? "h-16 mx-8 flex-shrink-0"}
+              />
+            ))}
+          </div>
         </VelocityText>
       )}
     </section>
