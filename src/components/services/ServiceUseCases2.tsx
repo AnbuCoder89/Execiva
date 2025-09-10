@@ -29,16 +29,7 @@ const ServiceUseCases2: React.FC = () => {
                 Get a tailored Website Product Team to help you continuously manage, optimize, and scale your website. Taking an agile, data-driven approach, we ensure your site evolves alongside your business goals.
               </p>
               
-              {/* Author/Attribution Section */}
-              <div className="flex items-center">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-gray-600 font-medium text-sm md:text-base">EX</span>
-                </div>
-                <div>
-                  <p className="text-gray-900 font-medium text-sm md:text-base">Execiva Team</p>
-                  <p className="text-gray-500 text-xs md:text-sm">Digital Solutions</p>
-                </div>
-              </div>
+ 
             </div>
           </div>
         </div>
