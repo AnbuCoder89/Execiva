@@ -298,8 +298,9 @@ const ServiceDetailedPage: React.FC = () => {
       
       <ServiceUseCases2 />
       
-      <TrustedBy />
-      
+      {/* <TrustedBy /> */}
+
+    
       <ServiceCTA
         serviceName={service.title}
         onGetStarted={handleGetStarted}
