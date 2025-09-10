@@ -17,37 +17,37 @@ const ServiceUseCases2: React.FC<ServiceUseCases2Props> = ({ useCases }) => {
   const defaultUseCases: UseCase[] = [
     {
       title: "Website Redesign",
-      image: "/image/services/website_redesign.jpeg",
+      image: "/image/vision/vision-1.jpeg",
       heading: "Revamp your website to boost conversions and increase pipeline.",
       description: "By enhancing user experience, optimizing performance, and implementing scalable design, our website redesigns help you attract more visitors, convert leads, and drive sustainable growth."
     },
     {
       title: "Website Migrations",
-      image: "/image/services/website_redesign.jpeg",
+      image: "/image/vision/vision-1.jpeg",
       heading: "Seamlessly move your website to a new platform without disruptions.",
       description: "Our migration experts handle every step of the process, ensuring your data, design, and functionality are securely transferred, minimizing downtime and maintaining SEO rankings."
     },
     {
       title: "Ongoing Website Services",
-      image: "/image/services/website_redesign.jpeg",
+      image: "/image/vision/vision-1.jpeg",
       heading: "Keep your website running smoothly with proactive maintenance.",
       description: "From regular updates and security patches to performance optimization and feature enhancements, we provide continuous support to keep your site secure, fast, and up-to-date."
     },
     {
       title: "AI Integrations",
-      image: "/image/services/website_redesign.jpeg",
+      image: "/image/vision/vision-1.jpeg",
       heading: "Enhance your website with powerful AI-driven capabilities.",
       description: "We integrate intelligent tools like chatbots, personalization engines, and analytics solutions to improve user engagement, streamline operations, and deliver actionable insights."
     },
     {
       title: "Database Design and Management",
-      image: "/image/services/website_redesign.jpeg",
+      image: "/image/vision/vision-1.jpeg",
       heading: "Build and maintain robust databases tailored to your business needs.",
       description: "Our team designs scalable, secure, and high-performance databases, ensuring smooth data flow, reliable backups, and optimized queries for your applications."
     },
     {
       title: "SEO",
-      image: "/image/services/website_redesign.jpeg",
+      image: "/image/vision/vision-1.jpeg",
       heading: "Boost your online visibility and outrank competitors.",
       description: "Through strategic keyword research, on-page optimization, technical audits, and link building, we help you improve search rankings, drive targeted traffic, and grow your online presence."
     }
