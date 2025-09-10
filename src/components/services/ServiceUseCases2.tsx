@@ -19,7 +19,7 @@ const ServiceUseCases2: React.FC = () => {
             {/* Right Side - Content */}
             <div className="md:w-1/2 p-8 md:p-12 lg:p-8 flex flex-col h-[400px] md:h-[500px]">
               {/* Main Heading */}
-              <p className="text-gray-900 text-xl md:text-2xl lg:text-3xl font-medium leading-snug mb-6">
+              <p className="text-gray-900 text-xl md:text-2xl lg:text-[2.875rem] lg:leading-[3.25rem] font-medium leading-snug mb-6">
                 Get a dedicated Website Product Team to drive continuous growth.
               </p>
 
