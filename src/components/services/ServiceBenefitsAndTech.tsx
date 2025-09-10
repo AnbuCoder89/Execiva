@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import ScrollVelocity from '@/components/ui/InfiniteScroll';
 
 interface ServiceBenefitsAndTechProps {
   benefits?: string[];
@@ -132,6 +133,19 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
           animation: marquee-slow 30s linear infinite;
         }
       `}</style>
+
+
+      <ScrollVelocity
+  images={[
+    { src: '/logo1.svg', alt: 'Logo 1', className: 'h-16 mx-8' },
+    { src: '/logo2.svg', alt: 'Logo 2', className: 'h-16 mx-8' },
+    { src: '/logo3.svg', alt: 'Logo 3', className: 'h-16 mx-8' },
+  ]}
+  velocity={80}
+  numCopies={8}
+/>
+
+      
     </motion.section>
   );
 };
