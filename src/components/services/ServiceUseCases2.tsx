@@ -6,8 +6,13 @@ const ServiceUseCases2: React.FC = () => {
       <div className="mx-auto px-6 sm:px-8 lg:px-12">
         {/* Card Container */}
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+          {/* Heading */}
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-sf-pro-display mb-8">
+            Get a dedicated Website Product Team to drive continuous growth.
+          </h2>
+          
           {/* Grid Container */}
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2 min-h-[400px] md:h-96">
             {/* Div1 - left side, spans 1 column */}
             <div className="rounded-lg overflow-hidden">
               <img 
