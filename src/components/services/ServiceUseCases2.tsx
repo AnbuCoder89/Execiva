@@ -25,7 +25,7 @@ const ServiceUseCases2: React.FC = () => {
 
               
               {/* Description */}
-              <p className="text-gray-600 text-base md:text-lg lg:text-xl leading-relaxed mb-8">
+              <p className="text-gray-600 text-base md:text-lg lg:text-[1.80rem] lg:leading-[2rem] leading-relaxed mb-8">
                 Get a tailored Website Product Team to help you continuously manage, optimize, and scale your website. Taking an agile, data-driven approach, we ensure your site evolves alongside your business goals.
               </p>
               
