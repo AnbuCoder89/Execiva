@@ -85,7 +85,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ serviceName = "our services" 
 
   return (
     <motion.section 
-      className="py-16 md:py-20 lg:py-24 bg-gray-50"
+      className="py-16 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
