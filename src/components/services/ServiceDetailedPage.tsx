@@ -296,12 +296,14 @@ const ServiceDetailedPage: React.FC = () => {
         benefits={service.benefits}
         technologies={service.technologies}
       />
+
+            <WhyChooseUs serviceName={service.title} />
       
       <ServiceUseCases2 />
       
       {/* <TrustedBy /> */}
       
-      <WhyChooseUs serviceName={service.title} />
+
 
     
       <ServiceCTA
