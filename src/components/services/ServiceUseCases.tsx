@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import Button from "../ui/Button";
 
 const useCases = [
@@ -39,140 +38,70 @@ const useCases = [
 ];
 
 const ServiceUseCases: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
-    <motion.section 
-      className="py-16 md:py-20 bg-white"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
-    >
+    <section className="py-16 md:py-20 bg-white">
       <div className="mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
-          variants={itemVariants}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display"
-            variants={itemVariants}
-          >
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display">
             Use Cases & Solutions
-          </motion.h2>
-          <motion.p 
-            className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto"
-            variants={itemVariants}
-          >
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto">
             Discover how our solutions can be applied to solve real-world challenges and drive meaningful results for your business.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Use Cases Cards */}
-        <motion.div 
-          className="space-y-8 md:space-y-12"
-          variants={containerVariants}
-        >
+        <div className="space-y-8 md:space-y-12">
           {useCases.map((useCase, index) => (
-            <motion.div
+            <div
               key={useCase.id}
-              className="w-full bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.02,
-                y: -8,
-                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
-              }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden"
             >
               <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0`}>
                 {/* Content Section */}
                 <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-                  <motion.div 
-                    className="space-y-6"
-                    variants={itemVariants}
-                  >
+                  <div className="space-y-6">
                     <div className="space-y-4">
-                      <motion.span 
-                        className="inline-block px-4 py-2 bg-beige text-gray-900 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200"
-                        variants={itemVariants}
-                      >
+                      <span className="inline-block px-4 py-2 bg-beige text-gray-900 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200">
                         {useCase.label}
-                      </motion.span>
+                      </span>
                       
-                      <motion.h3 
-                        className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-sf-pro-display"
-                        variants={itemVariants}
-                      >
+                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-sf-pro-display">
                         {useCase.title}
-                      </motion.h3>
+                      </h3>
                     </div>
 
-                    <motion.p 
-                      className="text-base md:text-lg text-gray-600 leading-relaxed font-sf-pro-text"
-                      variants={itemVariants}
-                    >
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed font-sf-pro-text">
                       {useCase.description}
-                    </motion.p>
+                    </p>
 
-                    <motion.div 
-                      className="pt-4"
-                      variants={itemVariants}
-                    >
+                    <div className="pt-4">
                       <Button
                         variant="vision"
                         size="lg"
-                        className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        className="px-8 py-4"
                       >
                         {useCase.ctaLabel}
                       </Button>
-                    </motion.div>
-                  </motion.div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Image Section */}
                 <div className="flex-1 relative min-h-[300px] lg:min-h-[400px]">
-                  <motion.img
+                  <img
                     src={useCase.image}
                     alt={useCase.label}
                     className="absolute inset-0 w-full h-full object-cover"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-black/10" />
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
