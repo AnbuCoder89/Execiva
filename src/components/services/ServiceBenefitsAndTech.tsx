@@ -135,14 +135,14 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
       `}</style>
 
 
-      <ScrollVelocity
-  images={[
-    { src: '/logo1.svg', alt: 'Logo 1', className: 'h-16 mx-8' },
-    { src: '/logo2.svg', alt: 'Logo 2', className: 'h-16 mx-8' },
-    { src: '/logo3.svg', alt: 'Logo 3', className: 'h-16 mx-8' },
-  ]}
+<ScrollVelocity
+  images={technologies.map(logo => ({
+    src: logo.src,
+    alt: logo.name,
+    className: "h-16 mx-8 flex-shrink-0"
+  }))}
   velocity={80}
-  numCopies={1}
+  numCopies={10} // increase to ensure infinite loop without gaps
 />
 
       
