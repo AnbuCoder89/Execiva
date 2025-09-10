@@ -26,17 +26,22 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  // Base styles
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-sf-pro-text';
+  // Base styles (no transition-all/duration-300)
+  const baseStyles =
+    'inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-sf-pro-text';
 
   // Variant styles
   const variantStyles = {
-    primary: 'bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-500 shadow-lg hover:shadow-xl transform hover:scale-105',
-    secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500 shadow-md hover:shadow-lg',
-    outline: 'border-2 border-gray-900 text-gray-900 bg-transparent hover:bg-gray-900 hover:text-white focus:ring-gray-500 shadow-md hover:shadow-lg',
-    ghost: 'text-white backdrop-blur-sm  hover:border-white',
+    primary:
+      'bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-500 shadow-lg hover:shadow-xl',
+    secondary:
+      'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500 shadow-md hover:shadow-lg',
+    outline:
+      'border-2 border-gray-900 text-gray-900 bg-transparent hover:bg-gray-900 hover:text-white focus:ring-gray-500 shadow-md hover:shadow-lg',
+    ghost: 'text-white backdrop-blur-sm hover:border-white',
     link: 'text-gray-900 bg-transparent hover:text-gray-700 underline-offset-4 hover:underline focus:ring-gray-500',
-    vision: 'text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500' + ' ' + 'bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd]'
+    vision:
+      'text-gray-900 border-2 shadow-lg hover:shadow-xl bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] focus:ring-gray-500'
   };
 
   // Size styles
@@ -75,20 +80,23 @@ const Button: React.FC<ButtonProps> = ({
     roundedStyles[rounded],
     widthStyles,
     className
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <motion.button
       className={combinedStyles}
       disabled={disabled || loading}
-      whileHover={{ 
+      // Framer Motion handles hover/tap animations
+      whileHover={{
         scale: 1.02,
         y: -1,
-        transition: { type: "spring", stiffness: 400, damping: 17 }
+        transition: { duration: 0.25, ease: 'easeOut' }
       }}
-      whileTap={{ 
+      whileTap={{
         scale: 0.98,
-        transition: { type: "spring", stiffness: 400, damping: 17 }
+        transition: { duration: 0.15, ease: 'easeOut' }
       }}
       {...props}
     >
@@ -100,7 +108,7 @@ const Button: React.FC<ButtonProps> = ({
             fill="none"
             viewBox="0 0 24 24"
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           >
             <circle
               className="opacity-25"
@@ -123,7 +131,7 @@ const Button: React.FC<ButtonProps> = ({
           {Icon && iconPosition === 'left' && (
             <motion.div
               whileHover={{ x: -2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
               <Icon size={iconSizes[size]} />
             </motion.div>
@@ -132,7 +140,7 @@ const Button: React.FC<ButtonProps> = ({
           {Icon && iconPosition === 'right' && (
             <motion.div
               whileHover={{ x: 2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
               <Icon size={iconSizes[size]} />
             </motion.div>
