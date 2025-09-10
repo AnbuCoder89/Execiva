@@ -200,9 +200,9 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`sticky top-4 mx-auto max-w-7xl z-[999] rounded-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md border border-gray-200 shadow-lg' 
+          ? 'bg-white/95 backdrop-blur-md' 
           : 'bg-transparent'
       }`}
       animate={{
