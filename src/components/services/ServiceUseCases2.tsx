@@ -6,27 +6,24 @@ const ServiceUseCases2: React.FC = () => {
       <div className="mx-auto px-6 sm:px-8 lg:px-12">
         {/* Card Container */}
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-          {/* Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-sf-pro-display mb-8">
-            Get a dedicated Website Product Team to drive continuous growth.
-          </h2>
-          
+       
           {/* Grid Container */}
-          <div className="grid grid-cols-2 gap-2 min-h-[400px] md:h-96">
-            {/* Div1 - left side, spans 1 column */}
+          <div className="grid grid-cols-2 gap-4 min-h-[400px] md:h-96">
+            {/* Left Side */}
             <div className="rounded-lg overflow-hidden">
-              <img 
+              <img
                 src="https://cdn.sanity.io/images/q9c9g16o/production/214d51304ca5e675e91994b7add6a7c370e5af15-8095x5399.jpg?w=1200&q=80"
                 alt="Service showcase"
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Div2 - right side, spans 1 column */}
-            <div className="bg-gray-100 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500 text-lg">2</span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-sf-pro-display text-center px-4">
+
+            {/* Right Side */}
+            <div className="bg-gray-100 rounded-lg flex flex-col items-center justify-center p-6 text-center">
+              <p className="text-gray-900 text-lg md:text-xl font-medium leading-snug">
+            <p className="text-gray-900 text-lg md:text-xl font-medium leading-snug">
               Get a dedicated Website Product Team to drive continuous growth.
-            </h2>
+            </p>
           </div>
         </div>
       </div>
@@ -35,5 +32,3 @@ const ServiceUseCases2: React.FC = () => {
 };
 
 export default ServiceUseCases2;
-  )
-}
