@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+import Button from "../ui/Button";
 
-const tabs = [
+const useCases = [
   {
     id: "redesign",
     label: "Website Redesign",
@@ -38,96 +39,140 @@ const tabs = [
 ];
 
 const ServiceUseCases: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
 
-  const activeContent = tabs.find((tab) => tab.id === activeTab)!;
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
 
   return (
-    <section className="relative w-full px-6 sm:px-8 lg:px-12 pt-12 md:pt-20 pb-12 md:pb-20 text-pureWhite">
-      {/* Tabs */}
-      <div className="flex flex-col items-center justify-center pb-10 md:pb-16">
-        <div className="relative hidden md:flex flex-row items-center gap-2 px-2 py-2 bg-neutral-900/40 rounded-full">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`relative z-10 px-6 py-2.5 rounded-full text-sm lg:text-base font-medium transition-colors duration-200 cursor-pointer
-                ${activeTab === tab.id ? "text-pureBlack" : "text-pureWhite"}`}
-            >
-              {activeTab === tab.id && (
-                <motion.div
-                  layoutId="active-pill"
-                  className="absolute inset-0 bg-pureWhite rounded-full shadow"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{tab.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Dynamic Section */}
-      <div className="container w-full bg-black rounded-xl p-8">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeContent.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.5 }}
-            className="flex w-full flex-col gap-8 lg:gap-24 lg:flex-row lg:justify-between"
+    <motion.section 
+      className="py-16 md:py-20 bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
+      <div className="mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Header */}
+        <motion.div 
+          className="text-center mb-16"
+          variants={itemVariants}
+        >
+          <motion.h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display"
+            variants={itemVariants}
           >
-            {/* Left Content */}
-            <div className="flex w-full flex-col justify-center gap-8 lg:max-w-[700px]">
-              <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-4">
-                  <h4 className="flex w-fit text-base items-center gap-2.5 text-[var(--fgColor-accent)] uppercase font-shareTechMono">
-                    {activeContent.label}
-                  </h4>
-                  <div className="pt-2">
-                    <h2 className="mb-0 text-3xl lg:text-4xl font-medium">
-                      {activeContent.title}
-                    </h2>
-                  </div>
-                </div>
+            Use Cases & Solutions
+          </motion.h2>
+          <motion.p 
+            className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto"
+            variants={itemVariants}
+          >
+            Discover how our solutions can be applied to solve real-world challenges and drive meaningful results for your business.
+          </motion.p>
+        </motion.div>
 
-                <div className="flex w-full flex-col gap-6">
-                  <p>{activeContent.description}</p>
-                  <div className="flex flex-wrap gap-4">
-                    <a
-                      className="group inline-flex items-center justify-center text-center rounded-lg transition-colors whitespace-nowrap gap-2 font-medium text-sm leading-none px-4 py-1 h-[46px] flex-shrink-0 bg-blue-700 text-white hover:bg-blue-800 sm:w-fit"
-                      href={activeContent.cta}
+        {/* Use Cases Cards */}
+        <motion.div 
+          className="space-y-8 md:space-y-12"
+          variants={containerVariants}
+        >
+          {useCases.map((useCase, index) => (
+            <motion.div
+              key={useCase.id}
+              className="w-full bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
+              variants={itemVariants}
+              whileHover={{
+                scale: 1.02,
+                y: -8,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0`}>
+                {/* Content Section */}
+                <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                  <motion.div 
+                    className="space-y-6"
+                    variants={itemVariants}
+                  >
+                    <div className="space-y-4">
+                      <motion.span 
+                        className="inline-block px-4 py-2 bg-beige text-gray-900 rounded-full text-sm font-medium font-sf-pro-text border border-gray-200"
+                        variants={itemVariants}
+                      >
+                        {useCase.label}
+                      </motion.span>
+                      
+                      <motion.h3 
+                        className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 leading-tight font-sf-pro-display"
+                        variants={itemVariants}
+                      >
+                        {useCase.title}
+                      </motion.h3>
+                    </div>
+
+                    <motion.p 
+                      className="text-base md:text-lg text-gray-600 leading-relaxed font-sf-pro-text"
+                      variants={itemVariants}
                     >
-                      <span className="flex size-full items-center justify-center gap-2 p-1">
-                        {activeContent.ctaLabel}
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                      {useCase.description}
+                    </motion.p>
 
-            {/* Right Image */}
-            <div className="switchback-image-wrapper flex w-full items-center pt-8 md:pt-0 lg:max-w-[700px]">
-              <div className="flex w-full justify-end">
-                <div className="w-full overflow-hidden">
-                  <div className="group relative w-full overflow-hidden">
-                    <img
-                      alt={activeContent.label}
-                      loading="lazy"
-                      decoding="async"
-                      className="animate-mask-reveal w-full rounded-xl object-contain"
-                      src={activeContent.image}
-                    />
-                  </div>
+                    <motion.div 
+                      className="pt-4"
+                      variants={itemVariants}
+                    >
+                      <Button
+                        variant="vision"
+                        size="lg"
+                        className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+                      >
+                        {useCase.ctaLabel}
+                      </Button>
+                    </motion.div>
+                  </motion.div>
+                </div>
+
+                {/* Image Section */}
+                <div className="flex-1 relative min-h-[300px] lg:min-h-[400px]">
+                  <motion.img
+                    src={useCase.image}
+                    alt={useCase.label}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-black/10" />
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
