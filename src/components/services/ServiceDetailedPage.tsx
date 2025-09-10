@@ -297,7 +297,7 @@ const ServiceDetailedPage: React.FC = () => {
         technologies={service.technologies}
       />
 
-            <WhyChooseUs serviceName={service.title} />
+      <WhyChooseUs serviceName={service.title} />
       
       <ServiceUseCases2 />
       
