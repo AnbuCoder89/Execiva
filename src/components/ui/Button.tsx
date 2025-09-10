@@ -38,7 +38,7 @@ const Button: React.FC<ButtonProps> = ({
       'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500 shadow-md hover:shadow-lg',
     outline:
       'border-2 border-gray-900 text-gray-900 bg-transparent hover:bg-gray-900 hover:text-white focus:ring-gray-500 shadow-md hover:shadow-lg',
-    ghost: 'text-white backdrop-blur-sm hover:border-white',
+    ghost: 'text-white backdrop-blur-sm border border-transparent hover:border-white',
     link: 'text-gray-900 bg-transparent hover:text-gray-700 underline-offset-4 hover:underline focus:ring-gray-500',
     vision:
       'text-gray-900 border-2 shadow-lg hover:shadow-xl bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] focus:ring-gray-500'
