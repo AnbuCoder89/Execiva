@@ -17,19 +17,19 @@ const ServiceUseCases2: React.FC = () => {
             </div>
 
             {/* Right Side - Content */}
-            <div className="md:w-1/2 p-8 md:p-12 lg:p-8 flex flex-col h-[400px] md:h-[500px]">
+            <div className="md:w-1/2 p-8 md:p-12 lg:p-8 flex flex-col justify-between h-[400px] md:h-[500px]">
+              <div>
               {/* Main Heading */}
               <p className="text-gray-900 text-xl md:text-2xl lg:text-[2.875rem] lg:leading-[3.25rem] font-medium leading-snug mb-6">
                 Get a dedicated Website Product Team to drive continuous growth.
               </p>
 
-              
               {/* Description */}
               <p className="text-gray-600 text-base md:text-lg lg:text-[1.80rem] lg:leading-[2rem] leading-relaxed mb-8">
                 Get a tailored Website Product Team to help you continuously manage, optimize, and scale your website. Taking an agile, data-driven approach, we ensure your site evolves alongside your business goals.
               </p>
+              </div>
 
-              
               {/* Author/Attribution Section */}
               <div className="flex items-center">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
