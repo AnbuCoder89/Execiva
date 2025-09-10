@@ -142,7 +142,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
     { src: '/logo3.svg', alt: 'Logo 3', className: 'h-16 mx-8' },
   ]}
   velocity={80}
-  numCopies={8}
+  numCopies={1}
 />
 
       
