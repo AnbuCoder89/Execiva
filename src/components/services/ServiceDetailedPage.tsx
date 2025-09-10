@@ -8,6 +8,7 @@ import ServiceBenefitsAndTech from './ServiceBenefitsAndTech';
 import ServiceUseCases2 from './ServiceUseCases2';
 import ServiceCTA from './ServiceCTA';
 import TrustedBy from './TrustedBy';
+import WhyChooseUs from './WhyChooseUs';
 
 interface Service {
   id: string;
@@ -299,6 +300,8 @@ const ServiceDetailedPage: React.FC = () => {
       <ServiceUseCases2 />
       
       {/* <TrustedBy /> */}
+      
+      <WhyChooseUs serviceName={service.title} />
 
     
       <ServiceCTA
