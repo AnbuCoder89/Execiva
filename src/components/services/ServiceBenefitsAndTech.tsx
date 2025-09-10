@@ -42,6 +42,14 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
     },
   ];
 
+  // We duplicate the array 4× so the strip is twice as long as the animation distance
+  const loopedTechnologies = [
+    ...technologies,
+    ...technologies,
+    ...technologies,
+    ...technologies,
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -79,28 +87,9 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
           {/* Scrolling Logos Marquee */}
           <div className="relative overflow-hidden">
             <div className="flex whitespace-nowrap animate-marquee-slow">
-              {/* First pass */}
-              {technologies.map((tech, idx) => (
+              {loopedTechnologies.map((tech, idx) => (
                 <div
-                  key={`first-${idx}`}
-                  className="inline-flex mx-10 flex-col items-center group"
-                >
-                  <img
-                    src={tech.src}
-                    alt={tech.name}
-                    className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
-
-              {/* Second pass (for seamless loop) */}
-              {technologies.map((tech, idx) => (
-                <div
-                  key={`second-${idx}`}
+                  key={idx}
                   className="inline-flex mx-10 flex-col items-center group"
                 >
                   <img
@@ -125,11 +114,11 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-100%);
           }
         }
         .animate-marquee-slow {
-          animation: marquee-slow 30s linear infinite;
+          animation: marquee-slow 60s linear infinite;
         }
       `}</style>
     </motion.section>
