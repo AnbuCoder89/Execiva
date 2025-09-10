@@ -183,12 +183,12 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
         </VelocityText>
       ))}
 
-      {/* image rows */}
-      {images.map((img, index) => (
+      {/* single image row with all images */}
+      {images.length > 0 && (
         <VelocityText
-          key={`img-${index}`}
+          key="all-images"
           className={className}
-          baseVelocity={index % 2 !== 0 ? -velocity : velocity}
+          baseVelocity={velocity}
           scrollContainerRef={scrollContainerRef}
           damping={damping}
           stiffness={stiffness}
@@ -199,13 +199,16 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
           parallaxStyle={parallaxStyle}
           scrollerStyle={scrollerStyle}
         >
-          <img
-            src={img.src}
-            alt={img.alt ?? ''}
-            className={img.className ?? 'h-16 mx-8'}
-          />
+          {images.map((img, index) => (
+            <img
+              key={index}
+              src={img.src}
+              alt={img.alt ?? ''}
+              className={img.className ?? 'h-16 mx-8'}
+            />
+          ))}
         </VelocityText>
-      ))}
+      )}
     </section>
   );
 };
