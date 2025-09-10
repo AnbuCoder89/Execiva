@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import Button from '../ui/Button';
 import ServiceHero2 from './ServiceHero2';
-import ServiceFeatures from './ServiceFeatures';
 import ServiceBenefitsAndTech from './ServiceBenefitsAndTech';
 import ServiceUseCases2 from './ServiceUseCases2';
 import ServiceCTA from './ServiceCTA';
@@ -291,8 +290,6 @@ const ServiceDetailedPage: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
     <ServiceHero2 />
-      
-      <ServiceFeatures features={service.features} />
       
       <ServiceBenefitsAndTech 
         benefits={service.benefits}
