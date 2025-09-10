@@ -98,22 +98,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
               ))}
 
               {/* Second pass (for seamless loop) */}
-              {technologies.map((tech, idx) => (
-                <div
-                  key={`second-${idx}`}
-                  className="flex-shrink-0 mx-10 flex flex-col items-center group"
-                >
-                  <img
-                    src={tech.src}
-                    alt={tech.name}
-                    className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
+              
             </div>
           </div>
         </motion.div>
