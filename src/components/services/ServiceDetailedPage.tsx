@@ -9,7 +9,6 @@ import ServiceBenefitsAndTech from './ServiceBenefitsAndTech';
 import ServiceUseCases from './ServiceUseCases';
 import ServiceCTA from './ServiceCTA';
 import TrustedBy from './TrustedBy';
-import ServiceBackground from './service-background';
 
 interface Service {
   id: string;
@@ -294,8 +293,6 @@ const ServiceDetailedPage: React.FC = () => {
     <ServiceHero2 />
       
       <ServiceFeatures features={service.features} />
-      
-      <ServiceBackground />
       
       <ServiceBenefitsAndTech 
         benefits={service.benefits}
