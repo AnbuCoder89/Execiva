@@ -1,72 +1,143 @@
 import React from "react";
 import { motion } from "framer-motion";
-import InfiniteMarquee from "../ui/InfiniteScroll"; // import the marquee component you shared
+import ScrollVelocity from '@/components/ui/InfiniteScroll';
 
 interface ServiceBenefitsAndTechProps {
   benefits?: string[];
-  technologies?: { name: string; src: string }[];
+  technologies?: string[];
 }
 
-const defaultBenefits = [
-  "Custom scalable solutions",
-  "Optimized performance",
-  "Seamless user experience",
-  "Cutting-edge technologies",
-];
+const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
+  const technologies = [
+    {
+      name: "React",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+    },
+    {
+      name: "Next.js",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      name: "Node.js",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
+    },
+    {
+      name: "TypeScript",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+    },
+    {
+      name: "MongoDB",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+    },
+    {
+      name: "PostgreSQL",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
+    },
+    {
+      name: "AWS",
+      src: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg",
+    },
+    {
+      name: "Docker",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg",
+    },
+  ];
 
-const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = ({
-  benefits = defaultBenefits,
-  technologies,
-}) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
+  };
+
   return (
-    <section className="py-16 px-6 md:px-16 bg-gray-50">
-      {/* Heading */}
-      <motion.h2
-        className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        Why Choose Our Services
-      </motion.h2>
+    <motion.section
+      className="py-16 md:py-20 bg-white overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
+      <div className="mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div variants={itemVariants}>
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center font-sf-pro-display">
+            Technologies We Use
+          </h2>
 
-      {/* Benefits */}
-      <motion.ul
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: 0.2 } },
-        }}
-      >
-        {benefits.map((benefit, idx) => (
-          <motion.li
-            key={idx}
-            className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition-shadow cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            {benefit}
-          </motion.li>
-        ))}
-      </motion.ul>
+          {/* Scrolling Logos Marquee */}
+          <div className="relative overflow-hidden">
+            <div className="flex animate-marquee-slow">
+              {/* First pass */}
+              {technologies.map((tech, idx) => (
+                <div
+                  key={`first-${idx}`}
+                  className="flex-shrink-0 mx-10 flex flex-col items-center group"
+                >
+                  <img
+                    src={tech.src}
+                    alt={tech.name}
+                    className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
 
-      {/* Technologies Marquee */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <InfiniteMarquee />
-      </motion.div>
-    </section>
+              {/* Second pass (for seamless loop) */}
+              {technologies.map((tech, idx) => (
+                <div
+                  key={`second-${idx}`}
+                  className="flex-shrink-0 mx-10 flex flex-col items-center group"
+                >
+                  <img
+                    src={tech.src}
+                    alt={tech.name}
+                    className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      <style jsx>{`
+        @keyframes marquee-slow {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee-slow {
+          animation: marquee-slow 30s linear infinite;
+        }
+      `}</style>
+
+      
+    </motion.section>
   );
 };
 
 export default ServiceBenefitsAndTech;
+
