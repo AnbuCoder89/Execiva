@@ -25,7 +25,7 @@ const ServiceUseCases2: React.FC = () => {
               </div>
               <div>
               {/* Main Heading */}
-              <p className="text-gray-900 text-xl md:text-2xl lg:text-[2.875rem] lg:leading-[3.25rem] font-medium leading-snug mb-6">
+              <p className="text-gray-900 text-xl md:text-2xl lg:text-[2.875rem] lg:leading-[3.25rem] font-medium leading-snug mb-6 mt-6">
                 Get a dedicated Website Product Team to drive continuous growth.
               </p>
 
