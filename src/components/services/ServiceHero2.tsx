@@ -53,7 +53,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
                 size="lg"
                 icon={ArrowLeft}
                 iconPosition="left"
-                className="text-white border border-white backdrop-blur-sm hover:border-white"
+                className="text-white border backdrop-blur-sm hover:border-white"
               >
                 Back to Services
               </Button>
