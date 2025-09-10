@@ -78,12 +78,12 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
 
           {/* Scrolling Logos Marquee */}
           <div className="relative overflow-hidden">
-            <div className="flex animate-marquee-slow">
+            <div className="flex whitespace-nowrap animate-marquee-slow">
               {/* First pass */}
               {technologies.map((tech, idx) => (
                 <div
                   key={`first-${idx}`}
-                  className="flex-shrink-0 mx-10 flex flex-col items-center group"
+                  className="inline-flex mx-10 flex-col items-center group"
                 >
                   <img
                     src={tech.src}
@@ -101,7 +101,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
               {technologies.map((tech, idx) => (
                 <div
                   key={`second-${idx}`}
-                  className="flex-shrink-0 mx-10 flex flex-col items-center group"
+                  className="inline-flex mx-10 flex-col items-center group"
                 >
                   <img
                     src={tech.src}
@@ -119,7 +119,6 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
         </motion.div>
       </div>
 
-      
       <style jsx>{`
         @keyframes marquee-slow {
           0% {
