@@ -49,7 +49,7 @@ const ServiceHero2: React.FC<ServiceHero2Props> = ({
                 Get Started
               </Button>
               <Button
-                variant="ghost"
+                variant=""
                 size="lg"
                 icon={ArrowLeft}
                 iconPosition="left"
