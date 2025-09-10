@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from 'react';
+import React, { useRef, useLayoutEffect, useState } from "react";
 import {
   motion,
   useScroll,
@@ -6,8 +6,8 @@ import {
   useTransform,
   useMotionValue,
   useVelocity,
-  useAnimationFrame
-} from 'framer-motion';
+  useAnimationFrame,
+} from "framer-motion";
 
 interface VelocityMapping {
   input: [number, number];
@@ -53,8 +53,8 @@ function useElementWidth<T extends HTMLElement>(ref: React.RefObject<T | null>):
       if (ref.current) setWidth(ref.current.offsetWidth);
     }
     updateWidth();
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, [ref]);
 
   return width;
@@ -65,7 +65,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
   texts = [],
   images = [],
   velocity = 100,
-  className = '',
+  className = "",
   damping = 50,
   stiffness = 400,
   numCopies = 6,
@@ -73,13 +73,13 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
   parallaxClassName,
   scrollerClassName,
   parallaxStyle,
-  scrollerStyle
+  scrollerStyle,
 }) => {
   const VelocityText: React.FC<VelocityTextProps> = ({
     children,
     baseVelocity = velocity,
     scrollContainerRef,
-    className = '',
+    className = "",
     damping,
     stiffness,
     numCopies,
@@ -87,13 +87,16 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     parallaxClassName,
     scrollerClassName,
     parallaxStyle,
-    scrollerStyle
+    scrollerStyle,
   }) => {
     const baseX = useMotionValue(0);
     const scrollOptions = scrollContainerRef ? { container: scrollContainerRef } : {};
     const { scrollY } = useScroll(scrollOptions);
     const scrollVelocity = useVelocity(scrollY);
-    const smoothVelocity = useSpring(scrollVelocity, { damping: damping ?? 50, stiffness: stiffness ?? 400 });
+    const smoothVelocity = useSpring(scrollVelocity, {
+      damping: damping ?? 50,
+      stiffness: stiffness ?? 400,
+    });
     const velocityFactor = useTransform(
       smoothVelocity,
       velocityMapping?.input || [0, 1000],
@@ -109,7 +112,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
       return (((v - min) % range + range) % range) + min;
     }
 
-    const x = useTransform(baseX, v => (copyWidth === 0 ? '0px' : `${wrap(-copyWidth, 0, v)}px`));
+    const x = useTransform(baseX, (v) => (copyWidth === 0 ? "0px" : `${wrap(-copyWidth, 0, v)}px`));
 
     const directionFactor = useRef<number>(1);
     useAnimationFrame((t, delta) => {
@@ -122,14 +125,17 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
       baseX.set(baseX.get() + moveBy);
     });
 
-    // Detect if children is images (div wrapper) to avoid multiple copies
-    const isImages = React.Children.toArray(children).some(
-      child => React.isValidElement(child) && child.type === 'div'
+    const isImageRow = React.Children.toArray(children).some(
+      (child) => React.isValidElement(child) && child.type === "div"
     );
-    const repeatCount = isImages ? 1 : numCopies;
+
+    // Automatically calculate numCopies for images to fill screen and loop infinitely
+    const repeatCount = isImageRow
+      ? Math.max(2, Math.ceil((window.innerWidth * 2) / (copyWidth || 1))) // duplicate row enough to cover screen
+      : numCopies;
 
     const spans = [];
-    for (let i = 0; i < (repeatCount ?? 1); i++) {
+    for (let i = 0; i < repeatCount; i++) {
       spans.push(
         <span className={`flex-shrink-0 ${className}`} key={i} ref={i === 0 ? copyRef : null}>
           {children}
@@ -168,7 +174,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
         </VelocityText>
       ))}
 
-      {/* Single image row - all images in one line */}
+      {/* Image row - infinite loop */}
       {images.length > 0 && (
         <VelocityText
           key="all-images"
@@ -177,7 +183,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
           scrollContainerRef={scrollContainerRef}
           damping={damping}
           stiffness={stiffness}
-          numCopies={Math.ceil(20 / images.length)} // only one loop
+          numCopies={numCopies} // ignored, auto-calculated for images
           velocityMapping={velocityMapping}
           parallaxClassName={parallaxClassName}
           scrollerClassName={scrollerClassName}
@@ -186,7 +192,12 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
         >
           <div className="flex items-center whitespace-nowrap">
             {images.map((img, index) => (
-              <img key={index} src={img.src} alt={img.alt ?? ''} className={img.className ?? 'h-16 mx-8 flex-shrink-0'} />
+              <img
+                key={index}
+                src={img.src}
+                alt={img.alt ?? ""}
+                className={img.className ?? "h-16 mx-8 flex-shrink-0"}
+              />
             ))}
           </div>
         </VelocityText>
