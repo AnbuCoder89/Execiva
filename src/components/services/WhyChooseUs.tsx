@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { CheckCircle, Star, Award, Users, Zap, Shield } from "lucide-react";
 
 interface WhyChooseUsProps {
@@ -40,7 +40,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ serviceName = "our services" 
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -51,7 +51,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ serviceName = "our services" 
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 30
@@ -66,7 +66,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ serviceName = "our services" 
     }
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 50,

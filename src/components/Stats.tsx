@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 
 interface StatItem {
   value: string;
@@ -55,7 +55,7 @@ const Stats: React.FC = () => {
     };
   }, []);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -66,7 +66,7 @@ const Stats: React.FC = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 30,
@@ -83,7 +83,7 @@ const Stats: React.FC = () => {
     }
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 50,

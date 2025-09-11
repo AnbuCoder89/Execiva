@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from "lucide-react";
 import Button from "./ui/Button";
@@ -30,7 +30,7 @@ const CaseStudies: React.FC = () => {
     };
   }, []);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -41,7 +41,7 @@ const CaseStudies: React.FC = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 30,
@@ -58,7 +58,7 @@ const CaseStudies: React.FC = () => {
     }
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { 
       opacity: 0, 
       scale: 0.95,
@@ -148,7 +148,7 @@ const CaseStudies: React.FC = () => {
                 iconPosition="right"
                 onClick={() => {
                   navigate('/case-studies');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({ top: 0, behavior: 'smooth' as ScrollBehavior });
                 }}
                 className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
               >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from "framer-motion";
 import Button from '../ui/Button';
 
 interface ServiceCTAProps {
@@ -13,7 +13,7 @@ const ServiceCTA: React.FC<ServiceCTAProps> = ({
   onGetStarted,
   onViewAllServices
 }) => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -24,7 +24,7 @@ const ServiceCTA: React.FC<ServiceCTAProps> = ({
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 30

@@ -1,66 +1,39 @@
 import React from "react";
-import { motion } from "framer-motion";
-import ScrollVelocity from '@/components/ui/InfiniteScroll';
+import { motion, Variants } from "framer-motion";
 
-interface ServiceBenefitsAndTechProps {
-  benefits?: string[];
-  technologies?: string[];
+interface Technology {
+  name: string;
+  src: string;
 }
 
-const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
-  const technologies = [
-    {
-      name: "React",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
-    },
-    {
-      name: "Next.js",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg",
-    },
-    {
-      name: "Node.js",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
-    },
-    {
-      name: "TypeScript",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
-    },
-    {
-      name: "MongoDB",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
-    },
-    {
-      name: "PostgreSQL",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
-    },
-    {
-      name: "AWS",
-      src: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg",
-    },
-    {
-      name: "Docker",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg",
-    },
-  ];
+interface ServiceBenefitsAndTechProps {
+  technologies: Technology[];
+}
 
-  const containerVariants = {
+const defaultTechnologies: Technology[] = [
+  { name: "React", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+  { name: "Next.js", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" },
+  { name: "Node.js", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" },
+  { name: "TypeScript", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" },
+  { name: "MongoDB", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" },
+  { name: "PostgreSQL", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" },
+  { name: "AWS", src: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg" },
+  { name: "Docker", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" },
+];
+
+const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = ({ technologies = defaultTechnologies }) => {
+
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
   };
 
   return (
@@ -77,31 +50,11 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
             Technologies We Use
           </h2>
 
-          {/* Scrolling Logos Marquee */}
           <div className="relative overflow-hidden">
-            <div className="flex animate-marquee-slow">
-              {/* First pass */}
-              {technologies.map((tech, idx) => (
+            <div className="flex w-[200%] animate-marquee-slow">
+              {technologies.concat(technologies).map((tech, idx) => (
                 <div
-                  key={`first-${idx}`}
-                  className="flex-shrink-0 mx-10 flex flex-col items-center group"
-                >
-                  <img
-                    src={tech.src}
-                    alt={tech.name}
-                    className="h-12 sm:h-14 lg:h-16 object-contain transition-transform group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <span className="mt-3 text-sm md:text-base font-medium text-gray-700 font-sf-pro-text">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
-
-              {/* Second pass (for seamless loop) */}
-              {technologies.map((tech, idx) => (
-                <div
-                  key={`second-${idx}`}
+                  key={idx}
                   className="flex-shrink-0 mx-10 flex flex-col items-center group"
                 >
                   <img
@@ -120,24 +73,17 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = () => {
         </motion.div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes marquee-slow {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
         .animate-marquee-slow {
           animation: marquee-slow 30s linear infinite;
         }
       `}</style>
-
-      
     </motion.section>
   );
 };
 
 export default ServiceBenefitsAndTech;
-

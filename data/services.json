@@ -1,0 +1,81 @@
+[
+  {
+    "id": "web-development",
+    "title": "Web Development",
+    "category": "Development",
+    "description": "Custom websites and web applications built for performance and scalability",
+    "image": "/image/services/web_development-6.jpeg",
+    "technologies": [
+      {
+      "name": "React",
+      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+      },
+      {
+      "name": "Next.js",
+      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg"
+      },
+      {
+      "name": "Node.js",
+      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
+      },
+      {
+      "name": "TypeScript",
+      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
+      },
+      {
+      "name": "MongoDB",
+      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
+      },
+      {
+      "name": "PostgreSQL",
+      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+      },
+      {
+      "name": "AWS",
+      "src": "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg"
+      },
+      {
+      "name": "Docker",
+      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Website Redesign",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Revamp your website to boost conversions and increase pipeline.",
+        "description": "By enhancing user experience, optimizing performance, and implementing scalable design, our website redesigns help you attract more visitors, convert leads, and drive sustainable growth."
+      },
+      {
+        "title": "Website Migrations",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Seamlessly move your website to a new platform without disruptions.",
+        "description": "Our migration experts handle every step of the process, ensuring your data, design, and functionality are securely transferred, minimizing downtime and maintaining SEO rankings."
+      },
+      {
+        "title": "Ongoing Website Services",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Keep your website running smoothly with proactive maintenance.",
+        "description": "From regular updates and security patches to performance optimization and feature enhancements, we provide continuous support to keep your site secure, fast, and up-to-date."
+      },
+      {
+        "title": "AI Integrations",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Enhance your website with powerful AI-driven capabilities.",
+        "description": "We integrate intelligent tools like chatbots, personalization engines, and analytics solutions to improve user engagement, streamline operations, and deliver actionable insights."
+      },
+      {
+        "title": "Database Design and Management",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Build and maintain robust databases tailored to your business needs.",
+        "description": "Our team designs scalable, secure, and high-performance databases, ensuring smooth data flow, reliable backups, and optimized queries for your applications."
+      },
+      {
+        "title": "SEO",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Boost your online visibility and outrank competitors.",
+        "description": "Through strategic keyword research, on-page optimization, technical audits, and link building, we help you improve search rankings, drive targeted traffic, and grow your online presence."
+      }
+    ]
+  }
+]

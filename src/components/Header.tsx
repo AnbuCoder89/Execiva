@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
@@ -135,7 +135,7 @@ const Header: React.FC = () => {
     { id: 'testimonials', label: 'Testimonials' },  
   ];
 
-  const headerVariants = {
+  const headerVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
     visible: { 
       opacity: 1, 
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
     }
   };
 
-  const navVariants = {
+  const navVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,

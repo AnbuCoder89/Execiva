@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 const Vision: React.FC = () => {
@@ -21,7 +21,7 @@ const Vision: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -29,7 +29,7 @@ const Vision: React.FC = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
     visible: {
       opacity: 1,
@@ -39,7 +39,7 @@ const Vision: React.FC = () => {
     }
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, filter: "blur(8px)" },
     visible: {
       opacity: 1,

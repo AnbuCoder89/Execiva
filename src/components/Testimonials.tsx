@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
@@ -29,7 +29,7 @@ const Testimonials: React.FC = () => {
     };
   }, []);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -40,7 +40,7 @@ const Testimonials: React.FC = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 30,

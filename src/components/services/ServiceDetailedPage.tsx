@@ -10,6 +10,11 @@ import ServiceCTA from './ServiceCTA';
 import TrustedBy from './TrustedBy';
 import WhyChooseUs from './WhyChooseUs';
 
+interface Technology {
+  name: string;
+  src: string;
+}
+
 interface Service {
   id: string;
   title: string;
@@ -19,7 +24,7 @@ interface Service {
   detailedDescription: string;
   features: string[];
   benefits: string[];
-  technologies: string[];
+  technologies: Technology[];
   useCases: string[];
 }
 
@@ -55,13 +60,13 @@ const ServiceDetailedPage: React.FC = () => {
         'Competitive advantage through innovation'
       ],
       technologies: [
-        'TensorFlow',
-        'PyTorch',
-        'OpenAI GPT',
-        'Hugging Face',
-        'AWS SageMaker',
-        'Google Cloud AI',
-        'Azure Cognitive Services'
+        { name: 'TensorFlow', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg' },
+        { name: 'PyTorch', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg' },
+        { name: 'OpenAI GPT', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/openai/openai-original.svg' },
+        { name: 'Hugging Face', src: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg' },
+        { name: 'AWS SageMaker', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg' },
+        { name: 'Google Cloud AI', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg' },
+        { name: 'Azure Cognitive Services', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg' }
       ],
       useCases: [
         'Customer Service Chatbots',
@@ -96,13 +101,13 @@ const ServiceDetailedPage: React.FC = () => {
         'Long-term sustainable growth'
       ],
       technologies: [
-        'Google Analytics',
-        'Google Search Console',
-        'SEMrush',
-        'Ahrefs',
-        'Screaming Frog',
-        'Yoast SEO',
-        'Schema Markup'
+        { name: 'Google Analytics', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/google/google-original.svg' },
+        { name: 'Google Search Console', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/google/google-original.svg' },
+        { name: 'SEMrush', src: 'https://cdn.worldvectorlogo.com/logos/semrush.svg' },
+        { name: 'Ahrefs', src: 'https://cdn.worldvectorlogo.com/logos/ahrefs-1.svg' },
+        { name: 'Screaming Frog', src: 'https://www.screamingfrog.co.uk/wp-content/themes/screamingfrog/public/img/logo-screamingfrog.svg' },
+        { name: 'Yoast SEO', src: 'https://yoast.com/app/uploads/2021/09/Yoast_SEO_Icon_WP_Plugin_Header.svg' },
+        { name: 'Schema Markup', src: 'https://www.w3.org/html/logo/img/mark-word-icon.png' }
       ],
       useCases: [
         'E-commerce SEO',
@@ -141,14 +146,14 @@ const ServiceDetailedPage: React.FC = () => {
         'Fast loading times'
       ],
       technologies: [
-        'React',
-        'Next.js',
-        'Node.js',
-        'TypeScript',
-        'MongoDB',
-        'PostgreSQL',
-        'AWS',
-        'Docker'
+        { name: 'React', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' },
+        { name: 'Next.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg' },
+        { name: 'Node.js', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' },
+        { name: 'TypeScript', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg' },
+        { name: 'MongoDB', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg' },
+        { name: 'PostgreSQL', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg' },
+        { name: 'AWS', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg' },
+        { name: 'Docker', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg' }
       ],
       useCases: [
         'Corporate Websites',
@@ -183,14 +188,14 @@ const ServiceDetailedPage: React.FC = () => {
         'Competitive insights'
       ],
       technologies: [
-        'Python',
-        'R',
-        'Tableau',
-        'Power BI',
-        'Apache Spark',
-        'Elasticsearch',
-        'Google BigQuery',
-        'Snowflake'
+        { name: 'Python', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' },
+        { name: 'R', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/r/r-original.svg' },
+        { name: 'Tableau', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/tableau/tableau-original.svg' },
+        { name: 'Power BI', src: 'https://raw.githubusercontent.com/microsoft/PowerBI-Icons/main/SVG/Power-BI.svg' },
+        { name: 'Apache Spark', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/apache/apache-original.svg' },
+        { name: 'Elasticsearch', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/elasticsearch/elasticsearch-original.svg' },
+        { name: 'Google BigQuery', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg' },
+        { name: 'Snowflake', src: 'https://www.snowflake.com/wp-content/themes/snowflake/assets/img/brand-guid/logo-sno-blue.svg' }
       ],
       useCases: [
         'Customer Analytics',
@@ -290,10 +295,16 @@ const ServiceDetailedPage: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-    <ServiceHero2 />
+      <ServiceHero2 
+        title={service.title}
+        category={service.category}
+        detailedDescription={service.detailedDescription}
+        image={service.image}
+        onRequestDemo={handleRequestDemo}
+        onBackToServices={handleBackToServices}
+      />
       
       <ServiceBenefitsAndTech 
-        benefits={service.benefits}
         technologies={service.technologies}
       />
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import TOC from '../components/caseStudy/TOC';
 import CaseContent from '../components/caseStudy/CaseContent';
 import CaseLayout from '../components/caseStudy/CaseLayout';
@@ -64,7 +64,7 @@ const CaseStudyDetailed: React.FC = () => {
     setLoading(false);
   }, [id]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
