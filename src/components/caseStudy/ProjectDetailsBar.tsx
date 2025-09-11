@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
 import Button from '../ui/Button';
+import BackButton from '../ui/BackButton';
 
 interface ProjectDetailsBarProps {
   region: string;
@@ -72,16 +72,13 @@ const ProjectDetailsBar: React.FC<ProjectDetailsBarProps> = ({
           
           {/* Back Button */}
           <div className="md:ml-auto">
-            <Button
+            <BackButton
               variant="ghost"
               size="sm"
-              icon={ArrowLeft}
-              iconPosition="left"
               onClick={onBackClick}
               className="text-gray-600 hover:text-gray-900"
-            >
-              Back to Case Studies
-            </Button>
+              label="Back to Case Studies"
+            />
           </div>
         </div>
       </div>

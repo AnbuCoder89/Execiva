@@ -2,41 +2,42 @@
   {
     "id": "web-development",
     "title": "Web Development",
-    "category": "Development",
-    "description": "Custom websites and web applications built for performance and scalability",
-    "image": "/image/services/web_development-6.jpeg",
+    "category": "Web Design Agency",
+    "description": "We craft high-performance websites and web applications tailored to your goals. Our scalable, future-ready solutions combine cutting-edge design and technology to drive your business growth.",
+    "tagline": "Building Scalable Web Solutions",
+    "image": "/image/webdevelopment-service.jpeg",
     "technologies": [
       {
-      "name": "React",
-      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+        "name": "React",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
       },
       {
-      "name": "Next.js",
-      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg"
+        "name": "Next.js",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg"
       },
       {
-      "name": "Node.js",
-      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
+        "name": "Node.js",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
       },
       {
-      "name": "TypeScript",
-      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
+        "name": "TypeScript",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
       },
       {
-      "name": "MongoDB",
-      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
+        "name": "MongoDB",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
       },
       {
-      "name": "PostgreSQL",
-      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+        "name": "PostgreSQL",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
       },
       {
-      "name": "AWS",
-      "src": "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg"
+        "name": "AWS",
+        "src": "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg"
       },
       {
-      "name": "Docker",
-      "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
+        "name": "Docker",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"
       }
     ],
     "useCases": [
@@ -75,6 +76,144 @@
         "image": "/image/vision/vision-1.jpeg",
         "heading": "Boost your online visibility and outrank competitors.",
         "description": "Through strategic keyword research, on-page optimization, technical audits, and link building, we help you improve search rankings, drive targeted traffic, and grow your online presence."
+      }
+    ]
+  },
+  {
+    "id": "artificial-intelligence",
+    "title": "Artificial Intelligence",
+    "category": "AI & Automation",
+    "description": "We create AI solutions that automate tasks, reveal insights, and improve decision-making. From chatbots to predictive analytics, our AI services keep your business ahead.",
+    "tagline": "AI Solutions for Growth",
+    "image": "/image/webdevelopment-service.jpeg",
+    "technologies": [
+      {
+        "name": "Python",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+      },
+      {
+        "name": "TensorFlow",
+        "src": "https://cdn.worldvectorlogo.com/logos/tensorflow-2.svg"
+      },
+      {
+        "name": "PyTorch",
+        "src": "https://cdn.worldvectorlogo.com/logos/pytorch-2.svg"
+      },
+      {
+        "name": "AWS AI/ML",
+        "src": "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Custom AI Models",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Build AI models to solve unique business challenges",
+        "description": "We design and train bespoke AI models for predictive analytics, natural language processing, and image recognition. Each solution is optimized to deliver measurable business value and scalability."
+      },
+      {
+        "title": "Process Automation",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Automate routine tasks to save time and reduce costs",
+        "description": "Implement AI-powered workflows and robotic process automation to streamline operations, cut costs, and improve productivity across your organization, while ensuring accuracy and consistency at scale."
+      },
+      {
+        "title": "AI-Powered Chatbots",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Enhance customer support using intelligent chatbots",
+        "description": "Integrate conversational AI for always-on customer interaction, personalized recommendations, and instant responses. Deliver faster, more efficient support and improve user satisfaction and retention."
+      }
+    ]
+  },
+  {
+    "id": "seo",
+    "title": "SEO",
+    "category": "Digital Marketing",
+    "description": "Boost visibility and outrank competitors with data-driven SEO. We combine technical audits, keyword strategy, and quality link building to drive targeted traffic and long-term growth.",
+    "tagline": "Search Visibility That Lasts",
+    "image": "/image/webdevelopment-service.jpeg",
+    "technologies": [
+      {
+        "name": "Google Analytics",
+        "src": "https://cdn.worldvectorlogo.com/logos/google-analytics-4.svg"
+      },
+      {
+        "name": "Google Search Console",
+        "src": "https://cdn.worldvectorlogo.com/logos/google-search-console.svg"
+      },
+      {
+        "name": "Ahrefs",
+        "src": "https://cdn.worldvectorlogo.com/logos/ahrefs-1.svg"
+      },
+      {
+        "name": "Screaming Frog",
+        "src": "https://cdn.worldvectorlogo.com/logos/frog.svg"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Technical SEO Audits",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Identify and fix technical issues blocking your rankings",
+        "description": "We conduct comprehensive audits to optimize crawlability, speed, indexability and structured data, ensuring search engines fully understand and reward your content with better visibility."
+      },    
+      {
+        "title": "Keyword & Content Strategy",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Drive targeted traffic with high-value keywords",
+        "description": "We research, plan and execute keyword strategies, mapping them to quality content that attracts, engages and converts your audience while supporting long-term organic growth and brand authority."
+      },
+      {
+        "title": "Link Building Campaigns",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Increase authority through ethical link building",
+        "description": "Our white-hat link-building campaigns earn high-quality backlinks from reputable sites, boosting domain authority, improving rankings, and creating sustainable traffic to your website over time."
+      }
+    ]
+  },
+  {
+    "id": "data-analytics",
+    "title": "Data Analytics",
+    "category": "Data & Insights",
+    "description": "We turn raw data into actionable insights with dashboards, predictive models, and secure data warehouses—helping you make smarter decisions and accelerate business growth.",
+    "tagline": "Data That Drives Success",
+    "image": "/image/webdevelopment-service.jpeg",
+    "technologies": [
+      {
+        "name": "Power BI",
+        "src": "https://cdn.worldvectorlogo.com/logos/power-bi-1.svg"
+      },
+      {
+        "name": "Tableau",
+        "src": "https://cdn.worldvectorlogo.com/logos/tableau-software.svg"
+      },
+      {
+        "name": "BigQuery",
+        "src": "https://cdn.worldvectorlogo.com/logos/google-bigquery-logo-1.svg"
+      },
+      {
+        "name": "Python",
+        "src": "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Business Intelligence Dashboards",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Interactive dashboards for real-time business insights",
+        "description": "We build tailored dashboards to visualize KPIs, track performance and discover opportunities at a glance. Our designs make complex data easy to understand, empowering faster, better decisions."
+      },
+      {
+        "title": "Predictive Analytics",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Forecast trends and outcomes using advanced models",
+        "description": "We apply statistical modeling and machine learning to predict customer behavior and market shifts, enabling proactive strategies and competitive advantage built on reliable forward-looking insights."
+      },
+      {
+        "title": "Data Warehousing",
+        "image": "/image/vision/vision-1.jpeg",
+        "heading": "Centralize and secure your data for faster analysis",
+        "description": "We design and implement scalable data warehouses to store, organize and manage business data securely, making it easily accessible for analytics, reporting and strategic decision-making needs."
       }
     ]
   }

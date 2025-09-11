@@ -38,18 +38,7 @@ html, body {
   animation: marquee 20s linear infinite;
 }
 
-/* Custom responsive height class for service hero */
-@media (min-width: 1024px) {
-  .h-service-hero {
-    height: 90vh;
-  }
-}
-
-@media (max-width: 1023px) {
-  .h-service-hero {
-    height: 100vh;
-  }
-}
+/* (migrated to Tailwind utilities in HeroSection.tsx) */
 
 /* Hero text styles */
 @media (max-width: 767px) {

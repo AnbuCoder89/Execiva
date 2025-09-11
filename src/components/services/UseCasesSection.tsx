@@ -8,11 +8,11 @@ interface UseCase {
   description: string;
 }
 
-interface ServiceUseCases2Props {
+interface UseCasesSectionProps {
   useCases?: UseCase[];
 }
 
-const ServiceUseCases2: React.FC<ServiceUseCases2Props> = ({ useCases }) => {
+const UseCasesSection: React.FC<UseCasesSectionProps> = ({ useCases }) => {
   const defaultUseCases: UseCase[] = [
     {
       title: "Website Redesign",
@@ -94,7 +94,7 @@ const ServiceUseCases2: React.FC<ServiceUseCases2Props> = ({ useCases }) => {
           variants={itemVariants}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display mb-6">
-            Our Service Use Cases
+            Our Services
           </h2>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto">
             Discover how our comprehensive solutions can transform your digital presence and drive meaningful results for your business.
@@ -191,4 +191,4 @@ const ServiceUseCases2: React.FC<ServiceUseCases2Props> = ({ useCases }) => {
   );
 };
 
-export default ServiceUseCases2;
+export default UseCasesSection;

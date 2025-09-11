@@ -148,7 +148,7 @@ const CaseStudiesPage: React.FC = () => {
 
   // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
+  const itemsPerPage = 6;
   const totalPages = Math.ceil(allCaseStudies.length / itemsPerPage);
 
   // Filter case studies first, then paginate

@@ -6,22 +6,11 @@ interface Technology {
   src: string;
 }
 
-interface ServiceBenefitsAndTechProps {
+interface TechStackSectionProps {
   technologies: Technology[];
 }
 
-const defaultTechnologies: Technology[] = [
-  { name: "React", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
-  { name: "Next.js", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" },
-  { name: "Node.js", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" },
-  { name: "TypeScript", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" },
-  { name: "MongoDB", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" },
-  { name: "PostgreSQL", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" },
-  { name: "AWS", src: "https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg" },
-  { name: "Docker", src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" },
-];
-
-const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = ({ technologies = defaultTechnologies }) => {
+const TechStackSection: React.FC<TechStackSectionProps> = ({ technologies }) => {
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -52,7 +41,7 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = ({ technol
 
           <div className="relative overflow-hidden">
             <div className="flex w-[200%] animate-marquee-slow">
-              {technologies.concat(technologies).map((tech, idx) => (
+              {(technologies ?? []).concat(technologies ?? []).map((tech, idx) => (
                 <div
                   key={idx}
                   className="flex-shrink-0 mx-10 flex flex-col items-center group"
@@ -86,4 +75,4 @@ const ServiceBenefitsAndTech: React.FC<ServiceBenefitsAndTechProps> = ({ technol
   );
 };
 
-export default ServiceBenefitsAndTech;
+export default TechStackSection;

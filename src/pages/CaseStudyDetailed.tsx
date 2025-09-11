@@ -13,7 +13,7 @@ import BackgroundSection from '../components/caseStudy/BackgroundSection';
 import ObjectivesSection from '../components/caseStudy/ObjectivesSection';
 import ApproachSection from '../components/caseStudy/ApproachSection';
 import Button from '../components/ui/Button';
-import { ArrowLeft } from 'lucide-react';
+import BackButton from '../components/ui/BackButton';
 import allCaseStudies from '../../data/caseStudies.json';
 
 interface CaseStudy {
@@ -110,14 +110,11 @@ const CaseStudyDetailed: React.FC = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4 font-sf-pro-display">Case Study Not Found</h1>
           <p className="text-gray-600 mb-6 font-sf-pro-text">The case study you're looking for doesn't exist.</p>
-          <Button
+          <BackButton
             variant="vision"
             onClick={() => navigate('/case-studies')}
-            icon={ArrowLeft}
-            iconPosition="left"
-          >
-            Back to Case Studies
-          </Button>
+            label="Back to Case Studies"
+          />
         </div>
       </div>
     );

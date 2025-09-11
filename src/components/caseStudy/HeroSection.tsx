@@ -1,7 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import Button from '../ui/Button';
+import BackButton from '../ui/BackButton';
 
 interface CaseStudy {
   id: string;
@@ -21,7 +22,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -32,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 30
@@ -42,7 +43,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: 'easeOut'
       }
     }
   };
@@ -89,14 +90,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
               <Button variant="vision" size="lg" className="px-8 py-4">
                 Get Started
               </Button>
-              <Button
-                variant="ghost"
+              <BackButton
                 size="lg"
                 onClick={onBackClick}
                 className="px-8 py-4 border border-white/30 text-white hover:bg-white/30 transition-all duration-200"
-              >
-                Back to Case Studies
-              </Button>
+                label="Back to Case Studies"
+              />
             </div>
           </div>
             
