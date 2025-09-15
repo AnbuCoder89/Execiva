@@ -70,16 +70,6 @@ const CTA: React.FC<CTAProps> = ({
           >
             Get in Touch
           </Button>
-          {onLearnMore && (
-            <Button
-              variant="vision"
-              size="lg"
-              onClick={onLearnMore}
-              className="px-8 py-4 shadow-md hover:shadow-lg"
-            >
-              Learn More
-            </Button>
-          )}
         </motion.div>
       </div>
     </motion.section>
