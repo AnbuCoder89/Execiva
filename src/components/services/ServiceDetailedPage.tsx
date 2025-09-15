@@ -197,11 +197,7 @@ const ServiceDetailedPage: React.FC = () => {
       
       {/* <TrustedBy /> */}
       
-      <ServiceCTA
-        serviceName={service.title}
-        onGetStarted={handleGetStarted}
-        onViewAllServices={handleViewAllServices}
-      />
+      <CTA />
     </motion.div>
   );
 };
