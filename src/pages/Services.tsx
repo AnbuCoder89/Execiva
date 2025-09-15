@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { 
   Code, 
   Cloud, 
@@ -39,6 +40,8 @@ interface PainPoint {
 }
 
 const Services: React.FC = () => {
+  const navigate = useNavigate();
+
   // Animation variants
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -179,6 +182,10 @@ const Services: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleGetStarted = () => {
+    navigate('/#contact');
   };
 
   return (
