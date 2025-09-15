@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import CTA from '../components/ui/CTA';
 import Button from '../components/ui/Button';
+import Hero from '../components/services/service-detailed/Hero';
 
 // TypeScript interfaces
 interface Service {
@@ -173,9 +174,8 @@ const Services: React.FC = () => {
     }
   };
 
-  const handleGetStarted = () => {
-    // Navigate to contact section or contact page
-    const element = document.getElementById('contact');
+  const handleViewAllServices = () => {
+    const element = document.getElementById('services-grid');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -183,78 +183,15 @@ const Services: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <motion.section 
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img
-            src="/image/services/web_development-6.jpeg"
-            alt="Professional technology services"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-800/70 to-gray-900/80" />
-        </div>
-
-        {/* Hero Content */}
-        <motion.div 
-          className="relative z-10 text-center px-6 sm:px-8 lg:px-12 max-w-5xl mx-auto"
-          variants={itemVariants}
-        >
-          <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight font-sf-pro-display"
-            variants={itemVariants}
-          >
-            Transform Your Business
-            <span className="block font-medium mt-2">
-              With Expert Technology Solutions
-            </span>
-          </motion.h1>
-
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-300 leading-relaxed font-sf-pro-text mb-12 max-w-3xl mx-auto"
-            variants={itemVariants}
-          >
-            From digital transformation to cloud migration, we deliver cutting-edge solutions that drive growth, reduce costs, and position your business for the future.
-          </motion.p>
-
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-            variants={itemVariants}
-          >
-            <Button
-              variant="vision"
-              size="lg"
-              onClick={scrollToServices}
-              className="px-10 py-4 text-lg font-medium shadow-xl hover:shadow-2xl transform hover:scale-105"
-            >
-              Explore Our Services
-            </Button>
-            <Button
-              variant="ghost"
-              size="lg"
-              onClick={handleGetStarted}
-              className="px-10 py-4 text-lg font-medium border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50"
-            >
-              Get Started Today
-            </Button>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-          variants={itemVariants}
-        >
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse" />
-          </div>
-        </motion.div>
-      </motion.section>
+      <Hero
+        title="Technology Solutions"
+        category="Professional Services"
+        description="From digital transformation to cloud migration, we deliver cutting-edge solutions that drive growth, reduce costs, and position your business for the future."
+        image="/image/services/web_development-6.jpeg"
+        tagline="Transform Your Business With Expert Technology Solutions"
+        onGetStarted={handleGetStarted}
+        onViewAllServices={handleViewAllServices}
+      />
 
       {/* Why This Service Matters Section */}
       <motion.section 
