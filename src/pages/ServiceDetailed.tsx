@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-// import { ArrowLeft } from 'lucide-react';
-// import Button from '../ui/Button';
-import BackButton from '../ui/BackButton';
-import HeroSection from './HeroSection';
-import TechStackSection from './TechStackSection';
-import UseCasesSection from './UseCasesSection';
-import ServiceCTA from './ServiceCTA';
-import CTA from '../ui/CTA';
-// import TrustedBy from './TrustedBy';
-import WhyChooseUs from './WhyChooseUs';
-import servicesData from '../../../data/services.json';
+import BackButton from '../components/ui/BackButton';
+import Hero from '../components/services/service-detailed/Hero';
+import TechStackSection from '../components/services/TechStackSection';
+import UseCasesSection from '../components/services/UseCasesSection';
+import CTA from '../components/ui/CTA';
+import WhyChooseUs from '../components/services/WhyChooseUs';
+import servicesData from '../../data/services.json';
 
 interface Technology {
   name: string;
@@ -36,13 +32,12 @@ interface Service {
   useCases: UseCase[];
 }
 
-const ServiceDetailedPage: React.FC = () => {
+const ServiceDetailed: React.FC = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
   const navigate = useNavigate();
   const [service, setService] = useState<Service | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -77,16 +72,6 @@ const ServiceDetailedPage: React.FC = () => {
     
     loadServiceData();
   }, [serviceId]);
-
-  // const handleRequestDemo = () => {
-  //   navigate('/');
-  //   setTimeout(() => {
-  //     const element = document.getElementById('contact');
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: 'smooth' });
-  //     }
-  //   }, 100);
-  // };
 
   const handleBackToServices = () => {
     navigate('/');
@@ -178,7 +163,7 @@ const ServiceDetailedPage: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <HeroSection 
+      <Hero 
         title={service.title}
         category={service.category}
         tagline={service.tagline}
@@ -196,11 +181,9 @@ const ServiceDetailedPage: React.FC = () => {
       
       <UseCasesSection useCases={service.useCases} />
       
-      {/* <TrustedBy /> */}
-      
-      <CTA />
+      <CTA onGetStarted={handleGetStarted} />
     </motion.div>
   );
 };
 
-export default ServiceDetailedPage;
+export default ServiceDetailed;

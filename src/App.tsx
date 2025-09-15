@@ -8,7 +8,7 @@ import Layout from './Layout';
 import Home from './pages/Home';
 import CaseStudy from './pages/CaseStudy';
 import CaseStudyDetailed from './pages/CaseStudyDetailed';
-import ServiceDetailedPage from './components/services/ServiceDetailedPage';
+import ServiceDetailed from './pages/ServiceDetailed';
 
 function App() {
   useEffect(() => {
@@ -23,7 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/case-studies" element={<CaseStudy />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetailed />} />
-            <Route path="/services/:serviceId" element={<ServiceDetailedPage />} />
+            <Route path="/services/:serviceId" element={<ServiceDetailed />} />
           </Route>
         </Routes>
       </ParallaxProvider>

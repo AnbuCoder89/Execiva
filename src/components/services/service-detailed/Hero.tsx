@@ -1,9 +1,9 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import Button from "../ui/Button";
-import BackButton from "../ui/BackButton";
+import Button from "../../ui/Button";
+import BackButton from "../../ui/BackButton";
 
-interface HeroSectionProps {
+interface HeroProps {
   title: string;
   category: string;
   description: string;
@@ -13,7 +13,7 @@ interface HeroSectionProps {
   onViewAllServices?: () => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({
+const Hero: React.FC<HeroProps> = ({
   title,
   category,
   description,
@@ -89,7 +89,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {/* background image */}
           <motion.img
             src={image}
-            alt={`${title} - Professional ${category} Services`}
+            alt={`${title} - Professional ${category} Services | Expert Solutions for Business Growth`}
             className="w-full h-[100vh] lg:h-[90vh] object-cover rounded-2xl"
             variants={imageVariants}
           />
@@ -129,13 +129,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {tagline}
             </motion.h1>
 
-            {/* Supporting Description */}
-            <motion.p 
-              className="max-w-7xl mx-auto mb-8 py-2 font-sf-pro-text text-center text-[1.125rem] md:text-[1.5rem] lg:text-[2rem] leading-relaxed"
+            {/* Supporting Description (H2) */}
+            <motion.h2 
+              className="max-w-7xl mx-auto mb-8 py-2 font-sf-pro-text text-center text-[1.125rem] md:text-[1.5rem] lg:text-[2rem] leading-relaxed font-light"
               variants={itemVariants}
             >
               {description}
-            </motion.p>
+            </motion.h2>
 
             {/* Call-to-Action Buttons */}
             <motion.div 
@@ -175,4 +175,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   );
 };
 
-export default HeroSection;
+export default Hero;
