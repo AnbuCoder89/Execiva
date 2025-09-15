@@ -66,7 +66,7 @@ const CTA: React.FC<CTAProps> = ({
             variant="vision"
             size="lg"
             onClick={onGetStarted}
-            className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+            
           >
             Get in Touch
           </Button>
