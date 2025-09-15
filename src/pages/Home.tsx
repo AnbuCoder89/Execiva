@@ -1,11 +1,11 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import Vision from '../components/Vision';
-import Services from '../components/Services';
-import Stats from '../components/Stats';
-import CaseStudies from '../components/CaseStudies';
-import Testimonials from '../components/Testimonials';
-import Contact from '../components/Contact';
+import Hero from '../components/Home/Hero';
+import Vision from '../components/Home/Vision';
+import Services from '../components/Home/Services';
+import KeyMetrics from '../components/Home/KeyMetrics';
+import CaseStudies from '../components/Home/CaseStudies';
+import Testimonials from '../components/Home/Testimonials';
+import Contact from '../components/Home/Contact';
 
 const Home: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <Hero />
       <Vision />
       <Services />
-      <Stats />
+      <KeyMetrics />
       <CaseStudies />
       <Testimonials />
       <Contact />

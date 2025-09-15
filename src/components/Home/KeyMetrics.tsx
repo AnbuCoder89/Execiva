@@ -7,7 +7,7 @@ interface StatItem {
   animationDelay?: number;
 }
 
-const Stats: React.FC = () => {
+const KeyMetrics: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -244,5 +244,3 @@ const Stats: React.FC = () => {
     </>
   );
 };
-
-export default Stats;
