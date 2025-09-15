@@ -56,7 +56,7 @@ const CTA: React.FC<CTAProps> = ({
           className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text mb-8 max-w-3xl mx-auto"
           variants={itemVariants}
         >
-          Our team of experts will help you build, optimize, and transform your digital presence—delivering solutions that drive growth, improve performance, and future-proof your business.
+          Our team of experts will help you build, optimize, and transform your digital presence delivering solutions that drive growth, improve performance, and future-proof your business.
         </motion.p>
         <motion.div 
           className="flex flex-col sm:flex-row gap-4 justify-center"
