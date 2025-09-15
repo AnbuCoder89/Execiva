@@ -26,7 +26,6 @@ function App() {
   const HomePage = () => (
     <div className="w-full">
       <Hero />
-      {/* <Capabilities /> */}
       <Vision />
       <Services />
       <Stats />
@@ -41,7 +40,6 @@ function App() {
           { number: "50M+", label: "Dollars raised by our clients" }
         ]} 
       />
-      
     </div>
   );
 
