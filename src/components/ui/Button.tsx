@@ -27,7 +27,8 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-sf-pro-text';
+    'inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-[#f4f3ee] focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed font-sf-pro-text';
+
 
   const variantStyles = {
     ghost: 'text-white border border-transparent hover:border-white hover:backdrop-blur-xl',
