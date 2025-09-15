@@ -106,7 +106,7 @@ const Services: React.FC = () => {
     <motion.section
       id="services"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex flex-col justify-center bg-white"
+      className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
