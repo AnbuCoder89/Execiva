@@ -130,7 +130,7 @@ const Contact: React.FC = () => {
       ref={sectionRef}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      
       variants={containerVariants}
     >
       <motion.div
