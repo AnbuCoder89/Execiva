@@ -4,7 +4,6 @@ import Button from '../ui/Button';
 
 interface CTAProps {
   onGetStarted: () => void;
-  onLearnMore?: () => void;
 }
 
 const CTA: React.FC<CTAProps> = ({
