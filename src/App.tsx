@@ -4,7 +4,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Header from './components/Header';
+import Layout from './components/Layout';
 import Hero from './components/Hero';
 import Capabilities from './components/Capabilities';
 import Vision from './components/Vision';
@@ -13,7 +13,6 @@ import Stats from './components/Stats';
 import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 import CaseStudiesPage from './pages/CaseStudiesPage';
 import CaseStudyDetailed from './pages/CaseStudyDetailed';
 import ServiceDetailedPage from './components/services/ServiceDetailedPage';
@@ -48,16 +47,14 @@ function App() {
 
   return (
     <ParallaxProvider>
-      <div className="min-h-screen scroll-smooth">
-        <Header />
-        <Routes>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/case-studies/:id" element={<CaseStudyDetailed />} />
           <Route path="/services/:serviceId" element={<ServiceDetailedPage />} />
-        </Routes>
-        <Footer />
-      </div>
+        </Route>
+      </Routes>
     </ParallaxProvider>
   );
 }
