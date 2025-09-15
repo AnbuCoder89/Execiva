@@ -8,8 +8,7 @@ interface CTAProps {
 }
 
 const CTA: React.FC<CTAProps> = ({
-  onGetStarted,
-  onLearnMore
+  onGetStarted
 }) => {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
