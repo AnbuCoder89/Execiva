@@ -166,7 +166,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ stats, className = '' }) =>
               }}
             >
               <motion.div 
-                className="text-6xl md:text-7xl font-bold text-gray-900 mb-4 font-sf-pro-display"
+                className="text-6xl md:text-7xl font-light text-gray-900 mb-4 font-sf-pro-display"
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
                 transition={{ 
