@@ -95,7 +95,7 @@ const CaseStudies: React.FC = () => {
             className="relative order-first lg:order-first"
             variants={imageVariants}
           >
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative overflow-hidden rounded-2xl">
               <img
                 src="/image/case-studies/case-studies.jpg"
                 alt="Success stories and case studies"
