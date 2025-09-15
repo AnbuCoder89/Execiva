@@ -176,18 +176,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 };
 
 export default HeroSection;
-                Get Started
-              </Button>
-              <BackButton
-                label="Back to Services"
-                onClick={onViewAllServices}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default HeroSection;
