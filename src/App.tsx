@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 import CaseStudiesPage from './pages/CaseStudiesPage';
 import CaseStudyDetailed from './pages/CaseStudyDetailed';
 import ServiceDetailedPage from './components/services/ServiceDetailedPage';
+import StatsSection from './components/ui/StatsSection';
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,14 @@ function App() {
       <CaseStudies />
       <Testimonials />
       <Contact />
+      <StatsSection 
+        stats={[
+          { number: "500+", label: "Experts supporting our clients" },
+          { number: "2.1B", label: "Websites made composable" },
+          { number: "98%", label: "Client Retention Rate" },
+          { number: "50M+", label: "Dollars raised by our clients" }
+        ]} 
+      />
       
     </div>
   );
