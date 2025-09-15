@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import CaseStudy from './pages/CaseStudy';
 import CaseStudyDetailed from './pages/CaseStudyDetailed';
 import ServiceDetailed from './pages/ServiceDetailed';
+import Services from './pages/Services';
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/case-studies" element={<CaseStudy />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetailed />} />
             <Route path="/services/:serviceId" element={<ServiceDetailed />} />
