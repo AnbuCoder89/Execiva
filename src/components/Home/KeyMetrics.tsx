@@ -55,7 +55,7 @@ const KeyMetrics: React.FC = () => {
     <>
       {/* Header Section */}
       <motion.section 
-        className="relative w-full min-h-screen flex flex-col justify-center bg-white"
+        className="relative w-full flex flex-col justify-center bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
