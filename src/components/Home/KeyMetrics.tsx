@@ -244,3 +244,6 @@ const KeyMetrics: React.FC = () => {
     </>
   );
 };
+
+
+export default KeyMetrics
