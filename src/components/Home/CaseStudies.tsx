@@ -80,7 +80,7 @@ const CaseStudies: React.FC = () => {
     <section
       id="case-studies"
       ref={sectionRef}
-      className="relative  bg-white"
+      className="relative min-h-screen bg-white"
     >
       <div className="mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div 
