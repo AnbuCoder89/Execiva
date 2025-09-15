@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
   return (
     <motion.section
       id="contact"
-      className="relative w-full flex items-center justify-center bg-white"
+      className="relative w-full flex items-center justify-center py-20 bg-white"
       ref={sectionRef}
       initial="hidden"
       whileInView="visible"
