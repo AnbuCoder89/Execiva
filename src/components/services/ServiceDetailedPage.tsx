@@ -8,6 +8,7 @@ import HeroSection from './HeroSection';
 import TechStackSection from './TechStackSection';
 import UseCasesSection from './UseCasesSection';
 import ServiceCTA from './ServiceCTA';
+import CTA from '../ui/CTA';
 // import TrustedBy from './TrustedBy';
 import WhyChooseUs from './WhyChooseUs';
 import servicesData from '../../../data/services.json';
