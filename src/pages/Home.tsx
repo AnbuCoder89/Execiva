@@ -7,7 +7,7 @@ import CaseStudies from '../components/CaseStudies';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 
-const HomePage: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <div className="w-full">
       <Hero />
@@ -21,4 +21,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default Home;

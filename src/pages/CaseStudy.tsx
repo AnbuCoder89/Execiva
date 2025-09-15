@@ -101,7 +101,7 @@ const StatCounter: React.FC<StatCounterProps> = ({ value, delay = 0 }) => {
   );
 };
 
-const CaseStudiesPage: React.FC = () => {
+const CaseStudy: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const rightPanelRef = useRef<HTMLDivElement>(null);
@@ -764,4 +764,4 @@ const CaseStudiesPage: React.FC = () => {
   );
 };
 
-export default CaseStudiesPage;
+export default CaseStudy;

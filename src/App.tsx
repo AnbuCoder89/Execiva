@@ -5,8 +5,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import Layout from './Layout';
-import HomePage from './pages/HomePage';
-import CaseStudiesPage from './pages/CaseStudiesPage';
+import Home from './pages/Home';
+import CaseStudy from './pages/CaseStudy';
 import CaseStudyDetailed from './pages/CaseStudyDetailed';
 import ServiceDetailedPage from './components/services/ServiceDetailedPage';
 
@@ -20,8 +20,8 @@ function App() {
       <ParallaxProvider>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/case-studies" element={<CaseStudiesPage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/case-studies" element={<CaseStudy />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetailed />} />
             <Route path="/services/:serviceId" element={<ServiceDetailedPage />} />
           </Route>
