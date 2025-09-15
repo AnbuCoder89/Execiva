@@ -39,7 +39,7 @@ const StatCounter: React.FC<StatCounterProps> = ({ value, delay = 0 }) => {
       
       if (numericMatch) {
         const targetNumber = parseFloat(numericMatch[1]);
-        const duration = 2000; // 2 seconds
+        const duration = 3000; // 2 seconds
         const steps = 60;
         const increment = targetNumber / steps;
         let current = 0;
