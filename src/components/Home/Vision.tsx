@@ -91,7 +91,7 @@ const Vision: React.FC = () => {
     <motion.section
       id="vision"
       ref={sectionRef}
-      className="relative lg:flex lg:items-center
+      className="relative bg-white py-20 lg:flex lg:items-center
       "
       initial="hidden"
       whileInView="visible"
