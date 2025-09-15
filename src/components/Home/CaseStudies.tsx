@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from "lucide-react";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 
 const CaseStudies: React.FC = () => {
   const navigate = useNavigate();

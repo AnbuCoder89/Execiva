@@ -11,7 +11,7 @@ import {
   Linkedin,
   Youtube
 } from 'lucide-react';
-import Button from './ui/Button';
+import Button from '../ui/Button';
 import type { Variants } from 'framer-motion';
 
 const Contact: React.FC = () => {

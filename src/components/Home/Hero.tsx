@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20 },

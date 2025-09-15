@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 
 const Services: React.FC = () => {
   const navigate = useNavigate();
