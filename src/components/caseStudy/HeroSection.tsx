@@ -78,14 +78,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
               {caseStudy.subtitle}
             </motion.p>
 
-            <motion.h1
-              className="text-6xl font-bold mb-4 font-sf-pro-display text-white"
-              variants={itemVariants}
-            >
-              {caseStudy.title}
-            </motion.h1>
-
-            <motion.div
+                    <motion.div
               className="flex flex-wrap gap-4 lg:gap-8 mb-6"
               variants={itemVariants}
             >
@@ -95,6 +88,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 </span>
               </div>
             </motion.div>
+
+            <motion.h1
+              className="text-6xl font-bold mb-4 font-sf-pro-display text-white"
+              variants={itemVariants}
+            >
+              {caseStudy.title}
+            </motion.h1>
+
+    
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="vision" size="lg" className="px-8 py-4">
