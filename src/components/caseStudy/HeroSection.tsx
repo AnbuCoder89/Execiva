@@ -55,12 +55,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
       animate="visible"
     >
       <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
-        <div className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden">
+        <div className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden h-[50vh]">
           {/* background image */}
           <img
             src={caseStudy.image}
             alt={`${caseStudy.title} hero`}
-            className="w-full h-[60vh] md:h-[70vh] lg:h-[90vh] object-cover rounded-2xl"
+            className="w-full h-full object-cover rounded-2xl"
           />
 
           {/* dark overlay for readability */}
