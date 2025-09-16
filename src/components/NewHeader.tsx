@@ -9,42 +9,8 @@ const NewHeader: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    let ticking = false;
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          const scrollThreshold = 50;
-          const hideThreshold = 80;
-          
-          setIsScrolled(currentScrollY > scrollThreshold);
-          
-          if (currentScrollY <= 10) {
-            setIsVisible(true);
-          } else if (currentScrollY < lastScrollY && currentScrollY > hideThreshold) {
-            setIsVisible(true);
-          } else if (currentScrollY > lastScrollY && currentScrollY > hideThreshold) {
-            setIsVisible(false);
-          }
-          
-          setLastScrollY(currentScrollY);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
 
   useEffect(() => {
     let ticking = false;
