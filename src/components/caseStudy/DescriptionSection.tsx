@@ -46,8 +46,8 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({
     col-span-1 md:col-span-3 md:row-span-4 
     rounded-lg border border-gray-200 
     p-4 sm:p-5 md:p-6 order-1
-    flex items-center  /* center both axes */
-                       /* give it some height to center within */
+    flex items-center justify-content
+                      
   "
   variants={itemVariants}
 >
