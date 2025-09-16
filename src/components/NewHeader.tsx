@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { Logo, DesktopNav, MobileNav } from './Header';
+import { Logo, DesktopNav, MobileNav } from './Header/index';
 
 const NewHeader: React.FC = () => {
   const location = useLocation();
