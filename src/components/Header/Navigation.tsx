@@ -157,7 +157,6 @@ const Navigation: React.FC<NavigationProps> = ({
                                       onClick={() => onNavigation(subItem.href)}
                                       className="group flex items-center gap-3 w-full text-left p-2 rounded-md hover:bg-gray-50 transition-colors duration-200"
                                     >
-                                      <span className="text-lg">{subItem.icon}</span>
                                       <div className="flex-1">
                                         <div className="flex items-center gap-2">
                                           <span className="text-sm font-medium text-gray-900 group-hover:text-blue-600">
@@ -180,7 +179,6 @@ const Navigation: React.FC<NavigationProps> = ({
                                 onClick={() => onNavigation(subItem.href)}
                                 className="group flex items-center gap-3 w-full text-left p-2 rounded-md hover:bg-gray-50 transition-colors duration-200"
                               >
-                                <span className="text-lg">{subItem.icon}</span>
                                 <div className="flex-1">
                                   <div className="flex items-center gap-2">
                                     <span className="text-sm font-medium text-gray-900 group-hover:text-blue-600">
