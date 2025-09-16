@@ -8,7 +8,6 @@ export interface NavItem {
 export interface SubMenuItem {
   name: string;
   href: string;
-  icon: string;
 }
 
 export interface MegaMenuCategory {
@@ -21,11 +20,11 @@ export const navItems: NavItem[] = [
   {
     name: 'Services',
     submenu: [
-      { name: 'AI Solutions', href: '/services/artificial-intelligence', icon: '🤖' },
-      { name: 'SEO & Content', href: '/services/seo', icon: '📈' },
-      { name: 'Web Design', href: '/services/web-development', icon: '💻' },
-      { name: 'Web Development', href: '/services/web-development', icon: '⚡' },
-      { name: 'Data Analytics', href: '/services/data-analytics', icon: '📊' },
+      { name: 'AI Solutions', href: '/services/artificial-intelligence' },
+      { name: 'SEO & Content', href: '/services/seo' },
+      { name: 'Web Design', href: '/services/web-development' },
+      { name: 'Web Development', href: '/services/web-development' },
+      { name: 'Data Analytics', href: '/services/data-analytics' },
     ],
   },
   {
@@ -34,23 +33,23 @@ export const navItems: NavItem[] = [
       {
         category: 'Services',
         items: [
-          { name: 'AI Solutions', href: '/services/artificial-intelligence', icon: '🤖' },
-          { name: 'SEO & Content', href: '/services/seo', icon: '📈' },
-          { name: 'Web Design', href: '/services/web-development', icon: '💻' },
-          { name: 'Web Development', href: '/services/web-development', icon: '⚡' },
-          { name: 'Data Analytics', href: '/services/data-analytics', icon: '📊' },
+          { name: 'AI Solutions', href: '/services/artificial-intelligence' },
+          { name: 'SEO & Content', href: '/services/seo' },
+          { name: 'Web Design', href: '/services/web-development' },
+          { name: 'Web Development', href: '/services/web-development' },
+          { name: 'Data Analytics', href: '/services/data-analytics' },
         ],
       },
       {
         category: 'Capabilities',
         items: [
-          { name: 'Static Website Development', href: '/capabilities/static-website-development', icon: '🏗️' },
-          { name: 'Website Redesign', href: '/capabilities/website-redesign', icon: '🔄' },
-          { name: 'Web Performance Optimization', href: '/capabilities/web-performance-optimization', icon: '⚡' },
-          { name: 'E-commerce Development', href: '/capabilities/e-commerce-development', icon: '🛒' },
-          { name: 'CMS Implementation', href: '/capabilities/cms-implementation', icon: '📝' },
-          { name: 'API Integrations', href: '/capabilities/api-integrations', icon: '🔗' },
-          { name: 'Branding & Visual Identity', href: '/capabilities/branding', icon: '🎨' },
+          { name: 'Static Website Development', href: '/capabilities/static-website-development' },
+          { name: 'Website Redesign', href: '/capabilities/website-redesign' },
+          { name: 'Web Performance Optimization', href: '/capabilities/web-performance-optimization' },
+          { name: 'E-commerce Development', href: '/capabilities/e-commerce-development' },
+          { name: 'CMS Implementation', href: '/capabilities/cms-implementation' },
+          { name: 'API Integrations', href: '/capabilities/api-integrations' },
+          { name: 'Branding & Visual Identity', href: '/capabilities/branding' },
         ],
       },
     ],
@@ -59,10 +58,10 @@ export const navItems: NavItem[] = [
   {
     name: 'Company',
     submenu: [
-      { name: 'About Us', href: '/company/about-us', icon: 'ℹ️' },
-      { name: 'Team', href: '/company/team', icon: '👥' },
-      { name: 'Careers', href: '/company/careers', icon: '💼' },
-      { name: 'Contact', href: '/company/contact', icon: '📞' },
+      { name: 'About Us', href: '/company/about-us' },
+      { name: 'Team', href: '/company/team' },
+      { name: 'Careers', href: '/company/careers' },
+      { name: 'Contact', href: '/company/contact' },
     ],
   },
   { name: 'Blog', href: '/blog' },
