@@ -10,6 +10,9 @@ interface DesktopNavProps {
   onNavigation: (href: string) => void;
 }
 
+const navVariants = {};
+const navItemVariants = {};
+
 const DesktopNav: React.FC<DesktopNavProps> = ({
   isScrolled,
   activeDropdown,
@@ -22,7 +25,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
         className="flex items-center space-x-8"
         variants={navVariants}
       >
+        <ul className="flex items-center space-x-8">
         {navItems.map((item: NavItem, index: number) => (
+          <li key={item.name} className="relative">
           <motion.button
             key={item.name}
             onClick={() => {
@@ -40,7 +45,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                 : isScrolled 
                   ? 'text-gray-600 hover:text-gray-900' 
                   : 'text-gray-700 hover:text-gray-900'
-            }`}
+            } ${
+                isScrolled ? 'text-gray-900' : 'text-black'
+              }`}
             variants={navItemVariants}
             whileHover={{ 
               scale: 1.05,
@@ -48,6 +55,13 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
               transition: { type: "spring", stiffness: 400, damping: 17 }
             }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+                if (item.href) {
+                  onNavigation(item.href);
+                } else if (item.submenu || item.megaMenu) {
+                  onToggleDropdown(item.name);
+                }
+              }}
           >
             {item.name}
             {(item.submenu || item.megaMenu) && (
@@ -66,27 +80,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
               />
             )}
           </motion.button>
-        ))}
-      </motion.nav>
-    </div>
-  );
-};
-
-export default DesktopNav;
-                isScrolled ? 'text-gray-900' : 'text-black'
-              }`}
-              onClick={() => {
-                if (item.href) {
-                  onNavigation(item.href);
-                } else if (item.submenu || item.megaMenu) {
-                  onToggleDropdown(item.name);
-                }
-              }}
-            >
-              {item.name}
               {(item.submenu || item.megaMenu) && (
                 <ChevronDown 
-                  className={`w-4 h-4 transition-transform duration-200 ${
+                  className={\`w-4 h-4 transition-transform duration-200 ${
                     activeDropdown === item.name ? 'rotate-180' : 'rotate-0'
                   }`}
                 />
@@ -165,7 +161,9 @@ export default DesktopNav;
           </li>
         ))}
       </ul>
+      </motion.nav>
     </nav>
+    </div>
   );
 };
 
