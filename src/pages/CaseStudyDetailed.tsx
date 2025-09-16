@@ -143,6 +143,9 @@ const CaseStudyDetailed: React.FC = () => {
         onGetStartedClick={handleGetStartedClick}
         onViewMoreClick={handleViewMoreClick}
       />
+
+      <CTA onGetStarted={handleGetStarted} />
+      
     </motion.div>
   );
 };
