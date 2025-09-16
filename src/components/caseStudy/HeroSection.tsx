@@ -71,12 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
             className="absolute inset-0 z-10 flex flex-col items-center justify-center p-8 sm:p-12 text-white text-center"
             variants={containerVariants}
           >
-            <motion.p
-              className="text-lg font-medium mb-4 font-sf-pro-text"
-              variants={itemVariants}
-            >
-              {caseStudy.subtitle}
-            </motion.p>
+   
 
                     <motion.div
               className="flex flex-wrap gap-4 lg:gap-8 mb-6"
