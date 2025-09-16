@@ -46,8 +46,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({
     col-span-1 md:col-span-3 md:row-span-4 
     rounded-lg border border-gray-200 
     p-4 sm:p-5 md:p-6 order-1
-    flex items-center justify-content
-                      
+    flex items-center justify-content                  
   "
   variants={itemVariants}
 >
@@ -55,7 +54,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({
     className="
       text-base sm:text-lg md:text-xl lg:text-2xl 
       text-gray-700 leading-relaxed font-sf-pro-text
-      text-center /* optional: center text alignment */
+       /* optional: center text alignment */
     "
     variants={itemVariants}
   >
