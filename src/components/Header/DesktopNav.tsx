@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronRight, ArrowRight } from 'lucide-react';
 import { navItems, NavItem } from './NavItems';
 
 interface DesktopNavProps {
@@ -51,7 +51,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                     onToggleDropdown(item.name);
                   }
                 }}
-                className={`px-3 text-base font-medium transition-all duration-300 font-sf-pro-text relative ${
+                className={`flex items-center px-3 text-base font-medium transition-all duration-300 font-sf-pro-text relative ${
                   activeDropdown === item.name
                     ? isScrolled 
                       ? 'text-gray-900' 
@@ -68,12 +68,10 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {item.name}
+                <span>{item.name}</span>
                 {(item.submenu || item.megaMenu) && (
-                  <ChevronDown 
-                    className={`w-4 h-4 ml-1 transition-transform duration-200 ${
-                      activeDropdown === item.name ? 'rotate-180' : 'rotate-0'
-                    }`}
+                  <ChevronRight 
+                    className="w-4 h-4 ml-2 transition-transform duration-200 text-gray-500 group-hover:text-gray-900"
                   />
                 )}
               </motion.button>
