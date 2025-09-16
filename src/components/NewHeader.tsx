@@ -328,7 +328,7 @@ const NewHeader: React.FC = () => {
                 />
               </button>
             </div>
-            <div className="hidden md:flex items-center">
+          </div>
         </div>
       </div>
 
@@ -337,9 +337,13 @@ const NewHeader: React.FC = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-          <div className="hidden md:flex flex-1 justify-center">
-            <nav className="flex items-center space-x-8">
-                    className={`relative flex items-center justify-between gap-2 px-4 py-2 font-medium text-sm transition-colors duration-300 hover:opacity-100 group-hover:opacity-60 ${
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white border-t border-gray-200"
+          >
+            <div className="px-6 py-4 space-y-4">
+              {navItems.map((item, index) => (
                 <li key={index} className="relative list-none">
                   <button
                     onClick={() => {
@@ -398,10 +402,8 @@ const NewHeader: React.FC = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </li>
               ))}
-            </nav>
-          </div>
               <div className="pt-4 border-t border-gray-200">
                 <button
                   onClick={() => handleNavigation('/#contact')}
