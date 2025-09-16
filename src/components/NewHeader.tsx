@@ -108,7 +108,23 @@ const NewHeader: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <span className="flex items-center gap-2">
+               <motion.button
+              onClick={() => handleNavigation('/#contact')}
+              className="group inline-flex items-center justify-center text-center rounded-lg transition-colors whitespace-nowrap gap-2 font-medium text-sm leading-none px-4 py-3 h-[46px] bg-blue-700 text-white hover:bg-blue-800"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="flex items-center gap-2">
                 Book intro call
+                <motion.div
+                  className="flex items-center"
+                  whileHover={{ x: 2 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </motion.div>
+              </span>
+            </motion.button>
                 <motion.div
                   className="flex items-center"
                   whileHover={{ x: 2 }}
