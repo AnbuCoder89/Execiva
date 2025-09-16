@@ -134,19 +134,11 @@ const CaseStudyDetailed: React.FC = () => {
         keyTechnologies={caseStudy.keyTechnologies}
         technology={caseStudy.technology}
       />
-      {/* <BackgroundSection caseStudy={caseStudy} />
-      <ObjectivesSection caseStudy={caseStudy} />
-      <ApproachSection caseStudy={caseStudy} /> */}
-      
-      {/* New Case Layout with TOC and Content */}
       <CaseLayout 
         toc={<TOC caseStudy={caseStudy} />}
         content={<CaseContent caseStudy={caseStudy} />}
       />
-      
-      {/* <MainContentSections caseStudy={caseStudy} /> */}
-      {/* <ImpactAreas impactArea={caseStudy.impactArea} /> */}
-      
+    
       <CTASection 
         onGetStartedClick={handleGetStartedClick}
         onViewMoreClick={handleViewMoreClick}
