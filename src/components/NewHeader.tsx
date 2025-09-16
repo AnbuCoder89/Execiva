@@ -9,8 +9,42 @@ const NewHeader: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    let ticking = false;
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const scrollThreshold = 50;
+          const hideThreshold = 80;
+          
+          setIsScrolled(currentScrollY > scrollThreshold);
+          
+          if (currentScrollY <= 10) {
+            setIsVisible(true);
+          } else if (currentScrollY < lastScrollY && currentScrollY > hideThreshold) {
+            setIsVisible(true);
+          } else if (currentScrollY > lastScrollY && currentScrollY > hideThreshold) {
+            setIsVisible(false);
+          }
+          
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   useEffect(() => {
     let ticking = false;
@@ -155,7 +189,7 @@ const NewHeader: React.FC = () => {
                   <li key={index} className="relative">
                     <button
                       className={`relative flex items-center justify-between gap-2 px-4 py-3 font-medium text-sm transition-colors duration-300 xl:px-5 xl:py-2 xl:hover:!opacity-100 xl:group-hover:opacity-60 ${
-                        isScrolled ? 'text-gray-900 hover:text-blue-600' : 'text-gray-900 hover:text-blue-600'
+                        isScrolled ? 'text-gray-900' : 'text-white'
                       }`}
                       onClick={() => {
                         if (item.href) {
@@ -250,6 +284,53 @@ const NewHeader: React.FC = () => {
             </nav>
 
             {/* CTA Button - Desktop */}
+            <div className="hidden md:flex items-center">
+              <motion.button
+                onClick={() => handleNavigation('/#contact')}
+                className="group inline-flex items-center justify-center text-center rounded-lg transition-colors whitespace-nowrap gap-2 font-medium text-sm leading-none px-4 py-3 h-[46px] bg-blue-700 text-white hover:bg-blue-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center gap-2">
+                  Book intro call
+                  <motion.div
+                    className="flex items-center"
+                    whileHover={{ x: 2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.div>
+                </span>
+              </motion.button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                type="button"
+                className="relative h-6 w-6 p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                aria-controls="mobile-menu"
+                aria-expanded={isMobileMenuOpen}
+                onClick={toggleMenu}
+              >
+                <span className="sr-only">Open main menu</span>
+                <motion.span
+                  className={`block absolute h-0.5 w-full left-0 bg-gray-900 transition-all duration-300 ${
+                    isMobileMenuOpen ? 'rotate-45 top-2.5' : 'top-1'
+                  }`}
+                />
+                <motion.span
+                  className={`block absolute h-0.5 w-full bg-gray-900 left-0 top-2.5 transition-all duration-300 ${
+                    isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+                <motion.span
+                  className={`block absolute h-0.5 w-full left-0 bg-gray-900 transition-all duration-300 ${
+                    isMobileMenuOpen ? '-rotate-45 top-2.5' : 'top-4'
+                  }`}
+                />
+              </button>
+            </div>
             <div className="hidden md:flex items-center">
               <motion.button
                 onClick={() => handleNavigation('/#contact')}
