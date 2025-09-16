@@ -22,12 +22,25 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
   return (
     <div className="hidden md:flex flex-1 justify-center">
       <motion.nav 
-        className="flex items-center space-x-8"
+        className="flex items-center space-x-12"
         variants={navVariants}
       >
         <ul className="flex items-center space-x-8">
         {navItems.map((item: NavItem, index: number) => (
-          <li key={item.name} className="relative">
+          <li 
+            key={item.name} 
+            className="relative"
+            onMouseEnter={() => {
+              if (item.submenu || item.megaMenu) {
+                onToggleDropdown(item.name);
+              }
+            }}
+            onMouseLeave={() => {
+              if (item.submenu || item.megaMenu) {
+                onToggleDropdown('');
+              }
+            }}
+          >
           <motion.button
             key={item.name}
             onClick={() => {
@@ -64,14 +77,6 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                 }`}
               />
             )}
-            {activeDropdown === item.name && (
-              <motion.div
-                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-900 rounded-full"
-                layoutId="activeIndicator"
-                initial={false}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-            )}
           </motion.button>
 
           {/* Dropdown/Mega Menu */}
@@ -87,6 +92,8 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                   width: item.megaMenu ? '600px' : '280px',
                   left: item.megaMenu ? '-200px' : '0'
                 }}
+                onMouseEnter={() => onToggleDropdown(item.name)}
+                onMouseLeave={() => onToggleDropdown('')}
               >
                 <div className="p-6">
                   {item.megaMenu ? (
