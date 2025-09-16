@@ -154,12 +154,6 @@ const CaseStudyDetailed: React.FC = () => {
         toc={<TOC caseStudy={caseStudy} />}
         content={<CaseContent caseStudy={caseStudy} />}
       />
-    
-      <CTASection 
-        onGetStartedClick={handleGetStartedClick}
-        onViewMoreClick={handleViewMoreClick}
-      />
-
       <CTA onGetStarted={handleGetStarted} />
       
     </motion.div>
