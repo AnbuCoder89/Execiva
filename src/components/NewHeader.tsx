@@ -186,7 +186,7 @@ const NewHeader: React.FC = () => {
                   <li key={index} className="relative">
                     <button
                       className={`relative flex items-center justify-between gap-2 px-4 py-3 font-medium text-sm transition-colors duration-300 xl:px-5 xl:py-2 xl:hover:!opacity-100 xl:group-hover:opacity-60 ${
-                        isScrolled ? 'text-gray-900' : 'text-white'
+                        isScrolled ? 'text-gray-900' : 'text-black'
                       }`}
                       onClick={() => {
                         if (item.href) {
