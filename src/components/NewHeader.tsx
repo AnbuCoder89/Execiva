@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Button from './ui/Button';
-import { Logo, DesktopNav, MobileNav } from './Header/index';
+import { Logo } from './Header/index';
+import Navigation from './Header/Navigation';
 
 // Framer Motion variants for header and items
 const navVariants = {
@@ -92,12 +93,13 @@ const NewHeader: React.FC = () => {
           {/* Logo */}
           <Logo />
 
-          {/* Desktop Navigation */}
-          <DesktopNav
+          {/* Navigation Component */}
+          <Navigation
             isScrolled={isScrolled}
             activeDropdown={activeDropdown}
             onToggleDropdown={toggleDropdown}
             onNavigation={handleNavigation}
+            isMobileMenuOpen={isMobileMenuOpen}
           />
 
           {/* CTA Button - Desktop */}
@@ -167,18 +169,6 @@ const NewHeader: React.FC = () => {
           </div>
         </motion.div>
       </motion.div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <MobileNav
-            isMobileMenuOpen={isMobileMenuOpen}
-            activeDropdown={activeDropdown}
-            onToggleDropdown={toggleDropdown}
-            onNavigation={handleNavigation}
-          />
-        )}
-      </AnimatePresence>
     </motion.header>
   );
 };
