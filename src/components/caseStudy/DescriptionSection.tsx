@@ -42,7 +42,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({
         {/* Grid Layout - Responsive */}
         <div className="grid grid-cols-1 md:grid-cols-5 md:grid-rows-5 gap-4 md:gap-2 mt-8 md:mt-12 min-h-[400px] md:h-96">
           <motion.div 
-            className="col-span-1 md:col-span-3 md:row-span-4 rounded-lg border border-gray-200 p-4 sm:p-5 md:p-6 order-1"
+            className="col-span-1 md:col-span-3 md:row-span-4 rounded-lg border border-gray-200 p-4 sm:p-5 md:p-4 order-1"
             variants={itemVariants}
           >
             <motion.p 
