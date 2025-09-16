@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
 import Button from '../ui/Button';
 import BackButton from '../ui/BackButton';
 
@@ -28,34 +27,39 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants: Variants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
+        ease: 'easeOut',
+      },
+    },
   };
 
   return (
-    <motion.section className="pt-12 min-h-screen" variants={containerVariants} initial="hidden" animate="visible">
+    <motion.section
+      className="pt-12 min-h-screen"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="flex items-center justify-center px-6 sm:px-8 lg:px-12">
         <div className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden">
           {/* background image */}
           <img
             src={caseStudy.image}
-            alt="Case Study Hero"
+            alt={`${caseStudy.title} hero`}
             className="w-full h-[60vh] md:h-[70vh] lg:h-[90vh] object-cover rounded-2xl"
           />
 
@@ -63,23 +67,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
           <div className="absolute inset-0 bg-black/40"></div>
 
           {/* content overlay */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 z-10 flex flex-col items-center justify-center p-8 sm:p-12 text-white text-center"
             variants={containerVariants}
           >
-            <motion.p 
+            <motion.p
               className="text-lg font-medium mb-4 font-sf-pro-text"
               variants={itemVariants}
             >
               {caseStudy.subtitle}
             </motion.p>
-            <motion.h1 
+
+            <motion.h1
               className="text-6xl font-bold mb-4 font-sf-pro-display text-white"
               variants={itemVariants}
             >
               {caseStudy.title}
             </motion.h1>
-            <motion.div 
+
+            <motion.div
               className="flex flex-wrap gap-4 lg:gap-8 mb-6"
               variants={itemVariants}
             >
@@ -89,6 +95,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 </span>
               </div>
             </motion.div>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="vision" size="lg" className="px-8 py-4">
                 Get Started
@@ -100,10 +107,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 label="Back to Case Studies"
               />
             </div>
-          </div>
-            
+          </motion.div>
+
           {/* Project Details - Centered at bottom */}
-          <motion.div 
+          <motion.div
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 max-w-4xl"
             variants={itemVariants}
           >
