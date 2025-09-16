@@ -17,12 +17,62 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
   onNavigation
 }) => {
   return (
-    <nav className="hidden xl:flex w-full items-center xl:relative xl:left-auto xl:top-auto xl:size-auto xl:overflow-visible xl:justify-center">
-      <ul className="group flex w-full flex-col gap-2 pt-3 xl:w-auto xl:z-[60] xl:flex-row xl:gap-6 xl:border-0 xl:p-0 xl:pt-0">
+    <div className="hidden md:flex flex-1 justify-center">
+      <motion.nav 
+        className="flex items-center space-x-8"
+        variants={navVariants}
+      >
         {navItems.map((item: NavItem, index: number) => (
-          <li key={index} className="relative">
-            <button
-              className={`relative flex items-center justify-between gap-2 px-4 py-3 font-medium text-sm transition-colors duration-300 xl:px-5 xl:py-2 xl:hover:!opacity-100 xl:group-hover:opacity-60 ${
+          <motion.button
+            key={item.name}
+            onClick={() => {
+              if (item.href) {
+                onNavigation(item.href);
+              } else if (item.submenu || item.megaMenu) {
+                onToggleDropdown(item.name);
+              }
+            }}
+            className={`text-sm font-medium transition-all duration-300 font-sf-pro-text relative ${
+              activeDropdown === item.name
+                ? isScrolled 
+                  ? 'text-gray-900' 
+                  : 'text-gray-900'
+                : isScrolled 
+                  ? 'text-gray-600 hover:text-gray-900' 
+                  : 'text-gray-700 hover:text-gray-900'
+            }`}
+            variants={navItemVariants}
+            whileHover={{ 
+              scale: 1.05,
+              y: -1,
+              transition: { type: "spring", stiffness: 400, damping: 17 }
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {item.name}
+            {(item.submenu || item.megaMenu) && (
+              <ChevronDown 
+                className={`w-4 h-4 ml-1 transition-transform duration-200 ${
+                  activeDropdown === item.name ? 'rotate-180' : 'rotate-0'
+                }`}
+              />
+            )}
+            {activeDropdown === item.name && (
+              <motion.div
+                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-900 rounded-full"
+                layoutId="activeIndicator"
+                initial={false}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+            )}
+          </motion.button>
+        ))}
+      </motion.nav>
+    </div>
+  );
+};
+
+export default DesktopNav;
                 isScrolled ? 'text-gray-900' : 'text-black'
               }`}
               onClick={() => {

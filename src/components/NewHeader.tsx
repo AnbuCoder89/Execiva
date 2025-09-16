@@ -78,9 +78,14 @@ const NewHeader: React.FC = () => {
         type: "tween"
       }}
     >
-      <div className="container mx-auto">
-        <div className="relative mx-auto flex h-full w-full justify-between items-center">
-          <div className="flex w-full items-center justify-between gap-3 min-h-[80px] py-4 px-6 transition-all duration-200">
+      <motion.div 
+        className="mx-auto px-6 sm:px-8 lg:px-12"
+        variants={navVariants}
+      >
+        <motion.div 
+          className="flex items-center justify-between h-20"
+          variants={navItemVariants}
+        >
             
             {/* Logo */}
             <Logo />
@@ -141,9 +146,8 @@ const NewHeader: React.FC = () => {
                 />
               </button>
             </div>
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Mobile Menu Overlay */}
       <MobileNav

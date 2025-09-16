@@ -24,21 +24,36 @@ const MobileNav: React.FC<MobileNavProps> = ({
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-white border-t border-gray-200"
+          className="sm:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
         >
-          <div className="px-6 py-4 space-y-4">
+          <motion.nav 
+            className="px-6 py-4 space-y-2"
+            variants={navVariants}
+          >
             {navItems.map((item: NavItem, index: number) => (
-              <li key={index} className="relative list-none">
-                <button
-                  onClick={() => {
-                    if (item.href) {
-                      onNavigation(item.href);
-                    } else if (item.submenu || item.megaMenu) {
-                      onToggleDropdown(item.name);
-                    }
-                  }}
-                  className="flex items-center justify-between w-full py-2 text-left font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200"
-                >
+              <motion.button
+                key={item.name}
+                onClick={() => {
+                  if (item.href) {
+                    onNavigation(item.href);
+                  } else if (item.submenu || item.megaMenu) {
+                    onToggleDropdown(item.name);
+                  }
+                }}
+                className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 font-sf-pro-text ${
+                  activeDropdown === item.name
+                    ? 'text-gray-900 bg-gray-100'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                variants={navItemVariants}
+                whileHover={{ 
+                  x: 4,
+                  backgroundColor: "#F3F4F6",
+                  transition: { type: "spring", stiffness: 400, damping: 17 }
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="flex items-center justify-between">
                   {item.name}
                   {(item.submenu || item.megaMenu) && (
                     <ChevronDown 
@@ -47,57 +62,26 @@ const MobileNav: React.FC<MobileNavProps> = ({
                       }`}
                     />
                   )}
-                </button>
-                
-                <AnimatePresence>
-                  {(item.submenu || item.megaMenu) && activeDropdown === item.name && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="ml-4 mt-2 space-y-2 border-l-2 border-gray-100 pl-4"
-                    >
-                      {item.megaMenu ? (
-                        item.megaMenu.map((category) =>
-                          category.items.map((subItem, subIdx) => (
-                            <button
-                              key={subIdx}
-                              onClick={() => onNavigation(subItem.href)}
-                              className="flex items-center gap-2 w-full py-1 text-left text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                            >
-                              <span>{subItem.icon}</span>
-                              {subItem.name}
-                            </button>
-                          ))
-                        )
-                      ) : (
-                        item.submenu?.map((subItem, subIdx) => (
-                          <button
-                            key={subIdx}
-                            onClick={() => onNavigation(subItem.href)}
-                            className="flex items-center gap-2 w-full py-1 text-left text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                          >
-                            <span>{subItem.icon}</span>
-                            {subItem.name}
-                          </button>
-                        ))
-                      )}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
+                </div>
+              </motion.button>
             ))}
             <div className="pt-4 border-t border-gray-200">
-              <button
-                onClick={() => onNavigation('/#contact')}
-                className="w-full inline-flex items-center justify-center text-center rounded-lg transition-colors whitespace-nowrap gap-2 font-medium text-sm leading-none px-4 py-3 h-[46px] bg-blue-700 text-white hover:bg-blue-800"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Book intro call
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                <button
+                  onClick={() => {
+                    onNavigation('/#contact');
+                  }}
+                  className="w-full text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-6 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
+                >
+                  Contact
+                </button>
+              </motion.div>
             </div>
-          </div>
+          </motion.nav>
         </motion.div>
       )}
     </AnimatePresence>
