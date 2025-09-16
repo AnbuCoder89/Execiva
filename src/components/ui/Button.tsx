@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
   const variantStyles = {
     ghost: 'text-white border border-transparent hover:border-white hover:backdrop-blur-xl',
     vision:
-      ''
+      'text-gray-900 border-2 shadow-lg hover:shadow-xl bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] focus:ring-gray-500'
   };
 
   const sizeStyles = {
