@@ -56,7 +56,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
           <img
             src={caseStudy.image}
             alt="Case Study Hero"
-            className="w-full min-h-screen h-service-hero object-cover rounded-2xl"
+            className="w-full h-[60vh] md:h-[70vh] lg:h-[100vh] object-cover rounded-2xl"
           />
 
           {/* dark overlay for readability */}
