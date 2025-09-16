@@ -1,0 +1,174 @@
+"use client";
+
+import { motion, Variants } from "framer-motion";
+import Button from "../ui/Button";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }, // easeOutExpo
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const capabilities = [
+    { name: "AI", icon: "/logo/machine-learning.png" },
+    { name: "SEO", icon: "/logo/seo-search-symbol.png" },
+    { name: "Web Development", icon: "/logo/coding.png" },
+    { name: "Data Analytics", icon: "/logo/data.png" },
+    { name: "E-Commerce", icon: "/logo/shopping-cart.png" },
+    { name: "Cloud", icon: "/logo/connected-cloudscape.png" },
+  ];
+
+  return (
+    <motion.section
+      id="home"
+      className="relative min-h-screen flex flex-col items-center bg-beige overflow-hidden px-6 sm:px-8 lg:px-12 pt-24"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      {/* Hero Content */}
+      <motion.div
+        className="w-full max-w-6xl mx-auto text-center"
+        variants={itemVariants}
+      >
+        <motion.h1
+          className="mb-6 lg:mb-8 leading-tight font-sf-pro-display tracking-tight text-gray-900"
+          variants={itemVariants}
+        >
+          <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)]">
+            Your technology, simplified.
+          </span>
+          <span className="block font-extrabold text-[clamp(2.5rem,5vw,5.5rem)] text-gray-900">
+            Your business, amplified.
+          </span>
+        </motion.h1>
+
+        <motion.p
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-12 lg:mb-16 max-w-3xl mx-auto font-light"
+          variants={itemVariants}
+        >
+          Execiva partners with you across AI, SEO, Web Development, and Data
+          Analytics ensuring your systems work seamlessly so your team can focus
+          on impact.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pb-10"
+          variants={itemVariants}
+        >
+          <Button variant="vision" size="lg" className="px-10 py-4 font-medium">
+            Get Started
+          </Button>
+          <Button
+            variant="vision"
+            size="lg"
+            onClick={() => scrollToSection("services")}
+            className="px-10 py-4 font-medium shadow-md hover:shadow-lg"
+          >
+            Explore Services
+          </Button>
+        </motion.div>
+      </motion.div>
+
+      {/* Capabilities Section */}
+      <motion.div className="w-full mt-12" variants={itemVariants}>
+        {/* Heading */}
+        <motion.p
+          className="text-sm sm:text-base md:text-lg text-gray-500 font-sf-pro-text mb-4 font-medium tracking-wide text-left"
+          variants={itemVariants}
+        >
+          Our Capabilities
+        </motion.p>
+
+        {/* Divider visible everywhere */}
+        <motion.div
+          className="w-full h-px bg-neutral-300 mb-8"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        />
+
+        {/* Mobile Marquee */}
+        <motion.div
+          className="block sm:hidden relative overflow-hidden"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="flex animate-marquee space-x-6"
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            {capabilities.concat(capabilities).map((cap, index) => (
+              <motion.div
+                key={index}
+                className="flex-shrink-0 w-24 h-16 flex flex-col items-center justify-center opacity-60 hover:opacity-80 transition-all duration-300"
+                whileHover={{ scale: 1.1 }}
+                variants={itemVariants}
+              >
+                <img
+                  src={cap.icon}
+                  alt={cap.name}
+                  className="w-3 h-3 mb-1 filter grayscale opacity-70"
+                />
+                <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
+                    {cap.name}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Desktop Grid aligned LEFT */}
+        <motion.div
+          className="hidden sm:flex justify-center items-center gap-6 md:gap-8 lg:gap-12 xl:gap-16"
+          variants={containerVariants}
+        >
+          {capabilities.map((cap, index) => (
+            <motion.div
+              key={index}
+              className="w-16 h-16 sm:w-20 sm:h-20 flex flex-col items-center justify-center opacity-60 hover:opacity-90 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 0.6, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+              whileHover={{
+                scale: 1.15,
+                opacity: 0.9,
+                transition: { type: "spring", stiffness: 400, damping: 17 },
+              }}
+            >
+              <div className="flex items-center justify-center">
+                <img
+                  src={cap.icon}
+                  alt={cap.name}
+                  className="w-8 h-8 mb-2 filter grayscale opacity-70 hover:opacity-90 transition-opacity duration-300"
+                />
+              </div>
+              <span className="text-xs text-gray-600 font-sf-pro-text text-center leading-tight whitespace-nowrap">
+                    {cap.name}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+    </motion.section>
+  );
+};
+
+export default Hero;

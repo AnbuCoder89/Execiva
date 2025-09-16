@@ -1,0 +1,118 @@
+[
+  {
+    "id": "airia-ai-projects-exploration-integration",
+    "title": "Airia – AI Projects Exploration & Integration",
+    "subtitle": "AI / PLATFORM EVALUATION",
+    "category": "CASE STUDIES",
+    "topic": "AI/ML",
+    "industry": "Music & Entertainment",
+    "region": "Global",
+    "channel": "Digital",
+    "product": "AI Platform",
+    "image": "/image/casestudy-4.jpeg",
+    "description": "This project delivered a comprehensive Power BI dashboard solution for Royalty Network, revolutionizing their royalty income and performance tracking. By automating data flows and providing interactive visualizations, the initiative empowered the client with real-time insights, significantly enhancing their operational efficiency, financial accuracy, and strategic decision-making in the competitive music entertainment industry",
+    "serviceType": [
+        "AI Development",
+        "API Integration",
+        "Data Analytics",
+        "Business Intelligence",
+        "Power BI Dashboard Development",
+        "Data Visualization"
+    ],
+    "clientCompany": "Royalty Network",
+    "technology": [
+        "Concord API",
+        "Airia AI",
+        "Airia AI",
+        "Google BigQuery",
+        "Slack",
+        "Concord API",
+        "n8n"
+    ],
+    "projectTimeline": "2025",
+    "projectType": "Platform Evaluation",
+    "impactArea": [
+        "Workflow Optimization",
+        "Rights Management"
+    ],
+    "background": "Royalty Network faced significant operational hurdles due to inconsistencies and inaccuracies in their vast music metadata catalog. Manually reconciling song titles, artist names, composer details, and publisher information across various internal and external databases was an extremely labor-intensive and error-prone process. This led to delayed royalty distributions, missed revenue opportunities, and challenges in maintaining a unified, clean data set.",
+    "objectives": [
+        "Automate the reconciliation of music metadata using advanced fuzzy matching techniques.",
+        "Develop intelligent bots for accurate song and composer mapping.",
+        "Substantially reduce manual data cleaning and validation efforts.",
+        "Improve the overall data quality and consistency of the music catalog.",
+        "Streamline the process of identifying and resolving duplicate or mismatched entries."
+    ],
+    "approach": "Initial research into Airia AI revealed limitations in direct BigQuery/GCP integration, with support primarily for Azure, AWS, and Google Drive. Python code execution was identified as a potential workaround. Concurrently, successful integration with the Concord API was achieved. A detailed comparative analysis was then undertaken, pitting n8n against Airia AI across all defined criteria. This analysis was formalized into a Confluence page, later converted to a Word document, and presented to Danny to aid in the strategic decision-making process for AI platform selection.",
+    "keyDeliverables": [
+        "A preliminary assessment of Airia AI's integration landscape",
+        "Successful Concord API integration",
+        "A comprehensive comparative analysis report (document) detailing the strengths and weaknesses of Airia AI versus n8n based on Royalty Network's strategic requirements"
+    ],
+    "resultsAchieved": "Successfully integrated with the Concord API, demonstrating the ability to pull data from contracts. A pivotal outcome was the creation of a detailed, multi-faceted comparison matrix between n8n and Airia AI, covering all specified criteria. This document served as a critical decision-making tool, providing Royalty Network with data-backed insights to choose the most suitable AI platform.",
+    "notableInsights": "The project highlighted that direct BigQuery integration was a significant limitation for Airia AI, necessitating alternative approaches. The structured comparative analysis proved invaluable in evaluating complex technical solutions, showcasing the efficacy of a data-driven approach to platform selection, particularly when budget and specific integrations are critical.",
+    "lessonsLearned": "The importance of conducting a thorough and multi-criteria evaluation for new technology platforms. Proactive research into alternative solutions (like n8n) can provide crucial insights and leverage in strategic decision-making.",
+    "challengesOvercome": "Initial limitations with Airia AI's direct BigQuery integration, and the subsequent need to present a compelling, evidence-based argument for an alternative solution.",
+    "nextSteps": "Awaiting the final decision from the client regarding the preferred AI platform, with potential steps towards implementing n8n if selected.",
+    "extensionPossibilities": "Implementing the chosen AI platform (n8n or Airia AI) for broader automation initiatives and advanced data analysis tasks across various Royalty Network operations.",
+    "summary": "This project delivered a comprehensive Power BI dashboard solution for Royalty Network, revolutionizing their royalty income and performance tracking. By automating data flows and providing interactive visualizations, the initiative empowered the client with real-time insights, significantly enhancing their operational efficiency, financial accuracy, and strategic decision-making in the competitive music entertainment industry."
+},
+  {
+    "id": "airia-ai-projects-exploration-integration",
+    "title": "Airia – AI Projects Exploration & Integration",
+    "subtitle": "AI / PLATFORM EVALUATION",
+    "category": "CASE STUDIES",
+    "topic": "AI/ML",
+    "industry": "Music & Entertainment",
+    "region": "Global",
+    "channel": "Digital",
+    "product": "AI Platform",
+    "image": "/image/casestudy-3.jpeg",
+    "description": "This project delivered a comprehensive Power BI dashboard solution for Royalty Network, revolutionizing their royalty income and performance tracking. By automating data flows and providing interactive visualizations, the initiative empowered the client with real-time insights, significantly enhancing their operational efficiency, financial accuracy, and strategic decision-making in the competitive music entertainment industry",
+    "serviceType": [
+        "AI Development",
+        "API Integration",
+        "Data Analytics",
+        "Business Intelligence",
+        "Power BI Dashboard Development",
+        "Data Visualization"
+    ],
+    "clientCompany": "Royalty Network",
+    "technology": [
+        "Concord API",
+        "Airia AI",
+        "Airia AI",
+        "Google BigQuery",
+        "Slack",
+        "Concord API",
+        "n8n"
+    ],
+    "projectTimeline": "2025",
+    "projectType": "Platform Evaluation",
+    "impactArea": [
+        "Workflow Optimization",
+        "Rights Management"
+    ],
+    "background": "Royalty Network faced significant operational hurdles due to inconsistencies and inaccuracies in their vast music metadata catalog. Manually reconciling song titles, artist names, composer details, and publisher information across various internal and external databases was an extremely labor-intensive and error-prone process. This led to delayed royalty distributions, missed revenue opportunities, and challenges in maintaining a unified, clean data set.",
+    "objectives": [
+        "Automate the reconciliation of music metadata using advanced fuzzy matching techniques.",
+        "Develop intelligent bots for accurate song and composer mapping.",
+        "Substantially reduce manual data cleaning and validation efforts.",
+        "Improve the overall data quality and consistency of the music catalog.",
+        "Streamline the process of identifying and resolving duplicate or mismatched entries."
+    ],
+    "approach": "Initial research into Airia AI revealed limitations in direct BigQuery/GCP integration, with support primarily for Azure, AWS, and Google Drive. Python code execution was identified as a potential workaround. Concurrently, successful integration with the Concord API was achieved. A detailed comparative analysis was then undertaken, pitting n8n against Airia AI across all defined criteria. This analysis was formalized into a Confluence page, later converted to a Word document, and presented to Danny to aid in the strategic decision-making process for AI platform selection.",
+    "keyDeliverables": [
+        "A preliminary assessment of Airia AI's integration landscape",
+        "Successful Concord API integration",
+        "A comprehensive comparative analysis report (document) detailing the strengths and weaknesses of Airia AI versus n8n based on Royalty Network's strategic requirements"
+    ],
+    "resultsAchieved": "Successfully integrated with the Concord API, demonstrating the ability to pull data from contracts. A pivotal outcome was the creation of a detailed, multi-faceted comparison matrix between n8n and Airia AI, covering all specified criteria. This document served as a critical decision-making tool, providing Royalty Network with data-backed insights to choose the most suitable AI platform.",
+    "notableInsights": "The project highlighted that direct BigQuery integration was a significant limitation for Airia AI, necessitating alternative approaches. The structured comparative analysis proved invaluable in evaluating complex technical solutions, showcasing the efficacy of a data-driven approach to platform selection, particularly when budget and specific integrations are critical.",
+    "lessonsLearned": "The importance of conducting a thorough and multi-criteria evaluation for new technology platforms. Proactive research into alternative solutions (like n8n) can provide crucial insights and leverage in strategic decision-making.",
+    "challengesOvercome": "Initial limitations with Airia AI's direct BigQuery integration, and the subsequent need to present a compelling, evidence-based argument for an alternative solution.",
+    "nextSteps": "Awaiting the final decision from the client regarding the preferred AI platform, with potential steps towards implementing n8n if selected.",
+    "extensionPossibilities": "Implementing the chosen AI platform (n8n or Airia AI) for broader automation initiatives and advanced data analysis tasks across various Royalty Network operations.",
+    "summary": "This project delivered a comprehensive Power BI dashboard solution for Royalty Network, revolutionizing their royalty income and performance tracking. By automating data flows and providing interactive visualizations, the initiative empowered the client with real-time insights, significantly enhancing their operational efficiency, financial accuracy, and strategic decision-making in the competitive music entertainment industry."
+}
+]
