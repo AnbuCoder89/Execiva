@@ -134,16 +134,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
             </div>
           </div>
         </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce"
-          variants={itemVariants}
-        >
-          <div className="w-10 h-10 flex items-center justify-center border border-white/60 rounded-full">
-            <ArrowDown className="w-4 h-4 text-white" />
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );
