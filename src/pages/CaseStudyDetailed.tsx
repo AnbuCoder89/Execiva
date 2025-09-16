@@ -76,6 +76,21 @@ const CaseStudyDetailed: React.FC = () => {
     }
   };
 
+    const handleGetStarted = () => {
+    navigate('/#contact');
+    let attempts = 0;
+    const tryScroll = () => {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else if (attempts < 10) {
+        attempts += 1;
+        setTimeout(tryScroll, 100);
+      }
+    };
+    setTimeout(tryScroll, 50);
+  };
+
   const handleGetStartedClick = () => {
     navigate('/');
     setTimeout(() => {
