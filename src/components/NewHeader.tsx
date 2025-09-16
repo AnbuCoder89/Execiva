@@ -176,11 +176,11 @@ const NewHeader: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav
-              className={`${
-                isMobileMenuOpen ? 'block' : 'hidden'
-              } w-full max-w-[100vw] items-center xl:relative xl:left-auto xl:top-auto xl:flex xl:size-auto xl:overflow-visible xl:justify-center`}
-            >
+           <nav
+  className={`${
+    isMobileMenuOpen ? 'block xl:flex' : 'hidden xl:flex'
+  } w-full max-w-[100vw] items-center xl:relative xl:left-auto xl:top-auto xl:size-auto xl:overflow-visible xl:justify-center`}
+>
               <ul className="group flex w-full flex-col gap-2 pt-3 xl:w-auto xl:z-[60] xl:flex-row xl:gap-6 xl:border-0 xl:p-0 xl:pt-0">
                 {navItems.map((item, index) => (
                   <li key={index} className="relative">
