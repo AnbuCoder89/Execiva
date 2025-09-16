@@ -393,5 +393,3 @@ const NewHeader: React.FC = () => {
 };
 
 export default NewHeader;
-
-export default NewHeader
