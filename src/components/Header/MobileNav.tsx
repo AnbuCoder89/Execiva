@@ -48,7 +48,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="sm:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
+          className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
         >
           <motion.nav 
             className="px-6 py-4 space-y-2"
@@ -89,7 +89,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
                 </div>
               </motion.button>
             ))}
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-gray-200 md:hidden">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

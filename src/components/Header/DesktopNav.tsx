@@ -41,7 +41,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
   onNavigation
 }) => {
   return (
-    <div className="hidden md:flex flex-1 justify-center">
+    <div className="hidden lg:flex flex-1 justify-center">
       <motion.nav 
         className="flex items-center"
         variants={navVariants}

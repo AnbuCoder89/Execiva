@@ -101,7 +101,7 @@ const NewHeader: React.FC = () => {
           />
 
           {/* CTA Button - Desktop */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -121,7 +121,25 @@ const NewHeader: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
+            {/* Tablet CTA Button */}
+            <div className="hidden md:flex lg:hidden items-center mr-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Button
+                  variant="vision"
+                  size="sm"
+                  onClick={() => handleNavigation('/#contact')}
+                  className="px-3 py-2 text-sm"
+                >
+                  Contact
+                </Button>
+              </motion.div>
+            </div>
+            
             <button
               type="button"
               className="relative h-6 w-6 p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
