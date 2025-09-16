@@ -63,10 +63,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
           <div className="absolute inset-0 bg-black/40"></div>
 
           {/* content overlay */}
-          <div className="absolute inset-0 z-10 flex flex-col items-start justify-center p-8 sm:p-12 text-white">
-            <motion.p 
-              className="text-sm font-medium text-white/80 uppercase tracking-wide font-sf-pro-text mb-4"
-              variants={itemVariants}
+          <motion.div 
+            className="absolute inset-0 z-10 flex flex-col items-center justify-center p-8 sm:p-12 text-white text-center"
+            variants={containerVariants}
+          >
             >
               {caseStudy.subtitle}
             </motion.p>
@@ -99,41 +99,40 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
             </div>
           </div>
             
+          {/* Project Details - Centered at bottom */}
+          <motion.div 
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 max-w-4xl"
+            variants={itemVariants}
+          >
+            {/* REGION */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+              <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.region}
+              </div>
+            </div>
+
+            {/* PRODUCT */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+              <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.product}
+              </div>
+            </div>
+
+            {/* CHANNEL */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+              <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.channel}
+              </div>
+            </div>
+
+            {/* TIMELINE */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+              <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+                {caseStudy.projectTimeline}
+              </div>
+            </div>
+          </motion.div>
         </div>
-        
-        {/* Project Details - Positioned at bottom */}
-        <motion.div 
-          className="absolute bottom-20 left-8 sm:left-24 lg:left-24 flex flex-wrap gap-4 lg:gap-8"
-          variants={itemVariants}
-        >
-          {/* REGION */}
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-sm font-medium text-white font-sf-pro-text">
-              {caseStudy.region}
-            </div>
-          </div>
-
-          {/* PRODUCT */}
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-sm font-medium text-white font-sf-pro-text">
-              {caseStudy.product}
-            </div>
-          </div>
-
-          {/* CHANNEL */}
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-sm font-medium text-white font-sf-pro-text">
-              {caseStudy.channel}
-            </div>
-          </div>
-
-          {/* TIMELINE */}
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
-            <div className="text-sm font-medium text-white font-sf-pro-text">
-              {caseStudy.projectTimeline}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </motion.section>
   );
