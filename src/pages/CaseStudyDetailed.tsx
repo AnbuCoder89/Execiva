@@ -15,6 +15,7 @@ import ApproachSection from '../components/caseStudy/ApproachSection';
 import Button from '../components/ui/Button';
 import BackButton from '../components/ui/BackButton';
 import allCaseStudies from '../../data/caseStudies.json';
+import CTA from '../components/ui/CTA';
 
 interface CaseStudy {
   id: string;
