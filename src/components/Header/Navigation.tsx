@@ -74,7 +74,7 @@ const Navigation: React.FC<NavigationProps> = ({
           className="flex items-center"
           variants={navVariants}
         >
-          <ul className="flex items-center space-x-12">
+          <ul className="flex items-center space-x-6 space-x-12">
             {navItems.map((item: NavItem, index: number) => (
               <li 
                 key={item.name} 
