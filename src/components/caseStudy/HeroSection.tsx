@@ -9,7 +9,7 @@ interface CaseStudy {
   title: string;
   subtitle: string;
   image: string;
-  clientIndustry: string;
+  industry: string;
   region: string;
   product: string;
   channel: string;
@@ -82,7 +82,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
             >
               <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
                 <span className="text-sm font-medium text-white font-sf-pro-text">
-                  {caseStudy.clientIndustry}
+                  {caseStudy.industry}
                 </span>
               </div>
             </motion.div>
