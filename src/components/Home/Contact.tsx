@@ -366,7 +366,7 @@ const Contact: React.FC = () => {
                     size="lg"
                     icon={Send}
                     iconPosition="right"
-                    className="px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    
                   >
                     Submit
                   </Button>
