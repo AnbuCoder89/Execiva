@@ -29,7 +29,7 @@ interface CaseStudy {
   image: string;
   description: string;
   serviceType: string[];
-  clientIndustry: string;
+  clientCompany: string;
   technology: string[];
   projectTimeline: string;
   projectType: string;
