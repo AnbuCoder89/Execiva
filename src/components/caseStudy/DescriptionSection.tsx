@@ -53,9 +53,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({
   <motion.p 
     className="
       text-base sm:text-lg md:text-xl lg:text-2xl 
-      text-gray-700 leading-relaxed font-sf-pro-text
-       /* optional: center text alignment */
-    "
+      text-gray-700 leading-relaxed font-sf-pro-text"
     variants={itemVariants}
   >
     {description}
