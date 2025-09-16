@@ -90,9 +90,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
             >
               {caseStudy.title}
             </motion.h1>
-
-    
-
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="vision" size="lg" className="px-8 py-4">
                 Get Started
@@ -104,6 +101,40 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
                 label="Back to Case Studies"
               />
             </div>
+          {/* Project Details - Centered at bottom */}
+<div
+  className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 max-w-4xl"
+>
+  {/* REGION */}
+  <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+    <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+      {caseStudy.region}
+    </div>
+  </div>
+
+  {/* PRODUCT */}
+  <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+    <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+      {caseStudy.product}
+    </div>
+  </div>
+
+  {/* CHANNEL */}
+  <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+    <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+      {caseStudy.channel}
+    </div>
+  </div>
+
+  {/* TIMELINE */}
+  <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-3 py-2 sm:px-4">
+    <div className="text-xs sm:text-sm font-medium text-white font-sf-pro-text">
+      {caseStudy.projectTimeline}
+    </div>
+  </div>
+</div>
+
+            
           </motion.div>
 
           {/* Project Details - Centered at bottom */}
