@@ -29,10 +29,11 @@ const Button: React.FC<ButtonProps> = ({
   const baseStyles =
     'inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-[#f4f3ee] focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed font-sf-pro-text';
 
+
   const variantStyles = {
     ghost: 'text-white border border-transparent hover:border-white hover:backdrop-blur-xl',
     vision:
-      'text-gray-900 border-2 shadow-md hover:shadow-lg bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] focus:ring-gray-500'
+      'text-gray-900 border-2 shadow-lg hover:shadow-xl bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] focus:ring-gray-500'
   };
 
   const sizeStyles = {
@@ -75,12 +76,12 @@ const Button: React.FC<ButtonProps> = ({
       className={combinedStyles}
       disabled={disabled || loading}
       whileHover={{
-        scale: 1.01, // ✅ tiny scale only
-        boxShadow: '0 6px 16px rgba(0,0,0,0.1)', // ✅ subtle shadow lift
+        scale: 1.02,
+        y: -1,
         transition: { duration: 0.25, ease: 'easeOut' }
       }}
       whileTap={{
-        scale: 0.97, // ✅ natural press effect
+        scale: 0.98,
         transition: { duration: 0.15, ease: 'easeOut' }
       }}
       {...props}
