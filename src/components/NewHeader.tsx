@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Logo from './Header/Logo';
-import DesktopNav from './Header/DesktopNav';
-import MobileMenu from './Header/MobileMenu';
+import Logo from './Logo';
+import DesktopNav from './DesktopNav';
+import MobileMenu from './MobileMenu';
 
 const NewHeader: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,3 +59,4 @@ const NewHeader: React.FC = () => {
 };
 
 export default NewHeader;
+
