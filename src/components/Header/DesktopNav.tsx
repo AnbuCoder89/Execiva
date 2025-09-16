@@ -3,15 +3,36 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { navItems, NavItem } from './NavItems';
 
+const navVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const navItemVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 25
+    }
+  }
+};
+
 interface DesktopNavProps {
   isScrolled: boolean;
   activeDropdown: string | null;
   onToggleDropdown: (menu: string) => void;
   onNavigation: (href: string) => void;
 }
-
-const navVariants = {};
-const navItemVariants = {};
 
 const DesktopNav: React.FC<DesktopNavProps> = ({
   isScrolled,
