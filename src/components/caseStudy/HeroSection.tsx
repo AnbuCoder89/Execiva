@@ -77,7 +77,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
               className="flex flex-wrap gap-4 lg:gap-8 mb-6"
               variants={itemVariants}
             >
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
+              <div className="bg-green-500/20 backdrop-blur-sm rounded-lg border border-white/30 px-4 py-2">
                 <span className="text-sm font-medium text-white font-sf-pro-text">
                   {caseStudy.industry}
                 </span>
