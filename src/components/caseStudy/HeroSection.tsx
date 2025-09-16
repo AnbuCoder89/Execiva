@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ caseStudy, onBackClick }) => 
 
   return (
     <motion.section
-      className="pt-12 min-h-screen"
+      className="pt-12"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
