@@ -30,8 +30,60 @@ export const navItems: NavItem[] = [
     name: 'Solutions',
     megaMenu: [
       {
-        id: 'scope',
-        name: 'Scope',
+        id: 'ai',
+        name: 'AI',
+        items: [
+          {
+            title: 'Machine Learning Models',
+            href: '/solutions/machine-learning',
+            description: 'Custom AI models for your business needs',
+          },
+          {
+            title: 'Natural Language Processing',
+            href: '/solutions/nlp',
+            description: 'Advanced text analysis and understanding',
+          },
+          {
+            title: 'Computer Vision',
+            href: '/solutions/computer-vision',
+            description: 'Image and video analysis solutions',
+          },
+          {
+            title: 'AI Automation',
+            href: '/solutions/ai-automation',
+            description: 'Intelligent process automation',
+          }
+        ]
+      },
+      {
+        id: 'seo',
+        name: 'SEO',
+        items: [
+          {
+            title: 'Technical SEO Audits',
+            href: '/solutions/technical-seo',
+            description: 'Comprehensive technical optimization',
+          },
+          {
+            title: 'Content Strategy',
+            href: '/solutions/content-strategy',
+            description: 'SEO-driven content planning',
+          },
+          {
+            title: 'Link Building',
+            href: '/solutions/link-building',
+            description: 'High-quality backlink acquisition',
+          },
+          {
+            title: 'Local SEO',
+            href: '/solutions/local-seo',
+            description: 'Location-based search optimization',
+          }
+        ]
+      },
+      {
+        id: 'web-development',
+        name: 'Web Development',
         items: [
           {
             title: 'Website Redesigns',
@@ -45,50 +97,39 @@ export const navItems: NavItem[] = [
           },
           {
             title: 'Ongoing Website Services',
-            href: '/solutions/website-product-teams',
+            href: '/solutions/website-services',
             description: 'Continuous website maintenance and updates',
+          },
+          {
+            title: 'E-commerce Development',
+            href: '/solutions/ecommerce',
+            description: 'Custom online store solutions',
           }
         ]
       },
       {
-        id: 'technology',
-        name: 'Technology',
+        id: 'data-analytics',
+        name: 'Data Analytics',
         items: [
           {
-            title: 'React',
-            href: '/technologies/react',
-            description: 'Modern frontend development',
+            title: 'Business Intelligence',
+            href: '/solutions/business-intelligence',
+            description: 'Data-driven decision making tools',
           },
           {
-            title: 'Node.js',
-            href: '/technologies/nodejs',
-            description: 'Scalable backend solutions',
+            title: 'Data Visualization',
+            href: '/solutions/data-visualization',
+            description: 'Interactive dashboards and reports',
           },
           {
-            title: 'Shopify',
-            href: '/technologies/shopify',
-            description: 'E-commerce solutions',
-          }
-        ]
-      },
-      {
-        id: 'industry',
-        name: 'Industry',
-        items: [
-          {
-            title: 'E-commerce',
-            href: '/industries/ecommerce',
-            description: 'Online retail solutions',
+            title: 'Predictive Analytics',
+            href: '/solutions/predictive-analytics',
+            description: 'Future trend analysis and forecasting',
           },
           {
-            title: 'Healthcare',
-            href: '/industries/healthcare',
-            description: 'Healthcare technology',
-          },
-          {
-            title: 'Finance',
-            href: '/industries/finance',
-            description: 'Financial services',
+            title: 'Data Integration',
+            href: '/solutions/data-integration',
+            description: 'Unified data pipeline solutions',
           }
         ]
       }

@@ -43,14 +43,7 @@ const Navigation: React.FC<NavigationProps> = ({
   onNavigation,
   isMobileMenuOpen
 }) => {
-  const [activeMegaMenu, setActiveMegaMenu] = useState<{
-    itemName: string;
-    categoryId: string;
-  } | null>(null);
-
-  const handleMegaMenuHover = (itemName: string, categoryId: string) => {
-    setActiveMegaMenu({ itemName, categoryId });
-  };
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
 
   return (
     <div className="hidden lg:flex flex-1 justify-center">
@@ -68,23 +61,20 @@ const Navigation: React.FC<NavigationProps> = ({
               onMouseEnter={() => {
                 if (item.submenu || item.megaMenu) {
                   onToggleDropdown(item.name);
-                  // Set first category as active when menu opens
+                  // Set first category as hovered when menu opens
                   if (item.megaMenu?.[0]) {
-                    setActiveMegaMenu({
-                      itemName: item.name,
-                      categoryId: item.megaMenu[0].id
-                    });
+                    setHoveredCategory(item.megaMenu[0].id);
                   }
                 }
               }}
               onMouseLeave={() => {
                 onToggleDropdown('');
-                setActiveMegaMenu(null);
+                setHoveredCategory(null);
               }}
             >
               <button
                 className={`flex items-center px-3 text-base font-medium transition-colors ${
-                  activeDropdown === item.name || activeMegaMenu?.itemName === item.name
+                  activeDropdown === item.name
                     ? 'text-blue-600'
                     : 'text-gray-900 hover:text-blue-600'
                 }`}
@@ -110,79 +100,97 @@ const Navigation: React.FC<NavigationProps> = ({
               <AnimatePresence>
                 {item.megaMenu && activeDropdown === item.name && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 8 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-1/2 -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
-                    style={{ width: '800px', maxWidth: '90vw', minHeight: 'auto' }}
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+                    style={{ 
+                      width: '900px', 
+                      maxWidth: '95vw',
+                      minHeight: 'auto'
+                    }}
                   >
-                    <div className="flex min-h-[400px]">
-                      {/* Left Panel - Categories */}
-                      <div className="w-64 bg-gray-50 border-r border-gray-100 overflow-y-auto hidden">
-                        <div className="p-4 hidden">
-                          <div className="space-y-1">
-                            {item.megaMenu.map((category) => (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() => handleMegaMenuHover(item.name, category.id)}
-                                className={`w-full flex items-center gap-3 p-3 rounded-md text-left transition-colors ${
-                                  activeMegaMenu?.itemName === item.name && 
-                                  activeMegaMenu?.categoryId === category.id
-                                    ? 'bg-white text-blue-600 shadow-sm border border-gray-200' 
-                                    : 'text-gray-700 hover:bg-gray-100'
+                    {/* 3-Column Grid Layout */}
+                    <div className="grid grid-cols-3 min-h-[400px]">
+                      {/* Column 1: Main Service Categories */}
+                      <div className="bg-gray-50 border-r border-gray-100 p-6">
+                        <div className="space-y-2">
+                          {item.megaMenu.map((category) => (
+                            <button
+                              key={category.id}
+                              onMouseEnter={() => setHoveredCategory(category.id)}
+                              className={`w-full flex items-center justify-between p-3 rounded-lg text-left transition-all duration-200 group ${
+                                hoveredCategory === category.id
+                                  ? 'bg-white text-blue-600 shadow-sm border border-blue-100' 
+                                  : 'text-gray-700 hover:bg-white hover:text-gray-900'
+                              }`}
+                            >
+                              <span className="font-medium text-sm">
+                                {category.name}
+                              </span>
+                              <ChevronRight 
+                                className={`w-4 h-4 transition-transform ${
+                                  hoveredCategory === category.id ? 'text-blue-600' : 'text-gray-400'
                                 }`}
-                              >
-                                <span className="text-sm font-medium">{category.name}</span>
-                              </button>
-                            ))}
-                          </div>
+                              />
+                            </button>
+                          ))}
                         </div>
                       </div>
 
-                      {/* Right Panel - Content */}
-                      <div className="w-full p-6 overflow-y-auto">
-                        {item.megaMenu.map((category) => {
-                          const isActive = activeMegaMenu?.itemName === item.name && 
-                                        activeMegaMenu?.categoryId === category.id;
-                          return (
-                            <div 
-                              key={category.id}
-                              className="block mb-8 last:mb-0"
-                            >
-                              
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                {category.items.map((item, itemIdx) => (
-                                  <a
-                                    key={itemIdx}
-                                    href={item.href}
-                                    className="group block p-4 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors duration-200 h-full"
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      onNavigation(item.href);
-                                    }}
-                                  >
-                                    <div className="flex items-start justify-between">
-                                      <div>
-                                        <h3 className="font-medium text-gray-900 group-hover:text-blue-600">
-                                          {item.title}
-                                        </h3>
-                                        {item.description && (
-                                          <p className="mt-1 text-sm text-gray-500">
-                                            {item.description}
-                                          </p>
-                                        )}
-                                      </div>
-                                      <div className="text-gray-400 group-hover:text-blue-500 transition-colors">
-                                        <ChevronRight className="w-4 h-4" />
-                                      </div>
-                                    </div>
-                                  </a>
-                                ))}
-                              </div>
+                      {/* Columns 2 & 3: Sub-services */}
+                      <div className="col-span-2 p-6">
+                        {item.megaMenu.map((category) => (
+                          <div 
+                            key={category.id}
+                            className={`transition-all duration-300 ${
+                              hoveredCategory === category.id ? 'block' : 'hidden'
+                            }`}
+                          >
+                            <div className="mb-4">
+                              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                {category.name} Services
+                              </h3>
+                              {category.description && (
+                                <p className="text-sm text-gray-600 mb-4">
+                                  {category.description}
+                                </p>
+                              )}
                             </div>
-                          );
-                        })}
+                            
+                            {/* 2-Column Grid for Sub-services */}
+                            <div className="grid grid-cols-2 gap-4">
+                              {category.items.map((item, itemIdx) => (
+                                <motion.a
+                                  key={itemIdx}
+                                  href={item.href}
+                                  className="group block p-4 rounded-xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-all duration-200 h-full"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    onNavigation(item.href);
+                                  }}
+                                  whileHover={{ y: -2 }}
+                                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                >
+                                  <div className="flex items-start justify-between mb-2">
+                                    <h4 className="font-medium text-gray-900 group-hover:text-blue-600 text-sm">
+                                      {item.title}
+                                    </h4>
+                                    <div className="text-gray-400 group-hover:text-blue-500 transition-colors ml-2">
+                                      <ChevronRight className="w-3 h-3" />
+                                    </div>
+                                  </div>
+                                  {item.description && (
+                                    <p className="text-xs text-gray-500 group-hover:text-gray-600 leading-relaxed">
+                                      {item.description}
+                                    </p>
+                                  )}
+                                </motion.a>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </motion.div>
@@ -194,17 +202,17 @@ const Navigation: React.FC<NavigationProps> = ({
                 {item.submenu && activeDropdown === item.name && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 w-48"
                   >
-                    <div className="py-1">
+                    <div className="py-2">
                       {item.submenu.map((subItem, idx) => (
                         <button
                           key={idx}
                           onClick={() => onNavigation(subItem.href)}
-                          className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                          className="w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                         >
                           {subItem.name}
                         </button>
