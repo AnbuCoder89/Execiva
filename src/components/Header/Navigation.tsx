@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import { navItems, NavItem } from './NavItems';
 
+// Animation variants
 const navVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -27,30 +28,6 @@ const navItemVariants = {
   }
 };
 
-const mobileNavVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const mobileNavItemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 24
-    }
-  }
-};
-
 interface NavigationProps {
   isScrolled: boolean;
   activeDropdown: string | null;
@@ -66,211 +43,199 @@ const Navigation: React.FC<NavigationProps> = ({
   onNavigation,
   isMobileMenuOpen
 }) => {
+  const [activeMegaMenu, setActiveMegaMenu] = useState<{
+    itemName: string;
+    categoryId: string;
+  } | null>(null);
+
+  const handleMegaMenuHover = (itemName: string, categoryId: string) => {
+    setActiveMegaMenu({ itemName, categoryId });
+  };
+
   return (
-    <>
-      {/* Desktop Navigation */}
-      <div className="hidden lg:flex flex-1 justify-center">
-        <motion.nav 
-          className="flex items-center"
-          variants={navVariants}
-        >
-          <ul className="flex items-center space-x-6 space-x-12">
-            {navItems.map((item: NavItem, index: number) => (
-              <li 
-                key={item.name} 
-                className="relative"
-                onMouseEnter={() => {
-                  if (item.submenu || item.megaMenu) {
+    <div className="hidden lg:flex flex-1 justify-center">
+      <motion.nav 
+        className="flex items-center justify-center w-full"
+        variants={navVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <ul className="flex items-center justify-center space-x-6 xl:space-x-8">
+          {navItems.map((item: NavItem) => (
+            <li 
+              key={item.name} 
+              className="relative"
+              onMouseEnter={() => {
+                if (item.submenu || item.megaMenu) {
+                  onToggleDropdown(item.name);
+                  // Set first category as active when menu opens
+                  if (item.megaMenu?.[0]) {
+                    setActiveMegaMenu({
+                      itemName: item.name,
+                      categoryId: item.megaMenu[0].id
+                    });
+                  }
+                }
+              }}
+              onMouseLeave={() => {
+                onToggleDropdown('');
+                setActiveMegaMenu(null);
+              }}
+            >
+              <button
+                className={`flex items-center px-3 text-base font-medium transition-colors ${
+                  activeDropdown === item.name || activeMegaMenu?.itemName === item.name
+                    ? 'text-blue-600'
+                    : 'text-gray-900 hover:text-blue-600'
+                }`}
+                onClick={() => {
+                  if (item.href) {
+                    onNavigation(item.href);
+                  } else if (item.submenu || item.megaMenu) {
                     onToggleDropdown(item.name);
                   }
                 }}
-                onMouseLeave={() => {
-                  if (item.submenu || item.megaMenu) {
-                    onToggleDropdown('');
-                  }
-                }}
               >
-                <motion.button
-                  key={item.name}
-                  onClick={() => {
-                    if (item.href) {
-                      onNavigation(item.href);
-                    } else if (item.submenu || item.megaMenu) {
-                      onToggleDropdown(item.name);
-                    }
-                  }}
-                  className={`flex items-center px-3 text-base font-medium transition-all duration-300 font-sf-pro-text relative ${
-                    activeDropdown === item.name
-                      ? isScrolled 
-                        ? 'text-gray-900' 
-                        : 'text-gray-900'
-                      : isScrolled 
-                        ? 'text-gray-600 hover:text-gray-900' 
-                        : 'text-gray-700 hover:text-gray-900'
-                  } ${isScrolled ? 'text-gray-900' : 'text-black'}`}
-                  variants={navItemVariants}
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -1,
-                    transition: { type: "spring", stiffness: 400, damping: 17 }
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>{item.name}</span>
-                  {(item.submenu || item.megaMenu) && (
-                    <ChevronDown 
-                      className={`w-4 h-4 ml-2 transition-transform duration-200 ${
-                        activeDropdown === item.name ? 'rotate-180' : 'rotate-0'
-                      }`}
-                    />
-                  )}
-                </motion.button>
+                <span>{item.name}</span>
+                {(item.submenu || item.megaMenu) && (
+                  <ChevronDown 
+                    className={`w-4 h-4 ml-1 transition-transform ${
+                      activeDropdown === item.name ? 'rotate-180' : ''
+                    }`}
+                  />
+                )}
+              </button>
 
-                {/* Dropdown / Mega Menu */}
-                <AnimatePresence>
-                  {(item.submenu || item.megaMenu) && activeDropdown === item.name && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden z-50"
-                      style={{
-                        width: item.megaMenu ? '600px' : '280px',
-                        left: item.megaMenu ? '-200px' : '0'
-                      }}
-                      onMouseEnter={() => onToggleDropdown(item.name)}
-                      onMouseLeave={() => onToggleDropdown('')}
-                    >
-                      <div className="p-6">
-                        {item.megaMenu ? (
-                          <div className="flex gap-8">
-                            {item.megaMenu.map((category, idx) => (
-                              <div key={idx} className="flex-1">
-                                <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
-                                  {category.category}
-                                </h3>
-                                <div className="space-y-3">
-                                  {category.items.map((subItem, subIdx) => (
-                                    <button
-                                      key={subIdx}
-                                      onClick={() => onNavigation(subItem.href)}
-                                      className="group flex items-center gap-3 w-full text-left p-2 rounded-md hover:bg-gray-50 transition-colors duration-200"
-                                    >
-                                      <div className="flex-1">
-                                        <div className="flex items-center gap-2">
-                                          <span className="text-sm font-medium text-gray-900 group-hover:text-blue-600">
-                                            {subItem.name}
-                                          </span>
-                                          <ArrowRight className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                                        </div>
-                                      </div>
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <div className="space-y-2">
-                            {item.submenu?.map((subItem, subIdx) => (
+              {/* Mega Menu Dropdown */}
+              <AnimatePresence>
+                {item.megaMenu && activeDropdown === item.name && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 20 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
+                    style={{ width: '800px', maxWidth: '90vw' }}
+                  >
+                    <div className="flex h-[500px]">
+                      {/* Left Panel - Categories */}
+                      <div className="w-64 bg-gray-50 border-r border-gray-100 overflow-y-auto">
+                        <div className="p-4">
+                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-2">
+                            Categories
+                          </h3>
+                          <div className="space-y-1">
+                            {item.megaMenu.map((category) => (
                               <button
-                                key={subIdx}
-                                onClick={() => onNavigation(subItem.href)}
-                                className="group flex items-center gap-3 w-full text-left p-2 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                                key={category.id}
+                                onMouseEnter={() => handleMegaMenuHover(item.name, category.id)}
+                                className={`w-full flex items-center gap-3 p-3 rounded-md text-left transition-colors ${
+                                  activeMegaMenu?.itemName === item.name && 
+                                  activeMegaMenu?.categoryId === category.id
+                                    ? 'bg-white text-blue-600 shadow-sm border border-gray-200' 
+                                    : 'text-gray-700 hover:bg-gray-100'
+                                }`}
                               >
-                                <div className="flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-sm font-medium text-gray-900 group-hover:text-blue-600">
-                                      {subItem.name}
-                                    </span>
-                                    <ArrowRight className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                                  </div>
+                                <div className="flex-shrink-0 w-5 h-5 flex items-center justify-center text-gray-500">
+                                  {category.icon}
                                 </div>
+                                <span className="text-sm font-medium">{category.name}</span>
                               </button>
                             ))}
                           </div>
-                        )}
+                        </div>
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-            ))}
-          </ul>
-        </motion.nav>
-      </div>
 
-      {/* Mobile Navigation Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50"
-          >
-            <motion.nav 
-              className="px-6 py-4 space-y-2"
-              variants={mobileNavVariants}
-            >
-              {navItems.map((item: NavItem, index: number) => (
-                <motion.button
-                  key={item.name}
-                  onClick={() => {
-                    if (item.href) {
-                      onNavigation(item.href);
-                    } else if (item.submenu || item.megaMenu) {
-                      onToggleDropdown(item.name);
-                    }
-                  }}
-                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 font-sf-pro-text ${
-                    activeDropdown === item.name
-                      ? 'text-gray-900 bg-gray-100'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
-                  variants={mobileNavItemVariants}
-                  whileHover={{ 
-                    x: 4,
-                    backgroundColor: "#F3F4F6",
-                    transition: { type: "spring", stiffness: 400, damping: 17 }
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center justify-between">
-                    {item.name}
-                    {(item.submenu || item.megaMenu) && (
-                      <ChevronDown 
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          activeDropdown === item.name ? 'rotate-180' : 'rotate-0'
-                        }`}
-                      />
-                    )}
-                  </div>
-                </motion.button>
-              ))}
-              <div className="pt-4 border-t border-gray-200 md:hidden">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <button
-                    onClick={() => {
-                      onNavigation('/#contact');
-                    }}
-                    className="w-full text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-6 py-2 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
+                      {/* Right Panel - Content */}
+                      <div className="flex-1 p-6 overflow-y-auto">
+                        {item.megaMenu.map((category) => {
+                          const isActive = activeMegaMenu?.itemName === item.name && 
+                                        activeMegaMenu?.categoryId === category.id;
+                          return (
+                            <div 
+                              key={category.id}
+                              className={`${isActive ? 'block' : 'hidden'}`}
+                            >
+                              <div className="flex items-center gap-3 mb-6">
+                                <div className="p-2 rounded-lg bg-blue-50">
+                                  <span className="text-blue-600">{category.icon}</span>
+                                </div>
+                                <h2 className="text-xl font-semibold text-gray-900">
+                                  {category.name}
+                                </h2>
+                              </div>
+                              
+                              {category.description && (
+                                <p className="text-gray-600 mb-6">{category.description}</p>
+                              )}
+                              
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {category.items.map((item, itemIdx) => (
+                                  <a
+                                    key={itemIdx}
+                                    href={item.href}
+                                    className="group block p-4 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors duration-200"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      onNavigation(item.href);
+                                    }}
+                                  >
+                                    <div className="flex items-start justify-between">
+                                      <div>
+                                        <h3 className="font-medium text-gray-900 group-hover:text-blue-600">
+                                          {item.title}
+                                        </h3>
+                                        {item.description && (
+                                          <p className="mt-1 text-sm text-gray-500">
+                                            {item.description}
+                                          </p>
+                                        )}
+                                      </div>
+                                      <div className="text-gray-400 group-hover:text-blue-500 transition-colors">
+                                        <ChevronRight className="w-4 h-4" />
+                                      </div>
+                                    </div>
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Regular Dropdown Menu */}
+              <AnimatePresence>
+                {item.submenu && activeDropdown === item.name && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 20 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 w-48"
                   >
-                    Contact
-                  </button>
-                </motion.div>
-              </div>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+                    <div className="py-1">
+                      {item.submenu.map((subItem, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => onNavigation(subItem.href)}
+                          className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                        >
+                          {subItem.name}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
+          ))}
+        </ul>
+      </motion.nav>
+    </div>
   );
 };
 

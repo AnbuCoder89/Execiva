@@ -88,84 +88,76 @@ const NewHeader: React.FC = () => {
       animate={{ y: isVisible ? 0 : '-100%' }}
       transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], type: 'tween' }}
     >
-      <motion.div className="mx-auto px-6 sm:px-8 lg:px-12" variants={navVariants} initial="hidden" animate="visible">
-        <motion.div className="flex items-center justify-between h-20" variants={navItemVariants}>
+      <motion.div 
+        className="mx-auto px-6 sm:px-8 lg:px-12" 
+        variants={navVariants} 
+        initial="hidden" 
+        animate="visible"
+      >
+        <motion.div className="flex items-center justify-between h-16 md:h-20 w-full" variants={navItemVariants}>
           {/* Logo */}
-          <Logo />
-
-          {/* Navigation Component */}
-          <Navigation
-            isScrolled={isScrolled}
-            activeDropdown={activeDropdown}
-            onToggleDropdown={toggleDropdown}
-            onNavigation={handleNavigation}
-            isMobileMenuOpen={isMobileMenuOpen}
-          />
-
-          {/* CTA Button - Desktop */}
-          <div className="hidden lg:flex items-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <Button
-                variant="vision"
-                size="md"
-                icon={ArrowRight}
-                iconPosition="right"
-                onClick={() => handleNavigation('/#contact')}
-                className="px-4 py-3 h-[46px]"
-              >
-                Book intro call
-              </Button>
-            </motion.div>
+          <div className="flex-shrink-0">
+            <Logo />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            {/* Tablet CTA Button */}
-            <div className="hidden md:flex lg:hidden items-center mr-4">
+          {/* Desktop Navigation - Only show on lg and up */}
+          <div className="hidden lg:block flex-1">
+            <Navigation
+              isScrolled={isScrolled}
+              activeDropdown={activeDropdown}
+              onToggleDropdown={toggleDropdown}
+              onNavigation={handleNavigation}
+              isMobileMenuOpen={isMobileMenuOpen}
+            />
+          </div>
+
+          <div className="flex items-center space-x-4">
+            {/* CTA Button - Hidden on mobile, visible on sm and up */}
+            <div className="hidden sm:block">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="mr-2 lg:mr-0"
               >
                 <Button
                   variant="vision"
-                  size="sm"
-                  onClick={() => handleNavigation('/#contact')}
-                  className="px-3 py-2 text-sm"
+                  size={window.innerWidth < 1024 ? "sm" : "md"}
+                  onClick={() => handleNavigation('/contact')}
+                  className="whitespace-nowrap"
                 >
-                  Contact
+                  Book Intro Call
+                  <ArrowRight className="ml-1 md:ml-2 h-3 md:h-4 w-3 md:w-4" />
                 </Button>
               </motion.div>
             </div>
-            
-            <button
-              type="button"
-              className="relative h-6 w-6 p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
-              aria-controls="mobile-menu"
-              aria-expanded={isMobileMenuOpen}
-              onClick={toggleMenu}
-            >
-              <span className="sr-only">Open main menu</span>
-              <motion.span
-                className={`block absolute h-0.5 w-full left-0 bg-gray-900 transition-all duration-300 ${
-                  isMobileMenuOpen ? 'rotate-45 top-2.5' : 'top-1'
-                }`}
-              />
-              <motion.span
-                className={`block absolute h-0.5 w-full bg-gray-900 left-0 top-2.5 transition-all duration-300 ${
-                  isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
-                }`}
-              />
-              <motion.span
-                className={`block absolute h-0.5 w-full left-0 bg-gray-900 transition-all duration-300 ${
-                  isMobileMenuOpen ? '-rotate-45 top-2.5' : 'top-4'
-                }`}
-              />
-            </button>
+
+            {/* Mobile Menu Button - Show on md and down */}
+            <div className="lg:hidden">
+              <button
+                type="button"
+                className="relative h-8 w-8 p-1 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                aria-controls="mobile-menu"
+                aria-expanded={isMobileMenuOpen}
+                onClick={toggleMenu}
+              >
+                <motion.span
+                  className={`block absolute h-0.5 w-full left-0 transition-all duration-300 bg-gray-900 ${
+                    isMobileMenuOpen ? 'rotate-45 top-3.5' : 'top-2'
+                  }`}
+                />
+                <motion.span
+                  className={`block absolute h-0.5 w-full left-0 transition-all duration-300 bg-gray-900 top-3.5 ${
+                    isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+                <motion.span
+                  className={`block absolute h-0.5 w-full left-0 transition-all duration-300 bg-gray-900 ${
+                    isMobileMenuOpen ? '-rotate-45 top-3.5' : 'top-5'
+                  }`}
+                />
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>
