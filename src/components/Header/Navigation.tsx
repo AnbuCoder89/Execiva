@@ -111,19 +111,16 @@ const Navigation: React.FC<NavigationProps> = ({
                 {item.megaMenu && activeDropdown === item.name && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 20 }}
+                    animate={{ opacity: 1, y: 8 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
-                    style={{ width: '800px', maxWidth: '90vw' }}
+                    className="absolute left-1/2 -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
+                    style={{ width: '800px', maxWidth: '90vw', minHeight: 'auto' }}
                   >
-                    <div className="flex h-[500px]">
+                    <div className="flex min-h-[400px]">
                       {/* Left Panel - Categories */}
-                      <div className="w-64 bg-gray-50 border-r border-gray-100 overflow-y-auto">
-                        <div className="p-4">
-                          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-2">
-                            Categories
-                          </h3>
+                      <div className="w-64 bg-gray-50 border-r border-gray-100 overflow-y-auto hidden">
+                        <div className="p-4 hidden">
                           <div className="space-y-1">
                             {item.megaMenu.map((category) => (
                               <button
@@ -136,9 +133,6 @@ const Navigation: React.FC<NavigationProps> = ({
                                     : 'text-gray-700 hover:bg-gray-100'
                                 }`}
                               >
-                                <div className="flex-shrink-0 w-5 h-5 flex items-center justify-center text-gray-500">
-                                  {category.icon}
-                                </div>
                                 <span className="text-sm font-medium">{category.name}</span>
                               </button>
                             ))}
@@ -147,34 +141,22 @@ const Navigation: React.FC<NavigationProps> = ({
                       </div>
 
                       {/* Right Panel - Content */}
-                      <div className="flex-1 p-6 overflow-y-auto">
+                      <div className="w-full p-6 overflow-y-auto">
                         {item.megaMenu.map((category) => {
                           const isActive = activeMegaMenu?.itemName === item.name && 
                                         activeMegaMenu?.categoryId === category.id;
                           return (
                             <div 
                               key={category.id}
-                              className={`${isActive ? 'block' : 'hidden'}`}
+                              className="block mb-8 last:mb-0"
                             >
-                              <div className="flex items-center gap-3 mb-6">
-                                <div className="p-2 rounded-lg bg-blue-50">
-                                  <span className="text-blue-600">{category.icon}</span>
-                                </div>
-                                <h2 className="text-xl font-semibold text-gray-900">
-                                  {category.name}
-                                </h2>
-                              </div>
                               
-                              {category.description && (
-                                <p className="text-gray-600 mb-6">{category.description}</p>
-                              )}
-                              
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 {category.items.map((item, itemIdx) => (
                                   <a
                                     key={itemIdx}
                                     href={item.href}
-                                    className="group block p-4 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors duration-200"
+                                    className="group block p-4 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50 transition-colors duration-200 h-full"
                                     onClick={(e) => {
                                       e.preventDefault();
                                       onNavigation(item.href);
