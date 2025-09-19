@@ -119,9 +119,6 @@ const Navigation: React.FC<NavigationProps> = ({
                     <div className="flex">
                       {/* Sidebar */}
                       <div className="w-64 bg-gray-50 p-6 border-r border-gray-200">
-                        <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
-                          Categories
-                        </h3>
                         <div className="space-y-2">
                           {item.megaMenu.map((category) => (
                             <button
