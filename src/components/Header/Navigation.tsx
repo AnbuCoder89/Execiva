@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import { navItems, NavItem } from './NavItems';
-import MegaMenu from './MegaMenu';
 
 // Animation variants
 const navVariants = {
@@ -44,25 +42,6 @@ const Navigation: React.FC<NavigationProps> = ({
   onNavigation,
   isMobileMenuOpen
 }) => {
-  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [activeMegaCategory, setActiveMegaCategory] = useState<string | null>('services');
-
-  // Handle mega menu interactions
-  const handleMegaMenuEnter = () => {
-    setMegaMenuOpen(true);
-    if (!activeMegaCategory) {
-      setActiveMegaCategory('services');
-    }
-  };
-
-  const handleMegaMenuLeave = () => {
-    setMegaMenuOpen(false);
-  };
-
-  const handleCategoryChange = (category: string | null) => {
-    setActiveMegaCategory(category);
-  };
   return (
     <div className="hidden lg:flex flex-1 justify-center relative">
       <motion.nav 
@@ -70,8 +49,6 @@ const Navigation: React.FC<NavigationProps> = ({
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        onMouseEnter={handleMegaMenuEnter}
-        onMouseLeave={handleMegaMenuLeave}
       >
         <ul className="flex items-center justify-center space-x-6 xl:space-x-8 relative">
           {navItems.map((item: NavItem) => (
@@ -81,13 +58,15 @@ const Navigation: React.FC<NavigationProps> = ({
             >
               <button
                 className={`flex items-center px-3 text-base font-medium transition-colors ${
-                  megaMenuOpen && (item.submenu || item.megaMenu)
+                  activeDropdown === item.name
                     ? 'text-blue-600'
                     : 'text-gray-900 hover:text-blue-600'
                 }`}
                 onClick={() => {
                   if (item.href) {
                     onNavigation(item.href);
+                  } else if (item.submenu || item.megaMenu) {
+                    onToggleDropdown(item.name);
                   }
                 }}
               >
@@ -95,7 +74,7 @@ const Navigation: React.FC<NavigationProps> = ({
                 {(item.submenu || item.megaMenu) && (
                   <ChevronDown 
                     className={`w-4 h-4 ml-1 transition-all duration-200 ${
-                      megaMenuOpen ? 'rotate-180 text-blue-600' : ''
+                      activeDropdown === item.name ? 'rotate-180 text-blue-600' : ''
                     }`}
                   />
                 )}
@@ -103,7 +82,7 @@ const Navigation: React.FC<NavigationProps> = ({
 
               {/* Regular Dropdown Menu */}
               <AnimatePresence>
-                {item.submenu && activeDropdown === item.name && !megaMenuOpen && (
+                {item.submenu && activeDropdown === item.name && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -128,15 +107,6 @@ const Navigation: React.FC<NavigationProps> = ({
             </li>
           ))}
         </ul>
-
-        {/* Mega Menu Component */}
-        <MegaMenu
-          isOpen={megaMenuOpen}
-          onClose={() => setMegaMenuOpen(false)}
-          activeCategory={activeMegaCategory}
-          onCategoryChange={handleCategoryChange}
-          onNavigation={onNavigation}
-        />
       </motion.nav>
     </div>
   );
