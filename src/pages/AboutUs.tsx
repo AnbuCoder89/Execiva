@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { WhatWeDo, ImageGallery } from '../components/About';
+import { WhatWeDo } from '../components/About';
 import CTA from '../components/ui/CTA';
+import { ParallaxScrollSecond } from "../components/ui/parallax-scroll";
+import { HoverEffect } from "../components/ui/card-hover-effect";
 
 const AboutUs: React.FC = () => {
   // Scroll to top when component mounts
@@ -29,12 +31,12 @@ const AboutUs: React.FC = () => {
   };
 
   const itemVariants: Variants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 30
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -43,37 +45,82 @@ const AboutUs: React.FC = () => {
     }
   };
 
+  const images = [
+    "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80",
+    "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80",
+    "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    "https://images.unsplash.com/photo-1682686581854-5e71f58e7e3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    "https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    "https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    "https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2640&q=80",
+    "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80",
+    "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80",
+  ];
+
+  const projects = [
+    {
+      title: "Innovation First",
+      description: "We embrace cutting-edge technologies and creative solutions to solve complex challenges and drive meaningful progress."
+    },
+    {
+      title: "Client Success",
+      description: "Your success is our success. We're committed to delivering results that exceed expectations and create lasting value."
+    },
+    {
+      title: "Transparency",
+      description: "We believe in open communication, honest feedback, and building trust through every interaction and project milestone."
+    },
+    {
+      title: "Quality Excellence",
+      description: "We maintain the highest standards in everything we deliver, ensuring robust, scalable, and reliable solutions."
+    },
+    {
+      title: "Continuous Learning",
+      description: "We stay ahead of industry trends and continuously evolve our skills to provide the most effective solutions."
+    },
+    {
+      title: "Partnership Mindset",
+      description: "We work as an extension of your team, collaborating closely to understand your vision and achieve your goals."
+    },
+  ];
+
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen bg-white"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-beige to-white"
         variants={itemVariants}
       >
         <div className="mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <motion.div 
+          <motion.div
             className="max-w-4xl mx-auto"
             variants={containerVariants}
           >
-            <motion.h1 
+            <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display"
               variants={itemVariants}
             >
               About <span className="font-medium">Execiva</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl md:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-8"
               variants={itemVariants}
             >
-              We're more than a technology company. We're your partners in digital transformation, 
+              We're more than a technology company. We're your partners in digital transformation,
               committed to simplifying complexity and amplifying your business potential.
             </motion.p>
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
               variants={itemVariants}
             >
@@ -90,45 +137,41 @@ const AboutUs: React.FC = () => {
 
       {/* What We Do Section */}
       <motion.div variants={itemVariants}>
-        <WhatWeDo 
+        <WhatWeDo
           subtitle="Our Mission"
           heading="Technology that transforms businesses"
           description="We believe in the power of technology to transform businesses and create meaningful connections. Our expertise spans AI, web development, SEO, and data analytics, enabling us to deliver comprehensive solutions that drive real results. Every project we undertake is guided by our commitment to excellence, innovation, and your success."
         />
       </motion.div>
 
-      {/* Image Gallery Section */}
-      <motion.div variants={itemVariants}>
-        <ImageGallery 
-          heading="Our Story"
-          description="From concept to execution, we're dedicated to creating digital experiences that matter. Explore the journey that defines who we are."
-          images={[
-            {
-              url: "#",
-              src: "/image/vision/vision-1.jpeg",
-              alt: "Team collaboration and strategic planning",
-            },
-            {
-              url: "#",
-              src: "/image/vision/vision-2.jpeg",
-              alt: "Innovative technology solutions in development",
-            },
-            {
-              url: "#",
-              src: "/image/vision/vision-3.jpeg",
-              alt: "Client success stories and partnerships",
-            },
-          ]}
-        />
-      </motion.div>
-
       {/* Values Section */}
-      <motion.section 
-        className="py-16 md:py-20 bg-gray-50"
+      <motion.section
+        className="py-8 md:py-12"
         variants={itemVariants}
       >
         <div className="mx-auto px-6 sm:px-8 lg:px-12">
-          <motion.div 
+          <motion.div
+            className="text-center mb-16"
+            variants={itemVariants}
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display mb-6">
+              Our Story
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto">
+              From concept to execution, we're dedicated to creating digital experiences that matter. Explore the journey that defines who we are.
+            </p>
+            <ParallaxScrollSecond images={images} />
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Values Section */}
+      <motion.section
+        className="py-8 md:py-12"
+        variants={itemVariants}
+      >
+        <div className="mx-auto sm:px-8 lg:px-12">
+          <motion.div
             className="text-center mb-16"
             variants={itemVariants}
           >
@@ -139,51 +182,8 @@ const AboutUs: React.FC = () => {
               These principles guide everything we do and shape how we work with our clients.
             </p>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {[
-              {
-                title: "Innovation First",
-                description: "We embrace cutting-edge technologies and creative solutions to solve complex challenges and drive meaningful progress."
-              },
-              {
-                title: "Client Success",
-                description: "Your success is our success. We're committed to delivering results that exceed expectations and create lasting value."
-              },
-              {
-                title: "Transparency",
-                description: "We believe in open communication, honest feedback, and building trust through every interaction and project milestone."
-              },
-              {
-                title: "Quality Excellence",
-                description: "We maintain the highest standards in everything we deliver, ensuring robust, scalable, and reliable solutions."
-              },
-              {
-                title: "Continuous Learning",
-                description: "We stay ahead of industry trends and continuously evolve our skills to provide the most effective solutions."
-              },
-              {
-                title: "Partnership Mindset",
-                description: "We work as an extension of your team, collaborating closely to understand your vision and achieve your goals."
-              }
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-                variants={itemVariants}
-                whileHover={{ 
-                  y: -8,
-                  transition: { type: "spring", stiffness: 400, damping: 17 }
-                }}
-              >
-                <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 font-sf-pro-display">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-sf-pro-text">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="mx-auto px-8">
+            <HoverEffect items={projects} />
           </div>
         </div>
       </motion.section>
