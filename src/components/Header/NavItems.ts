@@ -148,9 +148,9 @@ export const navItems: NavItem[] = [
   {
     name: 'Company',
     submenu: [
-      { name: 'About Us', href: '/company/about-us' },
-      { name: 'Team', href: '/company/team' },
-      { name: 'Contact', href: '/company/contact' },
+      { name: 'About Us', href: '/about-us' },
+      { name: 'Team', href: '/team' },
+      { name: 'Contact', href: '/contact' },
     ],
   },
   { name: 'Blog', href: '/blog' },
