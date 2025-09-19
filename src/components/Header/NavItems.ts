@@ -27,7 +27,7 @@ export interface MegaMenuCategory {
 export const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
   {
-    name: 'Capabilities',
+    name: 'Services',
     submenu: [
       { name: 'Web Development', href: '/capabilities/web-development' },
       { name: 'AI Solutions', href: '/capabilities/ai-solutions' },
@@ -36,7 +36,7 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    name: 'Services',
+    name: 'Solutions',
     megaMenu: [
       {
         id: 'scope',
