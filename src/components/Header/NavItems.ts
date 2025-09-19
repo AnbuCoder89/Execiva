@@ -15,7 +15,6 @@ export interface SubMenuItem {
 export interface MegaMenuCategory {
   id: string;
   name: string;
-  icon?: string;
   description?: string;
   items: {
     title: string;
@@ -68,7 +67,6 @@ export const navItems: NavItem[] = [
       {
         id: 'seo',
         name: 'SEO',
-        icon: '🔍',
         items: [
           {
             title: 'Technical SEO Audits',
@@ -95,7 +93,6 @@ export const navItems: NavItem[] = [
       {
         id: 'web-development',
         name: 'Web Development',
-        icon: '💻',
         items: [
           {
             title: 'Website Redesigns',
@@ -122,7 +119,6 @@ export const navItems: NavItem[] = [
       {
         id: 'data-analytics',
         name: 'Data Analytics',
-        icon: '📊',
         items: [
           {
             title: 'Business Intelligence',
