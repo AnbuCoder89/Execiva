@@ -175,8 +175,6 @@ export const navItems: NavItem[] = [
       }
     ],
   },
-  { name: 'Client Stories', href: '/case-studies' },
-  { name: 'Blog', href: '/blog' },
   { name: 'Case Studies', href: '/case-studies' },
   {
     name: 'Company',
