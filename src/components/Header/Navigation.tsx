@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import { navItems, NavItem } from './NavItems';
 
 // Animation variants
 const navVariants = {
