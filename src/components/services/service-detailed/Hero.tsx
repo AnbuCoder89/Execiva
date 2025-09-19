@@ -81,10 +81,6 @@ const Hero: React.FC<HeroProps> = ({
         <motion.div 
           className="relative rounded-2xl shadow-xl w-full mt-8 overflow-hidden"
           variants={itemVariants}
-          whileHover={{ 
-            scale: 1.02,
-            transition: { type: "spring", stiffness: 300, damping: 20 }
-          }}
         >
           {/* background image */}
           <motion.img
