@@ -153,7 +153,7 @@ const Hero: React.FC<HeroProps> = ({
                   Get Started
                 </Button>
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -163,7 +163,7 @@ const Hero: React.FC<HeroProps> = ({
                   onClick={onViewAllServices}
                   className="px-8 py-4 border border-white/30 text-white hover:bg-white/20 transition-all duration-300"
                 />
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </motion.div>
         </motion.div>
