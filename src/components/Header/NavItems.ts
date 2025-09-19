@@ -26,21 +26,17 @@ export interface MegaMenuCategory {
 
 export const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
-  {
+    {
     name: 'Services',
     submenu: [
-      { name: 'Artificial Intelligence', href: '/services/artificial-intelligence' },
-      { name: 'SEO', href: '/services/seo' },
-      { name: 'Website Development', href: '/services/web-development' },
-      { name: 'Data Analytics', href: '/services/data-analytics' },
+      { name: 'Artificial Intelligence', href: '/company/about-us' },
+      { name: 'SEO', href: '/company/team' },
+      { name: 'Website Development', href: '/company/careers' },
+      { name: 'Data Analytics', href: '/company/contact' },
     ],
   },
   {
-    name: 'About',
-    href: '/about',
-  },
-  {
-    name: 'Products',
+    name: 'Solutions',
     megaMenu: [
       {
         id: 'ai',
@@ -148,10 +144,15 @@ export const navItems: NavItem[] = [
       }
     ],
   },
-  {
-    name: 'Contact',
-    href: '/contact',
-  },
   { name: 'Case Studies', href: '/case-studies' },
+  {
+    name: 'Company',
+    submenu: [
+      { name: 'About Us', href: '/company/about-us' },
+      { name: 'Team', href: '/company/team' },
+      { name: 'Careers', href: '/company/careers' },
+      { name: 'Contact', href: '/company/contact' },
+    ],
+  },
   { name: 'Blog', href: '/blog' },
 ];

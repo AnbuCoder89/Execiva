@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { navItems, NavItem } from './NavItems';
-import CenteredMegaMenu from './CenteredMegaMenu';
+import MegaMenu from './MegaMenu';
 
 // Animation variants
 const navVariants = {
@@ -46,20 +46,23 @@ const Navigation: React.FC<NavigationProps> = ({
 }) => {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [activeMegaCategory, setActiveMegaCategory] = useState<string | null>(null);
+  const [activeMegaCategory, setActiveMegaCategory] = useState<string | null>('services');
 
-  const handleMegaMenuOpen = (item: NavItem) => {
-    if (item.megaMenu) {
-      setMegaMenuOpen(true);
-      setActiveMegaCategory(item.megaMenu[0]?.id || null);
+  // Handle mega menu interactions
+  const handleMegaMenuEnter = () => {
+    setMegaMenuOpen(true);
+    if (!activeMegaCategory) {
+      setActiveMegaCategory('services');
     }
   };
 
-  const handleMegaMenuClose = () => {
+  const handleMegaMenuLeave = () => {
     setMegaMenuOpen(false);
-    setActiveMegaCategory(null);
   };
 
+  const handleCategoryChange = (category: string | null) => {
+    setActiveMegaCategory(category);
+  };
   return (
     <div className="hidden lg:flex flex-1 justify-center relative">
       <motion.nav 
@@ -67,48 +70,32 @@ const Navigation: React.FC<NavigationProps> = ({
         variants={navVariants}
         initial="hidden"
         animate="visible"
+        onMouseEnter={handleMegaMenuEnter}
+        onMouseLeave={handleMegaMenuLeave}
       >
-        <ul className="flex items-center justify-center space-x-6 xl:space-x-8">
+        <ul className="flex items-center justify-center space-x-6 xl:space-x-8 relative">
           {navItems.map((item: NavItem) => (
             <li 
               key={item.name} 
-              className="relative"
-              onMouseEnter={() => {
-                if (item.submenu) {
-                  onToggleDropdown(item.name);
-                } else if (item.megaMenu) {
-                  handleMegaMenuOpen(item);
-                }
-              }}
-              onMouseLeave={() => {
-                if (item.submenu) {
-                  onToggleDropdown('');
-                } else if (item.megaMenu) {
-                  handleMegaMenuClose();
-                }
-              }}
+              className="relative z-10"
             >
               <button
                 className={`flex items-center px-3 text-base font-medium transition-colors ${
-                  activeDropdown === item.name || (item.megaMenu && megaMenuOpen)
+                  megaMenuOpen && (item.submenu || item.megaMenu)
                     ? 'text-blue-600'
                     : 'text-gray-900 hover:text-blue-600'
                 }`}
                 onClick={() => {
                   if (item.href) {
                     onNavigation(item.href);
-                  } else if (item.submenu) {
-                    onToggleDropdown(item.name);
-                  } else if (item.megaMenu) {
-                    handleMegaMenuOpen(item);
                   }
                 }}
               >
                 <span>{item.name}</span>
                 {(item.submenu || item.megaMenu) && (
                   <ChevronDown 
-                    className={`w-4 h-4 ml-1 transition-transform ${
-                      activeDropdown === item.name || (item.megaMenu && megaMenuOpen) ? 'rotate-180' : ''
+                    className={`w-4 h-4 ml-1 transition-all duration-200 ${
+                      megaMenuOpen ? 'rotate-180 text-blue-600' : ''
                     }`}
                   />
                 )}
@@ -116,7 +103,7 @@ const Navigation: React.FC<NavigationProps> = ({
 
               {/* Regular Dropdown Menu */}
               <AnimatePresence>
-                {item.submenu && activeDropdown === item.name && (
+                {item.submenu && activeDropdown === item.name && !megaMenuOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -142,20 +129,14 @@ const Navigation: React.FC<NavigationProps> = ({
           ))}
         </ul>
 
-        {/* Centered Mega Menu */}
-        {navItems.some(item => item.megaMenu) && (
-          <CenteredMegaMenu
-            isOpen={megaMenuOpen}
-            onClose={handleMegaMenuClose}
-            activeCategory={activeMegaCategory}
-            onCategoryChange={setActiveMegaCategory}
-            onNavigation={(href) => {
-              onNavigation(href);
-              handleMegaMenuClose();
-            }}
-            categories={navItems.find(item => item.megaMenu)?.megaMenu || []}
-          />
-        )}
+        {/* Mega Menu Component */}
+        <MegaMenu
+          isOpen={megaMenuOpen}
+          onClose={() => setMegaMenuOpen(false)}
+          activeCategory={activeMegaCategory}
+          onCategoryChange={handleCategoryChange}
+          onNavigation={onNavigation}
+        />
       </motion.nav>
     </div>
   );
