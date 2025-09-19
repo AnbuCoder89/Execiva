@@ -26,124 +26,157 @@ export interface MegaMenuCategory {
 
 export const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
-    {
-    name: 'Services',
+  {
+    name: 'Capabilities',
     submenu: [
-      { name: 'Artificial Intelligence', href: '/services/web-development' },
-      { name: 'SEO', href: '/services/artificial-intelligence' },
-      { name: 'Website Development', href: '/services/seo' },
-      { name: 'Data Analytics', href: '/services/data-analytics' },
+      { name: 'Web Development', href: '/capabilities/web-development' },
+      { name: 'AI Solutions', href: '/capabilities/ai-solutions' },
+      { name: 'Data Analytics', href: '/capabilities/data-analytics' },
+      { name: 'Digital Strategy', href: '/capabilities/digital-strategy' },
     ],
   },
   {
-    name: 'Solutions',
+    name: 'Services',
     megaMenu: [
       {
-        id: 'ai',
-        name: 'AI',
-        items: [
-          {
-            title: 'Machine Learning Models',
-            href: '/solutions/machine-learning',
-            description: 'Custom AI models for your business needs',
-          },
-          {
-            title: 'Natural Language Processing',
-            href: '/solutions/nlp',
-            description: 'Advanced text analysis and understanding',
-          },
-          {
-            title: 'Computer Vision',
-            href: '/solutions/computer-vision',
-            description: 'Image and video analysis solutions',
-          },
-          {
-            title: 'AI Automation',
-            href: '/solutions/ai-automation',
-            description: 'Intelligent process automation',
-          }
-        ]
-      },
-      {
-        id: 'seo',
-        name: 'SEO',
-        items: [
-          {
-            title: 'Technical SEO Audits',
-            href: '/solutions/technical-seo',
-            description: 'Comprehensive technical optimization',
-          },
-          {
-            title: 'Content Strategy',
-            href: '/solutions/content-strategy',
-            description: 'SEO-driven content planning',
-          },
-          {
-            title: 'Link Building',
-            href: '/solutions/link-building',
-            description: 'High-quality backlink acquisition',
-          },
-          {
-            title: 'Local SEO',
-            href: '/solutions/local-seo',
-            description: 'Location-based search optimization',
-          }
-        ]
-      },
-      {
-        id: 'web-development',
-        name: 'Web Development',
+        id: 'scope',
+        name: 'Scope',
+        icon: '📊',
         items: [
           {
             title: 'Website Redesigns',
-            href: '/solutions/website-redesigns',
-            description: 'Modern and responsive website redesigns',
+            href: '/services/website-redesigns',
+            description: 'Complete website overhauls with modern design',
           },
           {
             title: 'Website Migrations',
-            href: '/solutions/website-migrations',
-            description: 'Seamless platform transitions',
+            href: '/services/website-migrations',
+            description: 'Seamless platform and hosting transitions',
           },
           {
             title: 'Ongoing Website Services',
-            href: '/solutions/website-services',
-            description: 'Continuous website maintenance and updates',
+            href: '/services/ongoing-services',
+            description: 'Continuous maintenance and optimization',
           },
           {
             title: 'E-commerce Development',
-            href: '/solutions/ecommerce',
+            href: '/services/ecommerce',
             description: 'Custom online store solutions',
           }
         ]
       },
       {
-        id: 'data-analytics',
-        name: 'Data Analytics',
+        id: 'technology',
+        name: 'Technology',
+        icon: '⚙️',
         items: [
           {
-            title: 'Business Intelligence',
-            href: '/solutions/business-intelligence',
-            description: 'Data-driven decision making tools',
+            title: 'React Development',
+            href: '/services/react-development',
+            description: 'Modern React applications and components',
           },
           {
-            title: 'Data Visualization',
-            href: '/solutions/data-visualization',
-            description: 'Interactive dashboards and reports',
+            title: 'Next.js Solutions',
+            href: '/services/nextjs-solutions',
+            description: 'Full-stack Next.js applications',
           },
           {
-            title: 'Predictive Analytics',
-            href: '/solutions/predictive-analytics',
-            description: 'Future trend analysis and forecasting',
+            title: 'Node.js Backend',
+            href: '/services/nodejs-backend',
+            description: 'Scalable server-side solutions',
           },
           {
-            title: 'Data Integration',
-            href: '/solutions/data-integration',
-            description: 'Unified data pipeline solutions',
+            title: 'Cloud Infrastructure',
+            href: '/services/cloud-infrastructure',
+            description: 'AWS, Azure, and GCP deployments',
+          }
+        ]
+      },
+      {
+        id: 'industry',
+        name: 'Industry',
+        icon: '🏢',
+        items: [
+          {
+            title: 'Healthcare',
+            href: '/services/healthcare',
+            description: 'HIPAA-compliant healthcare solutions',
+          },
+          {
+            title: 'Finance',
+            href: '/services/finance',
+            description: 'Secure financial technology platforms',
+          },
+          {
+            title: 'E-commerce',
+            href: '/services/ecommerce-industry',
+            description: 'Retail and marketplace solutions',
+          },
+          {
+            title: 'Education',
+            href: '/services/education',
+            description: 'Learning management systems',
+          }
+        ]
+      },
+      {
+        id: 'use-case',
+        name: 'Use Case',
+        icon: '🎯',
+        items: [
+          {
+            title: 'Digital Transformation',
+            href: '/services/digital-transformation',
+            description: 'Complete business digitalization',
+          },
+          {
+            title: 'Process Automation',
+            href: '/services/process-automation',
+            description: 'Workflow optimization and automation',
+          },
+          {
+            title: 'Data Analytics',
+            href: '/services/data-analytics',
+            description: 'Business intelligence and insights',
+          },
+          {
+            title: 'Performance Optimization',
+            href: '/services/performance-optimization',
+            description: 'Speed and efficiency improvements',
+          }
+        ]
+      },
+      {
+        id: 'stage',
+        name: 'Stage',
+        icon: '📈',
+        items: [
+          {
+            title: 'Planning & Strategy',
+            href: '/services/planning-strategy',
+            description: 'Project planning and technical strategy',
+          },
+          {
+            title: 'Development',
+            href: '/services/development',
+            description: 'Custom software development',
+          },
+          {
+            title: 'Implementation',
+            href: '/services/implementation',
+            description: 'Deployment and go-live support',
+          },
+          {
+            title: 'Optimization',
+            href: '/services/optimization',
+            description: 'Performance tuning and improvements',
           }
         ]
       }
     ],
   },
+  { name: 'Client Stories', href: '/case-studies' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Case Studies', href: '/case-studies' },
   {
     name: 'Company',
