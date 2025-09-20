@@ -29,10 +29,10 @@ export const navItems: NavItem[] = [
   {
     name: 'Services',
     submenu: [
-      { name: 'Web Development', href: '/capabilities/web-development' },
-      { name: 'AI Solutions', href: '/capabilities/ai-solutions' },
-      { name: 'Data Analytics', href: '/capabilities/data-analytics' },
-      { name: 'Digital Strategy', href: '/capabilities/digital-strategy' },
+      { name: 'Web Development', href: '/services/web-development' },
+      { name: 'AI Solutions', href: '/services/ai-solutions' },
+      { name: 'Data Analytics', href: '/services/data-analytics' },
+      { name: 'Digital Strategy', href: '/services/digital-strategy' },
     ],
   },
   {
@@ -149,9 +149,8 @@ export const navItems: NavItem[] = [
     name: 'Company',
     submenu: [
       { name: 'About Us', href: '/about-us' },
-      { name: 'Team', href: '/team' },
       { name: 'Contact', href: '/contact' },
     ],
   },
-  { name: 'Blog', href: '/blog' },
+  // { name: 'Blog', href: '/blog' },
 ];

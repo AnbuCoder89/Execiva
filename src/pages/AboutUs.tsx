@@ -4,6 +4,10 @@ import { WhatWeDo } from '../components/About';
 import CTA from '../components/ui/CTA';
 import { ParallaxScrollSecond } from "../components/ui/parallax-scroll";
 import { HoverEffect } from "../components/ui/card-hover-effect";
+import { HeroParallax } from "../components/ui/hero-parallax";
+import { FocusCards } from "../components/ui/focus-cards";
+
+
 
 const AboutUs: React.FC = () => {
   // Scroll to top when component mounts
@@ -90,6 +94,126 @@ const AboutUs: React.FC = () => {
     },
   ];
 
+  const products = [
+    {
+      title: "Moonbeam",
+      link: "https://gomoonbeam.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+    },
+    {
+      title: "Cursor",
+      link: "https://cursor.so",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+    },
+    {
+      title: "Rogue",
+      link: "https://userogue.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+    },
+   
+    {
+      title: "Editorially",
+      link: "https://editorially.org",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+    },
+    {
+      title: "Editrix AI",
+      link: "https://editrix.ai",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+    },
+    {
+      title: "Pixel Perfect",
+      link: "https://app.pixelperfect.quest",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+    },
+   
+    {
+      title: "Algochurn",
+      link: "https://algochurn.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+    },
+    {
+      title: "Aceternity UI",
+      link: "https://ui.aceternity.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
+    },
+    {
+      title: "Tailwind Master Kit",
+      link: "https://tailwindmasterkit.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
+    },
+    {
+      title: "SmartBridge",
+      link: "https://smartbridgetech.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
+    },
+    {
+      title: "Renderwork Studio",
+      link: "https://renderwork.studio",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
+    },
+   
+    {
+      title: "Creme Digital",
+      link: "https://cremedigital.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+    },
+    {
+      title: "Golden Bells Academy",
+      link: "https://goldenbellsacademy.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+    },
+    {
+      title: "Invoker Labs",
+      link: "https://invoker.lol",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+    },
+    {
+      title: "E Free Invoice",
+      link: "https://efreeinvoice.com",
+      thumbnail:
+        "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+    },
+  ];
+
+  const cards = [
+    {
+      title: "Monil Shah",
+      role: "CEO & Founder",
+      src: "/image/team-members/monil_shah.webp",
+    },
+    {
+      title: "Rohit Mudaliar",
+      role: "CGO",
+      src: "/image/team-members/rohit_mudaliar.webp",
+    },
+    {
+      title: "Anburaj Nadar",
+      role: "Lead Software Developer",
+      src: "/image/team-members/anburaj_nadar.webp",
+    },
+    {
+      title: "Varun Petekar",
+      role: "Lead Data Analyst",
+      src: "/image/team-members/varun_petekar.webp",
+    },
+  ];
+
+
   return (
     <motion.div
       className="min-h-screen bg-white"
@@ -97,43 +221,12 @@ const AboutUs: React.FC = () => {
       animate="visible"
       variants={containerVariants}
     >
-      {/* Hero Section */}
-      <motion.section
-        className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-beige to-white"
-        variants={itemVariants}
-      >
-        <div className="mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <motion.div
-            className="max-w-4xl mx-auto"
-            variants={containerVariants}
-          >
-            <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 leading-tight font-sf-pro-display"
-              variants={itemVariants}
-            >
-              About <span className="font-medium">Execiva</span>
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-gray-600 leading-relaxed font-sf-pro-text mb-8"
-              variants={itemVariants}
-            >
-              We're more than a technology company. We're your partners in digital transformation,
-              committed to simplifying complexity and amplifying your business potential.
-            </motion.p>
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              variants={itemVariants}
-            >
-              <button
-                onClick={handleGetStarted}
-                className="text-gray-900 border-2 shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring-gray-500 bg-[#f4f3ee] border-[#f4f3ee] hover:bg-[#ebe8dd] hover:border-[#ebe8dd] px-8 py-4 text-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full font-sf-pro-text"
-              >
-                Get Started
-              </button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
+    <HeroParallax 
+      products={products}
+      title="About Execiva"
+      description="We're more than a technology company. We're your partners in digital transformation,
+      committed to simplifying complexity and amplifying your business potential."
+    />
 
       {/* What We Do Section */}
       <motion.div variants={itemVariants}>
@@ -143,6 +236,27 @@ const AboutUs: React.FC = () => {
           description="We believe in the power of technology to transform businesses and create meaningful connections. Our expertise spans AI, web development, SEO, and data analytics, enabling us to deliver comprehensive solutions that drive real results. Every project we undertake is guided by our commitment to excellence, innovation, and your success."
         />
       </motion.div>
+
+      <motion.section
+        className="py-8 md:py-12"
+        variants={itemVariants}
+      >
+        <div className="mx-auto px-6 sm:px-8 lg:px-12">
+          <motion.div
+            className="text-center mb-16"
+            variants={itemVariants}
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display mb-6">
+              Meet Our Team
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text max-w-3xl mx-auto">
+              Our team is made up of passionate individuals who are dedicated to creating digital experiences that matter. Explore the journey that defines who we are.
+            </p>
+          </motion.div>
+          <FocusCards cards={cards} />
+        </div>
+      </motion.section>
+
 
       {/* Values Section */}
       <motion.section

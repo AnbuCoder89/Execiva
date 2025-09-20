@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ArrowLeft, Filter } from 'lucide-react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { ChevronDown, Filter, ArrowLeft } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import allCaseStudies from '../../data/caseStudies.json';
@@ -12,8 +12,8 @@ interface CaseStudy {
   topic: string;
   industry: string;
   region: string;
-  channel: string;
-  product: string;
+  service_category: string;
+  service: string;
   image: string;
   description: string;
 }
@@ -111,16 +111,16 @@ const CaseStudy: React.FC = () => {
     topic: [] as string[],
     industry: [] as string[],
     region: [] as string[],
-    channel: [] as string[],
-    product: [] as string[]
+    service: [] as string[],
+    service_category: [] as string[]
   });
 
   const [expandedFilters, setExpandedFilters] = useState({
     topic: false,
     industry: false,
     region: false,
-    channel: false,
-    product: false
+    service: false,
+    service_category: false
   });
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
@@ -139,27 +139,27 @@ const CaseStudy: React.FC = () => {
 
 
   const filterOptions = {
-    topic: ['AI/ML', 'Automation', 'Data Analytics', 'Platform'],
-    industry: ['Music & Entertainment', 'Music Technology', 'Digital Rights Management', 'Artist Relations', 'Cloud Infrastructure', 'Content Management'],
-    region: ['Global', 'North America', 'Europe', 'Asia Pacific'],
-    channel: ['Digital'],
-    product: ['AI Platform', 'Automation Platform', 'Analytics Suite', 'Rights Management Platform', 'Cloud Platform', 'Data Platform']
+    topic: Array.from(new Set(allCaseStudies.map(study => study.topic))).filter(Boolean) as string[],
+    industry: Array.from(new Set(allCaseStudies.map(study => study.industry))).filter(Boolean) as string[],
+    region: Array.from(new Set(allCaseStudies.map(study => study.region))).filter(Boolean) as string[],
+    service: Array.from(new Set(allCaseStudies.map(study => study.service))).filter(Boolean) as string[],
+    service_category: Array.from(new Set(allCaseStudies.map(study => study.service_category))).filter(Boolean) as string[]
   };
 
   // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const totalPages = Math.ceil(allCaseStudies.length / itemsPerPage);
+  // Remove unused variable
 
   // Filter case studies first, then paginate
   const filteredCaseStudies = allCaseStudies.filter(study => {
     const matchesTopic = selectedFilters.topic.length === 0 || selectedFilters.topic.includes(study.topic);
     const matchesIndustry = selectedFilters.industry.length === 0 || selectedFilters.industry.includes(study.industry);
     const matchesRegion = selectedFilters.region.length === 0 || selectedFilters.region.includes(study.region);
-    const matchesChannel = selectedFilters.channel.length === 0 || selectedFilters.channel.includes(study.channel);
-    const matchesProduct = selectedFilters.product.length === 0 || selectedFilters.product.includes(study.product);
+    const matchesService = selectedFilters.service?.length === 0 || selectedFilters.service?.includes(study.service);
+    const matchesServiceCategory = selectedFilters.service_category?.length === 0 || selectedFilters.service_category?.includes(study.service_category);
 
-    return matchesTopic && matchesIndustry && matchesRegion && matchesChannel && matchesProduct;
+    return matchesTopic && matchesIndustry && matchesRegion && matchesService && matchesServiceCategory;
   });
 
   // Apply pagination to filtered results
@@ -197,9 +197,9 @@ const CaseStudy: React.FC = () => {
   const toggleFilter = (filterType: keyof typeof selectedFilters, value: string) => {
     setSelectedFilters(prev => ({
       ...prev,
-      [filterType]: prev[filterType].includes(value)
-        ? prev[filterType].filter(item => item !== value)
-        : [...prev[filterType], value]
+      [filterType]: prev[filterType as keyof typeof prev].includes(value)
+        ? prev[filterType as keyof typeof prev].filter((item: string) => item !== value)
+        : [...prev[filterType as keyof typeof prev], value]
     }));
   };
 
@@ -280,7 +280,7 @@ const CaseStudy: React.FC = () => {
       </section>
 
       {/* Stats Counter Section */}
-      <section className="relative bg-white py-16 md:py-20 lg:py-24">
+      {/* <section className="relative bg-white py-16 md:py-20 lg:py-24">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid w-full grid-cols-2 gap-px bg-gray-200 lg:grid-cols-4">
             {statsData.map((stat, index) => (
@@ -304,32 +304,30 @@ const CaseStudy: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Intersection Observer for Stats */}
       <div 
-        ref={(el) => {
+        ref={useCallback((el: HTMLDivElement | null) => {
           if (el) {
             const observer = new IntersectionObserver(
               ([entry]) => {
-                if (entry.isIntersecting) {
-                  setIsStatsVisible(true);
-                }
+                setIsStatsVisible(entry.isIntersecting);
               },
-              { threshold: 0.3 }
+              { threshold: 0.1 }
             );
             observer.observe(el);
             return () => observer.disconnect();
           }
-        }}
-        className="absolute top-0 left-0 w-full h-1 pointer-events-none"
+        }, [])}
+        className="absolute -top-20 h-1 w-1"
       />
 
       {/* Mobile Header */}
       <div className="md:hidden w-full px-8 py-4 pt-0">
         <div className="flex items-center justify-between mb-4">
           <Button
-            variant="ghost"
+            variant="vision"
             size="sm"
             icon={ArrowLeft}
             iconPosition="left"
@@ -369,14 +367,14 @@ const CaseStudy: React.FC = () => {
                   options={filterOptions.region}
                 />
                 <FilterSection
-                  title="Channel"
-                  filterKey="channel"
-                  options={filterOptions.channel}
+                  title="Service"
+                  filterKey="service"
+                  options={filterOptions.service}
                 />
                 <FilterSection
-                  title="Product"
-                  filterKey="product"
-                  options={filterOptions.product}
+                  title="Service Category"
+                  filterKey="service_category"
+                  options={filterOptions.service_category}
                 />
               </ul>
 
@@ -384,14 +382,14 @@ const CaseStudy: React.FC = () => {
               {Object.values(selectedFilters).some(filters => filters.length > 0) && (
                 <div className="mt-6 pt-4 border-t border-gray-200">
                   <Button
-                    variant="outline"
+                    variant="vision"
                     size="sm"
                     onClick={() => setSelectedFilters({
                       topic: [],
                       industry: [],
                       region: [],
-                      channel: [],
-                      product: []
+                      service: [],
+                      service_category: []
                     })}
                     className="w-full"
                   >
@@ -412,26 +410,7 @@ const CaseStudy: React.FC = () => {
             isLeftPanelFixed ? 'top-[113px]' : ''
           }`}>
             <div className="md:px-0">
-              <div className="flex items-center justify-between mb-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  icon={ArrowLeft}
-                  iconPosition="left"
-                  onClick={() => {
-                    navigate('/');
-                    setTimeout(() => {
-                      window.dispatchEvent(new CustomEvent('setActiveSection', { detail: 'case-studies' }));
-                      const element = document.getElementById('case-studies');
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }, 100);
-                  }}
-                >
-                  Back
-                </Button>
-              </div>
+
 
               <div id="filters">
                 <h3 className="hidden md:block text-sm font-medium text-gray-900 mb-4 font-sf-pro-display">
@@ -456,14 +435,14 @@ const CaseStudy: React.FC = () => {
                       options={filterOptions.region}
                     />
                     <FilterSection
-                      title="Channel"
-                      filterKey="channel"
-                      options={filterOptions.channel}
+                      title="Service"
+                      filterKey="service"
+                      options={filterOptions.service}
                     />
                     <FilterSection
-                      title="Product"
-                      filterKey="product"
-                      options={filterOptions.product}
+                      title="Service Category"
+                      filterKey="service_category"
+                      options={filterOptions.service_category}
                     />
                   </ul>
 
@@ -471,14 +450,14 @@ const CaseStudy: React.FC = () => {
                   {Object.values(selectedFilters).some(filters => filters.length > 0) && (
                     <div className="mt-6 pt-4 border-t border-gray-200">
                       <Button
-                        variant="outline"
+                        variant="vision"
                         size="sm"
                         onClick={() => setSelectedFilters({
                           topic: [],
                           industry: [],
                           region: [],
-                          channel: [],
-                          product: []
+                          service: [],
+                          service_category: []
                         })}
                         className="w-full"
                       >
@@ -494,10 +473,75 @@ const CaseStudy: React.FC = () => {
           {/* Right Panel - Content (9 columns) */}
           <div className="space-y-8 md:col-span-9" ref={rightPanelRef}>
             <div id="grid" className="space-y-6 transition-opacity md:space-y-10">
-              {/* Header Section */}
-              <div className="border-b border-gray-200 pb-4">
-                <div className="text-sm mb-2.5 font-sf-pro-text">
-                  <p className="text-gray-600">Featured Case Studies</p>
+              {/* Header Section with Pagination */}
+              <div className="border-b border-gray-200 pb-4 mb-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="text-sm font-sf-pro-text">
+                    <p className="text-gray-600">Featured Case Studies</p>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    {/* Pagination - Moved to top right */}
+                    {paginatedTotalPages > 1 && (
+                      <nav className="flex items-center gap-2" aria-label="Pagination">
+                        <span className="text-sm text-gray-700 mr-2 font-sf-pro-text">
+                          Page {currentPage} of {paginatedTotalPages}
+                        </span>
+                        <button
+                          className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
+                            currentPage === 1 
+                              ? 'pointer-events-none bg-gray-200/60' 
+                              : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
+                          }`}
+                          aria-label="Go to previous page"
+                          disabled={currentPage === 1}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handlePageChange(currentPage - 1);
+                          }}
+                        >
+                          <ChevronDown className={`w-[9px] h-[11px] stroke-current rotate-90 ${
+                            currentPage === 1 ? 'opacity-20' : 'opacity-100'
+                          }`} />
+                        </button>
+                        <button
+                          className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
+                            currentPage === paginatedTotalPages 
+                              ? 'pointer-events-none bg-gray-200/60' 
+                              : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
+                          }`}
+                          aria-label="Go to next page"
+                          disabled={currentPage === paginatedTotalPages}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handlePageChange(currentPage + 1);
+                          }}
+                        >
+                          <ChevronDown className={`w-[9px] h-[11px] stroke-current -rotate-90 ${
+                            currentPage === paginatedTotalPages ? 'opacity-20' : 'opacity-100'
+                          }`} />
+                        </button>
+                      </nav>
+                    )}
+                    <Button
+                      variant="vision"
+                      size="sm"
+                      icon={ArrowLeft}
+                      iconPosition="left"
+                      onClick={() => {
+                        navigate('/');
+                        setTimeout(() => {
+                          window.dispatchEvent(new CustomEvent('setActiveSection', { detail: 'case-studies' }));
+                          const element = document.getElementById('case-studies');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 100);
+                      }}
+                    >
+                      Back
+                    </Button>
+                  </div>
                 </div>
               </div>
 
@@ -547,121 +591,6 @@ const CaseStudy: React.FC = () => {
                   <p className="text-gray-600 font-sf-pro-text">
                     Try adjusting your filters to see more results.
                   </p>
-                </div>
-              )}
-
-              {/* Pagination */}
-              {filteredCaseStudies.length > 0 && paginatedTotalPages > 1 && (
-                <div className="flex flex-col gap-4 items-center">
-                  <nav className="flex gap-4 justify-center items-center w-full" aria-label="Pagination">
-                    {/* Previous Button */}
-                    <button
-                      className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
-                        currentPage === 1 
-                          ? 'pointer-events-none bg-gray-200/60' 
-                          : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
-                      }`}
-                      aria-label="Go to previous page"
-                      disabled={currentPage === 1}
-                      onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
-                    >
-                      <ChevronDown className={`w-[9px] h-[11px] stroke-current rotate-90 ${
-                        currentPage === 1 ? 'opacity-20' : 'opacity-100'
-                      }`} />
-                    </button>
-
-                    {/* Page Numbers */}
-                    <ul className="flex gap-4">
-                      {/* First page */}
-                      {currentPage > 2 && (
-                        <li>
-                          <button 
-                            className="transition font-sf-pro-text hover:text-blue-600" 
-                            onClick={() => handlePageChange(1)}
-                            aria-label="Go to page 1"
-                          >
-                            1
-                          </button>
-                        </li>
-                      )}
-                      
-                      {/* Ellipsis before current page */}
-                      {currentPage > 3 && (
-                        <li>
-                          <span className="font-sf-pro-text">...</span>
-                        </li>
-                      )}
-                      
-                      {/* Previous page */}
-                      {currentPage > 1 && (
-                        <li>
-                          <button 
-                            className="transition font-sf-pro-text hover:text-blue-600" 
-                            onClick={() => handlePageChange(currentPage - 1)}
-                            aria-label={`Go to page ${currentPage - 1}`}
-                          >
-                            {currentPage - 1}
-                          </button>
-                        </li>
-                      )}
-                      
-                      {/* Current page */}
-                      <li>
-                        <span className="text-blue-600 font-medium font-sf-pro-text" aria-current="page">
-                          {currentPage}
-                        </span>
-                      </li>
-                      
-                      {/* Next page */}
-                      {currentPage < paginatedTotalPages && (
-                        <li>
-                          <button 
-                            className="transition font-sf-pro-text hover:text-blue-600" 
-                            onClick={() => handlePageChange(currentPage + 1)}
-                            aria-label={`Go to page ${currentPage + 1}`}
-                          >
-                            {currentPage + 1}
-                          </button>
-                        </li>
-                      )}
-                      
-                      {/* Ellipsis after current page */}
-                      {currentPage < paginatedTotalPages - 2 && (
-                        <li>
-                          <span className="font-sf-pro-text">...</span>
-                        </li>
-                      )}
-                      
-                      {/* Last page */}
-                      {currentPage < paginatedTotalPages - 1 && (
-                        <li>
-                          <button 
-                            className="transition font-sf-pro-text hover:text-blue-600" 
-                            onClick={() => handlePageChange(paginatedTotalPages)}
-                            aria-label={`Go to page ${paginatedTotalPages}`}
-                          >
-                            {paginatedTotalPages}
-                          </button>
-                        </li>
-                      )}
-                    </ul>
-
-                    {/* Next Button */}
-                    <button
-                      className={`flex items-center justify-center w-[25px] h-[25px] rounded-full transition ${
-                        currentPage === paginatedTotalPages 
-                          ? 'pointer-events-none bg-gray-200/60' 
-                          : 'bg-gray-200 hover:bg-gray-200/60 cursor-pointer'
-                      }`}
-                      aria-label="Go to next page"
-                      disabled={currentPage === paginatedTotalPages}
-                      onClick={() => currentPage < paginatedTotalPages && handlePageChange(currentPage + 1)}
-                    >
-                      <ChevronDown className={`w-[9px] h-[11px] stroke-current -rotate-90 ${
-                        currentPage === paginatedTotalPages ? 'opacity-20' : 'opacity-100'
-                      }`} />
-                    </button>
-                  </nav>
                 </div>
               )}
             </div>

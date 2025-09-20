@@ -4,18 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import { 
   Code, 
   Cloud, 
-  Database, 
   Shield, 
   BarChart3, 
   Cog,
-  CheckCircle,
   ArrowRight,
   Zap,
   Target,
   TrendingUp,
   Users
 } from 'lucide-react';
-import CTA from '../components/ui/CTA';
 import Button from '../components/ui/Button';
 import Hero from '../components/services/service-detailed/Hero';
 
@@ -421,20 +418,22 @@ const Services: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
             variants={itemVariants}
           >
-            <CTA
-              text="Start Your Transformation"
+            <Button
               onClick={handleGetStarted}
-              variant="primary"
-              size="large"
+              variant="vision"
+              size="xl"
               className="px-10 py-4 shadow-lg hover:shadow-xl transform hover:scale-105"
-            />
-            <CTA
-              text="Schedule Consultation"
-              href="/contact"
-              variant="outline"
-              size="large"
-              className="px-10 py-4 shadow-md hover:shadow-lg"
-            />
+            >
+              Start Your Transformation
+            </Button>
+            <Button
+              onClick={() => window.location.href = '/contact'}
+              variant="ghost"
+              size="xl"
+              className="px-10 py-4 shadow-md hover:shadow-lg border border-gray-300"
+            >
+              Schedule Consultation
+            </Button>
           </motion.div>
         </div>
       </motion.section>

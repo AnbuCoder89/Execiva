@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DivideIcon as LucideIcon } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+// Base button props without the conflicting HTML attributes
+type BaseButtonProps = {
   variant?: 'ghost' | 'vision';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   icon?: LucideIcon;
@@ -11,7 +12,27 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   fullWidth?: boolean;
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   children: React.ReactNode;
-}
+};
+
+// Omit the conflicting props from HTMLButtonElement
+type ButtonHTMLProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>,
+  | 'onAnimationStart'
+  | 'onDragStart'
+  | 'onDragEnd'
+  | 'onDrag'
+  | 'onDragExit'
+  | 'onDragEnter'
+  | 'onDragLeave'
+  | 'onDragOver'
+  | 'onDrop'
+  | 'onDragExitCapture'
+  | 'onDragEnterCapture'
+  | 'onDragLeaveCapture'
+  | 'onDragOverCapture'
+  | 'onDropCapture'
+>;
+
+export type ButtonProps = BaseButtonProps & ButtonHTMLProps;
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'vision',
