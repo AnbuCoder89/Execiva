@@ -43,6 +43,29 @@ const Navigation: React.FC<NavigationProps> = ({
   onNavigation,
   isMobileMenuOpen,
 }) => {
+  const [hoveredItem, setHoveredItem] = React.useState<string | null>(null);
+
+  const handleToggleDropdown = (menu: string) => {
+    // Only toggle on click for mobile/tablet
+    if (window.innerWidth < 1024) {
+      onToggleDropdown(menu);
+    }
+  };
+
+  const handleMouseEnter = (menu: string) => {
+    // Only set hover state for desktop
+    if (window.innerWidth >= 1024) {
+      setHoveredItem(menu);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    // Only clear hover state for desktop
+    if (window.innerWidth >= 1024) {
+      setHoveredItem(null);
+    }
+  };
+
   return (
     <div className="hidden lg:flex flex-1 justify-center relative">
       <motion.nav
@@ -56,23 +79,25 @@ const Navigation: React.FC<NavigationProps> = ({
             <li key={item.name} className="relative z-10">
               {/* Top-level button */}
               <button
-                className={`flex items-center px-3 text-base font-medium text-gray-900 ${
-                  activeDropdown === item.name ? 'opacity-70' : 'opacity-100'
+                className={`flex items-center px-3 text-base font-medium text-gray-900 transition-colors duration-200 ${
+                  (activeDropdown === item.name || hoveredItem === item.name) ? 'opacity-70' : 'opacity-100'
                 }`}
                 onClick={() => {
                   if (item.href) {
                     onNavigation(item.href);
                   } else if (item.submenu || item.megaMenu) {
-                    onToggleDropdown(item.name);
+                    handleToggleDropdown(item.name);
                   }
                 }}
+                onMouseEnter={() => handleMouseEnter(item.name)}
+                onMouseLeave={handleMouseLeave}
               >
                 <span>{item.name}</span>
                 {(item.submenu || item.megaMenu) && (
                   <ChevronDown
                     className={`w-4 h-4 ml-1 transition-all duration-200 ${
-                      activeDropdown === item.name
-                        ? 'rotate-180 text-blue-600'
+                      (activeDropdown === item.name || hoveredItem === item.name) 
+                        ? 'rotate-180 text-gray-700' 
                         : ''
                     }`}
                   />
@@ -81,13 +106,15 @@ const Navigation: React.FC<NavigationProps> = ({
 
               {/* Regular Dropdown */}
               <AnimatePresence>
-                {item.submenu && activeDropdown === item.name && (
+                {item.submenu && (activeDropdown === item.name || hoveredItem === item.name) && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 w-48"
+                    onMouseEnter={() => handleMouseEnter(item.name)}
+                    onMouseLeave={handleMouseLeave}
                   >
                     <div className="py-2">
                       {item.submenu.map((subItem, idx) => (

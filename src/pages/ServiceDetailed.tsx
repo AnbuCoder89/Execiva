@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import BackButton from '../components/ui/BackButton';
 import Hero from '../components/services/service-detailed/Hero';
 import TechStackSection from '../components/services/TechStackSection';
 import UseCasesSection from '../components/services/UseCasesSection';
 import CTA from '../components/ui/CTA';
 import WhyChooseUs from '../components/services/WhyChooseUs';
+import PageNotFound from './PageNotFound';
 import servicesData from '../../data/services.json';
 
 interface Technology {
@@ -73,16 +73,6 @@ const ServiceDetailed: React.FC = () => {
     loadServiceData();
   }, [serviceId]);
 
-  const handleBackToServices = () => {
-    navigate('/');
-    setTimeout(() => {
-      const element = document.getElementById('services');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-  };
-
   const handleGetStarted = () => {
     navigate('/#contact');
     let attempts = 0;
@@ -117,43 +107,15 @@ const ServiceDetailed: React.FC = () => {
     return (
       <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
           <p className="text-gray-600 font-sf-pro-text">Loading service details...</p>
         </div>
       </div>
     );
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4 font-sf-pro-display">Error Loading Service</h1>
-          <p className="text-gray-600 mb-6 font-sf-pro-text">{error}</p>
-          <BackButton
-            variant="vision"
-            onClick={handleBackToServices}
-            label="Back to Services"
-          />
-        </div>
-      </div>
-    );
-  }
-
-  if (!service) {
-    return (
-      <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4 font-sf-pro-display">Service Not Found</h1>
-          <p className="text-gray-600 mb-6 font-sf-pro-text">The service you're looking for doesn't exist.</p>
-          <BackButton
-            variant="vision"
-            onClick={handleBackToServices}
-            label="Back to Services"
-          />
-        </div>
-      </div>
-    );
+  if (error || !service) {
+    return <PageNotFound type="service" />;
   }
 
   return (

@@ -227,7 +227,7 @@ const AboutUs: React.FC = () => {
     />
 
     <motion.section 
-      className="relative bg-white py-10"
+      className="relative bg-white py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
@@ -337,7 +337,7 @@ const AboutUs: React.FC = () => {
       </div>
     </motion.section>
       <motion.section
-        className="py-8 md:py-12"
+        className="py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32"
         variants={itemVariants}
       >
         <div className="mx-auto px-6 sm:px-8 lg:px-12">
@@ -359,7 +359,7 @@ const AboutUs: React.FC = () => {
 
       {/* Values Section */}
       <motion.section
-        className="py-8 md:py-12"
+        className="py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32"
         variants={itemVariants}
       >
         <div className="mx-auto px-6 sm:px-8 lg:px-12">
@@ -380,7 +380,7 @@ const AboutUs: React.FC = () => {
 
       {/* Values Section */}
       <motion.section
-        className="py-8 md:py-12"
+        className="py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32"
         variants={itemVariants}
       >
         <div className="mx-auto sm:px-8 lg:px-12">

@@ -12,6 +12,7 @@ import ServiceDetailed from './pages/ServiceDetailed';
 import Services from './pages/Services';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 function App() {
   useEffect(() => {
@@ -30,6 +31,8 @@ function App() {
             <Route path="/services/:serviceId" element={<ServiceDetailed />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
+            {/* 404 - Catch all unmatched routes */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </ParallaxProvider>

@@ -6,9 +6,9 @@ import CaseContent from '../components/caseStudy/CaseContent';
 import CaseLayout from '../components/caseStudy/CaseLayout';
 import HeroSection from '../components/caseStudy/HeroSection';
 import DescriptionSection from '../components/caseStudy/DescriptionSection';
-import BackButton from '../components/ui/BackButton';
 import allCaseStudies from '../../data/caseStudies.json';
 import CTA from '../components/ui/CTA';
+import PageNotFound from './PageNotFound';
 
 interface CaseStudy {
   id: string;
@@ -114,19 +114,7 @@ const CaseStudyDetailed: React.FC = () => {
   }
 
   if (!caseStudy) {
-    return (
-      <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4 font-sf-pro-display">Case Study Not Found</h1>
-          <p className="text-gray-600 mb-6 font-sf-pro-text">The case study you're looking for doesn't exist.</p>
-          <BackButton
-            variant="vision"
-            onClick={() => navigate('/case-studies')}
-            label="Back to Case Studies"
-          />
-        </div>
-      </div>
-    );
+    return <PageNotFound type="case study" />;
   }
 
   return (
