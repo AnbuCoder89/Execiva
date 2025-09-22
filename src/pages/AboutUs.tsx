@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { WhatWeDo } from '../components/About';
 import CTA from '../components/ui/CTA';
 import { ParallaxScrollSecond } from "../components/ui/parallax-scroll";
 import { HoverEffect } from "../components/ui/card-hover-effect";
 import { HeroParallax } from "../components/ui/hero-parallax";
 import { FocusCards } from "../components/ui/focus-cards";
-
 
 
 const AboutUs: React.FC = () => {
@@ -228,15 +226,116 @@ const AboutUs: React.FC = () => {
       committed to simplifying complexity and amplifying your business potential."
     />
 
-      {/* What We Do Section */}
-      <motion.div variants={itemVariants}>
-        <WhatWeDo
-          subtitle="Our Mission"
-          heading="Technology that transforms businesses"
-          description="We believe in the power of technology to transform businesses and create meaningful connections. Our expertise spans AI, web development, SEO, and data analytics, enabling us to deliver comprehensive solutions that drive real results. Every project we undertake is guided by our commitment to excellence, innovation, and your success."
-        />
-      </motion.div>
+    <motion.section 
+      className="relative bg-white py-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      
+    >
+      <div className="mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 items-center">
+          {/* Left Column - Image */}
+          <motion.div 
+            className="relative group"
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                transition: {
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1]
+                }
+              }
+            }}
+          >
+            <div 
+              className="relative overflow-hidden rounded-2xl h-[400px] md:h-[500px]"
+            >
+              <motion.div 
+                className="w-full h-full overflow-hidden"
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }
+                }}
+              >
+                <motion.img
+                  src="/image/vision/vision-1.jpeg"
+                  alt="mission"
+                  className="w-full h-full object-cover rounded-xl"
+                  initial={{ scale: 1.1 }}
+                  whileInView={{ 
+                    scale: 1,
+                    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ 
+                    scale: 1.15,
+                    transition: { 
+                      duration: 0.8, 
+                      ease: [0.4, 0, 0.2, 1] 
+                    }
+                  }}
+                />
+              </motion.div>
+            </div>
+          </motion.div>
 
+          {/* Right Column - Content */}
+          <motion.div 
+            className="space-y-8"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.8,
+                  delay: 0.2,
+                  ease: [0.22, 1, 0.36, 1]
+                }
+              }
+            }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 leading-tight font-sf-pro-display"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { duration: 0.6 }
+                }
+              }}
+            >
+              Technology that transforms businesses
+            </motion.h2>
+
+            <motion.div 
+              className="space-y-6"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { 
+                    delay: 0.3,
+                    duration: 0.6 
+                  }
+                }
+              }}
+            >
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sf-pro-text">
+                We believe in the power of technology to transform businesses and create meaningful connections. 
+                Our expertise spans AI, web development, SEO, and data analytics, enabling us to deliver comprehensive solutions that drive real results. 
+                Every project we undertake is guided by our commitment to excellence, innovation, and your success.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </motion.section>
       <motion.section
         className="py-8 md:py-12"
         variants={itemVariants}

@@ -11,6 +11,7 @@ import CaseStudyDetailed from './pages/CaseStudyDetailed';
 import ServiceDetailed from './pages/ServiceDetailed';
 import Services from './pages/Services';
 import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact';
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/case-studies/:id" element={<CaseStudyDetailed />} />
             <Route path="/services/:serviceId" element={<ServiceDetailed />} />
             <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
           </Route>
         </Routes>
       </ParallaxProvider>

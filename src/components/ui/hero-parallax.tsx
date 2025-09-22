@@ -10,8 +10,8 @@ import {
 
 export const HeroParallax = ({
   products,
-  title = "The Ultimate Development Studio",
-  description = "We build beautiful products with the latest technologies and frameworks. We are a team of passionate developers and designers that love to build amazing products."
+  title = "",
+  description = ""
 }: {
   products: {
     title: string;
@@ -60,7 +60,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[290vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header title={title} description={description} />
       {/* Rest of the component remains the same */}
@@ -105,8 +105,8 @@ export const HeroParallax = ({
 };
 
 export const Header = ({ 
-  title = "The Ultimate Development Studio", 
-  description = "We build beautiful products with the latest technologies and frameworks. We are a team of passionate developers and designers that love to build amazing products." 
+  title = "", 
+  description = "" 
 }: { 
   title?: string;
   description?: string;

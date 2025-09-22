@@ -56,10 +56,8 @@ const Navigation: React.FC<NavigationProps> = ({
             <li key={item.name} className="relative z-10">
               {/* Top-level button */}
               <button
-                className={`flex items-center px-3 text-base font-medium transition-colors ${
-                  activeDropdown === item.name
-                    ? 'text-blue-600'
-                    : 'text-gray-900 hover:text-blue-600'
+                className={`flex items-center px-3 text-base font-medium text-gray-900 ${
+                  activeDropdown === item.name ? 'opacity-70' : 'opacity-100'
                 }`}
                 onClick={() => {
                   if (item.href) {
@@ -114,7 +112,7 @@ const Navigation: React.FC<NavigationProps> = ({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute left-1/2 -translate-x-1/2 mt-2 w-screen max-w-5xl bg-white rounded-xl shadow-xl border border-gray-100 z-50 overflow-hidden"
+                    className="fixed left-1/2 -translate-x-1/2 mt-2 w-[90vw] max-w-5xl bg-white rounded-xl shadow-xl border border-gray-100 z-50 overflow-hidden"
                   >
                     <div className="flex">
                       {/* Sidebar */}
@@ -129,7 +127,6 @@ const Navigation: React.FC<NavigationProps> = ({
                                 console.log('Selected category:', category.name);
                               }}
                             >
-                              <span className="mr-3 text-base">{category.icon}</span>
                               <span className="flex-1">{category.name}</span>
                               <ChevronDown className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity -rotate-90" />
                             </button>
@@ -163,7 +160,7 @@ const Navigation: React.FC<NavigationProps> = ({
                         </div>
                         
                         {/* View All Link */}
-                        <div className="mt-6 pt-4 border-t border-gray-200">
+                        {/* <div className="mt-6 pt-4 border-t border-gray-200">
                           <button
                             onClick={() => onNavigation('/services')}
                             className="flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
@@ -171,7 +168,7 @@ const Navigation: React.FC<NavigationProps> = ({
                             View All Services
                             <ArrowRight className="w-4 h-4 ml-1" />
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </motion.div>

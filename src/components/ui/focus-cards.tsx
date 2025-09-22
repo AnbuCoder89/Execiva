@@ -19,7 +19,7 @@ export const Card = React.memo(
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-[28rem] w-full transition-all duration-300 ease-out group",
+        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-[28rem] md:h-[35rem] lg:h-[40rem] w-full transition-all duration-300 ease-out group",
         hovered !== null && hovered !== index && "opacity-70 scale-[0.98]"
       )}
     >
