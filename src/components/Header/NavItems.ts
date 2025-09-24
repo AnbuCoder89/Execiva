@@ -150,6 +150,7 @@ export const navItems: NavItem[] = [
     submenu: [
       { name: 'About Us', href: '/about-us' },
       { name: 'Contact', href: '/contact' },
+      { name: 'Blog', href: '/blog' },
     ],
   },
   // { name: 'Blog', href: '/blog' },

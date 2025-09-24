@@ -63,13 +63,13 @@ const TextAnimateUp: React.FC<TextAnimateUpProps> = ({
   };
 
   return (
-    <div 
+    <span 
       ref={containerRef} 
       className={`inline-block overflow-hidden ${className}`}
       aria-label={text}
     >
       {renderText()}
-    </div>
+    </span>
   );
 };
 

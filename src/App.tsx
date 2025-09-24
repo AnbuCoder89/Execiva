@@ -13,6 +13,8 @@ import Services from './pages/Services';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import Bolg from './pages/Bolg';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {
@@ -22,6 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <ParallaxProvider>
+        <ScrollToTop />
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -31,7 +34,7 @@ function App() {
             <Route path="/services/:serviceId" element={<ServiceDetailed />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
-            {/* 404 - Catch all unmatched routes */}
+            <Route path="/blog" element={<Bolg />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

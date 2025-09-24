@@ -29,6 +29,39 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+  // Handle navigation and scrolling
+  const handleNavigation = (href: string) => {
+    // Close mobile menu if open
+    setIsMobileMenuOpen(false);
+    
+    // Handle different types of navigation
+    if (href.startsWith('/')) {
+      // For regular navigation
+      navigate(href);
+      // Scroll to top for page navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (href.startsWith('#')) {
+      // For hash links
+      const element = document.getElementById(href.substring(1));
+      if (element) {
+        // If we're already on the same page, just scroll to the section
+        if (window.location.pathname === location.pathname) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          // If it's a new page, let the ScrollToTop component handle it
+          navigate(href);
+        }
+      }
+    } else {
+      // Fallback for any other case
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Close any open dropdowns
+    setActiveDropdown(null);
+  };
+
   // Scroll handling
   useEffect(() => {
     let ticking = false;
@@ -59,16 +92,6 @@ const Header: React.FC = () => {
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleDropdown = (menu: string) => setActiveDropdown(activeDropdown === menu ? null : menu);
-
-  const handleNavigation = (href: string) => {
-    if (href.startsWith("/")) navigate(href);
-    else if (href.startsWith("#")) {
-      const element = document.getElementById(href.substring(1));
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-    setActiveDropdown(null);
-  };
 
   return (
     <motion.header
