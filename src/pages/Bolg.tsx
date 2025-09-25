@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
+import blogData from '../../public/data/blogPosts.json';
 
 interface BlogPost {
   id: string;
@@ -13,9 +14,7 @@ interface BlogPost {
   date: string;
 }
 
-interface BlogData {
-  blogPosts: BlogPost[];
-}
+type BlogData = BlogPost[];
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -46,45 +45,22 @@ const ITEMS_PER_PAGE = 8; // 2 rows of 4 items on desktop
 
 const Bolg: React.FC = () => {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
-    const [blogData, setBlogData] = useState<BlogData | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [isTransitioning, setIsTransitioning] = useState(false);
 
-    useEffect(() => {
-        const fetchBlogData = async () => {
-            try {
-                const response = await fetch('/data/blogPosts.json');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch blog data');
-                }
-                const data = await response.json();
-                setBlogData(data);
-            } catch (err) {
-                setError(err instanceof Error ? err.message : 'An error occurred');
-                console.error('Error fetching blog data:', err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchBlogData();
-    }, []);
-
-    if (loading) {
+    if (!blogData) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                <div>No blog data available</div>
             </div>
         );
     }
 
-    if (error || !blogData) {
+    if (!blogData || blogData.length === 0) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
-                    <p className="text-red-500">Error loading blog posts. Please try again later.</p>
+                    <p className="text-red-500">No blog posts available.</p>
                     <button
                         onClick={() => window.location.reload()}
                         className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -96,14 +72,8 @@ const Bolg: React.FC = () => {
         );
     }
 
-    const { blogPosts } = blogData;
-    
     // Pagination logic
-    const totalPages = Math.ceil(blogPosts.length / ITEMS_PER_PAGE);
-    const currentPosts = blogPosts.slice(
-        (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
-    );
+    const totalPages = Math.ceil(blogData.length / ITEMS_PER_PAGE);
 
     const handlePageChange = async (page: number) => {
         if (page < 1 || page > totalPages || page === currentPage || isTransitioning) return;
@@ -228,7 +198,7 @@ const Bolg: React.FC = () => {
             {/* Blog Posts Grid */}
             <div className={`container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {currentPosts.map((post) => (
+                    {blogData.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((post) => (
                         <article 
                             key={post.id} 
                             className="group cursor-pointer" 
@@ -266,7 +236,7 @@ const Bolg: React.FC = () => {
                 </div>
                 
                 {/* Pagination */}
-                {totalPages > 1 && (
+                {Math.ceil(blogData.length / ITEMS_PER_PAGE) > 1 && (
                     <div className="flex justify-center mt-12">
                         <nav className="flex items-center space-x-1" aria-label="Pagination">
                             <button

@@ -7,7 +7,7 @@ import UseCasesSection from '../components/services/UseCasesSection';
 import CTA from '../components/ui/CTA';
 import WhyChooseUs from '../components/services/WhyChooseUs';
 import PageNotFound from './PageNotFound';
-import servicesData from '../../data/services.json';
+import servicesData from '../../public/data/services.json';
 
 interface Technology {
   name: string;

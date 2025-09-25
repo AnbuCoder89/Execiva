@@ -6,9 +6,9 @@ import CaseContent from '../components/caseStudy/CaseContent';
 import CaseLayout from '../components/caseStudy/CaseLayout';
 import HeroSection from '../components/caseStudy/HeroSection';
 import DescriptionSection from '../components/caseStudy/DescriptionSection';
-import allCaseStudies from '../../data/caseStudies.json';
 import CTA from '../components/ui/CTA';
 import PageNotFound from './PageNotFound';
+import allCaseStudies from '../../public/data/caseStudies.json';
 
 interface CaseStudy {
   id: string;

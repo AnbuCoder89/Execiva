@@ -29,10 +29,10 @@ export const navItems: NavItem[] = [
   {
     name: 'Services',
     submenu: [
+      { name: 'Artificial Intelligence', href: '/services/artificial-intelligence' },
+      { name: 'SEO', href: '/services/seo' },
       { name: 'Web Development', href: '/services/web-development' },
-      { name: 'AI Solutions', href: '/services/ai-solutions' },
       { name: 'Data Analytics', href: '/services/data-analytics' },
-      { name: 'Digital Strategy', href: '/services/digital-strategy' },
     ],
   },
   // {

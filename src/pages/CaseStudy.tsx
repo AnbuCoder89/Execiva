@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronDown, Filter, ArrowLeft } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../components/ui/Button';
-import allCaseStudies from '../../data/caseStudies.json';
+import allCaseStudies from '../../public/data/caseStudies.json';
 
 interface CaseStudy {
   id: string;
