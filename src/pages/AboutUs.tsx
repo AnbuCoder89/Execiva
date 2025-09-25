@@ -336,7 +336,8 @@ const AboutUs: React.FC = () => {
         </div>
       </div>
     </motion.section>
-      <motion.section
+    
+      {/* <motion.section
         className="py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32"
         variants={itemVariants}
       >
@@ -354,7 +355,7 @@ const AboutUs: React.FC = () => {
           </motion.div>
           <FocusCards cards={cards} />
         </div>
-      </motion.section>
+      </motion.section> */}
 
 
       {/* Values Section */}

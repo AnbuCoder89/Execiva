@@ -70,14 +70,23 @@ const Header: React.FC = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
-          const scrollThreshold = 50;
-          const hideThreshold = 80;
-
-          setIsScrolled(currentScrollY > scrollThreshold);
-
-          if (currentScrollY <= 10) setIsVisible(true);
-          else if (currentScrollY < lastScrollY && currentScrollY > hideThreshold) setIsVisible(true);
-          else if (currentScrollY > lastScrollY && currentScrollY > hideThreshold) setIsVisible(false);
+          
+          // Hide header when scrolling down, show when scrolling up
+          if (currentScrollY > lastScrollY && currentScrollY > 10) {
+            setIsVisible(false);
+            // Only update scrolled state after header starts hiding
+            setIsScrolled(true);
+          } else if (currentScrollY < lastScrollY) {
+            setIsVisible(true);
+            // Update scrolled state when showing header on scroll up
+            setIsScrolled(currentScrollY > 10);
+          }
+          
+          // Always show header at the very top
+          if (currentScrollY <= 10) {
+            setIsVisible(true);
+            setIsScrolled(false);
+          }
 
           setLastScrollY(currentScrollY);
           ticking = false;
