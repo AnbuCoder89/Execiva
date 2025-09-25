@@ -9,7 +9,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Power BI Dashboard Development",
-        "image": "/image/case-studies/casestudy-1.jpeg",
+        "image": "/image/case-studies/case_study_1.jpeg",
         "description": "This project delivered a comprehensive Power BI dashboard solution for Royalty Network, revolutionizing their royalty income and performance tracking. By automating data flows and providing interactive visualizations, the initiative empowered the client with real-time insights, significantly enhancing their operational efficiency, financial accuracy, and strategic decision-making in the competitive music entertainment industry.",
         "serviceType": [
             "Data Analytics",
@@ -65,7 +65,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Fuzzy Matching",
-        "image": "/image/case-studies/casestudy-2.jpeg",
+        "image": "/image/case-studies/case_study_2.jpeg",
         "description": "This initiative transformed Royalty Network's approach to metadata management by implementing advanced AI-powered fuzzy matching and mapping solutions. By automating the reconciliation of vast and often disparate music data, the project drastically improved data quality, reduced operational overhead, and ensured more accurate and timely royalty processing within the music publishing and rights management sector.",
         "serviceType": [
             "AI Solutions",
@@ -122,7 +122,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "API Integration",
-        "image": "/image/case-studies/casestudy-3.jpeg",
+        "image": "/image/case-studies/case_study_3.jpeg",
         "description": "This extensive data engineering initiative provided Royalty Network with a state-of-the-art platform for automated data collection, processing, and integration. By building scalable pipelines and integrating with crucial external APIs, the project dramatically enhanced the client's ability to manage complex music royalty data efficiently, ensuring greater accuracy, faster insights, and significantly improved operational workflows.",
         "serviceType": [
             "Data Engineering",
@@ -180,7 +180,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Infrastructure-as-Code",
-        "image": "/image/case-studies/casestudy-4.jpeg",
+        "image": "/image/case-studies/case_study_4.jpeg",
         "description": "This project involved the comprehensive design and implementation of a modern cloud-based data infrastructure for Royalty Network, utilizing both GCP and Azure. By establishing scalable data warehousing, AI/ML environments, secure data transfer mechanisms, and robust DevOps practices, we provided a highly reliable, cost-effective, and agile platform that propelled the client's data capabilities into the future of music rights management.",
         "serviceType": [
             "Cloud Solutions",
@@ -240,7 +240,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Data Quality",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_5.jpeg",
         "description": "This project delivered comprehensive enhancements to Royalty Network's database management and data quality assurance processes. By streamlining backup operations, optimizing data retrieval, and implementing stringent data quality checks for critical music metadata and financial records, we significantly improved the reliability, accessibility, and integrity of their core data assets, bolstering their operational efficiency and financial accuracy.",
         "serviceType": [
             "Database Management",
@@ -295,7 +295,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Market Research",
-        "image": "/image/case-studies/casestudy-1.jpeg",
+        "image": "/image/case-studies/case_study_6.jpeg",
         "description": "This project delivered targeted web scraping solutions for Royalty Network, enabling them to automate the collection of crucial music industry intelligence from various online sources. By providing structured data for market research and competitive analysis, the initiative significantly enhanced the client's ability to identify new opportunities, track industry trends, and make data-driven strategic decisions.",
         "serviceType": [
             "Web Scraping",
@@ -346,7 +346,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Content Optimization",
-        "image": "/image/case-studies/casestudy-2.jpeg",
+        "image": "/image/case-studies/case_study_7.jpeg",
         "description": "This case study highlights a successful SEO campaign aimed at boosting the online visibility and discoverability of a music artist managed by Royalty Network. Through meticulous keyword research, comprehensive content optimization, and targeted technical SEO enhancements, the project significantly improved the artist's search engine rankings and organic traffic, ultimately expanding their reach to a broader audience and fostering increased fan engagement.",
         "serviceType": [
             "SEO Strategy",
@@ -399,7 +399,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Dashboard Development",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_8.jpeg",
         "description": "This project successfully transformed La bonne Humeur's reporting landscape by implementing a comprehensive Power BI dashboard. The objective was to empower the client with a single source of truth for their performance metrics, enabling faster and more informed strategic decisions. We delivered an interactive dashboard that significantly enhanced reporting efficiency, provided deep insights into business operations, and led to measurable improvements in key performance indicators across multiple departments.",
         "serviceType": [
             "Data Analytics",
@@ -445,7 +445,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Performance Monitoring",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_9.jpeg",
         "description": "This project involved the creation of a precision-oriented Business Intelligence dashboard tailored to extract granular insights from complex manufacturing operational data. The primary goal was to equip La bonne Humeur with tools for meticulous performance monitoring and strategic optimization of their production lines. The delivered Power BI solution offered unparalleled data accuracy and detail, leading to significant gains in operational efficiency, waste reduction, and a deeper understanding of critical production processes.",
         "serviceType": [
             "Business Intelligence",
@@ -492,7 +492,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Business Intelligence",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_10.jpeg",
         "description": "This project successfully upgraded La bonne Humeur's data analytics and visualization capabilities by strategically implementing both Power BI and Tableau. The dual-platform approach allowed for catering to both granular operational reporting and high-level strategic overviews, providing flexibility and catering to diverse user needs. The successful delivery included functional dashboards and an empowered client team, leading to enhanced data-driven decision-making internally and for their clientele.",
         "serviceType": [
             "Data Analytics",
@@ -539,7 +539,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Market Research",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_11.jpeg",
         "description": "This project focused on providing LA86 with crucial competitive intelligence by automating the extraction of product data from Amazon using its official API. The solution delivered a continuous stream of structured data on competitor products, pricing, and customer feedback. This enabled the client to react swiftly to market changes and optimize their own product offerings and pricing strategies based on real-time insights, significantly boosting their competitive advantage.",
         "serviceType": [
             "Data Scraping",
@@ -585,7 +585,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Business Reputation Management",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_12.jpeg",
         "description": "This project aimed to provide Jinit Jain with deep, actionable insights from their Google reviews by automating the data collection and applying advanced text analytics. The solution enabled the client to move from anecdotal understanding to data-backed decisions regarding service improvements, menu development, and reputation management. The automated system delivered a continuous stream of valuable customer feedback, leading to tangible service enhancements and a more positive online presence, ultimately boosting customer loyalty.",
         "serviceType": [
             "Web Scraping",
@@ -631,7 +631,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Competitive Intelligence",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_13.jpeg",
         "description": "This project delivered an innovative Instagram data scraper to provide Boram Lim with automated insights into social media trends and competitor activities. By programmatically collecting public data on posts, comments, and engagement metrics, the client gained a significant advantage in understanding their market and optimizing their social media campaigns. The solution empowered them to make data-driven content decisions, react quickly to evolving social media landscapes, and identify valuable influencer partnerships.",
         "serviceType": [
             "Web Scraping",
@@ -677,7 +677,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Geospatial Data Processing",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_14.jpeg",
         "description": "This project successfully addressed the challenge of aggregating diverse health-related data for urban planning in Toronto. By combining advanced web scraping techniques, API integrations, and robust data engineering, we created a comprehensive and structured dataset that provided invaluable insights into community health resources and gaps. The solution empowered public health officials to make data-driven decisions that directly improved the well-being of the city's residents and fostered more equitable resource distribution.",
         "serviceType": [
             "Data Scraping",
@@ -724,7 +724,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Analytics Dashboard",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_15.jpeg",
         "description": "This project delivered an innovative web application for LA86, enabling automated extraction and visualization of Spotify playcount and listener data. By leveraging the Spotify API, the solution provided critical, real-time insights into artist performance, audience engagement, and market trends within the music industry. The interactive tool empowered the client to make data-driven decisions regarding artist promotion, tour planning, and content strategy, ultimately boosting artist visibility, fan engagement, and revenue streams.",
         "serviceType": [
             "API Integration",
@@ -772,7 +772,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Workflow Automation",
-        "image": "/image/case-studies/casestudy-3.jpeg",
+        "image": "/image/case-studies/case_study_16.jpeg",
         "description": "This project delivered a custom AI agent solution for Execiva Internal, transforming their customer support triage process. By automating inquiry classification and routing, the solution significantly reduced manual efforts, improved response times, and enhanced overall customer satisfaction in a high-volume service environment.",
         "serviceType": [
             "AI Development",
@@ -820,7 +820,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Process Optimization",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_17.jpeg",
         "description": "This project provided La bonne Humeur with critical research and recommendations on AI agents for optimizing their sales processes. By identifying and evaluating relevant AI solutions, the initiative equipped the client with the knowledge to implement automation that could significantly enhance their sales efficiency and client interactions.",
         "serviceType": [
             "AI Development",
@@ -864,7 +864,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Process Optimization",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_18.jpeg",
         "description": "This project delivered a zero-cost AI marketing strategy for La bonne Humeur, utilizing free tools to enhance their marketing efforts. The solution provided actionable insights and automation without additional expenses, improving marketing efficiency and outcomes.",
         "serviceType": [
             "AI Development",
@@ -908,7 +908,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Tag Management",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_19.jpeg",
         "description": "This project delivered a comprehensive analytics and tag management solution for LA86's website, enhancing their ability to track user behavior and marketing performance. The implementation provided valuable insights that drove data-driven decisions and improved online strategies.",
         "serviceType": [
             "Web Development",
@@ -952,7 +952,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Analytics",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_20.jpeg",
         "description": "This project implemented advanced user experience tracking tools for La bonne Humeur, providing deep insights into user interactions and behavior on their website. The solution enabled the client to optimize their digital presence based on real user data.",
         "serviceType": [
             "Web Development",
@@ -996,7 +996,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Web Design",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_21.jpeg",
         "description": "This project developed a custom website for Mac Clark's construction business, showcasing projects and services. The site improved online presence and client engagement in the construction industry.",
         "serviceType": [
             "Web Development",
@@ -1042,7 +1042,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Basic SEO",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_22.jpeg",
         "description": "This project delivered a tailored WordPress website for Jinit Jain, enhancing their online presence and client acquisition. The user-friendly CMS empowered the team to maintain and grow the site, supporting long-term digital marketing efforts in the consulting industry.",
         "serviceType": [
             "Web Development",
@@ -1089,7 +1089,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Performance Optimization",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_23.jpeg",
         "description": "This critical project focused on rescuing the LA86 website from a state of disrepair, involving thorough error resolution and aggressive performance optimization. By systematically addressing technical flaws and bottlenecks, we not only restored the website's full functionality and stability but also significantly enhanced its speed and overall user experience. The successful intervention led to a dramatic improvement in user satisfaction, higher conversion rates, and a positive impact on search engine visibility, safeguarding the brand's online presence and revenue streams.",
         "serviceType": [
             "Web Maintenance",
@@ -1141,7 +1141,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Product Catalog Management",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_24.jpeg",
         "description": "This project successfully brought Yash Petekar into the digital age by developing a comprehensive e-commerce website. The platform provided a seamless online shopping experience, secure transaction processing, and efficient tools for inventory and order management. The launch of the online store not only diversified the client's revenue streams but also significantly expanded their market reach, establishing a strong digital presence in the competitive gaming retail landscape and boosting brand visibility.",
         "serviceType": [
             "E-commerce Web Development",
@@ -1192,7 +1192,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Content Presentation",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_25.jpeg",
         "description": "This project successfully delivered a highly efficient and professional static website for \"Hardik Dattani\", a US accounting firm. By focusing on a lean, performance-first development approach, we created a lightning-fast, secure, and visually appealing online platform that effectively communicated their services and professional values. The static nature of the website ensured optimal performance, minimal maintenance, and robust security, providing Hardik Dattani with a strong, reliable digital foundation to attract and engage clients in the competitive financial services industry.",
         "serviceType": [
             "Static Web Development",
@@ -1240,7 +1240,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Data Quality Management",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_26.jpeg",
         "description": "This project successfully engineered a high-precision data pipeline for Salesforce, addressing critical issues of data inconsistency and fragmentation for La bonne Humeur. By meticulously extracting, transforming, and loading data, the solution delivered a clean and reliable dataset to the client's data warehouse. This enhanced data precision directly translated into more accurate reporting, improved analytical capabilities, and ultimately, better-informed business decisions for both internal operations and client engagements.",
         "serviceType": [
             "Data Engineering",
@@ -1288,7 +1288,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Geospatial Database",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_27.jpeg",
         "description": "This project focused on the intricate data engineering required to aggregate and structure a vast array of urban health data from disparate online sources for Mac Clark. By building robust, automated data pipelines and designing a carefully normalized data model, we transformed raw, unstructured information into a clean, precise, and highly queryable dataset. This foundational data infrastructure empowered public health officials and urban planners to conduct detailed analyses, identify critical service gaps, and make evidence-based decisions to improve community well-being and foster more equitable public health outcomes.",
         "serviceType": [
             "Data Engineering",
@@ -1336,7 +1336,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Machine Learning",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_28.jpeg",
         "description": "This project delivered a sophisticated fuzzy matching solution to address the critical challenge of duplicate and inconsistent customer data across Royalty Network's systems. By implementing a robust data engineering and machine learning pipeline, we successfully identified and reconciled a significant portion of duplicate records, creating a much cleaner and more reliable customer database. This profound improvement in data quality directly empowered the client with a unified customer view, leading to more effective marketing, personalized customer service, and greater operational efficiency and cost savings.",
         "serviceType": [
             "Data Quality",
@@ -1382,7 +1382,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Database Design",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_29.jpeg",
         "description": "This project centered on the critical data engineering effort to build a reliable infrastructure for collecting and managing Spotify performance data for LA86. By designing a reliable, automated data pipeline and an optimized database, we enabled the client to transition from manual data collection to automated, data-driven analytics. The solution provided a scalable foundation for understanding artist performance and audience engagement, empowering more strategic decision-making in the dynamic music industry, ultimately enhancing artist career growth.",
         "serviceType": [
             "Data Engineering",
@@ -1429,7 +1429,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Data Warehouse Design",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_30.jpeg",
         "description": "This project successfully transitioned Royalty Network's data analytics infrastructure to Google Cloud Platform, providing a highly scalable, robust, and cost-effective solution. By leveraging GCP's powerful serverless data services, we enabled the client to process vast amounts of data efficiently, conduct complex analyses without performance bottlenecks, and scale their operations seamlessly. The implementation not only solved immediate infrastructure challenges but also positioned the client for rapid future growth and advanced data initiatives, significantly improving their competitive edge.",
         "serviceType": [
             "Cloud Architecture",
@@ -1476,7 +1476,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Backup & Recovery",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_31.jpeg",
         "description": "This project successfully transformed Royalty Network's data storage landscape by implementing a modern, secure, and highly scalable cloud storage system on AWS S3. By migrating critical data to the cloud and establishing robust data lifecycle management practices, we addressed previous issues of data insecurity, inefficiency, and high costs. The new cloud-based solution provided reliable, highly available data access, superior protection against data loss, and a flexible foundation for the client's evolving storage needs, leading to significant operational and financial benefits.",
         "serviceType": [
             "Cloud Storage Solutions",
@@ -1525,7 +1525,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "On-Page Optimization",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_32.jpeg",
         "description": "This project delivered a comprehensive SEO overhaul and robust tracking implementation for the LA86 website. By addressing fundamental technical SEO issues, integrating a strategic keyword approach, and establishing accurate performance monitoring through Google Analytics and GTM, we significantly boosted the website's organic visibility and search engine performance. The successful execution empowered LA86 to attract more qualified organic traffic, enhance user engagement, and make data-driven decisions to continually improve their online presence and business growth.",
         "serviceType": [
             "SEO Implementation",
@@ -1576,7 +1576,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Local SEO",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_33.jpeg",
         "description": "This project delivered a comprehensive and integrated SEO and digital marketing strategy for InnovateTech Solutions, transforming their online presence and lead generation capabilities. By meticulously addressing technical SEO, content relevance, and local search optimization, we successfully increased organic traffic, improved search engine rankings, and significantly boosted qualified lead generation. The holistic approach provided the client with a sustainable framework for continuous online growth and a strong competitive edge in the B2B technology and consulting landscape.",
         "serviceType": [
             "SEO Strategy",
@@ -1625,7 +1625,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Website Optimization",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_1.jpeg",
         "description": "This project focused on a critical technical SEO intervention for Hardik Dattani, addressing fundamental issues that were severely impeding their search engine performance. By meticulously auditing the site and implementing targeted technical fixes, we significantly improved its crawlability, indexability, and overall health in the eyes of search engines. This foundational work laid the groundwork for enhanced organic visibility, allowing the firm's expert content to reach a wider audience and attract more prospective clients through search, strengthening their online authority.",
         "serviceType": [
             "Technical SEO Audit",
@@ -1675,7 +1675,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Online Presence Optimization",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_2.jpeg",
         "description": "This project dramatically improved LA86's visibility in local search results by comprehensively optimizing their Google Business Profile. By ensuring accuracy, richness, and active management of their GBP, we enabled the client to capture a larger share of local search traffic, drive more direct customer interactions, and ultimately boost their local revenue. The optimization provided a powerful, free channel for local customer acquisition and brand promotion, solidifying their position as a top local service provider.",
         "serviceType": [
             "Local SEO",
@@ -1721,7 +1721,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "SQL Optimization",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_3.jpeg",
         "description": "This project focused on the foundational database design and implementation required to transform raw Salesforce data into a high-precision, high-performance analytical asset for La bonne Humeur. By engineering an optimized relational database with a star schema, we provided the client with a robust and scalable data environment that significantly improved data quality, accelerated query speeds, and enhanced the reliability of their business intelligence. This strategic database solution empowered the client to extract deep, accurate insights from their Salesforce data, driving better sales and marketing decisions and bolstering their analytical offerings.",
         "serviceType": [
             "Database Design",
@@ -1768,7 +1768,7 @@
         "region": "Global",
         "service_category": "Digital",
         "service": "Data Storage & Retrieval",
-        "image": "/image/case-studies/casestudy-5.jpg",
+        "image": "/image/case-studies/case_study_4.jpeg",
         "description": "This project focused on architecting and implementing a reliable, geospatial-enabled database solution for managing a vast and diverse urban health dataset for Mac Clark. By leveraging PostgreSQL with PostGIS, we created a highly efficient and scalable repository capable of handling complex location-based queries and integrating various data types. This foundational database infrastructure infrastructure provided public health officials and urban planners with unprecedented capabilities to analyze health resource distribution, identify underserved areas, and make evidence-based decisions to improve community well-being and foster more equitable public health outcomes.",
         "serviceType": [
             "Database Design",

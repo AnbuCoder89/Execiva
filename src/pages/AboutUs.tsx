@@ -8,7 +8,6 @@ import { FocusCards } from "../components/ui/focus-cards";
 
 
 const AboutUs: React.FC = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = 'About Us - Execiva | Your Technology Partner';
